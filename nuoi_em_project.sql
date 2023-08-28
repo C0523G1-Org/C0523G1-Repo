@@ -99,26 +99,26 @@ INSERT INTO nguoi_giam_ho (ten_nguoi_giam_ho, gioi_tinh,so_dien_thoai, ma_khu_vu
 
 
 INSERT INTO tre_em (ten_tre_em, gioi_tinh, ngay_sinh, mo_ta, ma_khu_vuc, ma_nguoi_giam_ho) VALUES
-('Giàng Thị Hoa', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 1),
-('Vòng Thị Diễm Thương', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 2),
-('Vòng Thị Nhung', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 3),
-('Giàng Thị Nòng', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 3),
-('Giàng Thị Mặc', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 2),
-('Giàng A Lưới', 1, '2010-02-13', 'Khó khăn, mồ côi', 1, 1),
-('Giàng Út', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 4),
-('Giàng Văn Nhật', 1, '2010-02-13', 'Khó khăn, mồ côi', 1, 5),
-('Giàng A Tuân', 1, '2010-02-13', 'Khó khăn, mồ côi', 1, 5),
-('Giàng Kim Thi', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 9),
-('Giàng Thị Sáu', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 9),
-('Giàng A Tùng', 1, '2010-02-13', 'Khó khăn, mồ côi', 1, 8),
-('Giàng Thị Gầu', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 6),
-('Giàng Thị Vui', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 7),
-('Giàng Mạnh Tuấn', 1, '2010-02-13', 'Khó khăn, mồ côi', 1, 10),
-('Vòng Thị Vi', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 11),
-('Vòng A Dia', 1, '2010-02-13', 'Khó khăn, mồ côi', 1, 11),
-('Vòng Thị Hương', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 1),
-('Vòng A Lương', 1, '2010-02-13', 'Khó khăn, mồ côi', 1, 1),
-('Vòng Thị Ngọc Linh', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 1);
+('Giàng Thị Hoa', 0, '2010-02-13', 'hộ nghèo, cha mất sớm, thiếu kinh phí đến trường', 1, 1),
+('Vòng Thị Diễm Thương', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 2),
+('Vòng Thị Nhung', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 3),
+('Giàng Thị Nòng', 0, '2010-02-13', 'hộ nghèo, ba mẹ mất khả năng lao động, điều kiện sống kém', 1, 3),
+('Giàng Thị Mặc', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 2),
+('Giàng A Lưới', 1, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 1),
+('Giàng Út', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 4),
+('Giàng Văn Nhật', 1, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 5),
+('Giàng A Tuân', 1, '2010-02-13', 'hộ nghèo, ba mẹ mất khả năng lao động, điều kiện sống kém', 1, 5),
+('Giàng Kim Thi', 0, '2010-02-13', 'vùng sâu vùng xa, con đông, không có nước sạch và điện', 1, 9),
+('Giàng Thị Sáu', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 9),
+('Giàng A Tùng', 1, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 8),
+('Giàng Thị Gầu', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 6),
+('Giàng Thị Vui', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 7),
+('Giàng Mạnh Tuấn', 1, '2010-02-13', 'hộ nghèo, cha mất sớm, thiếu kinh phí đến trường', 1, 10),
+('Vòng Thị Vi', 0, '2010-02-13', 'vùng sâu vùng xa, con đông, không có nước sạch và điện', 1, 11),
+('Vòng A Dia', 1, '2010-02-13', 'hộ nghèo, ba mẹ mất khả năng lao động, điều kiện sống kém', 1, 11),
+('Vòng Thị Hương', 0, '2010-02-13', 'hộ nghèo, ba mẹ mất khả năng lao động, điều kiện sống kém', 1, 1),
+('Vòng A Lương', 1, '2010-02-13', 'vùng sâu vùng xa, con đông, không có nước sạch và điện', 1, 1),
+('Vòng Thị Ngọc Linh', 0, '2010-02-13', 'vùng sâu vùng xa, con đông, không có nước sạch và điện', 1, 1);
 
 INSERT INTO tai_khoan (ten_tai_khoan, mat_khau)
 VALUES
@@ -146,6 +146,18 @@ VALUES
 ('Trần Thị Nga', 0, 9, 987123654),
 ('Nguyễn Văn Long', 1, 10, 369852147);
 
+INSERT INTO cam_ket(so_tien,ngay_nhan_nuoi ,trang_thai ,ma_tre_em ,ma_nguoi_nuoi)
+VALUES 
+(500000,'2023-08-28',1,1,1),
+(500000,'2023-08-28',1,2,2),
+(500000,'2023-08-28',1,3,3),
+(500000,'2023-08-28',1,4,4),
+(500000,'2023-08-28',1,5,5),
+(500000,'2023-08-28',1,6,6),
+(500000,'2023-08-28',1,7,7);
 
-select ma_tre_em, ten_tre_em, gioi_tinh, ngay_sinh, trang_thai_nhan_nuoi
-from tre_em
+
+
+
+
+
