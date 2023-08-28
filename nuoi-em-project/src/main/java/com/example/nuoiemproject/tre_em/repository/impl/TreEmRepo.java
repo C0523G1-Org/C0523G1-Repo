@@ -1,5 +1,6 @@
 package com.example.nuoiemproject.tre_em.repository.impl;
 
+import com.example.nuoiemproject.BaseRepo;
 import com.example.nuoiemproject.tre_em.model.TreEm;
 import com.example.nuoiemproject.tre_em.model.TreEmDto;
 import com.example.nuoiemproject.tre_em.repository.ITreEmRepo;
@@ -41,8 +42,8 @@ public class TreEmRepo implements ITreEmRepo {
 
     @Override
     public void them(TreEm treEm) {
+        Connection connection = BaseRepo.getConnection();
         try {
-            Connection connection = BaseRepo.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("THEM_TRE_EM");
             preparedStatement.setString(1, treEm.getTenTreEm());
             preparedStatement.setInt(2, treEm.getGioiTinh());

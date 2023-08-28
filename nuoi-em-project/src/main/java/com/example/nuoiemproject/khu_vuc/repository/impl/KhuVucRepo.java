@@ -2,7 +2,7 @@ package com.example.nuoiemproject.khu_vuc.repository.impl;
 
 import com.example.nuoiemproject.khu_vuc.model.KhuVuc;
 import com.example.nuoiemproject.khu_vuc.repository.IKhuVucRepo;
-import com.example.nuoiemproject.tre_em.repository.impl.BaseRepo;
+import com.example.nuoiemproject.BaseRepo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,6 +1,8 @@
 package com.example.nuoiemproject.khu_vuc.model;
 
-public class KhuVuc {
+import com.example.nuoiemproject.tre_em.model.HinhAnhTreEm;
+
+public class KhuVuc extends HinhAnhTreEm {
     private int maKhuVuc;
     private String tenKhuVuc;
 

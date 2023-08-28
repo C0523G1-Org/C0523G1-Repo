@@ -13,7 +13,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "TreEmServlet", value = "/TreEm")
+@WebServlet(name = "TreEmServlet", value = "/tre-em")
 public class TreEmServlet extends HttpServlet {
     ITreEmService treEmService = new TreEmService();
     IKhuVucService khuVucService = new KhuVucService();

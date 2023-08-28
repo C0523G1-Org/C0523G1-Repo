@@ -235,6 +235,9 @@
                 </div>
             </div>
             <div class="row">
+                <a class="btn btn-outline-danger" href="/tre-em?action=them">Them moi</a>
+            </div>
+            <div class="row">
                 <div class="col-lg-12 justify-content-center">
                     <div class="copyright">
                         <p>Copyright © 2023 Team 2. All rights reserved.</p>
