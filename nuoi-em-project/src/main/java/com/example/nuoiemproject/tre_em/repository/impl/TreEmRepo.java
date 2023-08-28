@@ -1,0 +1,80 @@
+package com.example.nuoiemproject.tre_em.repository.impl;
+
+import com.example.nuoiemproject.tre_em.model.TreEm;
+import com.example.nuoiemproject.tre_em.model.TreEmDto;
+import com.example.nuoiemproject.tre_em.repository.ITreEmRepo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TreEmRepo implements ITreEmRepo {
+    private static final String TRUY_VAN_TRE_EM = " select ma_tre_em, ten_tre_em, gioi_tinh, ngay_sinh, trang_thai_nhan_nuoi " +
+            " from tre_em ";
+    private static final String THEM_TRE_EM = "insert into tre_em (ten_tre_em, gioi_tinh, ngay_sinh, mo_ta, ma_khu_vuc, ma_nguoi_giam_ho) " +
+            " VALUES(?,?,?,?,?,?) ";
+
+    @Override
+    public List<TreEm> hienThiDanhSach() {
+        Connection connection = BaseRepo.getConnection();
+        List<TreEm> treEmList = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(TRUY_VAN_TRE_EM);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int maTreEm = resultSet.getInt("ma_tre_em");
+                String tenTreEm = resultSet.getString("ten_tre_em");
+                int gioiTinh = resultSet.getInt("gioi_tinh");
+                String ngaySinh = resultSet.getString("ngay_sinh");
+                int trangThai = resultSet.getInt("trang_thai_nhan_nuoi");
+                treEmList.add(new TreEm(maTreEm, tenTreEm, gioiTinh, ngaySinh, trangThai));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return treEmList;
+    }
+
+    @Override
+    public void them(TreEm treEm) {
+        try {
+            Connection connection = BaseRepo.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("THEM_TRE_EM");
+            preparedStatement.setString(1, treEm.getTenTreEm());
+            preparedStatement.setInt(2, treEm.getGioiTinh());
+            preparedStatement.setString(3, treEm.getNgaySinh());
+            preparedStatement.setString(4, treEm.getMoTa());
+            preparedStatement.setInt(5, treEm.getMaKhuVuc());
+            preparedStatement.setInt(6, treEm.getMaNguoiGiamHo());
+            preparedStatement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void sua(int id, TreEm treEm) {
+
+    }
+
+    @Override
+    public void xoa(int id) {
+
+    }
+
+    @Override
+    public TreEm timId(int id) {
+        return null;
+    }
+
+    @Override
+    public List<TreEmDto> hienThiDto() {
+
+        return null;
+    }
+}
