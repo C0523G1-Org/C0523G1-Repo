@@ -120,5 +120,32 @@ INSERT INTO tre_em (ten_tre_em, gioi_tinh, ngay_sinh, mo_ta, ma_khu_vuc, ma_nguo
 ('Vòng A Lương', 1, '2010-02-13', 'Khó khăn, mồ côi', 1, 1),
 ('Vòng Thị Ngọc Linh', 0, '2010-02-13', 'Khó khăn, mồ côi', 1, 1);
 
+INSERT INTO tai_khoan (ten_tai_khoan, mat_khau)
+VALUES
+("huongnt","zyxwvu"),
+("ductv","defghi"),
+("maint","plmnko"),
+("tuanpv","ihgfed"),
+("lannt","cbazyx"),
+("namhv","uvwxyz"),
+("anvt","klmnop"),
+("hungdv","rstuvw"),
+("ngatt","ghijkl"),
+("longnv","vwxyza");
+
+INSERT INTO nguoi_nuoi(ten_nguoi_nuoi, gioi_tinh, ma_tai_khoan, so_dien_thoai)
+VALUES 
+('Nguyễn Thị Hương', 0, 1, 123456789),
+('Trần Văn Đức', 1, 2, 987654321),
+('Lê Thị Mai', 0, 3, 456789123),
+('Phạm Văn Tuấn', 1, 4, 789123456),
+('Ngô Thị Lan', 0, 5, 321654987),
+('Hoàng Văn Nam', 1, 6, 654987321),
+('Vũ Thị An', 0, 7, 246813579),
+('Đinh Văn Hùng', 1, 8, 135792468),
+('Trần Thị Nga', 0, 9, 987123654),
+('Nguyễn Văn Long', 1, 10, 369852147);
+
+
 select ma_tre_em, ten_tre_em, gioi_tinh, ngay_sinh, trang_thai_nhan_nuoi
 from tre_em
