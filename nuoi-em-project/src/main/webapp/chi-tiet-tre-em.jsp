@@ -29,6 +29,7 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+
 </head>
 <body class="animsition">
 <div class="page-wrapper">
@@ -61,7 +62,7 @@
                             <i class="fas fa-list"></i>Danh sách</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
-                                <a href="/tre-em">Trẻ em</a>
+                                <a href="#">Trẻ em</a>
                             </li>
                             <li>
                                 <a href="#">Người giám hộ</a>
@@ -189,132 +190,99 @@
 
         <!-- MAIN CONTENT-->
         <div class="main-content">
-            <div class="section__content section__content--p30">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong>Thêm mới trẻ em</strong>
-                                </div>
-                                <div class="card-body card-block">
-                                    <form action="tre-em?action=create" method="post" enctype="multipart/form-data" class="form-horizontal">
 
-                                        <div class="row form-group">
-                                            <div class="col col-md-3">
-                                                <label for="text-input" class=" form-control-label">Họ và tên</label>
-                                            </div>
-                                            <div class="col-12 col-md-9">
-                                                <input type="text" id="text-input" required name="tenTreEm"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <div class="col col-md-3">
-                                                <label class=" form-control-label">Giới tính</label>
-                                            </div>
-                                            <div class="col col-md-9">
-                                                <div class="form-check-inline form-check">
-                                                    <label for="inline-radio1" class="form-check-label ">
-                                                        <input type="radio" id="inline-radio1" name="gioiTinh" value="1"
-                                                               required checked class="form-check-input">Nam
-                                                    </label>
-                                                    <label for="inline-radio2" class="form-check-label ">
-                                                        <input type="radio" id="inline-radio2" name="gioiTinh" value="0"
-                                                               class="form-check-input">Nữ
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <div class="col col-md-3">
-                                                <label for="text-input" class=" form-control-label">Ngày sinh</label>
-                                            </div>
-                                            <div class="col-12 col-md-9">
-                                                <input id="ngaySinh" name="ngaySinh" class="form-control"
-                                                       required="" type="date" value="">
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <div class="col col-md-3">
-                                                <label for="textarea-input" class=" form-control-label">Mô tả</label>
-                                            </div>
-                                            <div class="col-12 col-md-9">
-                                                <textarea name="moTa" id="textarea-input" rows="9"
-                                                          class="form-control"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <div class="col col-md-3">
-                                                <label for="select" class=" form-control-label">Khu vực</label>
-                                            </div>
-                                            <div class="col-12 col-md-9">
-                                                <select name="select" id="select" class="form-control">
-                                                    <option disabled selected>Chọn khu vực</option>
-                                                    <c:forEach var="k" items="${khuVuc}">
-                                                        <option value="${k.getMaKhuVuc()}">
-                                                                ${k.getTenKhuVuc()}
-                                                        </option>
-                                                    </c:forEach>
-                                                </select>
-                                            </div>
-                                        </div>
-<%--                                        <div class="row form-group">--%>
-<%--                                            <div class="col col-md-3">--%>
-<%--                                                <label for="select" class=" form-control-label">Người giám hộ</label>--%>
-<%--                                            </div>--%>
-<%--                                            <div class="col-12 col-md-9">--%>
-<%--                                                <select name="nguoiGiamHo" id="nguoiGiamHo" class="form-control">--%>
-<%--                                                    <option>Chọn người giám hộ</option>--%>
-<%--                                                    <c:forEach var="khu" items="${tenKhuVuc}">--%>
-<%--                                                        <option value="${maKhuVuc.getMaKhuVuc()}">--%>
-<%--                                                                ${maKhuVuc.getTenKhuVuc()}--%>
-<%--                                                        </option>--%>
-<%--                                                    </c:forEach>--%>
-<%--                                                </select>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-                                        <div class="row form-group">
-                                            <div class="col col-md-3">
-                                                <label for="file-input" class=" form-control-label">Hình ảnh</label>
-                                            </div>
-                                            <div class="col-12 col-md-9">
-                                                <input type="file" id="file-input" name="file-input"
-                                                       class="form-control-file">
-                                            </div>
-                                        </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="title-1 m-b-25 justify-content-center d-flex">Danh sách trẻ em</h2>
+                    <div class="table-responsive table--no-card m-b-40">
+                        <table class="table table-borderless table-striped table-earning">
+                            <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Tên</th>
+                                <th>Giới tính</th>
+                                <th>Ngày sinh</th>
+                                <th>Mô tả</th>
+                                <th>Người giám hộ</th>
+                                <th>Khu vực</th>
+                                <th>Trạng thái</th>
+                                <th>Ảnh</th>
+                                <th>Sửa</th>
+                                <th>Xóa</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach items="${treEmDto}" var="treEmDto">
+                                <tr>
+                                    <td>
+                                            ${treEmDto.getMaTreEm()}
+                                    </td>
 
-                                    </form>
-                                </div>
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-dot-circle-o"></i> Xác nhận
-                                    </button>
-                                    <a href="/tre-em" class="btn btn-dark">Đóng</a>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col col-md-3">
-                                        <label for="text-input" class=" form-control-label">Thành công</label>
-                                    </div>
-                                    <div class="col-12 col-md-9">
-                                        <input type="text" id="result" name="text-input" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                    <td>
+                                            ${treEmDto.getTenTreEm()}
+                                    </td>
+
+                                    <td>
+                                        <c:if test="${treEmDto.getGioiTinh() == 1}">Nam</c:if>
+                                        <c:if test="${treEmDto.getGioiTinh() == 0}">Nữ</c:if>
+                                    </td>
+
+                                    <c:set var="dateString" value="${treEmDto.getNgaySinh()}"/>
+                                    <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
+                                    <td>
+                                        <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
+                                    </td>
+
+                                    <td>
+                                            ${treEmDto.getMoTa()}
+                                    </td>
+
+                                    <td>
+                                            ${treEmDto.getTenNguoiGiamHo()}
+                                    </td>
+
+                                    <td>
+                                            ${treEmDto.getTenKhuVuc()}
+                                    </td>
+
+                                    <td>
+                                        <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
+                                        <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
+                                    </td>
+
+                                    <td>
+                                        <img height="50px" width="50px" src="${treEmDto.getHinhAnh()}" alt="">
+                                    </td>
+                                    <td>
+                                        <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"
+                                           role="button">
+                                            <i class="fas fa-pencil-square-o" style="color: black"></i></a>
+                                    </td>
+                                    <td>
+                                        <button><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="copyright">
-                                <p>Copyright © 2023 Team 2. All rights reserved.</p>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <a class="btn btn-outline-danger" href="/tre-em?action=them">Them moi</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 justify-content-center">
+                    <div class="copyright">
+                        <p>Copyright © 2023 Team 2. All rights reserved.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- END MAIN CONTENT-->
+<!-- END PAGE CONTAINER-->
 
 <!-- Jquery JS-->
 <script src="vendor/jquery-3.2.1.min.js"></script>
@@ -326,20 +294,16 @@
 </script>
 <script src="vendor/wow/wow.min.js"></script>
 <script src="vendor/animsition/animsition.min.js"></script>
-<script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-</script>
+<script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
 <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="vendor/counter-up/jquery.counterup.min.js">
-</script>
+<script src="vendor/counter-up/jquery.counterup.min.js"></script>
 <script src="vendor/circle-progress/circle-progress.min.js"></script>
 <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
 <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="vendor/select2/select2.min.js">
-</script>
+<script src="vendor/select2/select2.min.js"></script>
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
 
 </body>
-
 </html>

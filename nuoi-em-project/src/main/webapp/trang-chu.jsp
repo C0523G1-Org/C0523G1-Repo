@@ -8,6 +8,7 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="TreEm">Hello Servlet</a>
+<a href="/tre-em">Hello Servlet</a>
+<img src="/images/tre-em/tre_em1.png" alt="">
 </body>
 </html>

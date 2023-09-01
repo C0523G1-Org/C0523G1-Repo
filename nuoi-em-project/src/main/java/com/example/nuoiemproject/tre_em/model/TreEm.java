@@ -9,11 +9,12 @@ public class TreEm {
     private String moTa;
     private int maKhuVuc;
     private int maNguoiGiamHo;
+    private String hinhAnh;
 
     public TreEm() {
     }
 
-    public TreEm(int maTreEm, String tenTreEm, int gioiTinh, String ngaySinh, int trangThai, String moTa, int maKhuVuc, int maNguoiGiamHo) {
+    public TreEm(int maTreEm, String tenTreEm, int gioiTinh, String ngaySinh, int trangThai, String moTa, int maKhuVuc, int maNguoiGiamHo, String hinhAnh) {
         this.maTreEm = maTreEm;
         this.tenTreEm = tenTreEm;
         this.gioiTinh = gioiTinh;
@@ -22,6 +23,7 @@ public class TreEm {
         this.moTa = moTa;
         this.maKhuVuc = maKhuVuc;
         this.maNguoiGiamHo = maNguoiGiamHo;
+        this.hinhAnh = hinhAnh;
     }
 
     public TreEm(int maTreEm, String tenTreEm, int gioiTinh, String ngaySinh, int trangThai) {
@@ -32,7 +34,7 @@ public class TreEm {
         this.trangThai = trangThai;
     }
 
-    public TreEm(String tenTreEm, int gioiTinh, String ngaySinh, int trangThai, String moTa, int maKhuVuc, int maNguoiGiamHo) {
+    public TreEm(String tenTreEm, int gioiTinh, String ngaySinh, int trangThai, String moTa, int maKhuVuc, int maNguoiGiamHo, String hinhAnh) {
         this.tenTreEm = tenTreEm;
         this.gioiTinh = gioiTinh;
         this.ngaySinh = ngaySinh;
@@ -40,6 +42,7 @@ public class TreEm {
         this.moTa = moTa;
         this.maKhuVuc = maKhuVuc;
         this.maNguoiGiamHo = maNguoiGiamHo;
+        this.hinhAnh = hinhAnh;
     }
 
     public int getMaTreEm() {
@@ -104,6 +107,14 @@ public class TreEm {
 
     public void setMaNguoiGiamHo(int maNguoiGiamHo) {
         this.maNguoiGiamHo = maNguoiGiamHo;
+    }
+
+    public String getHinhAnh() {
+        return hinhAnh;
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        this.hinhAnh = hinhAnh;
     }
 }
 

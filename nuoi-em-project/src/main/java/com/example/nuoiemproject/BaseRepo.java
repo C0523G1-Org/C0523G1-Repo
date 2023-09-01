@@ -1,4 +1,4 @@
-package com.example.nuoiemproject.tre_em.repository.impl;
+package com.example.nuoiemproject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

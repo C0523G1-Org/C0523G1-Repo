@@ -4,6 +4,7 @@ import com.example.nuoiemproject.khu_vuc.model.KhuVuc;
 import com.example.nuoiemproject.khu_vuc.service.IKhuVucService;
 import com.example.nuoiemproject.khu_vuc.service.impl.KhuVucService;
 import com.example.nuoiemproject.tre_em.model.TreEm;
+import com.example.nuoiemproject.tre_em.model.TreEmDto;
 import com.example.nuoiemproject.tre_em.service.ITreEmService;
 import com.example.nuoiemproject.tre_em.service.impl.TreEmService;
 
@@ -13,10 +14,10 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "TreEmServlet", value = "/TreEm")
+@WebServlet(name = "TreEmServlet", value = "/tre-em")
 public class TreEmServlet extends HttpServlet {
-    ITreEmService treEmService = new TreEmService();
-    IKhuVucService khuVucService = new KhuVucService();
+    private final ITreEmService treEmService = new TreEmService();
+    private final IKhuVucService khuVucService = new KhuVucService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,7 +37,7 @@ public class TreEmServlet extends HttpServlet {
                 hienThiChiTiet(request, response);
                 break;
             default:
-                hienThiDanhSach(request, response);
+                hienThiChiTiet(request, response);
                 break;
         }
     }
@@ -59,7 +60,7 @@ public class TreEmServlet extends HttpServlet {
                 xoa(request, response);
                 break;
             default:
-                hienThiDanhSach(request, response);
+                hienThiChiTiet(request, response);
                 break;
         }
     }
@@ -80,6 +81,19 @@ public class TreEmServlet extends HttpServlet {
     }
 
     private void hienThiChiTiet(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            List<TreEmDto> treEmDtoList = treEmService.hienThiDto();
+            if (treEmDtoList.size() == 0){
+                request.setAttribute("treEmDto", null);
+                request.getRequestDispatcher("chi-tiet-tre-em.jsp").forward(request,response);
+            }
+            else {
+                request.setAttribute("treEmDto", treEmDtoList);
+                request.getRequestDispatcher("chi-tiet-tre-em.jsp").forward(request,response);
+            }
+        } catch (ServletException | IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void hienThiSua(HttpServletRequest request, HttpServletResponse response) {
@@ -110,12 +124,13 @@ public class TreEmServlet extends HttpServlet {
         String moTa = request.getParameter("moTa");
         int maKhuVuc = Integer.parseInt(request.getParameter("maKhuVuc"));
         int maNguoiGiamHo = Integer.parseInt(request.getParameter("maNguoiGiamHo"));
-        TreEm treEm = new TreEm(tenTreEm, gioiTinh, ngaySinh, trangThai, moTa, maKhuVuc, maNguoiGiamHo);
+        String hinhAnh = request.getParameter("hinhAnh");
+        TreEm treEm = new TreEm(tenTreEm, gioiTinh, ngaySinh, trangThai, moTa, maKhuVuc, maNguoiGiamHo, hinhAnh);
 
         try {
             treEmService.them(treEm);
             request.setAttribute("message", "Bạn đã thêm mới trẻ em thành công ");
-            request.getRequestDispatcher("them-moi-tre-em.jsp").forward(request,response);
+            request.getRequestDispatcher("them-moi-tre-em.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             throw new RuntimeException(e);
         }
