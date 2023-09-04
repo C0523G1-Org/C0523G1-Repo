@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "TaiKhoanServlet", value = "/tai-khoan")
 public class TaiKhoanServlet extends HttpServlet {
@@ -49,7 +50,7 @@ public class TaiKhoanServlet extends HttpServlet {
     }
 
     private void hienThiThemThaiKhoan(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/tai-khoan-them-tai-khoan");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-them-tai-khoan.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -60,10 +61,9 @@ public class TaiKhoanServlet extends HttpServlet {
     }
 
     private void hienThiSuaTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        TaiKhoan taiKhoan = this.service.timTaiKhoan(id);
-        request.setAttribute("taiKhoan", taiKhoan);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/tai-khoan-sua-tai-khoan.jsp");
+        int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
+        request.setAttribute("maTaiKhoan", maTaiKhoan);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-sua-tai-khoan.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -74,7 +74,9 @@ public class TaiKhoanServlet extends HttpServlet {
     }
 
     private void hienThiDanhSach(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/tai-khoan-hien-thi-danh-sach.jsp");
+        List<TaiKhoan> list = this.service.hienThiDanhSach();
+        request.setAttribute("list",list);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-hien-thi-danh-sach.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -106,11 +108,11 @@ public class TaiKhoanServlet extends HttpServlet {
         }
     }
 
-    private void timThongTinTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
+    private void timThongTinTaiKhoan(HttpServletRequest request, HttpServletResponse response)  {
         int id = Integer.parseInt(request.getParameter("id"));
         TaiKhoan taiKhoan = this.service.timTaiKhoan(id);
         request.setAttribute("taiKhoan",taiKhoan);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/tai-khoan-tim-thong-tin.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-tim-thong-tin.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -134,23 +136,23 @@ public class TaiKhoanServlet extends HttpServlet {
     private void themTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
         String tenTaiKhoan = request.getParameter("tenTaiKhoan");
         String matKhau = request.getParameter("matKhau");
-        TaiKhoan taiKhoan = new TaiKhoan(tenTaiKhoan, matKhau, false);
+        int maNguoiNuoi = Integer.parseInt(request.getParameter("maNguoiNuoi"));
+        TaiKhoan taiKhoan = new TaiKhoan(tenTaiKhoan, matKhau, maNguoiNuoi);
         this.service.themTaiKhoan(taiKhoan);
         try {
-            response.sendRedirect("/trang-chu.jsp");
+            response.sendRedirect("trang-chu.jsp");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     private void suaTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String tenTaiKhoan = request.getParameter("tenTaiKhoan");
+        int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
         String matKhau = request.getParameter("matKhau");
-        TaiKhoan capNhat = new TaiKhoan(id, tenTaiKhoan, matKhau, false);
+        TaiKhoan capNhat = new TaiKhoan(maTaiKhoan, matKhau);
         this.service.suaTaiKhoan(capNhat);
         try {
-            response.sendRedirect("/tai-khoan-hien-thi-danh-sach.jsp");
+            response.sendRedirect("trang-chu.jsp");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -11,6 +11,11 @@
     <title>Title</title>
 </head>
 <body>
-
+<form action="tai-khoan?action=suaTaiKhoan" method="post">
+    <input type="hidden" name="id" id="id" value="${maTaiKhoan}">
+    <input type="password" name="matKhau" id="matKhau">Mat khau moi
+    <input type="password" name="xacNhanMatKhau" id="xacNhanMatKhau">Xac nhan mat khau
+    <input type="submit" value="Xác nhận">
+</form>
 </body>
 </html>

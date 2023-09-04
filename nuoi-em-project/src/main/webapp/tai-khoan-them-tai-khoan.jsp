@@ -28,6 +28,35 @@
                            aria-describedby="passwordHelpInline">
                 </div>
             </div>
+            <%--            Lấy thông tin người dùng--%>
+            <div class="row g-3 align-items-center">
+                <div class="col-12 col-md-3">
+                    <label for="tenTaiKhoan" class="col-form-label">Tên người dùng</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" id="tenNguoiDung" name="tenNguoiDung" class="form-control"
+                           aria-describedby="passwordHelpInline">
+                </div>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-12 col-md-3">
+                    <label for="tenTaiKhoan" class="col-form-label">Giới tính</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" id="gioiTinh" name="gioiTinh" class="form-control"
+                           aria-describedby="passwordHelpInline">
+                </div>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-12 col-md-3">
+                    <label for="tenTaiKhoan" class="col-form-label">Số điện thoại</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="tel" id="soDienThoai" name="soDienThoai" class="form-control"
+                           aria-describedby="passwordHelpInline">
+                </div>
+            </div>
+            <%--            Lấy thông tin người dùng--%>
             <div class="row g-3 align-items-center">
                 <div class="col-12 col-md-3">
                     <label for="matKhau" class="col-form-label">Mật khẩu</label>
@@ -39,7 +68,7 @@
             </div>
             <div class="row g-3 align-items-center">
                 <div class="col-12 col-md-3">
-                    <label for="nhapLaiMatKhau" class="col-form-label">Nhập lại mật khẩu</label>
+                    <label for="nhapLaiMatKhau" class="col-form-label">Xác nhân mật khẩu</label>
                 </div>
                 <div class="col-12 col-md-9">
                     <input type="password" id="nhapLaiMatKhau" name="nhapLaiMatKhau" class="form-control"
@@ -47,10 +76,11 @@
                 </div>
             </div>
         </div>
-        <div class="card-footer text-body-secondary">
-            <button type="submit">Xác nhận</button>
-            <a href="/nguoi-nuoi" class="btn btn-dark">Đóng</a>
-        </div>
+    </div>
+    <div class="card-footer text-body-secondary">
+        <button type="submit">Xác nhận</button>
+        <a href="/trang-chu.jsp" class="btn btn-dark">Đóng</a>
+    </div>
     </div>
 </form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"

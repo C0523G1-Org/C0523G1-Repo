@@ -2,13 +2,13 @@ package com.example.nuoiemproject.tai_khoan.service.impl;
 
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
 import com.example.nuoiemproject.tai_khoan.repository.ITaiKhoanRepository;
-import com.example.nuoiemproject.tai_khoan.repository.impl.TaiKhoanRepo;
+import com.example.nuoiemproject.tai_khoan.repository.impl.TaiKhoanRepository;
 import com.example.nuoiemproject.tai_khoan.service.ITaiKhoanService;
 
 import java.util.List;
 
 public class TaiKhoanService implements ITaiKhoanService {
-    private ITaiKhoanRepository repository = new TaiKhoanRepo();
+    private ITaiKhoanRepository repository = new TaiKhoanRepository();
     @Override
     public List<TaiKhoan> hienThiDanhSach() {
         List<TaiKhoan> danhSachTaiKhoan = repository.hienThiDanhSach();

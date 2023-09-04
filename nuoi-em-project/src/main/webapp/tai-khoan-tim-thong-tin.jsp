@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-
+<%--hiển thị thông tin tài khoản + người nuôi ?--%>
 </body>
 </html>

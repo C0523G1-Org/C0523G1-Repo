@@ -8,7 +8,7 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="/nguoi-nuoi">Hello Servlet</a>
+<a href="/tai-khoan?action=hienThi">Hello Servlet</a>
 <%--<img src="/images/tre-em/tre_em1.png" alt="">--%>
 </body>
 </html>
