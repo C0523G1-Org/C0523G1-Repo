@@ -33,6 +33,11 @@ so_dien_thoai int,
 foreign key (ma_khu_vuc) references khu_vuc (ma_khu_vuc)
 );
 
+create table hinh_anh(
+ma_hinh_anh int primary key auto_increment,
+nguon_hinh_anh varchar(100)
+);
+
 create table tre_em (
 ma_tre_em int primary key auto_increment,
 ten_tre_em varchar (100),
@@ -42,17 +47,14 @@ trang_thai_nhan_nuoi int default 0,
 mo_ta varchar(250),
 ma_khu_vuc int,
 ma_nguoi_giam_ho int,
+ma_hinh_anh int,
 is_delete int default 0,
 foreign key (ma_khu_vuc) references khu_vuc (ma_khu_vuc), 
-foreign key (ma_nguoi_giam_ho) references nguoi_giam_ho (ma_nguoi_giam_ho)
+foreign key (ma_nguoi_giam_ho) references nguoi_giam_ho (ma_nguoi_giam_ho),
+foreign key (ma_hinh_anh) references hinh_anh (ma_hinh_anh)
 );
 
-create table hinh_anh(
-ma_hinh_anh int primary key auto_increment,
-nguon_hinh_anh varchar(100),
-ma_tre_em int,
-foreign key (ma_tre_em) references tre_em (ma_tre_em)
-);
+
 
 create table cam_ket(
 ma_cam_ket int primary key auto_increment,

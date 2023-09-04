@@ -1,6 +1,6 @@
 package com.example.nuoiemproject.tai_khoan.repository.impl;
 
-import com.example.nuoiemproject.BaseRepository;
+import com.example.nuoiemproject.BaseRepo;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
 import com.example.nuoiemproject.tai_khoan.repository.ITaiKhoanRepository;
 
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaiKhoanRepository extends BaseRepository implements ITaiKhoanRepository {
+public class TaiKhoanRepo extends BaseRepo implements ITaiKhoanRepository {
     private static final String HIEN_THI_DANH_SACH = "select tai_khoan.ma_tai_khoan, tai_khoan.ten_tai_khoan," +
             "tai_khoan.mat_khau, tai_khoan.`admin`" +
             "from tai_khoan" +

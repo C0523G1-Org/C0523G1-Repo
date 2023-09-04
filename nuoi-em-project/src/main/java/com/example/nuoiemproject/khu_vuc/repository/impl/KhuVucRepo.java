@@ -2,7 +2,7 @@ package com.example.nuoiemproject.khu_vuc.repository.impl;
 
 import com.example.nuoiemproject.khu_vuc.model.KhuVuc;
 import com.example.nuoiemproject.khu_vuc.repository.IKhuVucRepo;
-import com.example.nuoiemproject.BaseRepository;
+import com.example.nuoiemproject.BaseRepo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +17,7 @@ public class KhuVucRepo implements IKhuVucRepo {
     @Override
     public List<KhuVuc> hienThiKhuVuc() {
         List<KhuVuc> khuVucList = new ArrayList<>();
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseRepo.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(TRUY_VAN_KHU_VUC);
             ResultSet resultSet = preparedStatement.executeQuery();

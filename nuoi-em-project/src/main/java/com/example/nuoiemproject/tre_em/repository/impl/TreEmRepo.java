@@ -1,6 +1,6 @@
 package com.example.nuoiemproject.tre_em.repository.impl;
 
-import com.example.nuoiemproject.BaseRepository;
+import com.example.nuoiemproject.BaseRepo;
 import com.example.nuoiemproject.tre_em.model.TreEm;
 import com.example.nuoiemproject.tre_em.model.TreEmDto;
 import com.example.nuoiemproject.tre_em.repository.ITreEmRepo;
@@ -29,7 +29,7 @@ public class TreEmRepo implements ITreEmRepo {
 
     @Override
     public List<TreEm> hienThiDanhSach() {
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseRepo.getConnection();
         List<TreEm> treEmList = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(TRUY_VAN_TRE_EM);
@@ -51,7 +51,7 @@ public class TreEmRepo implements ITreEmRepo {
 
     @Override
     public void them(TreEm treEm) {
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseRepo.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("THEM_TRE_EM");
             preparedStatement.setString(1, treEm.getTenTreEm());
@@ -84,7 +84,7 @@ public class TreEmRepo implements ITreEmRepo {
 
     @Override
     public List<TreEmDto> hienThiDto() {
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseRepo.getConnection();
         List<TreEmDto> treEmList = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(TRUY_VAN_TRE_EM_DTO);

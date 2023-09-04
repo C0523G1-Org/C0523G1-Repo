@@ -4,10 +4,24 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class BaseRepository {
+
+
+//Đổi tên BaseRepo -> BaseRepository nha mọi người
+
+
+
+//<<<<<<< HEAD:nuoi-em-project/src/main/java/com/example/nuoiemproject/BaseRepository.java
+public class BaseRepo {
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "thienbao";
+
+    //=======
+//    public class BaseRepo {
+//        private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
+//        private static final String USERNAME = "root";
+//        private static final String PASSWORD = "Mylien2009";
+//>>>>>>> 2b43c5c8cb9394e63c2db139b2abe57774c226f0:nuoi-em-project/src/main/java/com/example/nuoiemproject/BaseRepo.java
 
     public static Connection getConnection() {
         Connection connection = null;
@@ -20,3 +34,4 @@ public class BaseRepository {
         return connection;
     }
 }
+
