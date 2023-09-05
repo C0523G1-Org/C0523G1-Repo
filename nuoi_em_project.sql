@@ -21,6 +21,7 @@ ten_nguoi_nuoi varchar(100),
 gioi_tinh int,
 ma_tai_khoan int,
 so_dien_thoai int,
+email varchar(100),
 foreign key (ma_tai_khoan) references tai_khoan (ma_tai_khoan)
 );
 
@@ -127,18 +128,18 @@ VALUES
 ("ngatt","ghijkl"),
 ("longnv","vwxyza");
 
-INSERT INTO nguoi_nuoi(ten_nguoi_nuoi, gioi_tinh, ma_tai_khoan, so_dien_thoai)
+INSERT INTO nguoi_nuoi(ten_nguoi_nuoi, gioi_tinh, ma_tai_khoan, so_dien_thoai, email)
 VALUES 
-('Nguyễn Thị Hương', 0, 1, 123456789),
-('Trần Văn Đức', 1, 2, 987654321),
-('Lê Thị Mai', 0, 3, 456789123),
-('Phạm Văn Tuấn', 1, 4, 789123456),
-('Ngô Thị Lan', 0, 5, 321654987),
-('Hoàng Văn Nam', 1, 6, 654987321),
-('Vũ Thị An', 0, 7, 246813579),
-('Đinh Văn Hùng', 1, 8, 135792468),
-('Trần Thị Nga', 0, 9, 987123654),
-('Nguyễn Văn Long', 1, 10, 369852147);
+('Nguyễn Thị Hương', 0, 1, 123456789, 'huongnt@gmail.com'),
+('Trần Văn Đức', 1, 2, 987654321, 'ductv@gmail.com'),
+('Lê Thị Mai', 0, 3, 456789123, 'mailt@gmail.com'),
+('Phạm Văn Tuấn', 1, 4, 456789801, 'tuanpv@gmail.com'),
+('Ngô Thị Lan', 0, 5, 321654987, 'lannt@gmail.com'),
+('Hoàng Văn Nam', 1, 6, 654987321,'namhv@gmail.com'),
+('Vũ Thị An', 0, 7, 246813579, 'anvt@gmail.com'),
+('Đinh Văn Hùng', 1, 8, 135792468,'hungdv@gmail.com'),
+('Trần Thị Nga', 0, 9, 987123654,'ngatt@gmail.com'),
+('Nguyễn Văn Long', 1, 10, 369852147,'hulongnv@gmail.com');
 
 INSERT INTO cam_ket(so_tien,ngay_nhan_nuoi ,trang_thai ,ma_tre_em ,ma_nguoi_nuoi)
 VALUES 
@@ -147,7 +148,7 @@ VALUES
 (500000,'2023-08-28',1,3,3),
 (500000,'2023-08-28',1,4,4),
 (500000,'2023-08-28',1,5,5),
-(500000,'2023-08-28',1,6,6),
+(500000,'2023-08-28',1,6,6),	
 (500000,'2023-08-28',1,7,7);
 
 select te.ten_tre_em, te.gioi_tinh, te.ngay_sinh, te.trang_thai_nhan_nuoi, te.mo_ta, kv.ten_khu_vuc, ngh.ten_nguoi_giam_ho, te.hinh_anh
@@ -158,6 +159,7 @@ where te.is_delete = 0
 order by te.ma_tre_em;
 
 
-select * from khu_vuc
-
+select * from khu_vuc;
+ALTER TABLE nguoi_nuoi
+ADD trang_thai_xoa bit(1) default 0;
 
