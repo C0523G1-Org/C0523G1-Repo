@@ -1,6 +1,7 @@
 package com.example.nuoiemproject.tai_khoan.service.impl;
 
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
+import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto;
 import com.example.nuoiemproject.tai_khoan.repository.ITaiKhoanRepository;
 import com.example.nuoiemproject.tai_khoan.repository.impl.TaiKhoanRepository;
 import com.example.nuoiemproject.tai_khoan.service.ITaiKhoanService;
@@ -9,6 +10,7 @@ import java.util.List;
 
 public class TaiKhoanService implements ITaiKhoanService {
     private ITaiKhoanRepository repository = new TaiKhoanRepository();
+
     @Override
     public List<TaiKhoan> hienThiDanhSach() {
         List<TaiKhoan> danhSachTaiKhoan = repository.hienThiDanhSach();
@@ -34,5 +36,20 @@ public class TaiKhoanService implements ITaiKhoanService {
     @Override
     public void xoaTaiKhoan(int id) {
         repository.xoaTaiKhoan(id);
+    }
+
+    @Override
+    public Boolean dangNhap(String tenTaiKhoan, String matKhau) {
+       TaiKhoan taiKhoan = repository.dangNhap(tenTaiKhoan, matKhau);
+       if (taiKhoan != null) {
+           return true;
+       } else {
+           return false;
+       }
+    }
+
+    @Override
+    public TaiKhoanDto thongTinChiTietTaiKhoan(int id) {
+        return repository.thongTinChiTietTaiKhoan(id);
     }
 }

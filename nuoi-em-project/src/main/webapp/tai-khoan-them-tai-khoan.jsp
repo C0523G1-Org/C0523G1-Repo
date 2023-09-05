@@ -49,6 +49,15 @@
             </div>
             <div class="row g-3 align-items-center">
                 <div class="col-12 col-md-3">
+                    <label for="tenTaiKhoan" class="col-form-label">Email</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" id="email" name="email" class="form-control"
+                           aria-describedby="passwordHelpInline">
+                </div>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-12 col-md-3">
                     <label for="tenTaiKhoan" class="col-form-label">Số điện thoại</label>
                 </div>
                 <div class="col-12 col-md-9">

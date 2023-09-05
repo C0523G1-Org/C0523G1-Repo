@@ -1,6 +1,5 @@
-create database nuoi_em_db;
-
-use nuoi_em_db;
+create database nuoi_em_db_test;
+use nuoi_em_db_test;
 
 create table tai_khoan(
 ma_tai_khoan int primary key auto_increment,
@@ -158,6 +157,16 @@ VALUES
 (500000,'2023-08-28',1,6,6),
 (500000,'2023-08-28',1,7,7);
 
+alter table tai_khoan
+add trang_thai_xoa boolean default false,
+add `admin` boolean default false;
+
+alter table tai_khoan
+add ma_nguoi_nuoi int;
+
+ALTER TABLE tai_khoan
+ADD CONSTRAINT ma_nguoi_nuoi
+FOREIGN KEY (ma_nguoi_nuoi) REFERENCES nguoi_nuoi (ma_nguoi_nuoi);
 
 
 

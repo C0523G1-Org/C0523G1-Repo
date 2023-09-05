@@ -1,6 +1,7 @@
 package com.example.nuoiemproject.tai_khoan.controller;
 
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
+import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto;
 import com.example.nuoiemproject.tai_khoan.service.ITaiKhoanService;
 import com.example.nuoiemproject.tai_khoan.service.impl.TaiKhoanService;
 
@@ -8,6 +9,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "TaiKhoanServlet", value = "/tai-khoan")
@@ -16,6 +18,7 @@ public class TaiKhoanServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -33,12 +36,31 @@ public class TaiKhoanServlet extends HttpServlet {
             case "timThongTinTaiKhoan":
                 hienThiTimThongTinTaiKhoan(request, response);
                 break;
+            case "dangNhap":
+                hienThiDangNhap(request, response);
+                break;
+            case "dangXuat":
+                dangXuat(request, response);
+                break;
+        }
+    }
+
+    private void hienThiDangNhap(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("dang-nhap.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
     private void hienThiTimThongTinTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        request.setAttribute("id", id);
+        int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
+        TaiKhoanDto taiKhoanDto = this.service.thongTinChiTietTaiKhoan(maTaiKhoan);
+        request.setAttribute("maTaiKhoan", maTaiKhoan);
+        request.setAttribute("taiKhoanDto", taiKhoanDto);
         RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-tim-thong-tin.jsp");
         try {
             dispatcher.forward(request, response);
@@ -75,7 +97,7 @@ public class TaiKhoanServlet extends HttpServlet {
 
     private void hienThiDanhSach(HttpServletRequest request, HttpServletResponse response) {
         List<TaiKhoan> list = this.service.hienThiDanhSach();
-        request.setAttribute("list",list);
+        request.setAttribute("list", list);
         RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-hien-thi-danh-sach.jsp");
         try {
             dispatcher.forward(request, response);
@@ -88,6 +110,7 @@ public class TaiKhoanServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -102,22 +125,46 @@ public class TaiKhoanServlet extends HttpServlet {
             case "xoaTaiKhoan":
                 xoaTaiKhoan(request, response);
                 break;
-            case "timThongTinTaiKhoan":
-                timThongTinTaiKhoan(request, response);
+            case "dangNhap":
+                dangNhap(request, response);
                 break;
         }
     }
 
-    private void timThongTinTaiKhoan(HttpServletRequest request, HttpServletResponse response)  {
-        int id = Integer.parseInt(request.getParameter("id"));
-        TaiKhoan taiKhoan = this.service.timTaiKhoan(id);
-        request.setAttribute("taiKhoan",taiKhoan);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-tim-thong-tin.jsp");
+    private void dangXuat(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("trang-chu.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private void dangNhap(HttpServletRequest request, HttpServletResponse response) {
+        String tenTaiKhoan = request.getParameter("tenTaiKhoan").toLowerCase();
+        String matKhau = request.getParameter("matKhau");
+        String role = tenTaiKhoan;
+        Boolean flag = this.service.dangNhap(tenTaiKhoan, matKhau);
+        try {
+            if (role.equals("admin") && matKhau.equals("admin")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-hien-thi-danh-sach.jsp");
+                dispatcher.forward(request, response);
+            }
+            if (flag) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("danh-sach-tre-em.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                String saiThongTin = "Sai tên đăng nhập hoặc mật khẩu";
+                request.setAttribute("saiThongTin", saiThongTin);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("dang-nhap.jsp");
+                dispatcher.forward(request, response);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ServletException e) {
             throw new RuntimeException(e);
         }
     }

@@ -33,7 +33,8 @@
 </head>
 <body class="animsition">
 <a href="/tai-khoan?action=themTaiKhoan">them tai khoan</a>
-<a href="/tai-khoan?action=timThongTinTaiKhoan"> tim thong tin </a>
+<a href="/tai-khoan?action=dangNhap">dang nhap</a>
+<a href="/tai-khoan?action=dangXuat">dang xuat</a>
 <div class="main">
     <table class="table-primary">
         <thead class="table-secondary">
@@ -42,18 +43,19 @@
         <tbody>
         <tr class="table-success">
             <td class="table-success">STT</td>
-            <td class="table-success">Mã tài khoản</td>
             <td class="table-success">Tên tài khoản</td>
             <td class="table-success">Chủ tài khoản</td>
+            <td colspan="2">Quản lý</td>
         </tr>
         <c:forEach var="tai_khoan" items="${list}" varStatus="loop">
             <tr class="table-success">
                 <td class="table-info"><c:out value="${loop.count}">STT</c:out></td>
-                <td class="table-info"><c:out value="${tai_khoan.maTaiKhoan}"></c:out></td>
                 <td class="table-info"><c:out value="${tai_khoan.tenTaiKhoan}"></c:out></td>
                 <td class="table-info"><c:out value="${tai_khoan.matKhau}"></c:out></td>
-                <td class="table-info"><a href="/tai-khoan?action=suaTaiKhoan&maTaiKhoan=${tai_khoan.maTaiKhoan}">sua tai khoan </a></td>
-
+                <td class="table-info"><a href="/tai-khoan?action=suaTaiKhoan&maTaiKhoan=${tai_khoan.getMaTaiKhoan()}">sua
+                    tai khoan </a></td>
+                <td class="table-info"><a href="/tai-khoan?action=timThongTinTaiKhoan&maTaiKhoan=${tai_khoan.getMaTaiKhoan()}"> tim thong
+                    tin </a></td>
             </tr>
         </c:forEach>
         </tbody>

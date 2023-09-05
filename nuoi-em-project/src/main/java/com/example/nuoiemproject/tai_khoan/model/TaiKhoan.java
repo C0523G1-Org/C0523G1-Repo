@@ -7,13 +7,16 @@ public class TaiKhoan {
     private int maNguoiNuoi;
     private boolean admin;
 
+    public TaiKhoan(String tenTaiKhoan, String matKhau) {
+        this.tenTaiKhoan = tenTaiKhoan;
+        this.matKhau = matKhau;
+    }
     public TaiKhoan(int maTaiKhoan, String tenTaiKhoan, String matKhau, int maNguoiNuoi) {
         this.maTaiKhoan = maTaiKhoan;
         this.tenTaiKhoan = tenTaiKhoan;
         this.matKhau = matKhau;
         this.maNguoiNuoi = maNguoiNuoi;
     }
-
 
     public TaiKhoan(String tenTaiKhoan, String matKhau, int maNguoiNuoi) {
         this.tenTaiKhoan = tenTaiKhoan;
