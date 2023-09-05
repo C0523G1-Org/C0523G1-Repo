@@ -156,6 +156,8 @@ public class TaiKhoanServlet extends HttpServlet {
         Boolean flag = this.service.dangNhap(tenTaiKhoan, matKhau);
         try {
             if (role.equals("admin") && matKhau.equals("admin")) {
+                List<TaiKhoan> list = this.service.hienThiDanhSach();
+                request.setAttribute("list",list);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-hien-thi-danh-sach.jsp");
                 dispatcher.forward(request, response);
             }
@@ -193,7 +195,6 @@ public class TaiKhoanServlet extends HttpServlet {
         String email = request.getParameter("email");
         int soDienThoai = Integer.parseInt(request.getParameter("soDienThoai"));
         String matKhau = request.getParameter("matKhau");
-
 
         if (!this.service.taiKhoanDaTonTai(tenTaiKhoan)) {
             request.setAttribute("tenNguoiDung",tenNguoiDung);

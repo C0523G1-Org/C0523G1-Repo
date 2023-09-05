@@ -8,7 +8,12 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="/tai-khoan?action=hienThi">Hello Servlet</a>
+<<<<<<< HEAD
+<a href="/tai-khoan?action=hienThi">admin</a>
 <%--<img src="/images/tre-em/tre_em1.png" alt="">--%>
+=======
+<a href="/nguoi-giam-ho">Hello Servlet</a>
+<img src="/images/tre-em/tre_em1.png" alt="">
+>>>>>>> af0389e3572866dc7d0885baa408203d6910ebb1
 </body>
 </html>

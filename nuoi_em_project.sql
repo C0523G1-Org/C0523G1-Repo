@@ -29,7 +29,8 @@ ten_nguoi_giam_ho varchar (100),
 gioi_tinh int,
 ma_khu_vuc int,
 so_dien_thoai int,
-foreign key (ma_khu_vuc) references khu_vuc (ma_khu_vuc)
+foreign key (ma_khu_vuc) references khu_vuc (ma_khu_vuc),
+trang_thai_xoa bit(1) default 0
 );
 
 create table hinh_anh(
@@ -184,7 +185,29 @@ where te.is_delete = 0
 order by te.ma_tre_em;
 >>>>>>> 5a05d2cb50e0eefa1b56d4eae1a758afe6a20354
 
+-- hiển thị người giám hộ
+delimiter $$
+create procedure hien_thi_nguoi_giam_ho()
+begin 
+select *
+from nguoi_giam_ho
+where trang_thai_xoa = 0;
+end $$
+delimiter ;
 
+<<<<<<< HEAD
 select * from khu_vuc
 
 
+=======
+-- thêm mới người giám hộ
+delimiter $$
+create procedure them_nguoi_giam_ho(ten_nguoi_giam_ho_moi varchar (100),gioi_tinh_moi int,so_dien_thoai_moi int, ma_khu_vuc_moi int)
+begin 
+set foreign_key_checks = 1;
+insert into nguoi_giam_ho (ten_nguoi_giam_ho, gioi_tinh,so_dien_thoai, ma_khu_vuc)
+values (ten_nguoi_giam_ho_moi, gioi_tinh_moi, so_dien_thoai_moi,ma_khu_vuc_moi);
+set foreign_key_checks = 0;
+end $$
+delimiter ;
+>>>>>>> af0389e3572866dc7d0885baa408203d6910ebb1

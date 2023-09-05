@@ -14,6 +14,7 @@ import java.sql.SQLException;
 public class BaseRepo {
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db_test";
     private static final String USERNAME = "root";
+//<<<<<<< HEAD
     private static final String PASSWORD = "thienbao";
 
     //=======
@@ -22,6 +23,9 @@ public class BaseRepo {
 //        private static final String USERNAME = "root";
 //        private static final String PASSWORD = "Mylien2009";
 //>>>>>>> 2b43c5c8cb9394e63c2db139b2abe57774c226f0:nuoi-em-project/src/main/java/com/example/nuoiemproject/BaseRepo.java
+//=======
+//    private static final String PASSWORD = "toilatoi09";
+//>>>>>>> af0389e3572866dc7d0885baa408203d6910ebb1
 
     public static Connection getConnection() {
         Connection connection = null;
