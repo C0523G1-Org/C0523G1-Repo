@@ -149,13 +149,27 @@ VALUES
 INSERT INTO cam_ket(so_tien,ngay_nhan_nuoi ,trang_thai ,ma_tre_em ,ma_nguoi_nuoi)
 VALUES 
 (500000,'2023-08-28',1,1,1),
-(500000,'2023-08-28',1,2,2),
-(500000,'2023-08-28',1,3,3),
+(1000000,'2023-08-28',1,2,2),
+(1500000,'2023-08-28',1,3,3),
 (500000,'2023-08-28',1,4,4),
-(500000,'2023-08-28',1,5,5),
+(2000000,'2023-08-28',1,5,5),
 (500000,'2023-08-28',1,6,6),
-(500000,'2023-08-28',1,7,7);
+(3500000,'2023-08-28',1,7,7);
 
+alter table cam_ket
+add trang_thai_xoa boolean default false,
+add `admin` boolean default false;
+
+alter table cam_ket
+add ma_cam_ket int;
+
+ALTER TABLE cam_ket
+ADD CONSTRAINT ma_cam_ket
+FOREIGN KEY (ma_cam_ket) REFERENCES cam_ket (ma_cam_ket);
+
+
+alter table cam_ket
+add trang_thai_xoa bit default 0;
 
 
 
