@@ -1,5 +1,6 @@
 package com.example.nuoiemproject.tai_khoan.service.impl;
 
+import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto;
 import com.example.nuoiemproject.tai_khoan.repository.ITaiKhoanRepository;
@@ -29,8 +30,8 @@ public class TaiKhoanService implements ITaiKhoanService {
     }
 
     @Override
-    public void themTaiKhoan(TaiKhoan taiKhoan) {
-        repository.themTaiKhoan(taiKhoan);
+    public void themTaiKhoan(TaiKhoan taiKhoan, NguoiNuoi nguoiNuoi) {
+        repository.themTaiKhoan(taiKhoan, nguoiNuoi);
     }
 
     @Override
@@ -40,16 +41,26 @@ public class TaiKhoanService implements ITaiKhoanService {
 
     @Override
     public Boolean dangNhap(String tenTaiKhoan, String matKhau) {
-       TaiKhoan taiKhoan = repository.dangNhap(tenTaiKhoan, matKhau);
-       if (taiKhoan != null) {
-           return true;
-       } else {
-           return false;
-       }
+        TaiKhoan taiKhoan = repository.dangNhap(tenTaiKhoan, matKhau);
+        if (taiKhoan != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public TaiKhoanDto thongTinChiTietTaiKhoan(int id) {
         return repository.thongTinChiTietTaiKhoan(id);
+    }
+
+    @Override
+    public Boolean taiKhoanDaTonTai(String tenTaiKhoan) {
+        TaiKhoan taiKhoan = repository.taiKhoanDaTonTai(tenTaiKhoan);
+        if (taiKhoan == null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

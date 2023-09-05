@@ -44,7 +44,7 @@
         <tr class="table-success">
             <td class="table-success">STT</td>
             <td class="table-success">Tên tài khoản</td>
-            <td class="table-success">Chủ tài khoản</td>
+            <td class="table-success">Mật khẩu</td>
             <td colspan="2">Quản lý</td>
         </tr>
         <c:forEach var="tai_khoan" items="${list}" varStatus="loop">

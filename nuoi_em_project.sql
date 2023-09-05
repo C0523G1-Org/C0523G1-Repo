@@ -46,15 +46,22 @@ trang_thai_nhan_nuoi int default 0,
 mo_ta varchar(250),
 ma_khu_vuc int,
 ma_nguoi_giam_ho int,
+<<<<<<< HEAD
 ma_hinh_anh int,
+=======
+hinh_anh varchar(250),
+>>>>>>> 5a05d2cb50e0eefa1b56d4eae1a758afe6a20354
 is_delete int default 0,
 foreign key (ma_khu_vuc) references khu_vuc (ma_khu_vuc), 
 foreign key (ma_nguoi_giam_ho) references nguoi_giam_ho (ma_nguoi_giam_ho),
 foreign key (ma_hinh_anh) references hinh_anh (ma_hinh_anh)
 );
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5a05d2cb50e0eefa1b56d4eae1a758afe6a20354
 create table cam_ket(
 ma_cam_ket int primary key auto_increment,
 so_tien int,
@@ -99,27 +106,27 @@ INSERT INTO nguoi_giam_ho (ten_nguoi_giam_ho, gioi_tinh,so_dien_thoai, ma_khu_vu
 ("Nguyễn Viên Vy", 0, 0945493620,14);
 
 
-INSERT INTO tre_em (ten_tre_em, gioi_tinh, ngay_sinh, mo_ta, ma_khu_vuc, ma_nguoi_giam_ho) VALUES
-('Giàng Thị Hoa', 0, '2010-02-13', 'hộ nghèo, cha mất sớm, thiếu kinh phí đến trường', 1, 1),
-('Vòng Thị Diễm Thương', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 2),
-('Vòng Thị Nhung', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 3),
-('Giàng Thị Nòng', 0, '2010-02-13', 'hộ nghèo, ba mẹ mất khả năng lao động, điều kiện sống kém', 1, 3),
-('Giàng Thị Mặc', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 2),
-('Giàng A Lưới', 1, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 1),
-('Giàng Út', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 4),
-('Giàng Văn Nhật', 1, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 5),
-('Giàng A Tuân', 1, '2010-02-13', 'hộ nghèo, ba mẹ mất khả năng lao động, điều kiện sống kém', 1, 5),
-('Giàng Kim Thi', 0, '2010-02-13', 'vùng sâu vùng xa, con đông, không có nước sạch và điện', 1, 9),
-('Giàng Thị Sáu', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 9),
-('Giàng A Tùng', 1, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 8),
-('Giàng Thị Gầu', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 6),
-('Giàng Thị Vui', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 7),
-('Giàng Mạnh Tuấn', 1, '2010-02-13', 'hộ nghèo, cha mất sớm, thiếu kinh phí đến trường', 1, 10),
-('Vòng Thị Vi', 0, '2010-02-13', 'vùng sâu vùng xa, con đông, không có nước sạch và điện', 1, 11),
-('Vòng A Dia', 1, '2010-02-13', 'hộ nghèo, ba mẹ mất khả năng lao động, điều kiện sống kém', 1, 11),
-('Vòng Thị Hương', 0, '2010-02-13', 'hộ nghèo, ba mẹ mất khả năng lao động, điều kiện sống kém', 1, 1),
-('Vòng A Lương', 1, '2010-02-13', 'vùng sâu vùng xa, con đông, không có nước sạch và điện', 1, 1),
-('Vòng Thị Ngọc Linh', 0, '2010-02-13', 'vùng sâu vùng xa, con đông, không có nước sạch và điện', 1, 1);
+INSERT INTO tre_em (ten_tre_em, gioi_tinh, ngay_sinh, mo_ta, ma_khu_vuc, ma_nguoi_giam_ho, hinh_anh) VALUES
+('Giàng Thị Hoa', 0, '2010-02-13', 'hộ nghèo, cha mất sớm, thiếu kinh phí đến trường', 1, 1, "/images/tre-em/tre_em1.png"),
+('Vòng Thị Diễm Thương', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 2, "/images/tre-em/tre_em1.png"),
+('Vòng Thị Nhung', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 3, "/images/tre-em/tre_em1.png"),
+('Giàng Thị Nòng', 0, '2010-02-13', 'hộ nghèo, ba mẹ mất khả năng lao động, điều kiện sống kém', 1, 3, "/images/tre-em/tre_em1.png"),
+('Giàng Thị Mặc', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 2, "/images/tre-em/tre_em1.png"),
+('Giàng A Lưới', 1, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 1, "/images/tre-em/tre_em1.png"),
+('Giàng Út', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 4, "/images/tre-em/tre_em1.png"),
+('Giàng Văn Nhật', 1, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 5, "/images/tre-em/tre_em1.png"),
+('Giàng A Tuân', 1, '2010-02-13', 'hộ nghèo, ba mẹ mất khả năng lao động, điều kiện sống kém', 1, 5, "/images/tre-em/tre_em1.png"),
+('Giàng Kim Thi', 0, '2010-02-13', 'vùng sâu vùng xa, con đông, không có nước sạch và điện', 1, 9, "/images/tre-em/tre_em1.png"),
+('Giàng Thị Sáu', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 9, "/images/tre-em/tre_em1.png"),
+('Giàng A Tùng', 1, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 8, "/images/tre-em/tre_em1.png"),
+('Giàng Thị Gầu', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 6, "/images/tre-em/tre_em1.png"),
+('Giàng Thị Vui', 0, '2010-02-13', 'mồ côi, thiếu kinh phí đến trường', 1, 7, "/images/tre-em/tre_em1.png"),
+('Giàng Mạnh Tuấn', 1, '2010-02-13', 'hộ nghèo, cha mất sớm, thiếu kinh phí đến trường', 1, 10, "/images/tre-em/tre_em1.png"),
+('Vòng Thị Vi', 0, '2010-02-13', 'vùng sâu vùng xa, con đông, không có nước sạch và điện', 1, 11, "/images/tre-em/tre_em1.png"),
+('Vòng A Dia', 1, '2010-02-13', 'hộ nghèo, ba mẹ mất khả năng lao động, điều kiện sống kém', 1, 11, "/images/tre-em/tre_em1.png"),
+('Vòng Thị Hương', 0, '2010-02-13', 'hộ nghèo, ba mẹ mất khả năng lao động, điều kiện sống kém', 1, 1, "/images/tre-em/tre_em1.png"),
+('Vòng A Lương', 1, '2010-02-13', 'vùng sâu vùng xa, con đông, không có nước sạch và điện', 1, 1, "/images/tre-em/tre_em1.png"),
+('Vòng Thị Ngọc Linh', 0, '2010-02-13', 'vùng sâu vùng xa, con đông, không có nước sạch và điện', 1, 1, "/images/tre-em/tre_em1.png");
 
 INSERT INTO tai_khoan (ten_tai_khoan, mat_khau)
 VALUES
@@ -157,6 +164,7 @@ VALUES
 (500000,'2023-08-28',1,6,6),
 (500000,'2023-08-28',1,7,7);
 
+<<<<<<< HEAD
 alter table tai_khoan
 add trang_thai_xoa boolean default false,
 add `admin` boolean default false;
@@ -167,8 +175,16 @@ add ma_nguoi_nuoi int;
 ALTER TABLE tai_khoan
 ADD CONSTRAINT ma_nguoi_nuoi
 FOREIGN KEY (ma_nguoi_nuoi) REFERENCES nguoi_nuoi (ma_nguoi_nuoi);
+=======
+select te.ten_tre_em, te.gioi_tinh, te.ngay_sinh, te.trang_thai_nhan_nuoi, te.mo_ta, kv.ten_khu_vuc, ngh.ten_nguoi_giam_ho, te.hinh_anh
+from tre_em te
+join khu_vuc kv on kv.ma_khu_vuc = te.ma_khu_vuc
+join nguoi_giam_ho ngh on ngh.ma_nguoi_giam_ho = te.ma_nguoi_giam_ho
+where te.is_delete = 0
+order by te.ma_tre_em;
+>>>>>>> 5a05d2cb50e0eefa1b56d4eae1a758afe6a20354
 
 
-
+select * from khu_vuc
 
 

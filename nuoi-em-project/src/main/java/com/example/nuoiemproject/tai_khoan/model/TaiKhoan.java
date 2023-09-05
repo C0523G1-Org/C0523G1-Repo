@@ -4,25 +4,21 @@ public class TaiKhoan {
     private int maTaiKhoan;
     private String tenTaiKhoan;
     private String matKhau;
-    private int maNguoiNuoi;
     private boolean admin;
 
+    public TaiKhoan(String tenTaiKhoan) {
+        this.tenTaiKhoan = tenTaiKhoan;
+    }
     public TaiKhoan(String tenTaiKhoan, String matKhau) {
         this.tenTaiKhoan = tenTaiKhoan;
         this.matKhau = matKhau;
     }
-    public TaiKhoan(int maTaiKhoan, String tenTaiKhoan, String matKhau, int maNguoiNuoi) {
+    public TaiKhoan(int maTaiKhoan, String tenTaiKhoan, String matKhau) {
         this.maTaiKhoan = maTaiKhoan;
         this.tenTaiKhoan = tenTaiKhoan;
         this.matKhau = matKhau;
-        this.maNguoiNuoi = maNguoiNuoi;
     }
 
-    public TaiKhoan(String tenTaiKhoan, String matKhau, int maNguoiNuoi) {
-        this.tenTaiKhoan = tenTaiKhoan;
-        this.matKhau = matKhau;
-        this.maNguoiNuoi = maNguoiNuoi;
-    }
 
     public TaiKhoan(int maTaiKhoan, String matKhau) {
         this.maTaiKhoan = maTaiKhoan;
@@ -54,14 +50,6 @@ public class TaiKhoan {
         this.matKhau = matKhau;
     }
 
-    public int getMaNguoiNuoi() {
-        return maNguoiNuoi;
-    }
-
-    public void setMaNguoiNuoi(int maNguoiNuoi) {
-        this.maNguoiNuoi = maNguoiNuoi;
-    }
-
     public boolean isAdmin() {
         return admin;
     }
@@ -76,7 +64,6 @@ public class TaiKhoan {
                 "maTaiKhoan=" + maTaiKhoan +
                 ", tenTaiKhoan='" + tenTaiKhoan + '\'' +
                 ", matKhau='" + matKhau + '\'' +
-                ", maNguoiNuoi=" + maNguoiNuoi +
                 ", admin=" + admin +
                 '}';
     }
