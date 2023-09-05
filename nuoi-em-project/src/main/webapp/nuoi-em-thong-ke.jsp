@@ -10,7 +10,6 @@
   <meta name="keywords" content="au theme template">
 </head>
 <div class="page-wrapper">
-<jsp:include page="header-manager.jsp"></jsp:include>
   <div class="page-container">
     <!-- HEADER DESKTOP-->
     <header class="header-desktop">

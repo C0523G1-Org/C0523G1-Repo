@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
-
 <head>
     <!-- Basic -->
     <meta charset="utf-8"/>
@@ -32,13 +31,14 @@
     <link href="css/responsive.css" rel="stylesheet"/>
 </head>
 
+
 <body>
 <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
         <div class="container">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <a class="navbar-brand" href="trang-chu/index.html">
+                <a class="navbar-brand" href="index.html">
                     <img src="images/logo.png" width="50px" height="50px" alt=""/>
                     <span>
               Nuôi em
@@ -54,20 +54,20 @@
                     <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                         <ul class="navbar-nav  ">
                             <li class="nav-item active">
-                                <a class="nav-link" href="trang-chu/index.html">
+                                <a class="nav-link" href="index.html">
                                     Trang chủ <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/tre-em"> Trẻ em </a>
+                                <a class="nav-link" href="/tre-em-tc">Trẻ em</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"> Chứng nhận </a>
+                                <a class="nav-link" href="#">Chứng nhận</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"> Tài chính</a>
+                                <a class="nav-link" href="#">Tài chính</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"> Đăng nhập</a>
+                                <a class="nav-link" href="#">Đăng nhập</a>
                             </li>
                         </ul>
                     </div>
@@ -84,8 +84,8 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                    <%--                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>--%>
+                    <%--                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>--%>
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -95,8 +95,8 @@
                                     <h1>
                                         Chào mừng đến với dự án cộng đồng <br/>
                                         <span>
-                        Nuôi em
-                      </span>
+                                            Nuôi em
+                                        </span>
                                     </h1>
                                     <p>
                                         Tiếng cười của một đứa trẻ khiến ta liên tưởng đến một bản nhạc sôi động, vui
@@ -121,16 +121,15 @@
                                     <h1>
                                         Mỗi người một chút <br/>
                                         <span>
-                        Ít thôi nhưng đều đặn
-                      </span>
+                                            Ít thôi nhưng đều đặn
+                                        </span>
                                     </h1>
                                     <p>
                                         Nếu bạn đồng hành cùng Cơm Có Thịt, thì đó chỉ là do mệnh lệnh từ trái tim của
                                         bạn
                                     </p>
                                     <div class="btn-box">
-                                        <a href="https://thanhnien.vn/cac-em-nho-vung-cao-dang-rat-can-su-se-chia-1851516105.htm"
-                                           class="btn-1">
+                                        <a href="" class="btn-1">
                                             Đọc thêm
                                         </a>
                                         <a href="" class="btn-2">
@@ -148,8 +147,8 @@
                                     <h1>
                                         Cùng em đến trường - chắp cánh ước mơ <br/>
                                         <span>
-                       cho trẻ
-                      </span>
+                                           cho trẻ
+                                        </span>
                                     </h1>
                                     <p>
                                         Chúng tôi mong muốn các em học sinh, các cô của điểm trường có điều kiện học tốt
@@ -170,68 +169,11 @@
                             </div>
                         </div>
                     </div>
-                    <!--                    <div class="carousel-item">-->
-                    <!--                        <div class="row">-->
-                    <!--                            <div class="col-md-6">-->
-                    <!--                                <div class="detail-box">-->
-                    <!--                                    <h1>-->
-                    <!--                                        A Perfect Learning Center <br/>-->
-                    <!--                                        <span>-->
-                    <!--                        For Your Kids-->
-                    <!--                      </span>-->
-                    <!--                                    </h1>-->
-                    <!--                                    <p>-->
-                    <!--                                        It is a long established fact that a reader will be distracted-->
-                    <!--                                        by the readable content of a page when looking at its layout.-->
-                    <!--                                        The point of using Lorem Ipsum is that it has a more-or-less-->
-                    <!--                                        normal distribution of letters, as-->
-                    <!--                                    </p>-->
-                    <!--                                    <div class="btn-box">-->
-                    <!--                                        <a href="" class="btn-1">-->
-                    <!--                                            Đọc thêm-->
-                    <!--                                        </a>-->
-                    <!--                                        <a href="" class="btn-2">-->
-                    <!--                                            Liên hệ-->
-                    <!--                                        </a>-->
-                    <!--                                    </div>-->
-                    <!--                                </div>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="carousel-item">-->
-                    <!--                        <div class="row">-->
-                    <!--                            <div class="col-md-6">-->
-                    <!--                                <div class="detail-box">-->
-                    <!--                                    <h1>-->
-                    <!--                                        A Perfect Learning Center <br/>-->
-                    <!--                                        <span>-->
-                    <!--                        For Your Kids-->
-                    <!--                      </span>-->
-                    <!--                                    </h1>-->
-                    <!--                                    <p>-->
-                    <!--                                        It is a long established fact that a reader will be distracted-->
-                    <!--                                        by the readable content of a page when looking at its layout.-->
-                    <!--                                        The point of using Lorem Ipsum is that it has a more-or-less-->
-                    <!--                                        normal distribution of letters, as-->
-                    <!--                                    </p>-->
-                    <!--                                    <div class="btn-box">-->
-                    <!--                                        <a href="" class="btn-1">-->
-                    <!--                                            Đọc thêm-->
-                    <!--                                        </a>-->
-                    <!--                                        <a href="" class="btn-2">-->
-                    <!--                                            Liên hệ-->
-                    <!--                                        </a>-->
-                    <!--                                    </div>-->
-                    <!--                                </div>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
                 </div>
             </div>
         </div>
-
-</div>
-</section>
-<!-- end slider section -->
+    </section>
+    <!-- end slider section -->
 </div>
 
 <!-- offer section -->
@@ -243,9 +185,7 @@
                 Những gì chúng tôi cung cấp
             </h2>
             <p>
-                It is a long established fact that a reader will be distracted by
-                the readable content of a page when looking at its layout. The point
-                of using Lorem
+                Dù ở đâu cũng không ngừng ngại, sự ủng hộ của các mạnh thường quân là những cơ hội để các em phát triển
             </p>
         </div>
         <div class="row">
@@ -421,12 +361,12 @@
 <!-- end offer section -->
 
 <!-- about section -->
-<section class="about_section container">
+<section class="about_section">
     <div class="container-fluid">
         <div class="row" style="margin-left: 0; margin-right: 0">
             <div class="col-md-6">
                 <div class="img-box">
-                    <img src="images/about-img.jpg" alt="">
+                    <img src="  images/about-img.jpg" alt="">
                 </div>
             </div>
             <div class="col-md-5 col-lg-4">
@@ -674,6 +614,12 @@
         });
     }
 </script>
+<!-- google map js -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
+</script>
+<!-- end google map js -->
+
 <script>
     function openNav() {
         document.getElementById("myNav").style.width = "100%";
@@ -684,5 +630,4 @@
     }
 </script>
 </body>
-
 </html>
