@@ -1,5 +1,12 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: mylie
+  Date: 9/1/2023
+  Time: 9:53 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <!-- Required meta tags-->
@@ -29,8 +36,8 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
-
 </head>
+
 <body class="animsition">
 <div class="page-wrapper">
     <!-- HEADER MOBILE-->
@@ -187,79 +194,50 @@
             </div>
         </header>
         <!-- HEADER DESKTOP-->
-
         <!-- MAIN CONTENT-->
         <div class="main-content">
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="title-1 m-b-25 justify-content-center d-flex">Danh sách trẻ em</h2>
+                    <h2 class="title-1 m-b-25 justify-content-center d-flex">Danh sách người nuôi</h2>
                     <div class="table-responsive table--no-card m-b-40">
                         <table class="table table-borderless table-striped table-earning">
                             <thead>
                             <tr>
-                                <th>Mã</th>
+                                <th>STT</th>
                                 <th>Tên</th>
                                 <th>Giới tính</th>
-                                <th>Ngày sinh</th>
-                                <th>Mô tả</th>
-                                <th>Người giám hộ</th>
-                                <th>Khu vực</th>
-                                <th>Trạng thái</th>
-                                <th>Ảnh</th>
+                                <th>Mã tài khoản</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
                                 <th>Sửa</th>
                                 <th>Xóa</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${treEmDto}" var="treEmDto">
+                            <c:forEach items="${danhSach}" var="d" varStatus="loop">
                                 <tr>
+                                    <td><c:out value="${loop.count}"/></td>
+                                    <td><c:out value="${d.tenNguoiNuoi}"/></td>
+                                        <%--          Xử lý giới tính  --%>
                                     <td>
-                                            ${treEmDto.getMaTreEm()}
+                                        <c:if test="${d.gioiTinh == 1}">Nam</c:if>
+                                        <c:if test="${d.gioiTinh == 0}">Nữ</c:if>
                                     </td>
-
+                                    <td><c:out value="${d.maTaiKhoan}"/></td>
+                                    <td>0<c:out value="${d.soDienThoai}"/></td>
+                                    <td><c:out value="${d.email}"/></td>
                                     <td>
-                                            ${treEmDto.getTenTreEm()}
-                                    </td>
-
-                                    <td>
-                                        <c:if test="${treEmDto.getGioiTinh() == 1}">Nam</c:if>
-                                        <c:if test="${treEmDto.getGioiTinh() == 0}">Nữ</c:if>
-                                    </td>
-
-                                    <c:set var="dateString" value="${treEmDto.getNgaySinh()}"/>
-                                    <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
-                                    <td>
-                                        <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getMoTa()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenNguoiGiamHo()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenKhuVuc()}
-                                    </td>
-
-                                    <td>
-                                        <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
-                                        <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
-                                    </td>
-
-                                    <td>
-                                        <img height="50px" width="50px" src="${treEmDto.getHinhAnh()}" alt="">
-                                    </td>
-                                    <td>
-                                        <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"
+                                        <a href="nguoi-nuoi?action=sua&maNguoiNuoi=${d.maNguoiNuoi}"
                                            role="button">
                                             <i class="fas fa-pencil-square-o" style="color: black"></i></a>
                                     </td>
                                     <td>
-                                        <button><i class="fas fa-trash"></i></button>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal"
+                                                onclick="sendInforModal('${d.maNguoiNuoi}','${d.tenNguoiNuoi}')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -268,16 +246,47 @@
                     </div>
                 </div>
             </div>
+            <%--nút thêm--%>
             <div class="row">
-                <a class="btn btn-outline-danger" href="/tre-em?action=them">Them moi</a>
+                <a class="btn btn-outline-danger" href="/nguoi-nuoi?action=them">Thêm mới</a>
             </div>
+
+            <%--    xem 1 người nuôi có bn trẻ        --%>
             <div class="row">
-                <div class="col-lg-12 justify-content-center">
-                    <div class="copyright">
-                        <p>Copyright © 2023 Team 2. All rights reserved.</p>
+            <a class="btn btn-outline-danger" href="/nguoi-nuoi?action=xemTre">Xem Người nuôi đang nhận trẻ nào</a>
+            </div>
+
+            <%--Modal--%>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="/nguoi-nuoi?action=xoa" method="post">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Xóa người nuôi</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" id="xoa_ma" name="xoa_ma">
+                                Chắc chắn xóa người nuôi <span id="xoa_ten"></span>?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                <button type="submit" class="btn btn-primary">Xóa</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
+
+            <script>
+                function sendInforModal(ma, ten) {
+                    document.getElementById("xoa_ma").value = ma;
+                    document.getElementById("xoa_ten").innerText = ten;
+                }
+            </script>
+
         </div>
     </div>
 </div>
@@ -304,6 +313,5 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
-
 </body>
 </html>

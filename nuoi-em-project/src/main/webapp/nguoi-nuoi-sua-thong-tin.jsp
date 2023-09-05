@@ -15,6 +15,20 @@
 </head>
 <body>
 <form method="post" action="/nguoi-nuoi?action=sua">
+
+    <c:if test="${thongBao != null}">
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="0" height="0" role="img"
+                 aria-label="Success:">
+                <use xlink:href="#check-circle-fill"/>
+            </svg>
+            <div>
+                <i class="fa-regular fa-circle-check"></i><label
+                    style="padding-left: 5px">${thongBao}</label>
+            </div>
+        </div>
+    </c:if>
+
     <div class="card">
         <div class="card-header">
             <strong>Sửa thông tin mạnh thường quân</strong>
@@ -28,7 +42,7 @@
                     <label for="tenNguoiNuoi" class="col-form-label">Họ và tên</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type="text" id="tenNguoiNuoi" name="tenNguoiNuoi" class="form-control"
+                    <input type="text" id="tenNguoiNuoi" name="tenNguoiNuoi" class="form-control" style="text-transform:capitalize"
                            aria-describedby="passwordHelpInline" value="${nguoiNuoi.tenNguoiNuoi}"/>
                 </div>
             </div>
@@ -63,7 +77,22 @@
                 </div>
                 <div class="col-12 col-md-9">
                     <input type="text" id="soDienThoai" name="soDienThoai" class="form-control"
-                           aria-describedby="passwordHelpInline" value="${nguoiNuoi.soDienThoai}">
+                           aria-describedby="passwordHelpInline" value="0${nguoiNuoi.soDienThoai}">
+                    <c:if test="${loi != null}">
+                        <div class="alert alert-danger d-flex align-items-center"
+                             role="alert" style="top: 5px">
+                            <svg class="bi flex-shrink-0 me-2" width="0" height="0"
+                                 role="img" aria-label="Danger:">
+                                <use xlink:href="#check-circle-fill"/>
+                            </svg>
+                            <div>
+                                <span class="error">
+                                    <i class="uil uil-ban"></i><label
+                                        style="padding-left: 5px">${loi}</label>
+                                </span>
+                            </div>
+                        </div>
+                    </c:if>
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -74,6 +103,21 @@
                     <input type="text" id="email" name="email" class="form-control"
                            aria-describedby="passwordHelpInline"
                            value="${nguoiNuoi.email}">
+                    <c:if test="${loi1 != null}">
+                        <div class="alert alert-danger d-flex align-items-center"
+                             role="alert" style="top: 5px">
+                            <svg class="bi flex-shrink-0 me-2" width="0" height="0"
+                                 role="img" aria-label="Danger:">
+                                <use xlink:href="#check-circle-fill"/>
+                            </svg>
+                            <div>
+                                <span class="error">
+                                    <i class="uil uil-ban"></i><label
+                                        style="padding-left: 5px">${loi1}</label>
+                                </span>
+                            </div>
+                        </div>
+                    </c:if>
                 </div>
             </div>
         </div>

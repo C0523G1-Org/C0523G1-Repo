@@ -39,7 +39,7 @@
             <div class="container-fluid">
                 <div class="header-mobile-inner">
                     <a class="logo" href="index.html">
-<%--                        <img src="images/icon/logo.png" alt="CoolAdmin"/>--%>
+                        <%--                        <img src="images/icon/logo.png" alt="CoolAdmin"/>--%>
                         <h3>Team 2</h3>
                     </a>
                     <button class="hamburger hamburger--slider" type="button">
@@ -68,7 +68,7 @@
                                 <a href="#">Người giám hộ</a>
                             </li>
                             <li>
-                                <a href="#">Mạnh thường quân</a>
+                                <a href="/nguoi-nuoi">Mạnh thường quân</a>
                             </li>
                             <li>
                                 <a href="#">Bảng cam kết</a>
@@ -80,7 +80,7 @@
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/tre-em">
                             <i class="fas fa-arrow-left"></i>Trở về</a>
                     </li>
                 </ul>
@@ -115,7 +115,7 @@
                                 <a href="#">Người giám hộ</a>
                             </li>
                             <li>
-                                <a href="#">Mạnh thường quân</a>
+                                <a href="/nguoi-nuoi">Mạnh thường quân</a>
                             </li>
                             <li>
                                 <a href="#">Bảng cam kết</a>
@@ -226,7 +226,9 @@
                                            role="button">
                                             <i class="fas fa-pencil-square-o" style="color: black"></i></a>
                                     </td>
-                                    <td><button><i class="fas fa-trash"></i></button></td>
+                                    <td>
+                                        <button><i class="fas fa-trash"></i></button>
+                                    </td>
                                 </tr>
                             </c:forEach>
                             </tbody>

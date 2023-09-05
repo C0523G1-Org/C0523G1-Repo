@@ -1,6 +1,7 @@
 package com.example.nuoiemproject.nguoi_nuoi.service;
 
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
+import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoiDto;
 import com.example.nuoiemproject.nguoi_nuoi.repository.INguoiNuoiRepository;
 import com.example.nuoiemproject.nguoi_nuoi.repository.NguoiNuoiRepository;
 
@@ -32,5 +33,10 @@ public class NguoiNuoiService implements INguoiNuoiService {
     @Override
     public void xoa(int maNguoiNuoi) {
         repository.xoa(maNguoiNuoi);
+    }
+
+    @Override
+    public List<NguoiNuoiDto> xemTreEmNhan(int maNguoiNuoi) {
+        return repository.xemTreEmNhan(maNguoiNuoi);
     }
 }

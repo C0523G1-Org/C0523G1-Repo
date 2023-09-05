@@ -2,6 +2,7 @@ package com.example.nuoiemproject.nguoi_nuoi.repository;
 
 import com.example.nuoiemproject.BaseRepo;
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
+import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoiDto;
 
 import javax.servlet.RequestDispatcher;
 import java.sql.Connection;
@@ -19,6 +20,12 @@ public class NguoiNuoiRepository implements INguoiNuoiRepository {
     private static final String FIND = "SELECT * FROM nguoi_nuoi WHERE ma_nguoi_nuoi = ?";
     private static final String UPDATE = "UPDATE nguoi_nuoi SET ten_nguoi_nuoi=?, gioi_tinh=?, ma_tai_khoan=?, " +
             "so_dien_thoai=?,email=? WHERE ma_nguoi_nuoi = ?";
+    private static final String SEE = "select te.ma_tre_em, te.ten_tre_em, te.gioi_tinh, te.ngay_sinh, te.mo_ta, kv.ten_khu_vuc, ngh.ten_nguoi_giam_ho, ngh.so_dien_thoai, te.hinh_anh\n" +
+            "from cam_ket ck\n" +
+            "join tre_em te on ck.ma_tre_em = te.ma_tre_em\n" +
+            "join nguoi_giam_ho ngh on te.ma_nguoi_giam_ho = ngh.ma_nguoi_giam_ho\n" +
+            "join khu_vuc kv on te.ma_khu_vuc = kv.ma_khu_vuc\n" +
+            "where ck.ma_nguoi_nuoi = ?;";
 
     @Override
     public List<NguoiNuoi> hienThiDanhSach() {
@@ -107,5 +114,32 @@ public class NguoiNuoiRepository implements INguoiNuoiRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public List<NguoiNuoiDto> xemTreEmNhan(int maNguoiNuoi) {
+        List<NguoiNuoiDto> danhSachTre = new ArrayList<>();
+        Connection connection = BaseRepo.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SEE);
+            preparedStatement.setInt(1,maNguoiNuoi);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int maTreEm = resultSet.getInt("ma_tre_em");
+                String tenTreEm = resultSet.getString("ten_tre_em");
+                int gioiTinh = resultSet.getInt("gioi_tinh");
+                String ngaySinh = resultSet.getString("ngay_sinh");
+                String moTa = resultSet.getString("mo_ta");
+                String tenKhuVuc = resultSet.getString("ten_khu_vuc");
+                String tenNguoiGiamHo = resultSet.getString("ten_nguoi_giam_ho");
+                int soDienThoai = resultSet.getInt("so_dien_thoai");
+                String hinhAnh = resultSet.getString("hinh_anh");
+                danhSachTre.add(new NguoiNuoiDto(maTreEm,tenTreEm,gioiTinh,ngaySinh,moTa,tenKhuVuc,tenNguoiGiamHo,soDienThoai,hinhAnh));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return danhSachTre;
     }
 }
