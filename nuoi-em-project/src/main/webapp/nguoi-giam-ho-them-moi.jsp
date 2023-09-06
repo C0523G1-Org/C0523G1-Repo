@@ -44,7 +44,7 @@
     </div>
     <div class="mb-3">
         <label for="soDienThoai" class="form-label">Số điện thoại</label>
-        <input type="number" class="form-control" id="soDienThoai" name="soDienThoai">
+        <input type="text" class="form-control" id="soDienThoai" name="soDienThoai">
     </div>
     <button type="submit" class="btn btn-primary">Thêm Mới</button>
 </form>

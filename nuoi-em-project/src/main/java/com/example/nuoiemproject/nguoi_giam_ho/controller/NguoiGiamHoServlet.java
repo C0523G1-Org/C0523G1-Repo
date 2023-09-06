@@ -27,9 +27,10 @@ public class NguoiGiamHoServlet extends HttpServlet {
         }
         switch (action) {
             case "themmoinguoigiamho":
-                hienThiThem(request,response);
+                hienThiThem(request, response);
                 break;
-            case "xoanguoigiamho":
+            case "capnhatnguoigiamho":
+                hienThiCapNhat(request, response);
                 break;
             default:
                 hienThiDanhSach(request, response);
@@ -38,18 +39,35 @@ public class NguoiGiamHoServlet extends HttpServlet {
 
     }
 
+    private void hienThiCapNhat(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int maNguoiGiamHo = Integer.parseInt(request.getParameter("maNguoiGiamHo"));
+        NguoiGiamHo nguoiGiamHo = nguoiGiamHoService.nguoiGiamHo(maNguoiGiamHo);
+        List<KhuVuc> khuVuc = khuVucService.hienThiKhuVuc();
+        request.setAttribute("khuVuc", khuVuc);
+        request.setAttribute("nguoiGiamHo", nguoiGiamHo);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/nguoi-giam-ho-cap-nhat.jsp");
+            requestDispatcher.forward(request, response);
+
+    }
+
+    private void xoa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int maNguoiGiamHo = Integer.parseInt(request.getParameter("maNguoiGiamHo"));
+        nguoiGiamHoService.xoaNguoiGiamHo(maNguoiGiamHo);
+        response.sendRedirect("/nguoi-giam-ho");
+    }
+
     private void hienThiThem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<KhuVuc> khuVuc = khuVucService.hienThiKhuVuc();
-        request.setAttribute("khuVuc",khuVuc);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/them-moi-nguoi-giam-ho.jsp");
-        requestDispatcher.forward(request,response);
+        request.setAttribute("khuVuc", khuVuc);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/nguoi-giam-ho-them-moi.jsp");
+        requestDispatcher.forward(request, response);
     }
 
 
     private void hienThiDanhSach(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<NguoiGiamHo> nguoiGiamHos = nguoiGiamHoService.hienThi();
         request.setAttribute("nguoiGiamHos", nguoiGiamHos);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/danh-sach-nguoi-giam-ho.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/nguoi-giam-ho-danh-sach.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -62,8 +80,29 @@ public class NguoiGiamHoServlet extends HttpServlet {
         }
         switch (action) {
             case "them":
-                themMoiNguoiGiamHo(request,response);
+                themMoiNguoiGiamHo(request, response);
                 break;
+            case "xoa":
+                xoa(request, response);
+                break;
+            case "capnhat":
+                capNhat(request, response);
+                break;
+        }
+    }
+
+    private void capNhat(HttpServletRequest request, HttpServletResponse response) {
+        int maNguiGiamHo = Integer.parseInt(request.getParameter("maNguoiGiamHo"));
+        String tenNguoiGiamHo = request.getParameter("tenNguoiGiamHo");
+        int gioiTinh = Integer.parseInt(request.getParameter("gioiTinh"));
+        int maKhuVuc = Integer.parseInt(request.getParameter("maKhuVuc"));
+        String soDienThoai = request.getParameter("soDienThoai");
+        NguoiGiamHo nguoiGiamHo = new NguoiGiamHo(maNguiGiamHo,tenNguoiGiamHo, gioiTinh, maKhuVuc, soDienThoai);
+        nguoiGiamHoService.capNhatNguoiGiamHo(nguoiGiamHo);
+        try {
+            response.sendRedirect("/nguoi-giam-ho");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -71,7 +110,7 @@ public class NguoiGiamHoServlet extends HttpServlet {
         String tenNguoiGiamHo = request.getParameter("tenNguoiGiamHo");
         int gioiTinh = Integer.parseInt(request.getParameter("gioiTinh"));
         int maKhuVuc = Integer.parseInt(request.getParameter("maKhuVuc"));
-        int soDienThoai = Integer.parseInt(request.getParameter("soDienThoai"));
+        String soDienThoai = request.getParameter("soDienThoai");
         nguoiGiamHoService.themNguoiGiamHo(new NguoiGiamHo(tenNguoiGiamHo, gioiTinh, maKhuVuc, soDienThoai));
         try {
             response.sendRedirect("/nguoi-giam-ho");

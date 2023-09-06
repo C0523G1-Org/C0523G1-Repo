@@ -198,13 +198,14 @@ select * from lich_su_giao_dich
 where month(ngay_giao_dich) = 9 and year(ngay_giao_dich) = 2023
 order by date(ngay_giao_dich);
 
+create view tre_em_view as(
+select te.ma_tre_em, te.ten_tre_em, te.gioi_tinh, te.ngay_sinh, te.trang_thai_nhan_nuoi, te.mo_ta, kv.ten_khu_vuc, ngh.ten_nguoi_giam_ho, te.hinh_anh
+from tre_em te
+join khu_vuc kv on kv.ma_khu_vuc = te.ma_khu_vuc
+join nguoi_giam_ho ngh on ngh.ma_nguoi_giam_ho = te.ma_nguoi_giam_ho
+where te.trang_thai_xoa = 0);
 
--- select te.ten_tre_em, te.gioi_tinh, te.ngay_sinh, te.trang_thai_nhan_nuoi, te.mo_ta, kv.ten_khu_vuc, ngh.ten_nguoi_giam_ho, te.hinh_anh
--- from tre_em te
--- join khu_vuc kv on kv.ma_khu_vuc = te.ma_khu_vuc
--- join nguoi_giam_ho ngh on ngh.ma_nguoi_giam_ho = te.ma_nguoi_giam_ho
--- where te.is_delete = 0
--- order by te.ma_tre_em;
+
 
 -- 1 NGƯỜI NUÔI BAO NHIU TRẺ
 -- select te.ma_tre_em, te.ten_tre_em, te.gioi_tinh, te.ngay_sinh, te.mo_ta, kv.ten_khu_vuc, ngh.ten_nguoi_giam_ho, ngh.so_dien_thoai, te.hinh_anh

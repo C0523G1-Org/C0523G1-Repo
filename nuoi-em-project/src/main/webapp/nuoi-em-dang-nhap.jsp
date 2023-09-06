@@ -76,6 +76,7 @@
                                     aria-labelledby="navbarDarkDropdownMenuLink">
                                     <li><a class="dropdown-item" href="#">Chi tiết tài khoản</a></li>
                                     <li><a class="dropdown-item" href="#">Chi tiết bản cảm kết</a></li>
+                                    <li><a class="dropdown-item" href="/nguoi-nuoi?action=xemTre&maTaiKhoan=${maTaiKhoan}">Chi tiết trẻ em</a></li>
                                     <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>
                                     <li><a class="dropdown-item" href="tai-khoan?action=dangXuat">Đăng xuất</a></li>
                                 </ul>

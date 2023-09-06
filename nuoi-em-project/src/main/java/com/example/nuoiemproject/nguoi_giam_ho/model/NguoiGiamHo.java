@@ -5,16 +5,16 @@ public class NguoiGiamHo {
     private String tenNguoiGiamHo;
     private int gioiTinh;
     private int maKhuVuc;
-    private int soDienThoai;
+    private String soDienThoai;
 
-    public NguoiGiamHo(String tenNguoiGiamHo, int gioiTinh, int maKhuVuc, int soDienThoai) {
+    public NguoiGiamHo(String tenNguoiGiamHo, int gioiTinh, int maKhuVuc, String soDienThoai) {
         this.tenNguoiGiamHo = tenNguoiGiamHo;
         this.gioiTinh = gioiTinh;
         this.maKhuVuc = maKhuVuc;
         this.soDienThoai = soDienThoai;
     }
 
-    public NguoiGiamHo(int maNguoiGiamHo, String tenNguoiGiamHo, int gioiTinh, int maKhuVuc, int soDienThoai) {
+    public NguoiGiamHo(int maNguoiGiamHo, String tenNguoiGiamHo, int gioiTinh, int maKhuVuc, String soDienThoai) {
         this.maNguoiGiamHo = maNguoiGiamHo;
         this.tenNguoiGiamHo = tenNguoiGiamHo;
         this.gioiTinh = gioiTinh;
@@ -54,11 +54,11 @@ public class NguoiGiamHo {
         this.maKhuVuc = maKhuVuc;
     }
 
-    public int getSoDienThoai() {
+    public String getSoDienThoai() {
         return soDienThoai;
     }
 
-    public void setSoDienThoai(int soDienThoai) {
+    public void setSoDienThoai(String soDienThoai) {
         this.soDienThoai = soDienThoai;
     }
 }
