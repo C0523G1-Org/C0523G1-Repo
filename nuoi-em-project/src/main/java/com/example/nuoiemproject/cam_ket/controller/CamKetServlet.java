@@ -39,18 +39,14 @@ public class CamKetServlet extends HttpServlet {
         }
     }
 
-    private void hienThiSua(HttpServletRequest request, HttpServletResponse response) {
+    private void hienThiSua(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int maCamKet = Integer.parseInt(request.getParameter("maCamKet"));
         CamKet camKet = service.xemChiTiet(maCamKet);
         request.setAttribute("camKet", camKet);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/sua-thong-tin-cam-ket.jsp");
-        try {
+
             dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
     }
 
     private void hienThiDanhSach(HttpServletRequest request, HttpServletResponse response) {

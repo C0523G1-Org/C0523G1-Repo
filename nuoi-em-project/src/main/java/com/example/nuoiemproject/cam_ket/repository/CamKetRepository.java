@@ -92,6 +92,7 @@ public class CamKetRepository implements ICamKetRepository {
             preparedStatement.setInt(3, camKet.getTrangThai());
             preparedStatement.setInt(4, camKet.getMaTreEm());
             preparedStatement.setInt(5, camKet.getMaNguoiNuoi());
+            preparedStatement.setInt(6, camKet.getMaCamKet());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
