@@ -66,7 +66,7 @@
     <div class="content">Đăng ký</div>
 </div>
 <div class="container main">
-    <form action="" method="post">
+    <form action="/tai-khoan?action=themTaiKhoan" method="post">
 <%--       Dang ky thanh cong --%>
     <c:if test="${thongBao != null}">
         <div class="alert alert-success d-flex align-items-center" role="alert">
