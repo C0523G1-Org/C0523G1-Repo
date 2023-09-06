@@ -4,10 +4,15 @@
     <option name="state">
       <map>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <entry key="file://$PROJECT_DIR$/src/main/webapp/danh-sach-nguoi-nuoi.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
 =======
         <entry key="file://$PROJECT_DIR$/src/main/webapp/nguoi-giam-ho-danh-sach.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
 >>>>>>> 1b5157542febf90968bd47ed21bdc0f5e559acc4
+=======
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/dang-nhap.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/tai-khoan-hien-thi-danh-sach.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+>>>>>>> 334abf1ff553e2fa0e44759be0a06b37b7e32a2a
       </map>
     </option>
   </component>

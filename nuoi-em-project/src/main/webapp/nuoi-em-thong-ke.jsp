@@ -60,8 +60,6 @@
       </div>
     </header>
     <!-- HEADER DESKTOP-->
-
     <!-- MAIN CONTENT-->
   </div>
-
 </div>

@@ -1,6 +1,12 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: mylie
+  Date: 9/1/2023
+  Time: 9:53 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <!-- Required meta tags-->
@@ -30,13 +36,13 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
-
 </head>
+
 <body class="animsition">
 <div class="page-wrapper">
     <!-- HEADER MOBILE-->
     <header class="header-mobile d-block d-lg-none">
-        <div class="header-mobile__bar" style="background-color: #90953b">
+        <div class="header-mobile__bar">
             <div class="container-fluid">
                 <div class="header-mobile-inner">
                     <a class="logo" href="index.html">
@@ -63,16 +69,16 @@
                             <i class="fas fa-list"></i>Danh sách</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
-                                <a href="/tre-em">Trẻ em</a>
+                                <a href="#">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/nguoi-giam-ho">Người giám hộ</a>
+                                <a href="#">Người giám hộ</a>
                             </li>
                             <li>
                                 <a href="/nguoi-nuoi">Mạnh thường quân</a>
                             </li>
                             <li>
-                                <a href="/cam-ket">Bảng cam kết</a>
+                                <a href="#">Bảng cam kết</a>
                             </li>
                         </ul>
                     </li>
@@ -81,7 +87,7 @@
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
-                        <a href="/nuoi-em-trang-chu.jsp">
+                        <a href="/tre-em">
                             <i class="fas fa-arrow-left"></i>Trở về</a>
                     </li>
                 </ul>
@@ -92,13 +98,13 @@
 
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
-        <div class="logo" style="background-color: #90953b">
-            <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
-            <a href="#">
-                <h3>Nuôi em</h3>
+        <div class="logo">
+            <a class="logo" href="index.html">
+                <%--                        <img src="images/icon/logo.png" alt="CoolAdmin"/>--%>
+                <h3>Team 2</h3>
             </a>
         </div>
-        <div class="menu-sidebar__content js-scrollbar1" style="background-color: #78853f">
+        <div class="menu-sidebar__content js-scrollbar1">
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list">
                     <li>
@@ -110,16 +116,16 @@
                             <i class="fas fa-list"></i>Danh sách</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
-                                <a href="/tre-em">Trẻ em</a>
+                                <a href="#">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/nguoi-giam-ho">Người giám hộ</a>
+                                <a href="#">Người giám hộ</a>
                             </li>
                             <li>
                                 <a href="/nguoi-nuoi">Mạnh thường quân</a>
                             </li>
                             <li>
-                                <a href="/cam-ket">Bảng cam kết</a>
+                                <a href="#">Bảng cam kết</a>
                             </li>
                         </ul>
                     </li>
@@ -128,7 +134,7 @@
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
-                        <a href="/nuoi-em-trang-chu.jsp">
+                        <a href="/tre-em">
                             <i class="fas fa-arrow-left"></i>Trở về</a>
                     </li>
                 </ul>
@@ -140,12 +146,12 @@
     <!-- PAGE CONTAINER-->
     <div class="page-container">
         <!-- HEADER DESKTOP-->
-        <header class="header-desktop" style="background-color: #78853f">
+        <header class="header-desktop">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="header-wrap">
-                        <div class="form-header">
-                        </div>
+                        <form class="form-header" action="" method="POST">
+                        </form>
                         <div class="header-button">
                             <div class="account-wrap">
                                 <div class="account-item clearfix js-item-menu">
@@ -188,83 +194,50 @@
             </div>
         </header>
         <!-- HEADER DESKTOP-->
-
         <!-- MAIN CONTENT-->
         <div class="main-content">
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="title-1 m-b-25 justify-content-center d-flex" style="color: #0c0c0c; margin-bottom: 0">
-                        Danh sách trẻ em</h2>
-                    <a class="btn btn-outline-light" href="#" style="color: black">
-                        <i class="fas fa-plus"></i>
-                    </a>
+                    <h2 class="title-1 m-b-25 justify-content-center d-flex">Danh sách người nuôi</h2>
                     <div class="table-responsive table--no-card m-b-40">
                         <table class="table table-borderless table-striped table-earning">
                             <thead>
                             <tr>
-                                <th>Mã</th>
+                                <th>STT</th>
                                 <th>Tên</th>
                                 <th>Giới tính</th>
-                                <th>Ngày sinh</th>
-                                <th>Mô tả</th>
-                                <th>Người giám hộ</th>
-                                <th>Khu vực</th>
-                                <th>Trạng thái</th>
-                                <th>Ảnh</th>
+                                <th>Mã tài khoản</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
                                 <th>Sửa</th>
                                 <th>Xóa</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${treEmDto}" var="treEmDto">
+                            <c:forEach items="${danhSach}" var="d" varStatus="loop">
                                 <tr>
+                                    <td><c:out value="${loop.count}"/></td>
+                                    <td><c:out value="${d.tenNguoiNuoi}"/></td>
+                                        <%--          Xử lý giới tính  --%>
                                     <td>
-                                            ${treEmDto.getMaTreEm()}
+                                        <c:if test="${d.gioiTinh == 1}">Nam</c:if>
+                                        <c:if test="${d.gioiTinh == 0}">Nữ</c:if>
                                     </td>
-
+                                    <td><c:out value="${d.maTaiKhoan}"/></td>
+                                    <td>0<c:out value="${d.soDienThoai}"/></td>
+                                    <td><c:out value="${d.email}"/></td>
                                     <td>
-                                            ${treEmDto.getTenTreEm()}
-                                    </td>
-
-                                    <td>
-                                        <c:if test="${treEmDto.getGioiTinh() == 1}">Nam</c:if>
-                                        <c:if test="${treEmDto.getGioiTinh() == 0}">Nữ</c:if>
-                                    </td>
-
-                                    <c:set var="dateString" value="${treEmDto.getNgaySinh()}"/>
-                                    <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
-                                    <td>
-                                        <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getMoTa()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenNguoiGiamHo()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenKhuVuc()}
-                                    </td>
-
-                                    <td>
-                                        <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
-                                        <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
-                                    </td>
-
-                                    <td>
-                                        <img height="50px" width="50px" src="images/tre-em/${treEmDto.getHinhAnh()}">
-                                    </td>
-                                    <td>
-                                        <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"
+                                        <a href="nguoi-nuoi?action=sua&maNguoiNuoi=${d.maNguoiNuoi}"
                                            role="button">
                                             <i class="fas fa-pencil-square-o" style="color: black"></i></a>
                                     </td>
                                     <td>
-                                        <button><i class="fas fa-trash"></i></button>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal"
+                                                onclick="sendInforModal('${d.maNguoiNuoi}','${d.tenNguoiNuoi}')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -273,13 +246,47 @@
                     </div>
                 </div>
             </div>
+            <%--nút thêm--%>
             <div class="row">
-                <div class="col-lg-12 justify-content-center">
-                    <div class="copyright">
-                        <p>&copy; 2023 Mọi quyền được bảo lưu bởi Nuôi em</p>
+                <a class="btn btn-outline-danger" href="/nguoi-nuoi?action=them">Thêm mới</a>
+            </div>
+
+            <%--    xem 1 người nuôi có bn trẻ        --%>
+            <div class="row">
+            <a class="btn btn-outline-danger" href="/nguoi-nuoi?action=xemTre">Xem Người nuôi đang nhận trẻ nào</a>
+            </div>
+
+            <%--Modal--%>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="/nguoi-nuoi?action=xoa" method="post">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Xóa người nuôi</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" id="xoa_ma" name="xoa_ma">
+                                Chắc chắn xóa người nuôi <span id="xoa_ten"></span>?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                <button type="submit" class="btn btn-primary">Xóa</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
+
+            <script>
+                function sendInforModal(ma, ten) {
+                    document.getElementById("xoa_ma").value = ma;
+                    document.getElementById("xoa_ten").innerText = ten;
+                }
+            </script>
+
         </div>
     </div>
 </div>
@@ -306,6 +313,5 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
-
 </body>
 </html>

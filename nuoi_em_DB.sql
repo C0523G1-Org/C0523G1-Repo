@@ -1,6 +1,5 @@
-create database nuoi_em_db;
-
-use nuoi_em_db;
+create database nuoi_em_db_test;
+use nuoi_em_db_test;
 
 create table tai_khoan(
 ma_tai_khoan int primary key auto_increment,
@@ -38,6 +37,11 @@ foreign key (ma_khu_vuc) references khu_vuc (ma_khu_vuc)
 ALTER TABLE nguoi_giam_ho
 ADD trang_thai_xoa bit(1) default 0;
 
+create table hinh_anh(
+ma_hinh_anh int primary key auto_increment,
+nguon_hinh_anh varchar(100)
+);
+
 create table tre_em (
 ma_tre_em int primary key auto_increment,
 ten_tre_em varchar (100),
@@ -47,13 +51,30 @@ trang_thai_nhan_nuoi int default 0,
 mo_ta varchar(250),
 ma_khu_vuc int,
 ma_nguoi_giam_ho int,
+<<<<<<< HEAD
+ma_hinh_anh int,
+=======
 hinh_anh varchar(250),
+<<<<<<<< HEAD:nuoi_em_DB.sql
 trang_thai_xoa int default 0,
+========
+>>>>>>> 5a05d2cb50e0eefa1b56d4eae1a758afe6a20354
+is_delete int default 0,
+>>>>>>>> 334abf1ff553e2fa0e44759be0a06b37b7e32a2a:nuoi_em_project.sql
 foreign key (ma_khu_vuc) references khu_vuc (ma_khu_vuc), 
-foreign key (ma_nguoi_giam_ho) references nguoi_giam_ho (ma_nguoi_giam_ho)
+foreign key (ma_nguoi_giam_ho) references nguoi_giam_ho (ma_nguoi_giam_ho),
+foreign key (ma_hinh_anh) references hinh_anh (ma_hinh_anh)
 );
 
+<<<<<<<< HEAD:nuoi_em_DB.sql
 
+========
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 5a05d2cb50e0eefa1b56d4eae1a758afe6a20354
+>>>>>>>> 334abf1ff553e2fa0e44759be0a06b37b7e32a2a:nuoi_em_project.sql
 create table cam_ket(
 ma_cam_ket int primary key auto_increment,
 so_tien int,
@@ -168,6 +189,7 @@ VALUES
 (1000000,'2023-08-28',1,2,2),
 (1500000,'2023-08-28',1,3,3),
 (500000,'2023-08-28',1,4,4),
+<<<<<<<< HEAD:nuoi_em_DB.sql
 (2000000,'2023-08-28',1,5,5),
 (500000,'2023-08-28',1,6,6),
 (3500000,'2023-08-28',1,7,7);
@@ -244,4 +266,53 @@ email_moi);
 end //
 
 
+========
+(500000,'2023-08-28',1,5,5),
+(500000,'2023-08-28',1,6,6),	
+(500000,'2023-08-28',1,7,7);
 
+<<<<<<< HEAD
+alter table tai_khoan
+add trang_thai_xoa boolean default false,
+add `admin` boolean default false;
+
+alter table tai_khoan
+add ma_nguoi_nuoi int;
+
+ALTER TABLE tai_khoan
+ADD CONSTRAINT ma_nguoi_nuoi
+FOREIGN KEY (ma_nguoi_nuoi) REFERENCES nguoi_nuoi (ma_nguoi_nuoi);
+=======
+select te.ten_tre_em, te.gioi_tinh, te.ngay_sinh, te.trang_thai_nhan_nuoi, te.mo_ta, kv.ten_khu_vuc, ngh.ten_nguoi_giam_ho, te.hinh_anh
+from tre_em te
+join khu_vuc kv on kv.ma_khu_vuc = te.ma_khu_vuc
+join nguoi_giam_ho ngh on ngh.ma_nguoi_giam_ho = te.ma_nguoi_giam_ho
+where te.is_delete = 0
+order by te.ma_tre_em;
+>>>>>>> 5a05d2cb50e0eefa1b56d4eae1a758afe6a20354
+
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+select * from khu_vuc
+
+
+=======
+-- thêm mới người giám hộ
+delimiter $$
+create procedure them_nguoi_giam_ho(ten_nguoi_giam_ho_moi varchar (100),gioi_tinh_moi int,so_dien_thoai_moi int, ma_khu_vuc_moi int)
+begin 
+set foreign_key_checks = 1;
+insert into nguoi_giam_ho (ten_nguoi_giam_ho, gioi_tinh,so_dien_thoai, ma_khu_vuc)
+values (ten_nguoi_giam_ho_moi, gioi_tinh_moi, so_dien_thoai_moi,ma_khu_vuc_moi);
+set foreign_key_checks = 0;
+end $$
+delimiter ;
+>>>>>>> af0389e3572866dc7d0885baa408203d6910ebb1
+=======
+select * from khu_vuc;
+ALTER TABLE nguoi_nuoi
+ADD trang_thai_xoa bit(1) default 0;
+>>>>>>>> 334abf1ff553e2fa0e44759be0a06b37b7e32a2a:nuoi_em_project.sql
+
+>>>>>>> 3527189bc00948a4430065eccd5191a48aa5d3b9

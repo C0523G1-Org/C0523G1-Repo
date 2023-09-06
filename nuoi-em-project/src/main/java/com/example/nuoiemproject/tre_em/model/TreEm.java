@@ -20,6 +20,14 @@ public class TreEm {
         this.maNguoiGiamHo = maNguoiGiamHo;
         this.hinhAnh = hinhAnh;
     }
+    public TreEm(int maTreEm, String tenTreEm, int gioiTinh, String ngaySinh, String moTa, String hinhAnh) {
+        this.maTreEm = maTreEm;
+        this.tenTreEm = tenTreEm;
+        this.gioiTinh = gioiTinh;
+        this.ngaySinh = ngaySinh;
+        this.moTa = moTa;
+        this.hinhAnh = hinhAnh;
+    }
 
     public TreEm(int maTreEm, String tenTreEm, int gioiTinh, String ngaySinh, int trangThai, String moTa, int maKhuVuc, int maNguoiGiamHo, String hinhAnh) {
         this.maTreEm = maTreEm;

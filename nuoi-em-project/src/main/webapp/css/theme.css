@@ -1,45 +1,3 @@
-/*------------------------------------------------------------------
-[Master Stylesheet]
-
-Project:  CoolAdmin
-Version:	1.0
-Last change:	08/10/2018 [Add Define a table of contents Link]
-Assigned to:	Hau Nguyen
-Primary use:	Open Source
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[LAYOUT]
-
-* body
-    + Header / header
-	+ Page Content / .page-content .name-page
-        + Section Layouts / section .name-section
-        ...
-	+ Footer / footer
-
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-# [Color codes]
-
-# Text Color (text): #666666
-# Text Color Deep (Text, title): #333333
-
-------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[Typography]
-
-Notes:	decreasing heading by 0.4em with every subsequent heading level
--------------------------------------------------------------------*/
-/*-----------------------------------------------------*/
-/*                   SETTINGS                          */
-/*-----------------------------------------------------*/
-/*-----------------------------------------------------*/
-/*                   TOOLS                             */
-/*-----------------------------------------------------*/
-/*-----------------------------------------------------*/
-/*                   GENERIC                           */
-/*-----------------------------------------------------*/
-/* ----- Normalize ----- */
 * {
     margin: 0;
     padding: 0;
@@ -114,7 +72,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #333333;
+    color: #fefdfc;
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
@@ -1426,7 +1384,7 @@ section {
 }
 
 .account-item > .content > a {
-    color: #333;
+    color: #fff;
     text-transform: capitalize;
     font-weight: 500;
 }
@@ -1505,7 +1463,7 @@ section {
 }
 
 .account-dropdown .info .content .name a:hover {
-    color: #666;
+    color: #333333;
 }
 
 .account-dropdown .info .content .email {
@@ -1631,7 +1589,7 @@ section {
 
 .navbar-sidebar .navbar__list li a {
     display: block;
-    color: #555;
+    color: #fefdfc;
     font-size: 16px;
     padding: 15px 0;
 }
@@ -1641,11 +1599,11 @@ section {
 }
 
 .navbar-sidebar .navbar__list li a:hover {
-    color: #4272d7;
+    color: #333333;
 }
 
 .navbar-sidebar .navbar__list li.active > a {
-    color: #4272d7;
+    color: #333333;
 }
 
 .has-sub {
