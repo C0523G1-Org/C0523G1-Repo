@@ -192,14 +192,13 @@ public class TaiKhoanServlet extends HttpServlet {
     }
 
     private void xoaTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
-        int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
-        this.service.xoaTaiKhoan(maTaiKhoan);
+        int maTaiKhoanXoa = Integer.parseInt(request.getParameter("maTaiKhoanXoa"));
+        this.service.xoaTaiKhoan(maTaiKhoanXoa);
         try {
             response.sendRedirect("/tai-khoan?action=hienThi");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     private void themTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
