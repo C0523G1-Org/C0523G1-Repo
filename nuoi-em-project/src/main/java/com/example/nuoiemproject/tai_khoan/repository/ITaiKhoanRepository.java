@@ -15,4 +15,6 @@ public interface ITaiKhoanRepository {
     TaiKhoanDto thongTinChiTietTaiKhoan(int id);
     TaiKhoan dangNhap(String tenTaiKhoan, String matKhau);
     TaiKhoan taiKhoanDaTonTai(String tenTaiKhoan);
+    //
+    int guiMaTaiKhoan(String tenTaiKhoan);
 }

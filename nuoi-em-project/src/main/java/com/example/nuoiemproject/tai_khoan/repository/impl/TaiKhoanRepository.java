@@ -37,6 +37,7 @@ public class TaiKhoanRepository extends BaseRepo implements ITaiKhoanRepository 
             "on tai_khoan.ma_tai_khoan = nguoi_nuoi.ma_tai_khoan" +
             " where tai_khoan.ma_tai_khoan = ?;";
     private static final String TAI_KHOAN_DA_TON_TAI = "select ten_tai_khoan from tai_khoan where ten_tai_khoan = ?;";
+    private static final String GUI_MA_TAI_KHOAN = "select ma_tai_khoan from tai_khoan where ten_tai_khoan = ?;";
     @Override
     public List<TaiKhoan> hienThiDanhSach() {
         List<TaiKhoan> danhSachTaiKhoan = new ArrayList<>();
@@ -86,7 +87,6 @@ public class TaiKhoanRepository extends BaseRepo implements ITaiKhoanRepository 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @Override
@@ -175,5 +175,24 @@ public class TaiKhoanRepository extends BaseRepo implements ITaiKhoanRepository 
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    //
+
+    @Override
+    public int guiMaTaiKhoan(String tenTaiKhoan) {
+        Integer maTaiKhoan = null;
+        Connection connection = getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(GUI_MA_TAI_KHOAN);
+            preparedStatement.setString(1, tenTaiKhoan);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                maTaiKhoan = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return maTaiKhoan;
     }
 }

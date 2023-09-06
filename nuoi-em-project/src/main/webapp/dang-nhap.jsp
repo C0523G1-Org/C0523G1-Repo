@@ -42,7 +42,6 @@
         width: 685px;
         height: 400px;
         border: 1px solid #198754;
-        margin-top: 82px;
         align-self: center;
         border-radius: 19px;
         place-self: center;

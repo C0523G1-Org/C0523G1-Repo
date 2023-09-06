@@ -71,7 +71,7 @@
 </div>
 <div class="container main">
     <div class="user mt-2 mb-0">
-        Xin chào: <span class="user-name">${tenNguoiDung}</span>
+        Xin chào: <span class="user-name">${tenTaiKhoan}</span>
     </div>
     <form action="tai-khoan?action=suaTaiKhoan" method="post">
         <input type="hidden" name="maTaiKhoan" id="maTaiKhoan" value="${maTaiKhoan}">
@@ -87,7 +87,7 @@
             <button id="btn" type="submit" class="btn btn-primary">Xác nhận</button>
         </div>
         <div class="mb-3">
-            <button id="btn" type="button" class="btn btn-secondary"><a href="trang-chu">Hủy</a></button>
+            <button id="btn" type="button" class="btn btn-secondary"><a href="dang-nhap.jsp">Đăng nhập lại</a></button>
         </div>
     </form>
 </div>

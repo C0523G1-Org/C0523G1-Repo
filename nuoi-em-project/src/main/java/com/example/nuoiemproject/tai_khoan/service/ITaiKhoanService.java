@@ -15,4 +15,6 @@ public interface ITaiKhoanService {
     Boolean dangNhap(String tenTaiKhoan, String matKhau);
     TaiKhoanDto thongTinChiTietTaiKhoan(int id);
     Boolean taiKhoanDaTonTai(String tenTaiKhoan);
+    //
+    int guiMaTaiKhoan(String tenTaiKhoan);
 }

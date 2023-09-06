@@ -63,4 +63,9 @@ public class TaiKhoanService implements ITaiKhoanService {
             return false;
         }
     }
+
+    @Override
+    public int guiMaTaiKhoan(String tenTaiKhoan) {
+        return repository.guiMaTaiKhoan(tenTaiKhoan);
+    }
 }

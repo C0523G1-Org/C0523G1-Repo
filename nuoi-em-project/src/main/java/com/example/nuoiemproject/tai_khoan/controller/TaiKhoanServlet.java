@@ -119,7 +119,6 @@ public class TaiKhoanServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -164,6 +163,7 @@ public class TaiKhoanServlet extends HttpServlet {
         String matKhau = request.getParameter("matKhau");
         String role = tenTaiKhoan;
         Boolean flag = this.service.dangNhap(tenTaiKhoan, matKhau);
+
         try {
             if (role.equals("admin") && matKhau.equals("admin")) {
                 List<TaiKhoan> list = this.service.hienThiDanhSach();
@@ -172,6 +172,8 @@ public class TaiKhoanServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             }
             if (flag) {
+                int maTaiKhoan = this.service.guiMaTaiKhoan(tenTaiKhoan);
+                request.setAttribute("maTaiKhoan", maTaiKhoan);
                 request.setAttribute("tenTaiKhoan",tenTaiKhoan);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("nuoi-em-dang-nhap.jsp");
                 dispatcher.forward(request, response);
@@ -302,8 +304,8 @@ public class TaiKhoanServlet extends HttpServlet {
         String matKhau = request.getParameter("matKhau");
         String xacNhanMatKhau = request.getParameter("xacNhanMatKhau");
         String tenTaiKhoan = request.getParameter("tenTaiKhoan");
-        request.setAttribute("tenTaiKhoan",tenTaiKhoan);
         if (matKhau.equals(xacNhanMatKhau)) {
+            request.setAttribute("tenTaiKhoan", tenTaiKhoan);
             TaiKhoan taiKhoan = new TaiKhoan(maTaiKhoan, matKhau);
             this.service.suaTaiKhoan(taiKhoan);
             try {
@@ -322,7 +324,6 @@ public class TaiKhoanServlet extends HttpServlet {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
         }
     }
 
