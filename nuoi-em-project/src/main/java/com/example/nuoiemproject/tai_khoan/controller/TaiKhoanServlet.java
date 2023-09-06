@@ -260,11 +260,9 @@ public class TaiKhoanServlet extends HttpServlet {
                         TaiKhoan taiKhoan = new TaiKhoan(tenTaiKhoan, matKhau);
                         NguoiNuoi nguoiNuoi = new NguoiNuoi(tenNguoiDung, gioiTinh, soDienThoai, email);
                         this.service.themTaiKhoan(taiKhoan, nguoiNuoi);
-                        request.setAttribute("thongBao", "Bạn đã thêm mới thành công!");
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("nuoi-em-trang-chu.jsp");
-                        dispatcher.forward(request, response);
+                        request.setAttribute("thanhCong", "Bạn đã thêm mới thành công!");
                         try {
-                            response.sendRedirect("trang-chu.jsp");
+                            response.sendRedirect("nuoi-em-trang-chu.jsp");
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }

@@ -155,6 +155,7 @@
             <button id="login" type="submit" class="btn btn-primary">
                 <a href="/dang-nhap.jsp">Đăng nhập!</a></button>
         </div>
+        ${thanhCong}
     </form>
 </div>
 
