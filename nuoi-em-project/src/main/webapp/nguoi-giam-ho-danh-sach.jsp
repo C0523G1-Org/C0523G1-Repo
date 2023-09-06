@@ -25,7 +25,7 @@
         flex-direction: row;
         width: 100%;
         height: 60px;
-        background-color: #34ff24;
+        background-color: #35a853;
         margin-bottom: 10px;
     }
 </style>
@@ -112,7 +112,7 @@
                         <c:if test="${nguoiGiamHo.maKhuVuc == 14}">
                             <td>Hòa Bình</td>
                         </c:if>
-                        <td>0<c:out value="${nguoiGiamHo.soDienThoai}"/></td>
+                        <td><c:out value="${nguoiGiamHo.soDienThoai}"/></td>
                         <td>
                             <a href="/nguoi-giam-ho?action=capnhatnguoigiamho&maNguoiGiamHo=${nguoiGiamHo.maNguoiGiamHo}">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"

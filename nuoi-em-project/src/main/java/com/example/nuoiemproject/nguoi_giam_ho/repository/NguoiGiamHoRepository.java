@@ -26,7 +26,7 @@ public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
                 String tenNguoiGiamHo = resultSet.getString("ten_nguoi_giam_ho");
                 int gioiTinh = resultSet.getInt("gioi_tinh");
                 int maKhuVuc = resultSet.getInt("ma_khu_vuc");
-                int soDienThoai = resultSet.getInt("so_dien_thoai");
+                String soDienThoai = resultSet.getString("so_dien_thoai");
                 NguoiGiamHo nguoiGiamHo = new NguoiGiamHo(maNguoiGiamHo, tenNguoiGiamHo, gioiTinh, maKhuVuc, soDienThoai);
                 nguoiGiamHos.add(nguoiGiamHo);
             }
@@ -44,7 +44,7 @@ public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
             preparedStatement.setString(1, nguoiGiamHo.getTenNguoiGiamHo());
             preparedStatement.setInt(2, nguoiGiamHo.getGioiTinh());
             preparedStatement.setInt(3, nguoiGiamHo.getMaKhuVuc());
-            preparedStatement.setInt(4, nguoiGiamHo.getSoDienThoai());
+            preparedStatement.setString(4, nguoiGiamHo.getSoDienThoai());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -72,7 +72,7 @@ public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
             preparedStatement.setString(2, nguoiGiamHo.getTenNguoiGiamHo());
             preparedStatement.setInt(3, nguoiGiamHo.getGioiTinh());
             preparedStatement.setInt(4, nguoiGiamHo.getMaKhuVuc());
-            preparedStatement.setInt(5, nguoiGiamHo.getSoDienThoai());
+            preparedStatement.setString(5, nguoiGiamHo.getSoDienThoai());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -91,7 +91,7 @@ public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
                 String tenNguoiGiamHo = resultSet.getString("ten_nguoi_giam_ho");
                 int gioiTinh = resultSet.getInt("gioi_tinh");
                 int maKhuVuc = resultSet.getInt("ma_khu_vuc");
-                int soDienThoai = resultSet.getInt("so_dien_thoai");
+                String soDienThoai = resultSet.getString("so_dien_thoai");
                 nguoiGiamHo = new NguoiGiamHo(maNguoiGiamHo,tenNguoiGiamHo , gioiTinh, maKhuVuc, soDienThoai);
             }
         } catch (SQLException e) {
