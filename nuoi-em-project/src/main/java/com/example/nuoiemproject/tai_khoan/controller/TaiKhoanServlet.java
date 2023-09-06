@@ -94,7 +94,9 @@ public class TaiKhoanServlet extends HttpServlet {
 
     private void hienThiSuaTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
         int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
+        String tenTaiKhoan = request.getParameter("tenTaiKhoan");
         request.setAttribute("maTaiKhoan", maTaiKhoan);
+        request.setAttribute("tenTaiKhoan", tenTaiKhoan);
         RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-sua-tai-khoan.jsp");
         try {
             dispatcher.forward(request, response);
@@ -170,9 +172,8 @@ public class TaiKhoanServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             }
             if (flag) {
-                List<TreEm> list = this.treEmService.hienThiDanhSach();
-                request.setAttribute("list",list);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("tre-em-danh-sach.jsp");
+                request.setAttribute("tenTaiKhoan",tenTaiKhoan);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("nuoi-em-dang-nhap.jsp");
                 dispatcher.forward(request, response);
             } else {
                 String saiThongTin = "Sai tên đăng nhập hoặc mật khẩu";
@@ -300,11 +301,13 @@ public class TaiKhoanServlet extends HttpServlet {
         int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
         String matKhau = request.getParameter("matKhau");
         String xacNhanMatKhau = request.getParameter("xacNhanMatKhau");
+        String tenTaiKhoan = request.getParameter("tenTaiKhoan");
+        request.setAttribute("tenTaiKhoan",tenTaiKhoan);
         if (matKhau.equals(xacNhanMatKhau)) {
             TaiKhoan taiKhoan = new TaiKhoan(maTaiKhoan, matKhau);
             this.service.suaTaiKhoan(taiKhoan);
             try {
-                response.sendRedirect("trang-chu.jsp");
+                response.sendRedirect("nuoi-em-trang-chu.jsp");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

@@ -12,13 +12,10 @@
     <title>Quản lý tài khoản</title>
 
     <style>
-        a {
-            text-decoration: none;
-        }
     </style>
 </head>
 <body class="animsition">
-<nav class="navbar navbar-expand-lg bg-light" style="background-color: #90953b; color: white">
+<nav class="navbar navbar-expand-lg bg-light" >
     <div class="container-fluid">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -39,6 +36,10 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Danh sách</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/tai-khoan?action=themTaiKhoan">Tạo tài khoản</a>
+                </li>
+
             </ul>
             <form class="d-flex" method="get" action="nuoi-em-trang-chu.jsp">
                 <button class="btn btn-outline-danger" type="submit">Đăng xuất</button>
@@ -47,9 +48,6 @@
     </div>
 </nav>
 <%----%>
-<a href="/tai-khoan?action=themTaiKhoan">them tai khoan</a>
-<a href="/tai-khoan?action=dangNhap">dang nhap</a>
-<a href="/tai-khoan?action=dangXuat">dang xuat</a>
 <%----%>
 <div class="container">
     <h2 class="mt-5 mb-3">Quản lý tài khoản</h2>
@@ -90,7 +88,6 @@
     </table>
     <%--    --%>
 </div>
-
 <%--modal--%>
 <div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
