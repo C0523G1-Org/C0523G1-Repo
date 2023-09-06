@@ -18,20 +18,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="/css/css-nguoi-giam-ho.css">
+    <style>
+        .header {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 60px;
+            background-color: #35a853;
+            margin-bottom: 10px;
+        }
+    </style>
 <body>
-<style>
-    .header {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        height: 60px;
-        background-color: #35a853;
-        margin-bottom: 10px;
-    }
-</style>
 <!-- MAIN CONTENT-->
 <div class="header">
-    <div></div>
+        <nav class="navbar navbar-light " style="background-color: #35a853">
+            <form class="container-fluid justify-content-start">
+                <button class="btn btn-outline-light me-2" type="button">Trang Chủ</button>
+                <button class="btn btn-outline-light float-lg-right" type="button">Đăng Xuất</button>
+            </form>
+        </nav>
 </div>
 <div class="main-content">
 <h1>Danh Sách Người Giám Hộ</h1>
@@ -166,9 +171,32 @@
 
     <script>
         $(document).ready(function () {
-            $('#mytable').DataTable();
-        });
+            $('#mytable').DataTable({
+          language: {
+              "decimal": ",",
+              "thousands": ".",
+              "sEmptyTable": "Không có dữ liệu",
+              "sInfo": "Đang hiển thị _START_ đến _END_ của tổng số _TOTAL_ mục",
+              "sInfoEmpty": "Đang hiển thị 0 đến 0 của tổng số 0 mục",
+              "sInfoFiltered": "(được lọc từ tổng số _MAX_ mục)",
+              "sInfoPostFix": "",
+              "sInfoThousands": ",",
+              "sLengthMenu": "Hiển thị _MENU_ mục",
+              "sLoadingRecords": "Đang tải...",
+              "sProcessing": "Đang xử lý...",
+              "sSearch": "Tìm kiếm:",
+              "Show:": "",
+              "entries": "",
+              "oPaginate": {
+                  "sFirst": "Đầu",
+                  "sLast": "Cuối",
+                  "sNext": "Tiếp",
+                  "sPrevious": "Trước"
+              },
 
+          }
+            });
+        });
         function maNguoiGiamHo(maNguoiGiamHo, ten) {
             document.getElementById("ma").value = maNguoiGiamHo;
             document.getElementById("thongBao").innerText = ten;
