@@ -41,7 +41,7 @@ public class TreEmServlet extends HttpServlet {
                 hienThiChiTiet(request, response);
                 break;
             default:
-                hienThiChiTiet(request, response);
+                hienThiDanhSach(request, response);
                 break;
         }
     }
@@ -64,22 +64,23 @@ public class TreEmServlet extends HttpServlet {
                 xoa(request, response);
                 break;
             default:
-                hienThiChiTiet(request, response);
+                hienThiDanhSach(request, response);
                 break;
         }
     }
 
     private void hienThiDanhSach(HttpServletRequest request, HttpServletResponse response) {
         try {
-            List<TreEm> treEmList = treEmService.hienThiDanhSach();
-            if (treEmList.size() == 0) {
-                request.setAttribute("treEm", null);
-                request.getRequestDispatcher("tre-em-danh-sach.jsp").forward(request, response);
-            } else {
-                request.setAttribute("treEm", treEmList);
-                request.getRequestDispatcher("tre-em-danh-sach.jsp").forward(request, response);
+            List<TreEmDto> treEmDtoList = treEmService.hienThiDto();
+            if (treEmDtoList.size() == 0){
+                request.setAttribute("treEmDto", null);
+                request.getRequestDispatcher("tre-em-danh-sach.jsp").forward(request,response);
             }
-        } catch (Exception e) {
+            else {
+                request.setAttribute("treEmDto", treEmDtoList);
+                request.getRequestDispatcher("tre-em-danh-sach.jsp").forward(request,response);
+            }
+        } catch (ServletException | IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -126,12 +127,11 @@ public class TreEmServlet extends HttpServlet {
         String tenTreEm = request.getParameter("tenTreEm");
         int gioiTinh = Integer.parseInt(request.getParameter("gioiTinh"));
         String ngaySinh = request.getParameter("ngaySinh");
-        int trangThai = Integer.parseInt("trangThai");
         String moTa = request.getParameter("moTa");
         int maKhuVuc = Integer.parseInt(request.getParameter("maKhuVuc"));
         int maNguoiGiamHo = Integer.parseInt(request.getParameter("maNguoiGiamHo"));
         String hinhAnh = request.getParameter("hinhAnh");
-        TreEm treEm = new TreEm(tenTreEm, gioiTinh, ngaySinh, trangThai, moTa, maKhuVuc, maNguoiGiamHo, hinhAnh);
+        TreEm treEm = new TreEm(tenTreEm, gioiTinh, ngaySinh, moTa, maKhuVuc, maNguoiGiamHo, hinhAnh);
 
         try {
             treEmService.them(treEm);

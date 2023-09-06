@@ -96,7 +96,7 @@ public class NguoiGiamHoServlet extends HttpServlet {
         String tenNguoiGiamHo = request.getParameter("tenNguoiGiamHo");
         int gioiTinh = Integer.parseInt(request.getParameter("gioiTinh"));
         int maKhuVuc = Integer.parseInt(request.getParameter("maKhuVuc"));
-        int soDienThoai = Integer.parseInt(request.getParameter("soDienThoai"));
+        String soDienThoai = request.getParameter("soDienThoai");
         NguoiGiamHo nguoiGiamHo = new NguoiGiamHo(maNguiGiamHo,tenNguoiGiamHo, gioiTinh, maKhuVuc, soDienThoai);
         nguoiGiamHoService.capNhatNguoiGiamHo(nguoiGiamHo);
         try {
@@ -110,7 +110,7 @@ public class NguoiGiamHoServlet extends HttpServlet {
         String tenNguoiGiamHo = request.getParameter("tenNguoiGiamHo");
         int gioiTinh = Integer.parseInt(request.getParameter("gioiTinh"));
         int maKhuVuc = Integer.parseInt(request.getParameter("maKhuVuc"));
-        int soDienThoai = Integer.parseInt(request.getParameter("soDienThoai"));
+        String soDienThoai = request.getParameter("soDienThoai");
         nguoiGiamHoService.themNguoiGiamHo(new NguoiGiamHo(tenNguoiGiamHo, gioiTinh, maKhuVuc, soDienThoai));
         try {
             response.sendRedirect("/nguoi-giam-ho");

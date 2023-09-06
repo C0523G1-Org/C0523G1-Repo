@@ -15,16 +15,16 @@ import java.util.List;
 public class TreEmRepo implements ITreEmRepo {
     private static final String TRUY_VAN_TRE_EM = " select ma_tre_em, ten_tre_em, gioi_tinh, ngay_sinh, trang_thai_nhan_nuoi " +
             " from tre_em " +
-            " where is_delete = 0 " +
+            " where trang_thai_xoa = 0 " +
             " order by ma_tre_em ";
-    private static final String THEM_TRE_EM = "insert into tre_em (ten_tre_em, gioi_tinh, ngay_sinh, mo_ta, ma_khu_vuc, ma_nguoi_giam_ho) " +
-            " VALUES(?,?,?,?,?,?) ";
+    private static final String THEM_TRE_EM = "INSERT INTO tre_em (ten_tre_em, gioi_tinh, ngay_sinh, mo_ta, ma_khu_vuc, ma_nguoi_giam_ho, hinh_anh) " +
+            " VALUES (?,?,?,?,?,?,?) ";
 
     private static final String TRUY_VAN_TRE_EM_DTO = "select te.ma_tre_em, te.ten_tre_em, te.gioi_tinh, te.ngay_sinh, te.trang_thai_nhan_nuoi, te.mo_ta, kv.ten_khu_vuc, ngh.ten_nguoi_giam_ho, te.hinh_anh " +
             " from tre_em te " +
             " join khu_vuc kv on kv.ma_khu_vuc = te.ma_khu_vuc " +
             " join nguoi_giam_ho ngh on ngh.ma_nguoi_giam_ho = te.ma_nguoi_giam_ho " +
-            " where te.is_delete = 0 " +
+            " where te.trang_thai_xoa = 0 " +
             " order by te.ma_tre_em ";
 
     @Override
@@ -53,13 +53,14 @@ public class TreEmRepo implements ITreEmRepo {
     public void them(TreEm treEm) {
         Connection connection = BaseRepo.getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("THEM_TRE_EM");
+            PreparedStatement preparedStatement = connection.prepareStatement(THEM_TRE_EM);
             preparedStatement.setString(1, treEm.getTenTreEm());
             preparedStatement.setInt(2, treEm.getGioiTinh());
             preparedStatement.setString(3, treEm.getNgaySinh());
             preparedStatement.setString(4, treEm.getMoTa());
             preparedStatement.setInt(5, treEm.getMaKhuVuc());
             preparedStatement.setInt(6, treEm.getMaNguoiGiamHo());
+            preparedStatement.setString(7, treEm.getHinhAnh());
             preparedStatement.executeUpdate();
             connection.close();
         } catch (SQLException e) {

@@ -252,7 +252,7 @@
                                     </td>
 
                                     <td>
-                                        <img height="50px" width="50px" src="${treEmDto.getHinhAnh()}" alt="">
+                                        <img height="50px" width="50px" src="images/tre-em/${treEmDto.getHinhAnh()}" alt="">
                                     </td>
                                     <td>
                                         <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"

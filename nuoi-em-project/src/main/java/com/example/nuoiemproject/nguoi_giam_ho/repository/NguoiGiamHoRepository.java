@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
-    private static final String SELECT_SQL_NGUOI_GIAM_HO = "call hien_thi_nguoi_giam_ho();";
-    private static final String INSERT_SQL_NGUOI_GIAM_HO = "call them_nguoi_giam_ho(?,?,?,?);";
-    private static final String DELETE_SQL_NGUOI_GIAM_HO = "call xoa_nguoi_giam_ho(?);";
-    private static final String UPDATE_SQL_NGUOI_GIAM_HO = "call cap_nhat_nguoi_giam_ho(?,?,?,?,?);";
+    private static final String SELECT_SQL_NGUOI_GIAM_HO = "SELECT * FROM nguoi_giam_ho where trang_thai_xoa = 0 ;";
+    private static final String INSERT_SQL_NGUOI_GIAM_HO = "insert into nguoi_giam_ho(ten_nguoi_giam_ho,gioi_tinh,ma_khu_vuc,so_dien_thoai) values (?,?,?,?);";
+    private static final String DELETE_SQL_NGUOI_GIAM_HO = "update nguoi_giam_ho set trang_thai_xoa = 1 where ma_nguoi_giam_ho = ?;";
+    private static final String UPDATE_SQL_NGUOI_GIAM_HO = "update nguoi_giam_ho set ten_nguoi_giam_ho = ?, gioi_tinh = ?, ma_khu_vuc = ?,so_dien_thoai = ? where ma_nguoi_giam_ho = ? ;";
     private static final String SELECT_SQL_NGUOI_GIAM_HO_BY_ID = "select ma_nguoi_giam_ho,ten_nguoi_giam_ho,gioi_tinh,ma_khu_vuc,so_dien_thoai from nguoi_giam_ho where ma_nguoi_giam_ho = ?;";
 
     @Override
@@ -26,7 +26,7 @@ public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
                 String tenNguoiGiamHo = resultSet.getString("ten_nguoi_giam_ho");
                 int gioiTinh = resultSet.getInt("gioi_tinh");
                 int maKhuVuc = resultSet.getInt("ma_khu_vuc");
-                int soDienThoai = resultSet.getInt("so_dien_thoai");
+                String soDienThoai = resultSet.getString("so_dien_thoai");
                 NguoiGiamHo nguoiGiamHo = new NguoiGiamHo(maNguoiGiamHo, tenNguoiGiamHo, gioiTinh, maKhuVuc, soDienThoai);
                 nguoiGiamHos.add(nguoiGiamHo);
             }
@@ -44,7 +44,7 @@ public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
             preparedStatement.setString(1, nguoiGiamHo.getTenNguoiGiamHo());
             preparedStatement.setInt(2, nguoiGiamHo.getGioiTinh());
             preparedStatement.setInt(3, nguoiGiamHo.getMaKhuVuc());
-            preparedStatement.setInt(4, nguoiGiamHo.getSoDienThoai());
+            preparedStatement.setString(4, nguoiGiamHo.getSoDienThoai());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -72,7 +72,7 @@ public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
             preparedStatement.setString(2, nguoiGiamHo.getTenNguoiGiamHo());
             preparedStatement.setInt(3, nguoiGiamHo.getGioiTinh());
             preparedStatement.setInt(4, nguoiGiamHo.getMaKhuVuc());
-            preparedStatement.setInt(5, nguoiGiamHo.getSoDienThoai());
+            preparedStatement.setString(5, nguoiGiamHo.getSoDienThoai());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -91,7 +91,7 @@ public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
                 String tenNguoiGiamHo = resultSet.getString("ten_nguoi_giam_ho");
                 int gioiTinh = resultSet.getInt("gioi_tinh");
                 int maKhuVuc = resultSet.getInt("ma_khu_vuc");
-                int soDienThoai = resultSet.getInt("so_dien_thoai");
+                String soDienThoai = resultSet.getString("so_dien_thoai");
                 nguoiGiamHo = new NguoiGiamHo(maNguoiGiamHo,tenNguoiGiamHo , gioiTinh, maKhuVuc, soDienThoai);
             }
         } catch (SQLException e) {

@@ -29,6 +29,38 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <style>
+        @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+
+        .info-msg,
+        .success-msg,
+        .warning-msg,
+        .error-msg {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 3px 3px 3px 3px;
+        }
+
+        .info-msg {
+            color: #059;
+            background-color: #BEF;
+        }
+
+        .success-msg {
+            color: #270;
+            background-color: #DFF2BF;
+        }
+
+        .warning-msg {
+            color: #9F6000;
+            background-color: #FEEFB3;
+        }
+
+        .error-msg {
+            color: #D8000C;
+            background-color: #FFBABA;
+        }
+    </style>
 </head>
 <body class="animsition">
 <div class="page-wrapper">
@@ -142,8 +174,8 @@
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="header-wrap">
-                        <form class="form-header" action="" method="POST">
-                        </form>
+                        <div class="form-header">
+                        </div>
                         <div class="header-button">
                             <div class="account-wrap">
                                 <div class="account-item clearfix js-item-menu">
@@ -198,15 +230,15 @@
                                     <strong>Thêm mới trẻ em</strong>
                                 </div>
                                 <div class="card-body card-block">
-                                    <form action="tre-em?action=create" method="post" enctype="multipart/form-data"
+                                    <form action="tre-em?action=them" method="post"
                                           class="form-horizontal">
 
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="text-input" class=" form-control-label">Họ và tên</label>
+                                                <label for="tenTreEm" class=" form-control-label">Họ và tên</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="text-input" required name="tenTreEm"
+                                                <input type="text" id="tenTreEm" required name="tenTreEm"
                                                        class="form-control">
                                             </div>
                                         </div>
@@ -229,11 +261,11 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="text-input" class=" form-control-label">Ngày sinh</label>
+                                                <label for="ngaySinh" class=" form-control-label">Ngày sinh</label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input id="ngaySinh" name="ngaySinh" class="form-control"
-                                                       required="" type="date" value="">
+                                                       required type="date">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -247,10 +279,10 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="select" class=" form-control-label">Khu vực</label>
+                                                <label for="maKhuVuc" class=" form-control-label">Khu vực</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <select name="select" id="select" class="form-control">
+                                                <select name="maKhuVuc" id="maKhuVuc" class="form-control">
                                                     <option disabled selected>Chọn khu vực</option>
                                                     <c:forEach var="k" items="${khuVuc}">
                                                         <option value="${k.getMaKhuVuc()}">
@@ -262,10 +294,10 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="select" class=" form-control-label">Người giám hộ</label>
+                                                <label for="maNguoiGiamHo" class=" form-control-label">Người giám hộ</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <select name="nguoiGiamHo" id="nguoiGiamHo" class="form-control">
+                                                <select name="maNguoiGiamHo" id="maNguoiGiamHo" class="form-control">
                                                     <option>Chọn người giám hộ</option>
                                                     <c:forEach var="ngh" items="${nguoiGiamHo}">
                                                         <option value="${ngh.getMaNguoiGiamHo()}">
@@ -277,29 +309,30 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="file-input" class=" form-control-label">Hình ảnh</label>
+                                                <label for="hinhAnh" class=" form-control-label">Hình ảnh</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="file" id="file-input" name="file-input"
+                                                <input type="file" id="hinhAnh" name="hinhAnh"
                                                        class="form-control-file">
                                             </div>
                                         </div>
-
+                                        <div class="row form-group">
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Xác nhận
+                                                </button>
+                                                <a href="/tre-em" class="btn btn-dark">Đóng</a>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <c:if test="${message != null}">
+                                                <div class="success-msg">
+                                                    <i class="fa fa-check"></i>
+                                                        ${message}
+                                                </div>
+                                            </c:if>
+                                        </div>
                                     </form>
-                                </div>
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-dot-circle-o"></i> Xác nhận
-                                    </button>
-                                    <a href="/tre-em" class="btn btn-dark">Đóng</a>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col col-md-3">
-                                        <label for="text-input" class=" form-control-label">Thành công</label>
-                                    </div>
-                                    <div class="col-12 col-md-9">
-                                        <input type="text" id="result" name="text-input" class="form-control">
-                                    </div>
                                 </div>
                             </div>
                         </div>
