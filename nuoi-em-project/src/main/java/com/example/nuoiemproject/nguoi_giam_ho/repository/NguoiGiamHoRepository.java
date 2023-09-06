@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
-    private static final String SELECT_SQL_NGUOI_GIAM_HO = "call hien_thi_nguoi_giam_ho();";
-    private static final String INSERT_SQL_NGUOI_GIAM_HO = "call them_nguoi_giam_ho(?,?,?,?);";
-    private static final String DELETE_SQL_NGUOI_GIAM_HO = "call xoa_nguoi_giam_ho(?);";
-    private static final String UPDATE_SQL_NGUOI_GIAM_HO = "call cap_nhat_nguoi_giam_ho(?,?,?,?,?);";
+    private static final String SELECT_SQL_NGUOI_GIAM_HO = "SELECT * FROM nguoi_giam_ho where trang_thai_xoa = 0 ;";
+    private static final String INSERT_SQL_NGUOI_GIAM_HO = "insert into nguoi_giam_ho(ten_nguoi_giam_ho,gioi_tinh,ma_khu_vuc,so_dien_thoai) values (?,?,?,?);";
+    private static final String DELETE_SQL_NGUOI_GIAM_HO = "update nguoi_giam_ho set trang_thai_xoa = 1 where ma_nguoi_giam_ho = ?;";
+    private static final String UPDATE_SQL_NGUOI_GIAM_HO = "update nguoi_giam_ho set ten_nguoi_giam_ho = ?, gioi_tinh = ?, ma_khu_vuc = ?,so_dien_thoai = ? where ma_nguoi_giam_ho = ? ;";
     private static final String SELECT_SQL_NGUOI_GIAM_HO_BY_ID = "select ma_nguoi_giam_ho,ten_nguoi_giam_ho,gioi_tinh,ma_khu_vuc,so_dien_thoai from nguoi_giam_ho where ma_nguoi_giam_ho = ?;";
 
     @Override
