@@ -70,10 +70,10 @@ public class TreEmServlet extends HttpServlet {
             List<TreEm> treEmList = treEmService.hienThiDanhSach();
             if (treEmList.size() == 0) {
                 request.setAttribute("treEm", null);
-                request.getRequestDispatcher("danh-sach-tre-em.jsp").forward(request, response);
+                request.getRequestDispatcher("tre-em-danh-sach.jsp").forward(request, response);
             } else {
                 request.setAttribute("treEm", treEmList);
-                request.getRequestDispatcher("danh-sach-tre-em.jsp").forward(request, response);
+                request.getRequestDispatcher("tre-em-danh-sach.jsp").forward(request, response);
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -85,11 +85,11 @@ public class TreEmServlet extends HttpServlet {
             List<TreEmDto> treEmDtoList = treEmService.hienThiDto();
             if (treEmDtoList.size() == 0){
                 request.setAttribute("treEmDto", null);
-                request.getRequestDispatcher("chi-tiet-tre-em.jsp").forward(request,response);
+                request.getRequestDispatcher("tre-em-chi-tiet.jsp").forward(request,response);
             }
             else {
                 request.setAttribute("treEmDto", treEmDtoList);
-                request.getRequestDispatcher("chi-tiet-tre-em.jsp").forward(request,response);
+                request.getRequestDispatcher("tre-em-chi-tiet.jsp").forward(request,response);
             }
         } catch (ServletException | IOException e) {
             throw new RuntimeException(e);
@@ -104,7 +104,7 @@ public class TreEmServlet extends HttpServlet {
         try {
             List<KhuVuc> khuVucList = khuVucService.hienThiKhuVuc();
             request.setAttribute("khuVuc", khuVucList);
-            request.getRequestDispatcher("them-moi-tre-em.jsp").forward(request, response);
+            request.getRequestDispatcher("tre-em-them-moi.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             throw new RuntimeException(e);
         }
@@ -130,7 +130,7 @@ public class TreEmServlet extends HttpServlet {
         try {
             treEmService.them(treEm);
             request.setAttribute("message", "Bạn đã thêm mới trẻ em thành công ");
-            request.getRequestDispatcher("them-moi-tre-em.jsp").forward(request, response);
+            request.getRequestDispatcher("tre-em-them-moi.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             throw new RuntimeException(e);
         }

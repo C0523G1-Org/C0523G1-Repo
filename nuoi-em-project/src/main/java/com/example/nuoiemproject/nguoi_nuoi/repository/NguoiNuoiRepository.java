@@ -4,13 +4,13 @@ import com.example.nuoiemproject.BaseRepo;
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoiDto;
 
-import javax.servlet.RequestDispatcher;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class NguoiNuoiRepository implements INguoiNuoiRepository {
     private static final String SELECT = "SELECT * FROM nguoi_nuoi WHERE trang_thai_xoa = 0";
