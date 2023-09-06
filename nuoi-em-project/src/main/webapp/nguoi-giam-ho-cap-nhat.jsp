@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/css/css-nguoi-giam-ho.css">
 </head>
 <body>
-<div class="container-fluid">
+<div class="container">
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a href="/nguoi-giam-ho"><button type="submit" class="btn btn-outline-primary" >Trở về</button></a>
