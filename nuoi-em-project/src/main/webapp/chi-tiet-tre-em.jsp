@@ -65,7 +65,7 @@
                                 <a href="#">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="#">Người giám hộ</a>
+                                <a href="/nguoi-giam-ho">Người giám hộ</a>
                             </li>
                             <li>
                                 <a href="#">Mạnh thường quân</a>
@@ -112,7 +112,7 @@
                                 <a href="#">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="#">Người giám hộ</a>
+                                <a href="/nguoi-giam-ho">Người giám hộ</a>
                             </li>
                             <li>
                                 <a href="#">Mạnh thường quân</a>

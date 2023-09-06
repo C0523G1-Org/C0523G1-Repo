@@ -20,11 +20,16 @@ public class NguoiGiamHoService implements INguoiGiamHoService{
 
     @Override
     public void xoaNguoiGiamHo(int maNguoiGiamHo) {
-
+        nguoiGiamHoRepository.xoaNguoiGiamHo(maNguoiGiamHo);
     }
 
     @Override
     public void capNhatNguoiGiamHo(NguoiGiamHo nguoiGiamHo) {
+        nguoiGiamHoRepository.capNhatNguoiGiamHo(nguoiGiamHo);
+    }
 
+    @Override
+    public NguoiGiamHo nguoiGiamHo(int maNguoiGiamHo) {
+        return nguoiGiamHoRepository.nguoiGiamHo(maNguoiGiamHo);
     }
 }

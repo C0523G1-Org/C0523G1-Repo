@@ -170,11 +170,33 @@ delimiter ;
 
 -- thêm mới người giám hộ
 delimiter $$
-create procedure them_nguoi_giam_ho(ten_nguoi_giam_ho_moi varchar (100),gioi_tinh_moi int,so_dien_thoai_moi int, ma_khu_vuc_moi int)
+create procedure them_nguoi_giam_ho(ten_nguoi_giam_ho_moi varchar (100),gioi_tinh_moi int,ma_khu_vuc_moi int,so_dien_thoai_moi int)
 begin 
-set foreign_key_checks = 1;
-insert into nguoi_giam_ho (ten_nguoi_giam_ho, gioi_tinh,so_dien_thoai, ma_khu_vuc)
-values (ten_nguoi_giam_ho_moi, gioi_tinh_moi, so_dien_thoai_moi,ma_khu_vuc_moi);
-set foreign_key_checks = 0;
+insert into nguoi_giam_ho (ten_nguoi_giam_ho, gioi_tinh, ma_khu_vuc,so_dien_thoai)
+values (ten_nguoi_giam_ho_moi, gioi_tinh_moi,ma_khu_vuc_moi,so_dien_thoai_moi);
+end $$
+delimiter ;
+
+-- cập nhật người giám hộ
+delimiter $$
+create procedure cap_nhat_nguoi_giam_ho(ma_nguoi_giam_ho int,ten_nguoi_giam_ho_moi varchar(100), gioi_tinh_moi int,ma_khu_vuc_moi int,so_dien_thoai_moi int)
+begin 
+update nguoi_giam_ho 
+set 
+ten_nguoi_giam_ho = ten_nguoi_giam_ho_moi,
+gioi_tinh = gioi_tinh_moi,
+ma_khu_vuc = ma_khu_vuc_moi,
+so_dien_thoai = so_dien_thoai_moi
+where ma_nguoi_giam_ho = ma_nguoi_giam_ho;
+end $$
+delimiter ;
+
+-- xóa người giám hộ
+delimiter $$
+create procedure xoa_nguoi_giam_ho(ma_nguoi_giam_ho int)
+begin 
+update nguoi_giam_ho 
+set trang_thai_xoa = 1
+where ma_nguoi_giam_ho = ma_nguoi_giam_ho;
 end $$
 delimiter ;
