@@ -251,28 +251,27 @@
                 <a class="btn btn-outline-danger" href="/nguoi-nuoi?action=them">Thêm mới</a>
             </div>
 
-            <%--    xem 1 người nuôi có bn trẻ        --%>
-            <div class="row">
-            <a class="btn btn-outline-danger" href="/nguoi-nuoi?action=xemTre">Xem Người nuôi đang nhận trẻ nào</a>
-            </div>
+<%--            &lt;%&ndash;    xem 1 người nuôi có bn trẻ        &ndash;%&gt;--%>
+<%--            <div class="row">--%>
+<%--                <a class="btn btn-outline-danger" href="/nguoi-nuoi?action=xemTre">Xem Người nuôi đang nhận trẻ nào</a>--%>
+<%--            </div>--%>
 
             <%--Modal--%>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
+            <div class="modal" tabindex="-1" id="exampleModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form action="/nguoi-nuoi?action=xoa" method="post">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Xóa người nuôi</h5>
+                                <h5 class="modal-title">Xóa người nuôi</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body alert-danger">
                                 <input type="hidden" id="xoa_ma" name="xoa_ma">
-                                Chắc chắn xóa người nuôi <span id="xoa_ten"></span>?
+                                CHẮC CHẮN XÓA NGƯỜI NUÔI:  <span id="xoa_ten"></span>?
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                                 <button type="submit" class="btn btn-primary">Xóa</button>
                             </div>
                         </form>
@@ -290,6 +289,7 @@
         </div>
     </div>
 </div>
+
 <!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
 
@@ -313,5 +313,8 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
 </body>
 </html>

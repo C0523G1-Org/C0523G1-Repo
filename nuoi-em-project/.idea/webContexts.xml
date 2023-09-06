@@ -5,14 +5,24 @@
       <map>
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/dang-nhap.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/tai-khoan-hien-thi-danh-sach.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+=======
+>>>>>>> 561301bd54032f0418f4244d617ddf10f5de05cd
+<<<<<<< HEAD
         <entry key="file://$PROJECT_DIR$/src/main/webapp/danh-sach-nguoi-nuoi.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
 =======
         <entry key="file://$PROJECT_DIR$/src/main/webapp/nguoi-giam-ho-danh-sach.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
 >>>>>>> 1b5157542febf90968bd47ed21bdc0f5e559acc4
+<<<<<<< HEAD
 =======
         <entry key="file://$PROJECT_DIR$/src/main/webapp/dang-nhap.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/tai-khoan-hien-thi-danh-sach.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
 >>>>>>> 334abf1ff553e2fa0e44759be0a06b37b7e32a2a
+=======
+>>>>>>> f71cfc33e70da6a67e3e113c4d2ccdad301826d8
+>>>>>>> 561301bd54032f0418f4244d617ddf10f5de05cd
       </map>
     </option>
   </component>

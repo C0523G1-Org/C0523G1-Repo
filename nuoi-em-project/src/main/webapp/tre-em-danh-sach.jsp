@@ -259,12 +259,16 @@
                                         <img height="50px" width="50px" src="images/tre-em/${treEmDto.getHinhAnh()}">
                                     </td>
                                     <td>
-                                        <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"
+                                        <a href="/tre-em?action=sua&maTreEm=${treEmDto.getMaTreEm()}"
                                            role="button">
                                             <i class="fas fa-pencil-square-o" style="color: black"></i></a>
                                     </td>
                                     <td>
-                                        <button><i class="fas fa-trash"></i></button>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal"
+                                                onclick="sendInforModal('${treEmDto.maTreEm}','${treEmDto.tenTreEm}')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -273,6 +277,35 @@
                     </div>
                 </div>
             </div>
+            <%--Modal--%>
+            <div class="modal" tabindex="-1" id="exampleModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="/tre-em?action=xoa" method="post">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Xóa trẻ em</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body alert-danger">
+                                <input type="hidden" id="xoa_ma" name="xoa_ma">
+                                CHẮC CHẮN XÓA TRẺ:  <span id="xoa_ten"></span>?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button type="submit" class="btn btn-primary">Xóa</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function sendInforModal(ma, ten) {
+                    document.getElementById("xoa_ma").value = ma;
+                    document.getElementById("xoa_ten").innerText = ten;
+                }
+            </script>
             <div class="row">
                 <div class="col-lg-12 justify-content-center">
                     <div class="copyright">
@@ -306,6 +339,8 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
 </body>
 </html>
