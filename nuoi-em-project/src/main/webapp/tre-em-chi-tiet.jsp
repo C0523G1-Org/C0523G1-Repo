@@ -69,7 +69,7 @@
                                 <a href="#">Người giám hộ</a>
                             </li>
                             <li>
-                                <a href="#">Mạnh thường quân</a>
+                                <a href="/nguoi-nuoi">Mạnh thường quân</a>
                             </li>
                             <li>
                                 <a href="#">Bảng cam kết</a>
@@ -81,7 +81,7 @@
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/tre-em">
                             <i class="fas fa-arrow-left"></i>Trở về</a>
                     </li>
                 </ul>
@@ -116,7 +116,7 @@
                                 <a href="#">Người giám hộ</a>
                             </li>
                             <li>
-                                <a href="#">Mạnh thường quân</a>
+                                <a href="/nguoi-nuoi">Mạnh thường quân</a>
                             </li>
                             <li>
                                 <a href="#">Bảng cam kết</a>
@@ -128,7 +128,7 @@
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/tre-em">
                             <i class="fas fa-arrow-left"></i>Trở về</a>
                     </li>
                 </ul>
@@ -153,18 +153,18 @@
                                         <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
                                     </div>
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#">Zhang Ming</a>
+                                        <a class="js-acc-btn" href="#">Admin</a>
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
                                             <div class="image">
                                                 <a href="#">
-                                                    <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
+                                                    <img src="images/icon/avatar.jpg" alt="admin"/>
                                                 </a>
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">Zhang Ming</a>
+                                                    <a href="#">Admin</a>
                                                 </h5>
                                                 <span class="email">zhangming8443@gmail.com</span>
                                             </div>
@@ -176,7 +176,7 @@
                                             </div>
                                         </div>
                                         <div class="account-dropdown__footer">
-                                            <a href="#">
+                                            <a href="nuoi-em-trang-chu.jsp">
                                                 <i class="zmdi zmdi-power"></i>Đăng xuất</a>
                                         </div>
                                     </div>

@@ -12,6 +12,9 @@
     <title>Quản lý tài khoản</title>
 
     <style>
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body class="animsition">
@@ -34,12 +37,11 @@
                     <a class="nav-link active" aria-current="page" href="#">Danh sách người giám hộ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Danh sách</a>
+                    <a class="nav-link active" aria-current="page" href="tre-em-chi-tiet.jsp">Danh sách trẻ em</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/tai-khoan?action=themTaiKhoan">Tạo tài khoản</a>
                 </li>
-
             </ul>
             <form class="d-flex" method="get" action="nuoi-em-trang-chu.jsp">
                 <button class="btn btn-outline-danger" type="submit">Đăng xuất</button>
