@@ -21,8 +21,8 @@
         }
 
         .header {
-            height: 75px;
-            background-color: #78853f;
+            height: 69px;
+            background-color: #90953b;
         }
 
         #login, input {
@@ -40,7 +40,7 @@
         }
 
         #login {
-            background-color: #78853f;
+            background-color:  #90953b;
         }
 
         .main {
@@ -60,7 +60,7 @@
         }
 
         #login:hover {
-            background-color: #78853f;
+            background-color:  #90953b;
             color: white;
         }
 
@@ -73,19 +73,19 @@
 <div class="header">
     <div class="content">Đăng nhập</div>
 </div>
-<div class="form">
+<div class="form-main" >
     <div class="container mt-5">
-        <form action="/tai-khoan?action=dangNhap" method="post">
+        <form action="/tai-khoan?action=dangNhap" method="post" >
             <div class="main">
                 <div class="form-floating mb-3 form-child">
                     ${saiThongTin}
                 </div>
                 <div class="form-floating mb-3 form-child">
-                    <input name="tenTaiKhoan" type="text" class="form-control" id="floatingInput" placeholder="Tên tài khoản">
+                    <input name="tenTaiKhoan" type="text" class="form-control" id="floatingInput" placeholder="Tên tài khoản" required>
                     <label for="floatingInput">Tên tài khoản</label>
                 </div>
                 <div class="form-floating mb-3 form-child">
-                    <input name="matKhau" type="password" class="form-control" id="floatingPassword" placeholder="Mật khẩu">
+                    <input name="matKhau" type="password" class="form-control" id="floatingPassword" placeholder="Mật khẩu" required>
                     <label for="floatingPassword">Mật khẩu</label>
                 </div>
                 <div class="form-floating form-child">

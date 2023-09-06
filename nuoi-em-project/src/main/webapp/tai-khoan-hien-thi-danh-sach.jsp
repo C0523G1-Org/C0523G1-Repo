@@ -18,7 +18,7 @@
     </style>
 </head>
 <body class="animsition">
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-light" style="background-color: #90953b; color: white">
     <div class="container-fluid">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -40,17 +40,17 @@
                     <a class="nav-link active" aria-current="page" href="#">Danh sách</a>
                 </li>
             </ul>
-            <form class="d-flex" method="get" action="/trang-chu.jsp">
+            <form class="d-flex" method="get" action="nuoi-em-trang-chu.jsp">
                 <button class="btn btn-outline-danger" type="submit">Đăng xuất</button>
             </form>
         </div>
     </div>
 </nav>
-<%--test--%>
+<%----%>
 <a href="/tai-khoan?action=themTaiKhoan">them tai khoan</a>
 <a href="/tai-khoan?action=dangNhap">dang nhap</a>
 <a href="/tai-khoan?action=dangXuat">dang xuat</a>
-<%--test--%>
+<%----%>
 <div class="container">
     <h2 class="mt-5 mb-3">Quản lý tài khoản</h2>
 </div>
@@ -62,7 +62,7 @@
             <td class="table-primary">STT</td>
             <td class="table-primary">Tên tài khoản</td>
             <td class="table-primary">Mật khẩu</td>
-            <td colspan="2" style="text-align: center" class="table-primary">Quản lý</td>
+            <td colspan="3" style="text-align: center" class="table-primary">Quản lý</td>
         </tr>
         </thead>
         <tbody>
@@ -77,15 +77,52 @@
                 <td class="table-info" style="text-align: center">
                     <a href="/tai-khoan?action=timThongTinTaiKhoan&maTaiKhoan=${tai_khoan.getMaTaiKhoan()}">Chi tiết tài
                         khoản </a></td>
+                <td class="table-info" style="text-align: center">
+                    <button type="submit" class="btn btn-outline-danger" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                            onclick="guiThongTin('${tai_khoan.getMaTaiKhoan()}','${tai_khoan.tenTaiKhoan}')">
+                        Xóa tài khoản
+                    </button>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
     <%--    --%>
 </div>
+
+<%--modal--%>
+<div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/tai-khoan?action=xoaTaiKhoan" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xóa tài khoản</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input id="maTaiKhoan" name="maTaiKhoan" type="hidden"/>
+                    Bạn có chắc muốn xóa tài khoản
+                    <span id="tenTaiKhoan"></span>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-danger">Xóa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%--modal end--%>
 <%--main-end--%>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
+<script>
+    function guiThongTin(maTaiKhoan, tenTaiKhoan) {
+        document.getElementById("tenTaiKhoan").innerText = tenTaiKhoan;
+        document.getElementById("maTaiKhoan").value = maTaiKhoan;
+    }
+</script>
 </body>
 </html>

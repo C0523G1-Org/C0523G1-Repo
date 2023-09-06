@@ -73,7 +73,7 @@
         </tr>
         </tbody>
     </table>
-        <div>THỐNG KÊ CỦA TÀI KHOẢN NÀY SẼ Ở ĐÂY >>>>>>>>> </div>
+        <div>THỐNG KÊ CỦA TÀI KHOẢN: </div>
     <a class="nav-link active" aria-current="page" href="/tai-khoan?action=hienThi">
         <button class="btn btn-primary" type="submit">
             Quay lại danh sách tài khoản

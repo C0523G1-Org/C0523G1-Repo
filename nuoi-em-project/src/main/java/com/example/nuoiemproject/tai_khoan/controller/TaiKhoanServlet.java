@@ -7,6 +7,9 @@ import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto;
 import com.example.nuoiemproject.tai_khoan.service.ITaiKhoanService;
 import com.example.nuoiemproject.tai_khoan.service.impl.TaiKhoanService;
+import com.example.nuoiemproject.tre_em.model.TreEm;
+import com.example.nuoiemproject.tre_em.service.ITreEmService;
+import com.example.nuoiemproject.tre_em.service.impl.TreEmService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,6 +24,7 @@ import java.util.regex.Pattern;
 public class TaiKhoanServlet extends HttpServlet {
     private ITaiKhoanService service = new TaiKhoanService();
     private INguoiNuoiService nguoiNuoiService = new NguoiNuoiService();
+    private ITreEmService treEmService = new TreEmService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -138,15 +142,19 @@ public class TaiKhoanServlet extends HttpServlet {
     }
 
     private void dangXuat(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("trang-chu.jsp");
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("nuoi-em-trang-chu.jsp");
+//        try {
+//            dispatcher.forward(request, response);
+//        } catch (ServletException e) {
+//            throw new RuntimeException(e);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
         try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
+            response.sendRedirect("nuoi-em-trang-chu.jsp");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     private void dangNhap(HttpServletRequest request, HttpServletResponse response) {
@@ -162,7 +170,9 @@ public class TaiKhoanServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             }
             if (flag) {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("danh-sach-tre-em.jsp");
+                List<TreEm> list = this.treEmService.hienThiDanhSach();
+                request.setAttribute("list",list);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("tre-em-danh-sach.jsp");
                 dispatcher.forward(request, response);
             } else {
                 String saiThongTin = "Sai tên đăng nhập hoặc mật khẩu";
@@ -178,10 +188,10 @@ public class TaiKhoanServlet extends HttpServlet {
     }
 
     private void xoaTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        this.service.xoaTaiKhoan(id);
+        int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
+        this.service.xoaTaiKhoan(maTaiKhoan);
         try {
-            response.sendRedirect("tai-khoan-hien-thi-danh-sach.jsp");
+            response.sendRedirect("/tai-khoan?action=hienThi");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -196,6 +206,52 @@ public class TaiKhoanServlet extends HttpServlet {
         int soDienThoai = Integer.parseInt(request.getParameter("soDienThoai"));
         String matKhau = request.getParameter("matKhau");
 
+
+        //validate
+        String soDienThoaiDung = "^(0\\d{9})$";
+        Pattern pattern = Pattern.compile(soDienThoaiDung);
+        Matcher matcher = pattern.matcher(request.getParameter("soDienThoai"));
+        String emailDung = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
+        Pattern pattern1 = Pattern.compile(emailDung);
+        Matcher matcher1 = pattern1.matcher(email);
+
+        try {
+            if (!matcher.matches()) {
+                request.setAttribute("tenTaiKhoan",tenTaiKhoan);
+                request.setAttribute("tenNguoiDung",tenNguoiDung);
+                request.setAttribute("gioiTinh",gioiTinh);
+                request.setAttribute("email",email);
+                request.setAttribute("soDienThoai",soDienThoai);
+                request.setAttribute("loi", "Số điện thoại không hợp lệ!");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-them-tai-khoan.jsp");
+                dispatcher.forward(request, response);
+            } else if (!matcher1.matches()){
+                request.setAttribute("tenTaiKhoan",tenTaiKhoan);
+                request.setAttribute("tenNguoiDung",tenNguoiDung);
+                request.setAttribute("gioiTinh",gioiTinh);
+                request.setAttribute("email",email);
+                request.setAttribute("soDienThoai",soDienThoai);
+                request.setAttribute("loi1", "Email không hợp lệ!");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-them-tai-khoan.jsp");
+                dispatcher.forward(request, response);
+            }
+            else {
+
+                NguoiNuoi nguoiNuoi = new NguoiNuoi(tenNguoiDung, gioiTinh, soDienThoai, email);
+                TaiKhoan taiKhoan = new TaiKhoan(tenTaiKhoan, matKhau);
+                this.service.themTaiKhoan(taiKhoan, nguoiNuoi);
+                request.setAttribute("thongBao", "Bạn đã thêm mới thành công!");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-them-tai-khoan.jsp");
+                dispatcher.forward(request,response);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        //form confirm
         if (!this.service.taiKhoanDaTonTai(tenTaiKhoan)) {
             request.setAttribute("tenNguoiDung",tenNguoiDung);
             request.setAttribute("gioiTinh",gioiTinh);
