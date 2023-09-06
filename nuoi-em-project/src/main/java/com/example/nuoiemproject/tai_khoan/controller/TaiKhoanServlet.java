@@ -119,6 +119,7 @@ public class TaiKhoanServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -167,14 +168,14 @@ public class TaiKhoanServlet extends HttpServlet {
         try {
             if (role.equals("admin") && matKhau.equals("admin")) {
                 List<TaiKhoan> list = this.service.hienThiDanhSach();
-                request.setAttribute("list",list);
+                request.setAttribute("list", list);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-hien-thi-danh-sach.jsp");
                 dispatcher.forward(request, response);
             }
             if (flag) {
                 int maTaiKhoan = this.service.guiMaTaiKhoan(tenTaiKhoan);
                 request.setAttribute("maTaiKhoan", maTaiKhoan);
-                request.setAttribute("tenTaiKhoan",tenTaiKhoan);
+                request.setAttribute("tenTaiKhoan", tenTaiKhoan);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("nuoi-em-dang-nhap.jsp");
                 dispatcher.forward(request, response);
             } else {
@@ -220,82 +221,75 @@ public class TaiKhoanServlet extends HttpServlet {
 
         try {
             if (!matcher.matches()) {
-                request.setAttribute("tenTaiKhoan",tenTaiKhoan);
-                request.setAttribute("tenNguoiDung",tenNguoiDung);
-                request.setAttribute("gioiTinh",gioiTinh);
-                request.setAttribute("email",email);
-                request.setAttribute("soDienThoai",soDienThoai);
+                request.setAttribute("tenTaiKhoan", tenTaiKhoan);
+                request.setAttribute("tenNguoiDung", tenNguoiDung);
+                request.setAttribute("gioiTinh", gioiTinh);
+                request.setAttribute("email", email);
+                request.setAttribute("soDienThoai", soDienThoai);
                 request.setAttribute("loi", "Số điện thoại không hợp lệ!");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-them-tai-khoan.jsp");
                 dispatcher.forward(request, response);
-            } else if (!matcher1.matches()){
-                request.setAttribute("tenTaiKhoan",tenTaiKhoan);
-                request.setAttribute("tenNguoiDung",tenNguoiDung);
-                request.setAttribute("gioiTinh",gioiTinh);
-                request.setAttribute("email",email);
-                request.setAttribute("soDienThoai",soDienThoai);
+            } else if (!matcher1.matches()) {
+                request.setAttribute("tenTaiKhoan", tenTaiKhoan);
+                request.setAttribute("tenNguoiDung", tenNguoiDung);
+                request.setAttribute("gioiTinh", gioiTinh);
+                request.setAttribute("email", email);
+                request.setAttribute("soDienThoai", soDienThoai);
                 request.setAttribute("loi1", "Email không hợp lệ!");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-them-tai-khoan.jsp");
                 dispatcher.forward(request, response);
-            }
-            else {
-
-                NguoiNuoi nguoiNuoi = new NguoiNuoi(tenNguoiDung, gioiTinh, soDienThoai, email);
-                TaiKhoan taiKhoan = new TaiKhoan(tenTaiKhoan, matKhau);
-                this.service.themTaiKhoan(taiKhoan, nguoiNuoi);
-                request.setAttribute("thongBao", "Bạn đã thêm mới thành công!");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-them-tai-khoan.jsp");
-                dispatcher.forward(request,response);
+            } else {
+                //form confirm
+                if (!this.service.taiKhoanDaTonTai(tenTaiKhoan)) {
+                    request.setAttribute("tenNguoiDung", tenNguoiDung);
+                    request.setAttribute("gioiTinh", gioiTinh);
+                    request.setAttribute("email", email);
+                    request.setAttribute("soDienThoai", soDienThoai);
+                    request.setAttribute("taiKhoanDaTonTai", "Tên tài khoản đã tồn tại");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-them-tai-khoan.jsp");
+                    try {
+                        dispatcher.forward(request, response);
+                    } catch (ServletException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    String nhapLaiMatKhau = request.getParameter("nhapLaiMatKhau");
+                    if (matKhau.equals(nhapLaiMatKhau)) {
+                        TaiKhoan taiKhoan = new TaiKhoan(tenTaiKhoan, matKhau);
+                        NguoiNuoi nguoiNuoi = new NguoiNuoi(tenNguoiDung, gioiTinh, soDienThoai, email);
+                        this.service.themTaiKhoan(taiKhoan, nguoiNuoi);
+                        request.setAttribute("thongBao", "Bạn đã thêm mới thành công!");
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("nuoi-em-trang-chu.jsp");
+                        dispatcher.forward(request, response);
+                        try {
+                            response.sendRedirect("trang-chu.jsp");
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else {
+                        request.setAttribute("tenTaiKhoan", tenTaiKhoan);
+                        request.setAttribute("tenNguoiDung", tenNguoiDung);
+                        request.setAttribute("gioiTinh", gioiTinh);
+                        request.setAttribute("email", email);
+                        request.setAttribute("soDienThoai", soDienThoai);
+                        request.setAttribute("saiMatKhau", "Xác nhận mật khẩu sai");
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-them-tai-khoan.jsp");
+                        try {
+                            dispatcher.forward(request, response);
+                        } catch (ServletException e) {
+                            throw new RuntimeException(e);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ServletException e) {
             throw new RuntimeException(e);
-        }
-
-
-        //form confirm
-        if (!this.service.taiKhoanDaTonTai(tenTaiKhoan)) {
-            request.setAttribute("tenNguoiDung",tenNguoiDung);
-            request.setAttribute("gioiTinh",gioiTinh);
-            request.setAttribute("email",email);
-            request.setAttribute("soDienThoai",soDienThoai);
-            request.setAttribute("taiKhoanDaTonTai","Tên tài khoản đã tồn tại");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-them-tai-khoan.jsp");
-            try {
-                dispatcher.forward(request, response);
-            } catch (ServletException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        } else {
-            String nhapLaiMatKhau = request.getParameter("nhapLaiMatKhau");
-            if (matKhau.equals(nhapLaiMatKhau)) {
-                TaiKhoan taiKhoan = new TaiKhoan(tenTaiKhoan, matKhau);
-                NguoiNuoi nguoiNuoi = new NguoiNuoi(tenNguoiDung, gioiTinh, soDienThoai, email);
-                this.service.themTaiKhoan(taiKhoan, nguoiNuoi);
-                try {
-                    response.sendRedirect("trang-chu.jsp");
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            } else {
-                request.setAttribute("tenTaiKhoan",tenTaiKhoan);
-                request.setAttribute("tenNguoiDung",tenNguoiDung);
-                request.setAttribute("gioiTinh",gioiTinh);
-                request.setAttribute("email",email);
-                request.setAttribute("soDienThoai",soDienThoai);
-                request.setAttribute("saiMatKhau","Xác nhận mật khẩu sai");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-them-tai-khoan.jsp");
-                try {
-                    dispatcher.forward(request, response);
-                } catch (ServletException e) {
-                    throw new RuntimeException(e);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
         }
     }
 

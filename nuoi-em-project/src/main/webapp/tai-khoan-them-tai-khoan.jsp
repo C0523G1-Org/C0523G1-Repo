@@ -67,6 +67,9 @@
 </div>
 <div class="container main">
     <form action="/tai-khoan?action=themTaiKhoan" method="post">
+<%--        Tai khoan da ton tai--%>
+        ${taiKhoanDaTonTai}
+<%--        Tai khoan da ton tai--%>
 <%--       Dang ky thanh cong --%>
     <c:if test="${thongBao != null}">
         <div class="alert alert-success d-flex align-items-center" role="alert">
