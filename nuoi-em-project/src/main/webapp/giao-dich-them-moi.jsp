@@ -31,7 +31,7 @@
 
     <div class="card">
         <div class="card-header">
-            <strong>Thêm giao dịch chuyển tiền</strong>
+            <strong>Thêm giao dịch tiền thu</strong>
         </div>
         <div class="card-body">
             <div class="row g-3 align-items-center">
@@ -40,6 +40,15 @@
                 </div>
                 <div class="col-12 col-md-9">
                     <input type="text" id="ngayGiaoDich" name="ngayGiaoDich" class="form-control"
+                           aria-describedby="passwordHelpInline" style="text-transform:capitalize">
+                </div>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-12 col-md-3">
+                    <label for="soTien" class="col-form-label">Số tiền</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" id="soTien" name="soTien" class="form-control"
                            aria-describedby="passwordHelpInline" style="text-transform:capitalize">
                 </div>
             </div>

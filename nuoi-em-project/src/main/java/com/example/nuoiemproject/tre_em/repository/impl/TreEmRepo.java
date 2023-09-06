@@ -24,7 +24,7 @@ public class TreEmRepo implements ITreEmRepo {
             " from tre_em te " +
             " join khu_vuc kv on kv.ma_khu_vuc = te.ma_khu_vuc " +
             " join nguoi_giam_ho ngh on ngh.ma_nguoi_giam_ho = te.ma_nguoi_giam_ho " +
-            " where te.is_delete = 0 " +
+            " where te.trang_thai_xoa = 0 " +
             " order by te.ma_tre_em ";
 
     @Override

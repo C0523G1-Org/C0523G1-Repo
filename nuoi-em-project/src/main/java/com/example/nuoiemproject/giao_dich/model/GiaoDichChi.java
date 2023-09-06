@@ -1,41 +1,35 @@
 package com.example.nuoiemproject.giao_dich.model;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-public class GiaoDich {
+public class GiaoDichChi {
     private int maGiaoDich;
     private String ngayGiaoDich;
     private String noiDungGiaoDich;
     private int soTien;
-    private int maCamKet;
+    private int maGiamHo;
 
-    public GiaoDich() {
+    public GiaoDichChi() {
     }
-    public GiaoDich(String ngayGiaoDich, String noiDungGiaoDich, int soTien) {
+
+    public GiaoDichChi(String ngayGiaoDich, String noiDungGiaoDich, int soTien) {
         this.ngayGiaoDich = ngayGiaoDich;
         this.noiDungGiaoDich = noiDungGiaoDich;
         this.soTien = soTien;
     }
 
-    public GiaoDich(String ngayGiaoDich, String noiDungGiaoDich, int soTien, int maCamKet) {
+    public GiaoDichChi(String ngayGiaoDich, String noiDungGiaoDich, int soTien, int maGiamHo) {
         this.ngayGiaoDich = ngayGiaoDich;
         this.noiDungGiaoDich = noiDungGiaoDich;
         this.soTien = soTien;
-        this.maCamKet = maCamKet;
+        this.maGiamHo = maGiamHo;
     }
 
-
-    public GiaoDich(int maGiaoDich, String ngayGiaoDich, String noiDungGiaoDich, int soTien, int maCamKet) {
+    public GiaoDichChi(int maGiaoDich, String ngayGiaoDich, String noiDungGiaoDich, int soTien, int maGiamHo) {
         this.maGiaoDich = maGiaoDich;
         this.ngayGiaoDich = ngayGiaoDich;
         this.noiDungGiaoDich = noiDungGiaoDich;
         this.soTien = soTien;
-        this.maCamKet = maCamKet;
+        this.maGiamHo = maGiamHo;
     }
-
 
     public int getMaGiaoDich() {
         return maGiaoDich;
@@ -69,11 +63,11 @@ public class GiaoDich {
         this.soTien = soTien;
     }
 
-    public int getMaCamKet() {
-        return maCamKet;
+    public int getMaGiamHo() {
+        return maGiamHo;
     }
 
-    public void setMaCamKet(int maCamKet) {
-        this.maCamKet = maCamKet;
+    public void setMaGiamHo(int maGiamHo) {
+        this.maGiamHo = maGiamHo;
     }
 }

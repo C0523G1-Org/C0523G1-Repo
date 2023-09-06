@@ -1,6 +1,7 @@
 package com.example.nuoiemproject.giao_dich.controller;
 
 import com.example.nuoiemproject.giao_dich.model.GiaoDich;
+import com.example.nuoiemproject.giao_dich.model.GiaoDichChi;
 import com.example.nuoiemproject.giao_dich.service.GiaoDichService;
 import com.example.nuoiemproject.giao_dich.service.IGiaoDichService;
 
@@ -26,9 +27,23 @@ public class GiaoDichServlet extends HttpServlet {
             case "them":
                 hienThiThem(request, response);
                 break;
+            case "themChi":
+                hienThiThemChi(request, response);
+                break;
             default:
                 hienThiDanhSach(request, response);
                 break;
+        }
+    }
+
+    private void hienThiThemChi(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/giao-dich-chi.jsp");
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -69,14 +84,37 @@ public class GiaoDichServlet extends HttpServlet {
             case "them":
                 themGiaoDich(request, response);
                 break;
+            case "themChi":
+                themGiaoDichChi(request, response);
+                break;
         }
+    }
+
+    private void themGiaoDichChi(HttpServletRequest request, HttpServletResponse response) {
+        String ngayGiaoDich = request.getParameter("ngayGiaoDich");
+        String noiDungGiaoDich = request.getParameter("noiDung");
+        int soTien = Integer.parseInt(request.getParameter("soTien"));
+        int maGiamHo= Integer.parseInt(request.getParameter("maGiamHo"));
+        GiaoDichChi giaoDichChi = new GiaoDichChi(ngayGiaoDich,noiDungGiaoDich,soTien,maGiamHo);
+        service.themChi(giaoDichChi);
+        request.setAttribute("thongBao","Bạn đã thêm giao dịch thành công!");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/giao-dich-chi.jsp");
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     private void themGiaoDich(HttpServletRequest request, HttpServletResponse response) {
         String ngayGiaoDich = request.getParameter("ngayGiaoDich");
         String noiDung = request.getParameter("noiDung");
+        int soTien = Integer.parseInt(request.getParameter("soTien"));
         int maCamKet = Integer.parseInt(request.getParameter("maCamKet"));
-        GiaoDich giaoDich = new GiaoDich(ngayGiaoDich,noiDung,maCamKet);
+        GiaoDich giaoDich = new GiaoDich(ngayGiaoDich,noiDung,soTien,maCamKet);
         service.them(giaoDich);
         request.setAttribute("thongBao", "Bạn đã thêm giao dịch thành công!");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/giao-dich-them-moi.jsp");
@@ -95,9 +133,16 @@ public class GiaoDichServlet extends HttpServlet {
         int nam = Integer.parseInt(request.getParameter("nam"));
         List<GiaoDich> danhSachGiaoDich = service.danhSachGiaoDich(thang, nam);
         int tongThu = 0;
+        int tongChi = 0;
+        int chenhLech = 0;
         for (int i = 0; i < danhSachGiaoDich.size(); i++) {
-            tongThu += danhSachGiaoDich.get(i).getSoTien();
+            if(danhSachGiaoDich.get(i).getSoTien() >=0) {
+                tongThu += danhSachGiaoDich.get(i).getSoTien();
+            } else {
+                tongChi += danhSachGiaoDich.get(i).getSoTien();
+            }
         }
+        chenhLech = tongThu + tongChi;
         if(danhSachGiaoDich.isEmpty()){
             String thongBao = "Không có giao dịch phát sinh!";
             request.setAttribute("thongBao",thongBao);
@@ -111,6 +156,8 @@ public class GiaoDichServlet extends HttpServlet {
         } else {
             request.setAttribute("danhSachGiaoDich",danhSachGiaoDich);
             request.setAttribute("tongThu",tongThu);
+            request.setAttribute("tongChi",tongChi);
+            request.setAttribute("chenhLech",chenhLech);
             try {
                 request.getRequestDispatcher("/giao-dich-danh-sach.jsp").forward(request,response);
             } catch (ServletException e) {

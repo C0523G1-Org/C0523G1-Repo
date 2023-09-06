@@ -53,7 +53,8 @@
                             Tổng số tiền:
                         </th>
                         <th colspan="2">
-                            0000
+
+                            ${chenhLech}
                         </th>
                     </tr>
                     <tr>
@@ -69,7 +70,7 @@
                             Tổng chi:
                         </th>
                         <th colspan="2">
-                            0000
+                            ${tongChi}
                         </th>
                     </tr>
                     <tr>
@@ -104,7 +105,10 @@
     </div>
     <%--nút thêm--%>
     <div class="row">
-        <a class="btn btn-outline-danger" href="/giao-dich?action=them">Thêm mới</a>
+        <a class="btn btn-outline-danger" href="/giao-dich?action=them">Thêm mới tiền thu</a>
+    </div>
+    <div class="row">
+        <a class="btn btn-outline-danger" href="/giao-dich?action=themChi">Thêm mới tiền chi</a>
     </div>
 </form>
 <script src="js/main.js"></script>

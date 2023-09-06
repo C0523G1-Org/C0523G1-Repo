@@ -10,7 +10,7 @@
 </h1>
 <br/>
 <%--<c:redirect url="nguoi-nuoi"/>--%>
-<a href="/giao-dich">Hello Servlet</a>
+<a href="/tai-chinh">Hello Servlet</a>
 <img src="/images/tre-em/tre_em1.png" alt="">
 </body>
 </html>
