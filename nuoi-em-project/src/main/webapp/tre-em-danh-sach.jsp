@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -39,7 +40,7 @@
             <div class="container-fluid">
                 <div class="header-mobile-inner">
                     <a class="logo" href="index.html">
-<%--                        <img src="images/icon/logo.png" alt="CoolAdmin"/>--%>
+                        <%--                        <img src="images/icon/logo.png" alt="CoolAdmin"/>--%>
                         <h3>Team 2</h3>
                     </a>
                     <button class="hamburger hamburger--slider" type="button">
@@ -200,33 +201,67 @@
                             <tr>
                                 <th>Mã</th>
                                 <th>Tên</th>
-                                <th>Ngày sinh</th>
                                 <th>Giới tính</th>
+                                <th>Ngày sinh</th>
+                                <th>Mô tả</th>
+                                <th>Người giám hộ</th>
+                                <th>Khu vực</th>
                                 <th>Trạng thái</th>
+                                <th>Ảnh</th>
                                 <th>Sửa</th>
                                 <th>Xóa</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${treEm}" var="treEm">
+                            <c:forEach items="${treEmDto}" var="treEmDto">
                                 <tr>
-                                    <td>${treEm.getMaTreEm()}</td>
-                                    <td>${treEm.getTenTreEm()}</td>
-                                    <td>${treEm.getNgaySinh()}</td>
                                     <td>
-                                        <c:if test="${treEm.getGioiTinh() == 1}">Nam</c:if>
-                                        <c:if test="${treEm.getGioiTinh() == 0}">Nữ</c:if>
+                                            ${treEmDto.getMaTreEm()}
                                     </td>
+
                                     <td>
-                                        <c:if test="${treEm.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
-                                        <c:if test="${treEm.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
+                                            ${treEmDto.getTenTreEm()}
+                                    </td>
+
+                                    <td>
+                                        <c:if test="${treEmDto.getGioiTinh() == 1}">Nam</c:if>
+                                        <c:if test="${treEmDto.getGioiTinh() == 0}">Nữ</c:if>
+                                    </td>
+
+                                    <c:set var="dateString" value="${treEmDto.getNgaySinh()}"/>
+                                    <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
+                                    <td>
+                                        <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
+                                    </td>
+
+                                    <td>
+                                            ${treEmDto.getMoTa()}
+                                    </td>
+
+                                    <td>
+                                            ${treEmDto.getTenNguoiGiamHo()}
+                                    </td>
+
+                                    <td>
+                                            ${treEmDto.getTenKhuVuc()}
+                                    </td>
+
+                                    <td>
+                                        <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
+                                        <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
+                                    </td>
+
+                                    <td>
+                                        <img height="50px" width="50px" src="${treEmDto.getHinhAnh()}" alt="">
                                     </td>
                                     <td>
                                         <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"
                                            role="button">
                                             <i class="fas fa-pencil-square-o" style="color: black"></i></a>
                                     </td>
-                                    <td><button><i class="fas fa-trash"></i></button></td>
+                                    <td>
+                                        <button><i class="fas fa-trash"></i></button>
+                                    </td>
                                 </tr>
                             </c:forEach>
                             </tbody>

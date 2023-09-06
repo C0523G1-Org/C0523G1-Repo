@@ -58,7 +58,7 @@
                                     Trang chủ <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/tre-em-tc">Trẻ em</a>
+                                <a class="nav-link" href="/tre-em">Trẻ em</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Chứng nhận</a>
