@@ -12,11 +12,11 @@ import java.sql.SQLException;
 
 //<<<<<<< HEAD:nuoi-em-project/src/main/java/com/example/nuoiemproject/BaseRepository.java
 public class BaseRepo {
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
     private static final String USERNAME = "root";
 //<<<<<<< HEAD
 //<<<<<<< HEAD
-    private static final String PASSWORD = "thienbao";
+    private static final String PASSWORD = "Mylien2009";
 
     //=======
 //    public class BaseRepo {

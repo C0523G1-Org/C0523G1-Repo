@@ -31,7 +31,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Danh sách cam kết</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Danh sách mạnh thường quân</a>
+                    <a class="nav-link active" aria-current="page" href="/nguoi-nuoi">Danh sách mạnh thường quân</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Danh sách người giám hộ</a>
