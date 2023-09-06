@@ -251,10 +251,10 @@
                 <a class="btn btn-outline-danger" href="/nguoi-nuoi?action=them">Thêm mới</a>
             </div>
 
-            <%--    xem 1 người nuôi có bn trẻ        --%>
-            <div class="row">
-                <a class="btn btn-outline-danger" href="/nguoi-nuoi?action=xemTre">Xem Người nuôi đang nhận trẻ nào</a>
-            </div>
+<%--            &lt;%&ndash;    xem 1 người nuôi có bn trẻ        &ndash;%&gt;--%>
+<%--            <div class="row">--%>
+<%--                <a class="btn btn-outline-danger" href="/nguoi-nuoi?action=xemTre">Xem Người nuôi đang nhận trẻ nào</a>--%>
+<%--            </div>--%>
 
             <%--Modal--%>
             <div class="modal" tabindex="-1" id="exampleModal">
