@@ -198,7 +198,8 @@
                                     <strong>Thêm mới trẻ em</strong>
                                 </div>
                                 <div class="card-body card-block">
-                                    <form action="tre-em?action=create" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                    <form action="tre-em?action=create" method="post" enctype="multipart/form-data"
+                                          class="form-horizontal">
 
                                         <div class="row form-group">
                                             <div class="col col-md-3">
@@ -259,21 +260,21 @@
                                                 </select>
                                             </div>
                                         </div>
-<%--                                        <div class="row form-group">--%>
-<%--                                            <div class="col col-md-3">--%>
-<%--                                                <label for="select" class=" form-control-label">Người giám hộ</label>--%>
-<%--                                            </div>--%>
-<%--                                            <div class="col-12 col-md-9">--%>
-<%--                                                <select name="nguoiGiamHo" id="nguoiGiamHo" class="form-control">--%>
-<%--                                                    <option>Chọn người giám hộ</option>--%>
-<%--                                                    <c:forEach var="khu" items="${tenKhuVuc}">--%>
-<%--                                                        <option value="${maKhuVuc.getMaKhuVuc()}">--%>
-<%--                                                                ${maKhuVuc.getTenKhuVuc()}--%>
-<%--                                                        </option>--%>
-<%--                                                    </c:forEach>--%>
-<%--                                                </select>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="select" class=" form-control-label">Người giám hộ</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <select name="nguoiGiamHo" id="nguoiGiamHo" class="form-control">
+                                                    <option>Chọn người giám hộ</option>
+                                                    <c:forEach var="ngh" items="${nguoiGiamHo}">
+                                                        <option value="${ngh.getMaNguoiGiamHo()}">
+                                                                ${ngh.getTenNguoiGiamHo()}
+                                                        </option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
+                                        </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
                                                 <label for="file-input" class=" form-control-label">Hình ảnh</label>

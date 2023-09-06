@@ -3,6 +3,9 @@ package com.example.nuoiemproject.tre_em.controller;
 import com.example.nuoiemproject.khu_vuc.model.KhuVuc;
 import com.example.nuoiemproject.khu_vuc.service.IKhuVucService;
 import com.example.nuoiemproject.khu_vuc.service.impl.KhuVucService;
+import com.example.nuoiemproject.nguoi_giam_ho.model.NguoiGiamHo;
+import com.example.nuoiemproject.nguoi_giam_ho.service.INguoiGiamHoService;
+import com.example.nuoiemproject.nguoi_giam_ho.service.NguoiGiamHoService;
 import com.example.nuoiemproject.tre_em.model.TreEm;
 import com.example.nuoiemproject.tre_em.model.TreEmDto;
 import com.example.nuoiemproject.tre_em.service.ITreEmService;
@@ -18,6 +21,7 @@ import java.util.List;
 public class TreEmServlet extends HttpServlet {
     private final ITreEmService treEmService = new TreEmService();
     private final IKhuVucService khuVucService = new KhuVucService();
+    private final INguoiGiamHoService nguoiGiamHoService = new NguoiGiamHoService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -103,7 +107,9 @@ public class TreEmServlet extends HttpServlet {
     private void hienThiThem(HttpServletRequest request, HttpServletResponse response) {
         try {
             List<KhuVuc> khuVucList = khuVucService.hienThiKhuVuc();
+            List<NguoiGiamHo> nguoiGiamHoList = nguoiGiamHoService.hienThi();
             request.setAttribute("khuVuc", khuVucList);
+            request.setAttribute("nguoiGiamHo", nguoiGiamHoList);
             request.getRequestDispatcher("tre-em-them-moi.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             throw new RuntimeException(e);

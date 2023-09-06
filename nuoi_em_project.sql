@@ -184,3 +184,38 @@ select * from khu_vuc;
 ALTER TABLE nguoi_nuoi
 ADD trang_thai_xoa bit(1) default 0;
 
+<<<<<<< HEAD
+=======
+-- thêm mới người giám hộ
+delimiter $$
+create procedure them_nguoi_giam_ho(ten_nguoi_giam_ho_moi varchar (100),gioi_tinh_moi int,ma_khu_vuc_moi int,so_dien_thoai_moi int)
+begin 
+insert into nguoi_giam_ho (ten_nguoi_giam_ho, gioi_tinh, ma_khu_vuc,so_dien_thoai)
+values (ten_nguoi_giam_ho_moi, gioi_tinh_moi,ma_khu_vuc_moi,so_dien_thoai_moi);
+end $$
+delimiter ;
+
+-- cập nhật người giám hộ
+delimiter $$
+create procedure cap_nhat_nguoi_giam_ho(ma_nguoi_giam_ho int,ten_nguoi_giam_ho_moi varchar(100), gioi_tinh_moi int,ma_khu_vuc_moi int,so_dien_thoai_moi int)
+begin 
+update nguoi_giam_ho 
+set 
+ten_nguoi_giam_ho = ten_nguoi_giam_ho_moi,
+gioi_tinh = gioi_tinh_moi,
+ma_khu_vuc = ma_khu_vuc_moi,
+so_dien_thoai = so_dien_thoai_moi
+where ma_nguoi_giam_ho = ma_nguoi_giam_ho;
+end $$
+delimiter ;
+
+-- xóa người giám hộ
+delimiter $$
+create procedure xoa_nguoi_giam_ho(ma_nguoi_giam_ho int)
+begin 
+update nguoi_giam_ho 
+set trang_thai_xoa = 1
+where ma_nguoi_giam_ho = ma_nguoi_giam_ho;
+end $$
+delimiter ;
+>>>>>>> 1b5157542febf90968bd47ed21bdc0f5e559acc4
