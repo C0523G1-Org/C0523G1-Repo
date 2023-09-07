@@ -15,7 +15,7 @@ public class BaseRepo {
 //<<<<<<< HEAD
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "210100";
+    private static final String PASSWORD = "toilatoi09";
 //=======
 //    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db_test";
 //    private static final String USERNAME = "root";
