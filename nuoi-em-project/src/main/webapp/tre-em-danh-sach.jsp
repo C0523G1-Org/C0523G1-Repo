@@ -79,11 +79,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-<<<<<<< HEAD
                                 <a href="/giao-dich">Giao dịch</a>
-=======
-                                <a href="/giao-dich">Tài chính</a>
->>>>>>> ea726ed46bfb8720b58bbc13ff72f926d057a649
                             </li>
                         </ul>
                     </li>
@@ -133,11 +129,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-<<<<<<< HEAD
                                 <a href="/giao-dich">Giao dịch</a>
-=======
-                                <a href="/giao-dich">Tài chính</a>
->>>>>>> ea726ed46bfb8720b58bbc13ff72f926d057a649
                             </li>
                         </ul>
                     </li>
@@ -313,16 +305,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="/tre-em?action=xoa" method="post">
-                <div class="modal-header">
-                    <h5 style="color: black" class="modal-title">Xóa</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                <div class="modal-header" style="background-color: #dc3545">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: WHITE; text-align: center">XÓA TRẺ
+                        EM</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="xoa_ma" name="xoa_ma">
-                    Bạn có chắc chắn xóa bé <span id="xoa_ten"></span> không ?<br>
-                    (Lưu ý: Hành động này sẽ không thể hoàn tác)
+                    Bạn có chắc chắn xóa bé <strong id="xoa_ten" style="color: #dc3545"></strong> không ?<br>
+                    <span style="color: #dc3545">(Lưu ý: Hành động này sẽ không thể hoàn tác)</span>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                     <button type="submit" class="btn btn-danger">Xác nhận</button>

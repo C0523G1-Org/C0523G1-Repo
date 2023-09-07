@@ -244,3 +244,4 @@ so_dien_thoai_moi,
 email_moi);
 end //
 
+alter table nguoi_nuoi add trang_thai_xoa bit(1) default 0;

@@ -198,53 +198,55 @@
         <!-- HEADER DESKTOP-->
 
         <!-- MAIN CONTENT-->
-        <div class="main-content">
+        <div class="container">
+            <div class="main-content">
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="title-1 m-b-25 justify-content-center d-flex" style="color: #0c0c0c; margin-bottom: 0">
-                        Danh sách tài khoản</h2>
-                    <a class="btn btn-outline-light" href="/tai-khoan?action=themTaiKhoan" style="color: black">
-                        <i class="fas fa-plus"></i>
-                    </a>
-                    <div class="table-responsive table--no-card m-b-40">
-                        <table id="myTable" class="table table-borderless table-striped table-earning">
-                            <thead>
-                            <tr class="table-primary">
-                                <th class="table-primary">STT</th>
-                                <th class="table-primary">Tài khoản</th>
-                                <th class="table-primary">Mật khẩu</th>
-                                <th class="table-primary">Đổi mật khẩu</th>
-                                <th class="table-primary">Xoá</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="tai_khoan" items="${list}" varStatus="loop">
-                                <tr class="table-light">
-                                    <td><c:out value="${loop.count}">STT</c:out></td>
-                                    <td><c:out value="${tai_khoan.tenTaiKhoan}"></c:out></td>
-                                    <td><c:out value="${tai_khoan.matKhau}"></c:out></td>
-                                    <td>
-                                        <a href="/tai-khoan?action=suaTaiKhoan&maTaiKhoan=${tai_khoan.maTaiKhoan}"> <i class="fas fa-pencil-square-o" style="color: black"></i></a>
-                                    </td>
-                                    <td>
-                                        <button type="button" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"
-                                                onclick="guiThongTin('${tai_khoan.getMaTaiKhoan()}','${tai_khoan.tenTaiKhoan}')">
-                                            <i class="fas fa-trash" style="color: black"></i>
-                                        </button>
-                                    </td>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="title-1 m-b-25 justify-content-center d-flex" style="color: #0c0c0c; margin-bottom: 0">
+                            Danh sách tài khoản</h2>
+                        <a class="btn btn-outline-light" href="/tai-khoan?action=themTaiKhoan" style="color: black">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                        <div class="table-responsive table--no-card m-b-40">
+                            <table id="myTable" class="table table-borderless table-striped table-earning">
+                                <thead>
+                                <tr class="table-primary">
+                                    <th class="table-primary">STT</th>
+                                    <th class="table-primary">Tài khoản</th>
+                                    <th class="table-primary">Mật khẩu</th>
+                                    <th class="table-primary">Đổi mật khẩu</th>
+                                    <th class="table-primary">Xoá</th>
                                 </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="tai_khoan" items="${list}" varStatus="loop">
+                                    <tr class="table-light">
+                                        <td><c:out value="${loop.count}">STT</c:out></td>
+                                        <td><c:out value="${tai_khoan.tenTaiKhoan}"></c:out></td>
+                                        <td><c:out value="${tai_khoan.matKhau}"></c:out></td>
+                                        <td>
+                                            <a href="/tai-khoan?action=suaTaiKhoan&maTaiKhoan=${tai_khoan.maTaiKhoan}&tenTaiKhoan=${tai_khoan.tenTaiKhoan}"> <i class="fas fa-pencil-square-o" style="color: black"></i></a>
+                                        </td>
+                                        <td>
+                                            <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"
+                                                    onclick="guiThongTin('${tai_khoan.getMaTaiKhoan()}','${tai_khoan.tenTaiKhoan}')">
+                                                <i class="fas fa-trash" style="color: black"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 justify-content-center">
-                    <div class="copyright">
-                        <p>&copy; 2023 Mọi quyền được bảo lưu bởi Nuôi em</p>
+                <div class="row">
+                    <div class="col-lg-12 justify-content-center">
+                        <div class="copyright">
+                            <p>&copy; 2023 Mọi quyền được bảo lưu bởi Nuôi em</p>
+                        </div>
                     </div>
                 </div>
             </div>
