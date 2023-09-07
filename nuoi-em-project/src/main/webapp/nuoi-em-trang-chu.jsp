@@ -55,6 +55,9 @@
                         <ul class="navbar-nav  ">
                             <li class="nav-item active">
                                 <a class="nav-link" href="nuoi-em-trang-chu.jsp">
+
+                                <a class="nav-link" href="/nuoi-em-trang-chu.jsp">
+
                                     Trang chủ <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">

@@ -77,7 +77,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/tai-chinh">Tài chính</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -127,7 +127,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/tai-chinh">Tài chính</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -161,7 +161,7 @@
                                         <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
                                     </div>
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#">Zhang Ming</a>
+                                        <a class="js-acc-btn" href="#">Admin</a>
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
@@ -172,9 +172,9 @@
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">Zhang Ming</a>
+                                                    <a href="#">Admin</a>
                                                 </h5>
-                                                <span class="email">zhangming8443@gmail.com</span>
+                                                <span class="email">nuoiem@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -198,7 +198,7 @@
         <!-- HEADER DESKTOP-->
 
         <!-- MAIN CONTENT-->
-        <div class="main-content">
+        <div class="main-content container">
 
             <div class="row">
                 <div class="col-lg-12">
@@ -274,7 +274,7 @@
                             <div class="modal-body">
                                 <input type="hidden" id="xoa_ma" name="xoa_ma">
                                <div style="color: #C63D2F ">
-                                   Bạn có chắc chắn xóa người nuôi  <span id="xoa_ten"></span> không?<br>
+                                   Bạn có chắc chắn xóa người nuôi  <strong><span id="xoa_ten"></span></strong>  không?<br>
                                 (Lưu ý: Hành động này sẽ không thể hoàn tác)
                                </div>
                             </div>

@@ -198,7 +198,7 @@
                                         <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
                                     </div>
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#">Zhang Ming</a>
+                                        <a class="js-acc-btn" href="#">Admin</a>
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
@@ -209,9 +209,9 @@
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">Zhang Ming</a>
+                                                    <a href="#">Admin</a>
                                                 </h5>
-                                                <span class="email">zhangming8443@gmail.com</span>
+                                                <span class="email">nuoiem@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -291,7 +291,7 @@
                                             <button class="btn" style="background-color: #ffff00" type="submit">
                                                 Xác nhận
                                             </button>
-                                            <a href="/nguoi-nuoi" class="btn btn-dark">Đóng</a>
+                                            <a href="/giao-dich" class="btn btn-dark">Đóng</a>
                                         </div>
                                     </form>
                                 </div>
@@ -303,82 +303,6 @@
                                         </div>
                                     </c:if>
                                 </div>
-
-
-
-                                <%--                                <form method="post" action="/giao-dich?action=them">--%>
-
-                                <%--                                    <c:if test="${thongBao != null}">--%>
-                                <%--                                        <div class="alert alert-success d-flex align-items-center" role="alert">--%>
-                                <%--                                            <svg class="bi flex-shrink-0 me-2" width="0" height="0" role="img"--%>
-                                <%--                                                 aria-label="Success:">--%>
-                                <%--                                                <use xlink:href="#check-circle-fill"/>--%>
-                                <%--                                            </svg>--%>
-                                <%--                                            <div>--%>
-                                <%--                                                <i class="fa-regular fa-circle-check"></i><label--%>
-                                <%--                                                    style="padding-left: 5px">${thongBao}</label>--%>
-                                <%--                                            </div>--%>
-                                <%--                                        </div>--%>
-                                <%--                                    </c:if>--%>
-
-                                <%--                                    <div class="card">--%>
-                                <%--                                        <div class="card-header">--%>
-                                <%--                                            <strong>Thêm giao dịch tiền thu</strong>--%>
-                                <%--                                        </div>--%>
-                                <%--                                        <div class="card-body">--%>
-                                <%--                                            <div class="row g-3 align-items-center">--%>
-                                <%--                                                <div class="col-12 col-md-3">--%>
-                                <%--                                                    <label for="ngayGiaoDich" class="col-form-label">Ngày giao--%>
-                                <%--                                                        dịch</label>--%>
-                                <%--                                                </div>--%>
-                                <%--                                                <div class="col-12 col-md-9">--%>
-                                <%--                                                    <input type="text" id="ngayGiaoDich" name="ngayGiaoDich"--%>
-                                <%--                                                           class="form-control"--%>
-                                <%--                                                           aria-describedby="passwordHelpInline"--%>
-                                <%--                                                           style="text-transform:capitalize">--%>
-                                <%--                                                </div>--%>
-                                <%--                                            </div>--%>
-                                <%--                                            <div class="row g-3 align-items-center">--%>
-                                <%--                                                <div class="col-12 col-md-3">--%>
-                                <%--                                                    <label for="soTien" class="col-form-label">Số tiền</label>--%>
-                                <%--                                                </div>--%>
-                                <%--                                                <div class="col-12 col-md-9">--%>
-                                <%--                                                    <input type="text" id="soTien" name="soTien" class="form-control"--%>
-                                <%--                                                           aria-describedby="passwordHelpInline"--%>
-                                <%--                                                           style="text-transform:capitalize">--%>
-                                <%--                                                </div>--%>
-                                <%--                                            </div>--%>
-                                <%--                                            <div class="row g-3 align-items-center">--%>
-                                <%--                                                <div class="col-12 col-md-3">--%>
-                                <%--                                                    <label for="noiDung" class="col-form-label">Nội dung</label>--%>
-                                <%--                                                </div>--%>
-                                <%--                                                <div class="col-12 col-md-9">--%>
-                                <%--                                                    <input type="text" id="noiDung" name="noiDung" class="form-control"--%>
-                                <%--                                                           aria-describedby="passwordHelpInline"--%>
-                                <%--                                                           style="text-transform:capitalize">--%>
-                                <%--                                                </div>--%>
-                                <%--                                            </div>--%>
-                                <%--                                            <div class="row g-3 align-items-center">--%>
-                                <%--                                                <div class="col-12 col-md-3">--%>
-                                <%--                                                    <label for="maCamKet" class="col-form-label">Mã cam kết</label>--%>
-                                <%--                                                </div>--%>
-                                <%--                                                <div class="col-12 col-md-9">--%>
-                                <%--                                                    <input type="text" id="maCamKet" name="maCamKet"--%>
-                                <%--                                                           class="form-control"--%>
-                                <%--                                                           aria-describedby="passwordHelpInline"--%>
-                                <%--                                                           style="text-transform:capitalize">--%>
-                                <%--                                                </div>--%>
-                                <%--                                            </div>--%>
-                                <%--                                        </div>--%>
-                                <%--                                        <div class="card-footer text-body-secondary">--%>
-                                <%--                                            <button class="btn" style="background-color: #ffff00" type="submit">--%>
-                                <%--                                                Xác nhận--%>
-                                <%--                                            </button>--%>
-                                <%--                                            <a href="/giao-dich" class="btn btn-dark">Đóng</a>--%>
-                                <%--                                        </div>--%>
-                                <%--                                    </div>--%>
-                                <%--                                </form>--%>
-
 
                             </div>
                         </div>

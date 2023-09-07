@@ -358,7 +358,38 @@
     </div>
 </section>
 
+<<<<<<< HEAD
 <!-- end info_section -->
+=======
+<div>
+    <form action="/tai-chinh?action=xem" method="post">
+        <h5>Nhập thời gian bạn muốn xem sao kê:</h5>
+        <div class="row">
+            <div class="col-12 col-xl-6">
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label for="thang" class="col-form-label">Tháng:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="thang" class="form-control" name="thang" value="9"
+                               aria-describedby="passwordHelpInline">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-xl-6">
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label for="nam" class="col-form-label">Năm:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="nam" class="form-control" name="nam" value="2023"
+                               aria-describedby="passwordHelpInline">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Hiển thị</button>
+>>>>>>> bdc38a048c28ef1b73eaa019c92eeae701860dce
 
 <<<<<<< HEAD
 <!-- footer section -->
@@ -393,7 +424,7 @@
                                     Tổng thu:
                                 </th>
                                 <th colspan="2">
-                                    <fmt:formatNumber value="${tongChi}" type="currency" currencySymbol="" maxFractionDigits="0" />
+                                    <fmt:formatNumber value="${tongThu}" type="currency" currencySymbol="" maxFractionDigits="0" />
                                 </th>
                             </tr>
                             <tr style="background-color: lightgoldenrodyellow">
@@ -401,7 +432,7 @@
                                     Tổng chi:
                                 </th>
                                 <th colspan="2">
-                                    ${tongChi}
+                                    <fmt:formatNumber value="${tongChi}" type="currency" currencySymbol="" maxFractionDigits="0" />
                                 </th>
                             </tr>
                         </div>
