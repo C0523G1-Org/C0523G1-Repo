@@ -204,7 +204,7 @@
                 <div class="col-lg-12">
                     <h2 class="title-1 m-b-25 justify-content-center d-flex" style="color: #0c0c0c; margin-bottom: 0">
                         Danh sách bảng cam kết</h2>
-                    <a class="btn btn-outline-light" href="/cam-ket?action=them" style="color: black">
+                    <a class="btn btn-outline-light" href="/cam-ket-them-moi.jsp" style="color: black">
                         <i class="fas fa-plus"></i>
                     </a>
                     <div class="table-responsive table--no-card m-b-40">
@@ -212,7 +212,7 @@
                             <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Số tiền</th>
+                                <th>Số tiền (VND) </th>
                                 <th>Ngày nhận nuôi</th>
                                 <th>Trạng thái</th>
                                 <th>Trẻ em</th>
@@ -225,14 +225,24 @@
                             <c:forEach items="${danhSach}" var="d" varStatus="loop">
                                 <tr>
                                     <td><c:out value="${loop.count}"/></td>
-                                    <td><c:out value="${d.soTien}"/></td>
-                                    <td><c:out value="${d.ngayNhanNuoi}"/></td>
+                                    <td>
+                                        <p><fmt:formatNumber value="${d.soTien}"/></p>
+                                    </td>
+<%--                                    <td><c:out value="${d.soTien}"/></td>--%>
+
+                                    <c:set var="dateString" value="${d.getNgayNhanNuoi()}"/>
+                                    <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
+                                    <td>
+                                        <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
+                                    </td>
+
+<%--                                    <td><c:out value="${d.ngayNhanNuoi}"/></td>--%>
                                         <%--   Xử lý trạng thái  --%>
                                     <td>
                                         <c:if test="${d.trangThai == 1}">Nhận nuôi</c:if>
                                     </td>
-                                    <td><c:out value="${d.maTreEm}"/></td>
-                                    <td><c:out value="${d.maNguoiNuoi}"/></td>
+                                    <td><c:out value="${d.tenTreEm}"/></td>
+                                    <td><c:out value="${d.tenNguoiNuoi}"/></td>
                                     <td>
                                         <a href="cam-ket?action=sua&maCamKet=${d.maCamKet}"
                                            role="button">
