@@ -161,7 +161,7 @@
                                         <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
                                     </div>
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#">Zhang Ming</a>
+                                        <a class="js-acc-btn" href="#">Admin</a>
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
@@ -172,9 +172,9 @@
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">Zhang Ming</a>
+                                                    <a href="#">Admin</a>
                                                 </h5>
-                                                <span class="email">zhangming8443@gmail.com</span>
+                                                <span class="email">nuoiem@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -199,71 +199,85 @@
 
         <!-- MAIN CONTENT-->
         <div class="main-content">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="title-1 m-b-25 justify-content-center d-flex" style="color: #0c0c0c; margin-bottom: 0">
-                        Danh sách bảng cam kết</h2>
-                    <a class="btn btn-outline-light" href="/cam-ket?action=them" style="color: black">
-                        <i class="fas fa-plus"></i>
-                    </a>
-                    <div class="table-responsive table--no-card m-b-40">
-                        <table id="myTable" class="table table-borderless table-striped table-earning">
-                            <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Số tiền</th>
-                                <th>Ngày nhận nuôi</th>
-                                <th>Trạng thái</th>
-                                <th>Trẻ em</th>
-                                <th>Người nuôi</th>
-                                <th>Sửa</th>
-                                <th>Xóa</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach items="${danhSach}" var="d" varStatus="loop">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="title-1 m-b-25 justify-content-center d-flex"
+                            style="color: #0c0c0c; margin-bottom: 0">
+                            Danh sách bảng cam kết</h2>
+                        <a class="btn btn-outline-light" href="/cam-ket-them-moi.jsp" style="color: black">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                        <div class="table-responsive table--no-card m-b-40">
+                            <table id="myTable" class="table table-borderless table-striped table-earning">
+                                <thead>
                                 <tr>
-                                    <td><c:out value="${loop.count}"/></td>
-                                    <td><c:out value="${d.soTien}"/></td>
-                                    <td><c:out value="${d.ngayNhanNuoi}"/></td>
-                                        <%--   Xử lý trạng thái  --%>
-                                    <td>
-                                        <c:if test="${d.trangThai == 1}">Nhận nuôi</c:if>
-                                    </td>
-                                    <td><c:out value="${d.maTreEm}"/></td>
-                                    <td><c:out value="${d.maNguoiNuoi}"/></td>
-                                    <td>
-                                        <a href="cam-ket?action=sua&maCamKet=${d.maCamKet}"
-                                           role="button">
-                                            <i class="fas fa-pencil-square-o" style="color: black"></i></a>
-                                    </td>
-                                    <td>
-                                        <button type="button" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"
-                                                onclick="sendInforModal('${d.maCamKet}')"><i class="fas fa-trash"></i>
-                                        </button>
-                                    </td>
+                                    <th>STT</th>
+                                    <th>Số tiền (VND)</th>
+                                    <th>Ngày nhận nuôi</th>
+                                    <th>Trạng thái</th>
+                                    <th>Trẻ em</th>
+                                    <th>Người nuôi</th>
+                                    <th>Sửa</th>
+                                    <th>Xóa</th>
                                 </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${danhSach}" var="d" varStatus="loop">
+                                    <tr>
+                                        <td><c:out value="${loop.count}"/></td>
+                                        <td>
+                                            <p><fmt:formatNumber value="${d.soTien}"/></p>
+                                        </td>
+                                            <%--                                    <td><c:out value="${d.soTien}"/></td>--%>
+
+                                        <c:set var="dateString" value="${d.getNgayNhanNuoi()}"/>
+                                        <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
+                                        <td>
+                                            <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
+                                        </td>
+
+                                            <%--                                    <td><c:out value="${d.ngayNhanNuoi}"/></td>--%>
+                                            <%--   Xử lý trạng thái  --%>
+                                        <td>
+                                            <c:if test="${d.trangThai == 1}">Nhận nuôi</c:if>
+                                        </td>
+                                        <td><c:out value="${d.tenTreEm}"/></td>
+                                        <td><c:out value="${d.tenNguoiNuoi}"/></td>
+                                        <td>
+                                            <a href="cam-ket?action=sua&maCamKet=${d.maCamKet}"
+                                               role="button">
+                                                <i class="fas fa-pencil-square-o" style="color: black"></i></a>
+                                        </td>
+                                        <td>
+                                            <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"
+                                                    onclick="sendInforModal('${d.maCamKet}')"><i
+                                                    class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 justify-content-center">
-                    <div class="copyright">
-                        <p>&copy; 2023 Mọi quyền được bảo lưu bởi Nuôi em</p>
+                <div class="row">
+                    <div class="col-lg-12 justify-content-center">
+                        <div class="copyright">
+                            <p>&copy; 2023 Mọi quyền được bảo lưu bởi Nuôi em</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- END MAIN CONTENT-->
-<!-- END PAGE CONTAINER-->
+    <!-- END MAIN CONTENT-->
+    <!-- END PAGE CONTAINER-->
 
+<<<<<<< HEAD
 <%--Modal--%>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -282,36 +296,58 @@
                     <button type="submit" class="btn btn-danger">Xác nhận</button>
                 </div>
             </form>
+=======
+    <%--Modal--%>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/cam-ket?action=xoa" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Xóa</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div style="color: red" class="modal-body">
+                        <input type="hidden" id="xoa_ma" name="xoa_ma">
+                        BẠN MUỐN XÓA CAM KẾT <strong></strong> NÀY KHÔNG ? <br>
+
+                        (Thao tác này khi thực hiện sẽ không thể hoàn tác)
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-danger">Xác nhận</button>
+                    </div>
+                </form>
+            </div>
+>>>>>>> ea726ed46bfb8720b58bbc13ff72f926d057a649
         </div>
     </div>
-</div>
-<script>
-    function sendInforModal(ma) {
-        document.getElementById("xoa_ma").value = ma;
-    }
-</script>
-<script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.js"></script>
+    <script>
+        function sendInforModal(ma) {
+            document.getElementById("xoa_ma").value = ma;
+        }
+    </script>
+    <script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.js"></script>
 
-<!-- Jquery JS-->
-<script src="vendor/jquery-3.2.1.min.js"></script>
-<!-- Bootstrap JS-->
-<script src="vendor/bootstrap-4.1/popper.min.js"></script>
-<script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-<!-- Vendor JS       -->
-<script src="vendor/slick/slick.min.js">
-</script>
-<script src="vendor/wow/wow.min.js"></script>
-<script src="vendor/animsition/animsition.min.js"></script>
-<script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-<script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="vendor/counter-up/jquery.counterup.min.js"></script>
-<script src="vendor/circle-progress/circle-progress.min.js"></script>
-<script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="vendor/select2/select2.min.js"></script>
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js"></script>
 
-<!-- Main JS-->
-<script src="js/main.js"></script>
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
 
 </body>
 </html>

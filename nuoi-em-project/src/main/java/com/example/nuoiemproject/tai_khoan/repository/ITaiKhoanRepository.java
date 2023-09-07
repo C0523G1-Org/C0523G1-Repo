@@ -17,4 +17,6 @@ public interface ITaiKhoanRepository {
     TaiKhoan taiKhoanDaTonTai(String tenTaiKhoan);
     //
     int guiMaTaiKhoan(String tenTaiKhoan);
+    NguoiNuoi emailDaTonTai(String email);
+    List<TaiKhoanDto> chiTietTaiKhoan(int maTaiKhoan);
 }

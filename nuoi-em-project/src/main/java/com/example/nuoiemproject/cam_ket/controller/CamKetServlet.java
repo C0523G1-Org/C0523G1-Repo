@@ -1,6 +1,7 @@
 package com.example.nuoiemproject.cam_ket.controller;
 
 import com.example.nuoiemproject.cam_ket.model.CamKet;
+import com.example.nuoiemproject.cam_ket.model.CamKetDTO;
 import com.example.nuoiemproject.cam_ket.service.impl.CamKetService;
 import com.example.nuoiemproject.cam_ket.service.ICamKetService;
 
@@ -38,6 +39,7 @@ public class CamKetServlet extends HttpServlet {
         int maCamKet = Integer.parseInt(request.getParameter("maCamKet"));
         CamKet camKet = service.xemChiTiet(maCamKet);
         request.setAttribute("camKet", camKet);
+        request.setAttribute("maCamKet", maCamKet);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-sua-thong-tin.jsp");
 
             dispatcher.forward(request, response);
@@ -45,7 +47,7 @@ public class CamKetServlet extends HttpServlet {
     }
 
     private void hienThiDanhSach(HttpServletRequest request, HttpServletResponse response) {
-        List<CamKet> danhSach = service.hienThiDanhSach();
+        List<CamKetDTO> danhSach = service.hienThiDanhSach();
         request.setAttribute("danhSach", danhSach);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-danh-sach.jsp");
         try {
