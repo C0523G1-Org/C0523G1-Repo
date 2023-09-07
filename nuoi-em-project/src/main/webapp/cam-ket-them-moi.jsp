@@ -298,7 +298,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="card-footer">
-                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                <button type="submit" class="btn btn-warning btn-sm">
                                                     <i class="fa fa-dot-circle-o"></i> Xác nhận
                                                 </button>
                                                 <a href="/tre-em" class="btn btn-dark">Đóng</a>

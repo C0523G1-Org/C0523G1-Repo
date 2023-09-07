@@ -303,7 +303,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="card-footer">
-                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                <button type="submit" class="btn btn-warning btn-sm">
                                                     <i class="fa fa-dot-circle-o"></i> Xác nhận
                                                 </button>
                                                 <a href="/tre-em" class="btn btn-dark">Đóng</a>
@@ -379,9 +379,6 @@
 <%--            <strong>Sửa thông tin cam kết</strong>--%>
 <%--        </div>--%>
 <%--        <div class="card-body">--%>
-<c:if test="${camKet != null}">
-    <input type="hidden" readonly name="maCamKet" value="${camKet.maCamKet}"/>
-</c:if>
 <%--            <div class="col-12 col-md-9">--%>
 <%--                <div class="col-12 col-md-3">--%>
 <%--                    <label for="ngayNhanNuoi" class="col-form-label">Ngày nhận nuôi</label>--%>
