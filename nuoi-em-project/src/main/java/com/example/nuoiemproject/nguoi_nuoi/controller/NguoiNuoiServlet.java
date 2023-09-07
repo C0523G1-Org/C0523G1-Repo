@@ -148,7 +148,7 @@ public class NguoiNuoiServlet extends HttpServlet {
         String email = request.getParameter("email");
         NguoiNuoi nguoiNuoi = new NguoiNuoi(maNguoiNuoi,tenNguoiNuoi,gioiTinh,maTaiKhoan,soDienThoai,email);
         //        validate DL
-        String soDienThoaiDung = "^(0\\d{9})$";
+        String soDienThoaiDung = "^[0-9]{10,12}$";
         Pattern pattern = Pattern.compile(soDienThoaiDung);
         Matcher matcher = pattern.matcher(request.getParameter("soDienThoai"));
         String emailDung = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
