@@ -244,5 +244,3 @@ so_dien_thoai_moi,
 email_moi);
 end //
 
-
-

@@ -140,7 +140,7 @@
                                     Tổng số tiền:
                                 </th>
                                 <th colspan="2">
-                                    ${chenhLech}
+                                    <fmt:formatNumber value="${chenhLech}" type="currency" currencySymbol="" maxFractionDigits="0" />
                                 </th>
                             </tr>
                             <tr style="background-color: lightgoldenrodyellow">
@@ -148,7 +148,7 @@
                                     Tổng thu:
                                 </th>
                                 <th colspan="2">
-                                    ${tongThu}
+                                    <fmt:formatNumber value="${tongChi}" type="currency" currencySymbol="" maxFractionDigits="0" />
                                 </th>
                             </tr>
                             <tr style="background-color: lightgoldenrodyellow">
@@ -164,7 +164,7 @@
                         <tr>
                             <th>STT</th>
                             <th>Ngày giao dịch</th>
-                            <th>Số tiền</th>
+                            <th>Số tiền(VND)</th>
                             <th>Nội dung</th>
                         </tr>
                         </thead>
@@ -182,7 +182,9 @@
                                     <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
                                 </td>
 
-                                <td><c:out value="${d.soTien}"/></td>
+                                <td>
+                                    <fmt:formatNumber value="${d.soTien}" type="currency" currencySymbol="" maxFractionDigits="0" />
+                                </td>
                                 <td><c:out value="${d.noiDungGiaoDich}"/></td>
                             </tr>
                         </c:forEach>
