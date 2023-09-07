@@ -172,9 +172,9 @@
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">Zhang Ming</a>
+                                                    <a href="#">Admin</a>
                                                 </h5>
-                                                <span class="email">zhangming8443@gmail.com</span>
+                                                <span class="email">nuoiem@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -283,9 +283,11 @@
                     <h5 class="modal-title" id="exampleModalLabel">Xóa</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div style="color: red" class="modal-body">
                     <input type="hidden" id="xoa_ma" name="xoa_ma">
-                    Bạn có muốn xóa cam kết <strong>Bảng cam kết gì ?</strong> không ?
+                   BẠN MUỐN XÓA CAM KẾT  <strong></strong> NÀY KHÔNG ? <br>
+
+                    (Thao tác này khi thực hiện sẽ không thể hoàn tác)
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>

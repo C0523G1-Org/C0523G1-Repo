@@ -10,6 +10,11 @@ public class NguoiNuoi {
 
     public NguoiNuoi() {
     }
+    public NguoiNuoi(String tenNguoiNuoi, int soDienThoai, String email) {
+        this.tenNguoiNuoi = tenNguoiNuoi;
+        this.soDienThoai = soDienThoai;
+        this.email = email;
+    }
     public NguoiNuoi(String tenNguoiNuoi, int gioiTinh, int soDienThoai, String email) {
         this.tenNguoiNuoi = tenNguoiNuoi;
         this.gioiTinh = gioiTinh;

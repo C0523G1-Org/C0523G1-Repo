@@ -243,9 +243,4 @@ ma_tai_khoan_moi,
 so_dien_thoai_moi,
 email_moi);
 end //
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> d5cdbd617597038bc4f27deee533af5d2ce19342

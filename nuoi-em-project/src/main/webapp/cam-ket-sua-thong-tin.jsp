@@ -248,7 +248,9 @@
                                 <div class="card-body card-block">
                                     <form action="cam-ket?action=sua" method="post"
                                           class="form-horizontal">
-
+                                        <c:if test="${camKet != null}">
+                                            <input type="hidden" readonly name="maCamKet" value="${camKet.maCamKet}"/>
+                                        </c:if>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
                                                 <label for="soTien" class=" form-control-label">Số tiền</label>
@@ -377,9 +379,9 @@
 <%--            <strong>Sửa thông tin cam kết</strong>--%>
 <%--        </div>--%>
 <%--        <div class="card-body">--%>
-<%--            <c:if test="${camKet != null}">--%>
-<%--                <input type="hidden" readonly name="maCamKet" value="${camKet.maCamKet}"/>--%>
-<%--            </c:if>--%>
+<c:if test="${camKet != null}">
+    <input type="hidden" readonly name="maCamKet" value="${camKet.maCamKet}"/>
+</c:if>
 <%--            <div class="col-12 col-md-9">--%>
 <%--                <div class="col-12 col-md-3">--%>
 <%--                    <label for="ngayNhanNuoi" class="col-form-label">Ngày nhận nuôi</label>--%>

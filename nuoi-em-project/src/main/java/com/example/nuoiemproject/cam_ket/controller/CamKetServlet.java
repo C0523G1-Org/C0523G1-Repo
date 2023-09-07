@@ -39,6 +39,7 @@ public class CamKetServlet extends HttpServlet {
         int maCamKet = Integer.parseInt(request.getParameter("maCamKet"));
         CamKet camKet = service.xemChiTiet(maCamKet);
         request.setAttribute("camKet", camKet);
+        request.setAttribute("maCamKet", maCamKet);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-sua-thong-tin.jsp");
 
             dispatcher.forward(request, response);

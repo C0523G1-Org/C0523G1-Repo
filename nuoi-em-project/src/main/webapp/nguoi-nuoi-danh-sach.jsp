@@ -267,22 +267,33 @@
                     <div class="modal-content">
                         <form action="/nguoi-nuoi?action=xoa" method="post">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Xóa người nuôi</h5>
+                                <h5 class="modal-title" id="exampleModalLabel" style="color: black">Xóa</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <input type="hidden" id="xoa_ma" name="xoa_ma">
-                                Chắc chắn xóa người nuôi <span id="xoa_ten"></span>?
+                               <div style="color: #C63D2F ">
+                                   Bạn có chắc chắn xóa người nuôi  <span id="xoa_ten"></span> không?<br>
+                                (Lưu ý: Hành động này sẽ không thể hoàn tác)
+                               </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                <button type="submit" class="btn btn-primary">Xóa</button>
+                                <button type="submit" class="btn btn-danger">Xác nhận</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+
+            <script>
+                function sendInforModal(ma, ten) {
+                    document.getElementById("xoa_ma").value = ma;
+                    document.getElementById("xoa_ten").innerText = ten;
+                }
+            </script>
+
         </div>
     </div>
 </div>

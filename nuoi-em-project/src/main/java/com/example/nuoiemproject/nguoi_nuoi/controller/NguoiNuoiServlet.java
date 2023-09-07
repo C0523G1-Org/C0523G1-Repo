@@ -80,7 +80,7 @@ public class NguoiNuoiServlet extends HttpServlet {
     }
 
     private void hienThiThem(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-them-moi.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/tai-khoan-them-tai-khoan.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -183,7 +183,7 @@ public class NguoiNuoiServlet extends HttpServlet {
         int ma_nguoi_nuoi = Integer.parseInt(request.getParameter("xoa_ma"));
         service.xoa(ma_nguoi_nuoi);
         try {
-            response.sendRedirect("/nguoi_nuoi");
+            response.sendRedirect("/nguoi-nuoi");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
