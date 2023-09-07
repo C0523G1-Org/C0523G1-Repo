@@ -109,7 +109,7 @@
                         <label for="thang" class="col-form-label">Tháng:</label>
                     </div>
                     <div class="col-auto">
-                        <input type="text" id="thang" class="form-control" name="thang"
+                        <input type="text" id="thang" class="form-control" name="thang" value="9"
                                aria-describedby="passwordHelpInline">
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                         <label for="nam" class="col-form-label">Năm:</label>
                     </div>
                     <div class="col-auto">
-                        <input type="text" id="nam" class="form-control" name="nam"
+                        <input type="text" id="nam" class="form-control" name="nam" value="2023"
                                aria-describedby="passwordHelpInline">
                     </div>
                 </div>

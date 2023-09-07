@@ -117,7 +117,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/tai-chinh">Tài chính</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -167,7 +167,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/tai-chinh">Tài chính</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -214,7 +214,7 @@
                                                 <h5 class="name">
                                                     <a href="#">Admin</a>
                                                 </h5>
-                                                <span class="email">zhangming8443@gmail.com</span>
+                                                <span class="email">nuoiem@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
