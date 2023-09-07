@@ -79,7 +79,7 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark"
                                     aria-labelledby="navbarDarkDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Chi tiết tài khoản</a></li>
+                                    <li><a class="dropdown-item" href="tai-khoan?action=hienThi">Chi tiết tài khoản</a></li>
                                     <li><a class="dropdown-item" href="#">Chi tiết bản cảm kết</a></li>
                                     <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>
                                     <li><a class="dropdown-item" href="tai-khoan?action=dangXuat">Đăng xuất</a></li>

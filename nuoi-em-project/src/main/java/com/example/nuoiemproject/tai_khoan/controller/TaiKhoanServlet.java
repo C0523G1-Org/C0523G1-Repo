@@ -172,7 +172,7 @@ public class TaiKhoanServlet extends HttpServlet {
             if (role.equals("admin") && matKhau.equals("admin")) {
                 List<TaiKhoan> list = this.service.hienThiDanhSach();
                 request.setAttribute("list", list);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("dang-nhap-admin.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/dang-nhap-admin.jsp");
                 dispatcher.forward(request, response);
             }
             if (flag) {
