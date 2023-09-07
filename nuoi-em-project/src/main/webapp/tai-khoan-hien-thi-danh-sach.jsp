@@ -61,7 +61,7 @@
         <tr class="table-primary">
             <td class="table-primary">STT</td>
             <td class="table-primary">Tên tài khoản</td>
-            <td class="table-primary">Mật khẩu</td>
+
             <td colspan="3" style="text-align: center" class="table-primary">Quản lý</td>
         </tr>
         </thead>
@@ -70,16 +70,23 @@
             <tr class="table-light">
                 <td class="table-info"><c:out value="${loop.count}">STT</c:out></td>
                 <td class="table-info"><c:out value="${tai_khoan.tenTaiKhoan}"></c:out></td>
-                <td class="table-info"><c:out value="${tai_khoan.matKhau}"></c:out></td>
                 <td class="table-info" style="text-align: center">
                     <a href="/tai-khoan?action=suaTaiKhoan&maTaiKhoan=${tai_khoan.getMaTaiKhoan()}">Sửa thông tin </a>
                 </td>
+
+<%--                <td class="table-info" style="text-align: center">--%>
+<%--                    <button type="button" class="btn btn-outline-info" data-bs-target="modal">--%>
+<%--                        <a href="/tai-khoan?action=timThongTinTaiKhoan&maTaiKhoan=${tai_khoan.getMaTaiKhoan()}">Chi tiết--%>
+<%--                            tài--%>
+<%--                            khoản </a>--%>
+<%--                    </button>--%>
+<%--                </td>--%>
                 <td class="table-info" style="text-align: center">
-                    <button type="button" class="btn btn-outline-info" data-bs-target="modal">
-                        <a href="/tai-khoan?action=timThongTinTaiKhoan&maTaiKhoan=${tai_khoan.getMaTaiKhoan()}">Chi tiết
-                            tài
-                            khoản </a>
-                    </button>
+                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal"
+                                data-bs-target="#modalThongTin"
+                                onclick="guiTenTaiKhoan('${tai_khoan.tenTaiKhoan}')">
+                            Chi tiết tài khoản
+                        </button>
                 </td>
                 <td class="table-info" style="text-align: center">
                     <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
@@ -100,7 +107,7 @@
         <div class="modal-content">
             <form action="/tai-khoan?action=xoaTaiKhoan" method="post">
                 <div class="modal-header">
-                    <h5 class="modal-title" Xóa tài khoản</h5>
+                    <h5 class="modal-title"> Xóa tài khoản</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -118,6 +125,31 @@
 <%--modal xóa end--%>
 
 <%--modal xem thông tin--%>
+<div class="modal fade" tabindex="-1" id="modalThongTin" aria-labelledby="xemThongTin" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thông tin</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item active" aria-current="true">Thông tin tài khoản: <span
+                            id="tenTK"></span></li>
+                        <li class="list-group-item">Mã tài khoản: <span id="maTaiKhoanShow">${tai_khoan_dto.getMaTaiKhoan()}</span></li>
+                        <li class="list-group-item">Mật khẩu: <span id="matKhauShow">${tai_khoan_dto.getMatKhau()}</span></li>
+                        <li class="list-group-item">Tên chủ tài khoản: <span id="tenNguoiNuoiShow">${tai_khoan_dto.getTenNguoiNuoi()}</span></li>
+                        <li class="list-group-item">Giới tính: <span id="gioiTinhShow">${tai_khoan_dto.getGioiTinh()}</span></li>
+                        <li class="list-group-item">SDT: <span id="soDienThoaiShow">${tai_khoan_dto.getSoDienThoai()}</span></li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Quay lại</button>
+            </div>
+        </div>
+    </div>
+</div>
+<%--modal xem thông tin--%>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
@@ -125,6 +157,9 @@
     function guiThongTin(maTaiKhoan, tenTaiKhoan) {
         document.getElementById("maTaiKhoanXoa").value = maTaiKhoan;
         document.getElementById("tenTaiKhoanXoa").innerText = tenTaiKhoan;
+    }
+    function guiTenTaiKhoan(tenTaiKhoan) {
+        document.getElementById("tenTK").innerText = tenTaiKhoan;
     }
 </script>
 </body>

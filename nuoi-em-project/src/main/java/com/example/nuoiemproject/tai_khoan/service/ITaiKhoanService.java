@@ -17,4 +17,7 @@ public interface ITaiKhoanService {
     Boolean taiKhoanDaTonTai(String tenTaiKhoan);
     //
     int guiMaTaiKhoan(String tenTaiKhoan);
+    //
+    Boolean emailDaTonTai(String email);
+    List<TaiKhoanDto> chiTietTaiKhoan(int maTaiKhoan);
 }

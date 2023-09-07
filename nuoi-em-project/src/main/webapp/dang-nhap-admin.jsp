@@ -1,5 +1,12 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: HP
+  Date: 9/7/2023
+  Time: 11:48 AM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<html>
 <head>
     <!-- Basic -->
     <meta charset="utf-8"/>
@@ -16,7 +23,6 @@
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"/>
-
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 
@@ -27,11 +33,10 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet"/>
+    <%--    <link rel="stylesheet" href="vendor/bootstrap-5.2.3-dist/css/bootstrap.css" type="text/css">--%>
     <!-- responsive style -->
     <link href="css/responsive.css" rel="stylesheet"/>
 </head>
-
-
 <body>
 <div class="hero_area">
     <!-- header section strats -->
@@ -61,13 +66,24 @@
                                 <a class="nav-link" href="/tre-em-tc">Trẻ em</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Chứng nhận</a>
+                                <a class="nav-link" href="#">Quản lý</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/tai-chinh">Tài chính</a>
+                                <a class="nav-link" href="#">Tài chính</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/tai-khoan?action=dangNhap">Đăng nhập</a>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink"
+                                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    ADMIN
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Chi tiết tài khoản</a></li>
+                                    <li><a class="dropdown-item" href="#">Chi tiết bản cảm kết</a></li>
+                                    <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>
+                                    <li><a class="dropdown-item" href="tai-khoan?action=dangXuat">Đăng xuất</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -629,5 +645,9 @@
         document.getElementById("myNav").style.width = "0%";
     }
 </script>
+
+<script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.js">
+</script>
+
 </body>
 </html>

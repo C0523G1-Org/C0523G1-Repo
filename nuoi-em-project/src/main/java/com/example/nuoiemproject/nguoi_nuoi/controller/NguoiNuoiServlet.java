@@ -80,7 +80,7 @@ public class NguoiNuoiServlet extends HttpServlet {
     }
 
     private void hienThiThem(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-them-moi.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/tai-khoan-them-tai-khoan.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {

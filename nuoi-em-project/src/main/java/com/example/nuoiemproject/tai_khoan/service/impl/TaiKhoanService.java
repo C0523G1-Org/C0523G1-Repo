@@ -68,4 +68,17 @@ public class TaiKhoanService implements ITaiKhoanService {
     public int guiMaTaiKhoan(String tenTaiKhoan) {
         return repository.guiMaTaiKhoan(tenTaiKhoan);
     }
+
+    @Override
+    public Boolean emailDaTonTai(String email) {
+        NguoiNuoi nguoiNuoi = repository.emailDaTonTai(email);
+        if (nguoiNuoi == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public List<TaiKhoanDto> chiTietTaiKhoan(int maTaiKhoan) {
+        return repository.chiTietTaiKhoan(maTaiKhoan);
+    }
 }
