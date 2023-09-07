@@ -18,6 +18,8 @@
 
     <!-- Bootstrap CSS-->
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
 
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -199,89 +201,92 @@
 
         <!-- MAIN CONTENT-->
         <div class="main-content">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="title-1 m-b-25 justify-content-center d-flex" style="color: #0c0c0c; margin-bottom: 0">
-                        Danh sách trẻ em</h2>
-                    <a class="btn btn-outline-light" href="/tre-em?action=them" style="color: black">
-                        <i class="fas fa-plus"></i>
-                    </a>
-                    <div class="table-responsive table--no-card m-b-40">
-                        <table id="myTable" class="table table-borderless table-striped table-earning">
-                            <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Tên</th>
-                                <th>Giới tính</th>
-                                <th>Ngày sinh</th>
-                                <th>Mô tả</th>
-                                <th>Người giám hộ</th>
-                                <th>Khu vực</th>
-                                <th>Trạng thái</th>
-                                <th>Ảnh</th>
-                                <th>Sửa</th>
-                                <th>Xóa</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach items="${treEmDto}" var="treEmDto" varStatus="loop">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="title-1 m-b-25 justify-content-center d-flex"
+                            style="color: #0c0c0c; margin-bottom: 0">
+                            Danh sách trẻ em</h2>
+                        <a class="btn btn-outline-light" href="/tre-em?action=them" style="color: black">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                        <div class="table-responsive table--no-card m-b-40">
+                            <table id="myTable" class="table table-borderless table-striped table-earning">
+                                <thead>
                                 <tr>
-                                    <td>
-                                            ${loop.count}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenTreEm()}
-                                    </td>
-
-                                    <td>
-                                        <c:if test="${treEmDto.getGioiTinh() == 1}">Nam</c:if>
-                                        <c:if test="${treEmDto.getGioiTinh() == 0}">Nữ</c:if>
-                                    </td>
-
-                                    <c:set var="dateString" value="${treEmDto.getNgaySinh()}"/>
-                                    <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
-                                    <td>
-                                        <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getMoTa()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenNguoiGiamHo()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenKhuVuc()}
-                                    </td>
-
-                                    <td>
-                                        <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
-                                        <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
-                                    </td>
-
-                                    <td>
-                                        <img height="50px" width="50px" src="images/tre-em/${treEmDto.getHinhAnh()}">
-                                    </td>
-                                    <td>
-                                        <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"
-                                           role="button">
-                                            <i class="fas fa-pencil-square-o" style="color: black"></i></a>
-                                    </td>
-                                    <td>
-                                        <button type="button" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"
-                                                onclick="sendInforModal('${treEmDto.maTreEm}','${treEmDto.tenTreEm}')">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </td>
+                                    <th>STT</th>
+                                    <th>Tên</th>
+                                    <th>Giới tính</th>
+                                    <th>Ngày sinh</th>
+                                    <th>Mô tả</th>
+                                    <th>Người giám hộ</th>
+                                    <th>Khu vực</th>
+                                    <th>Trạng thái</th>
+                                    <th>Ảnh</th>
+                                    <th>Sửa</th>
+                                    <th>Xóa</th>
                                 </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${treEmDto}" var="treEmDto" varStatus="loop">
+                                    <tr>
+                                        <td>
+                                                ${loop.count}
+                                        </td>
+
+                                        <td>
+                                                ${treEmDto.getTenTreEm()}
+                                        </td>
+
+                                        <td>
+                                            <c:if test="${treEmDto.getGioiTinh() == 1}">Nam</c:if>
+                                            <c:if test="${treEmDto.getGioiTinh() == 0}">Nữ</c:if>
+                                        </td>
+
+                                        <c:set var="dateString" value="${treEmDto.getNgaySinh()}"/>
+                                        <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
+                                        <td>
+                                            <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
+                                        </td>
+
+                                        <td>
+                                                ${treEmDto.getMoTa()}
+                                        </td>
+
+                                        <td>
+                                                ${treEmDto.getTenNguoiGiamHo()}
+                                        </td>
+
+                                        <td>
+                                                ${treEmDto.getTenKhuVuc()}
+                                        </td>
+
+                                        <td>
+                                            <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
+                                            <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
+                                        </td>
+
+                                        <td>
+                                            <img height="50px" width="50px"
+                                                 src="images/tre-em/${treEmDto.getHinhAnh()}">
+                                        </td>
+                                        <td>
+                                            <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"
+                                               role="button">
+                                                <i class="fas fa-pencil-square-o" style="color: black"></i></a>
+                                        </td>
+                                        <td>
+                                            <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"
+                                                    onclick="sendInforModal('${treEmDto.maTreEm}','${treEmDto.tenTreEm}')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -347,9 +352,52 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#mytable').DataTable({
+            language: {
+                "decimal": ",",
+                "thousands": ".",
+                "sEmptyTable": "Không có dữ liệu",
+                "sInfo": "Đang hiển thị _START_ đến _END_ của tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang hiển thị 0 đến 0 của tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ tổng số _MAX_ mục)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ",",
+                "sLengthMenu": "Hiển thị _MENU_ mục",
+                "sLoadingRecords": "Đang tải...",
+                "sProcessing": "Đang xử lý...",
+                "sSearch": "Tìm kiếm:",
+                "Show:": "",
+                "entries": "",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sLast": "Cuối",
+                    "sNext": "Tiếp",
+                    "sPrevious": "Trước"
+                },
+
+            },
+            color: {
+                "oPaginate": {
+                    "sFirst": "blue",
+                    "sLast": "green",
+                    "sNext": "green",
+                    "sPrevious": "blue"
+                },
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

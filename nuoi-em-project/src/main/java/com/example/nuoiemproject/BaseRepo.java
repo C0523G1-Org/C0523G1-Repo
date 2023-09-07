@@ -16,7 +16,6 @@ public class BaseRepo {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "210100";
 
-
     public static Connection getConnection() {
         Connection connection = null;
         try {

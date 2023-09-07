@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8edda3e7-4fb4-4ebd-b9b0-8da960038532" name="Changes" comment="" />
+    <list default="true" id="8edda3e7-4fb4-4ebd-b9b0-8da960038532" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/nuoi-em-project/src/main/java/com/example/nuoiemproject/tai_khoan/controller/TaiKhoanServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/nuoi-em-project/src/main/java/com/example/nuoiemproject/tai_khoan/controller/TaiKhoanServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuoi-em-project/src/main/java/com/example/nuoiemproject/tai_khoan/repository/ITaiKhoanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/nuoi-em-project/src/main/java/com/example/nuoiemproject/tai_khoan/repository/ITaiKhoanRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuoi-em-project/src/main/java/com/example/nuoiemproject/tai_khoan/repository/impl/TaiKhoanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/nuoi-em-project/src/main/java/com/example/nuoiemproject/tai_khoan/repository/impl/TaiKhoanRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuoi-em-project/src/main/webapp/tai-khoan-hien-thi-danh-sach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/nuoi-em-project/src/main/webapp/tai-khoan-hien-thi-danh-sach.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +28,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/mylie/Desktop/case_study_web/C0523G1-Repo",
+    "last_opened_file_path": "D:/GIT - Bai tap/case_study_web/C0523G1-Repo/nuoi-em-project",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -36,7 +41,6 @@
       <option name="presentableId" value="Default" />
       <updated>1694000337696</updated>
       <workItem from="1694000339355" duration="41000" />
-      <workItem from="1694052032665" duration="7000" />
     </task>
     <servers />
   </component>
