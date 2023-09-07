@@ -64,7 +64,7 @@
                                 <a class="nav-link" href="#">Chứng nhận</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/tai-chinh">Tài chính</a>
+                                <a class="nav-link" href="#">Tài chính</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/tai-khoan?action=dangNhap">Đăng nhập</a>

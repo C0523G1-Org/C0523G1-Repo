@@ -68,11 +68,11 @@ public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
         Connection connection = BaseRepo.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SQL_NGUOI_GIAM_HO);
-            preparedStatement.setString(1, nguoiGiamHo.getTenNguoiGiamHo());
-            preparedStatement.setInt(2, nguoiGiamHo.getGioiTinh());
-            preparedStatement.setInt(3, nguoiGiamHo.getMaKhuVuc());
-            preparedStatement.setString(4, nguoiGiamHo.getSoDienThoai());
-            preparedStatement.setInt(5, nguoiGiamHo.getMaNguoiGiamHo());
+            preparedStatement.setInt(1, nguoiGiamHo.getMaNguoiGiamHo());
+            preparedStatement.setString(2, nguoiGiamHo.getTenNguoiGiamHo());
+            preparedStatement.setInt(3, nguoiGiamHo.getGioiTinh());
+            preparedStatement.setInt(4, nguoiGiamHo.getMaKhuVuc());
+            preparedStatement.setString(5, nguoiGiamHo.getSoDienThoai());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

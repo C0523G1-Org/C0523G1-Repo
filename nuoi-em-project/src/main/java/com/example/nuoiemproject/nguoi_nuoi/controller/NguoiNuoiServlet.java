@@ -42,28 +42,13 @@ public class NguoiNuoiServlet extends HttpServlet {
     }
 
     private void hienThiXemTre(HttpServletRequest request, HttpServletResponse response) {
-        int maNguoiNuoi = Integer.parseInt(request.getParameter("maTaiKhoan"));
-        List<NguoiNuoiDto> danhSachTre = service.xemTreEmNhan(maNguoiNuoi);
-        if(danhSachTre.isEmpty()){
-            String thongBao = "Chưa nhận trẻ nào!";
-            request.setAttribute("thongBao", thongBao);
-            try {
-                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request,response);
-            } catch (ServletException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        else {
-            request.setAttribute("danhSachTre",danhSachTre);
-            try {
-                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request,response);
-            } catch (ServletException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp");
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -95,7 +80,7 @@ public class NguoiNuoiServlet extends HttpServlet {
     }
 
     private void hienThiThem(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/tai-khoan-them-tai-khoan.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-them-moi.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {

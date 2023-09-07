@@ -23,18 +23,18 @@ public class TreEmService implements ITreEmService {
     }
 
     @Override
-    public void sua(TreEm treEm) {
-        treEmRepo.sua(treEm);
+    public void sua(int id, TreEm treEm) {
+        treEmRepo.sua(id, treEm);
     }
 
     @Override
-    public void xoa(int maTreEm) {
-        treEmRepo.xoa(maTreEm);
+    public void xoa(int id) {
+        treEmRepo.xoa(id);
     }
 
     @Override
-    public TreEm timId(int maTreEm) {
-        return treEmRepo.timId(maTreEm);
+    public TreEm timId(int id) {
+        return treEmRepo.timId(id);
     }
 
     @Override

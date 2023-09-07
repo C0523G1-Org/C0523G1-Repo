@@ -17,11 +17,6 @@
 </head>
 <body>
 <h2 style="text-align: center">Thêm Mới Người Giám Hộ</h2>
-<nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-        <a href="/nguoi-giam-ho"><button type="submit" class="btn btn-outline-primary" >Trở về</button></a>
-    </div>
-</nav>
 <form action="/nguoi-giam-ho?action=them" method="post">
     <div class="mb-3">
         <label for="tenNguoiGiamHo" class="form-label">Họ và tên</label>

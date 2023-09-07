@@ -26,10 +26,6 @@ public class TreEmRepo implements ITreEmRepo {
             " join nguoi_giam_ho ngh on ngh.ma_nguoi_giam_ho = te.ma_nguoi_giam_ho " +
             " where te.trang_thai_xoa = 0 " +
             " order by te.ma_tre_em ";
-    private static final String XOA_TRE_EM = "UPDATE tre_em SET trang_thai_xoa = 1 WHERE ma_tre_em = ?";
-    private static final String TIM_TRE_EM = "SELECT * FROM tre_em WHERE ma_tre_em = ?";
-    private static final String SUA_TRE_EM = "update tre_em set\n" +
-            "ten_tre_em = ?,gioi_tinh=?,ngay_sinh=?,mo_ta=?,ma_khu_vuc=?,ma_nguoi_giam_ho=?,hinh_anh=? where ma_tre_em = ?;";
 
     @Override
     public List<TreEm> hienThiDanhSach() {
@@ -73,54 +69,18 @@ public class TreEmRepo implements ITreEmRepo {
     }
 
     @Override
-    public void sua(TreEm treEm) {
-        Connection connection = BaseRepo.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SUA_TRE_EM);
-            preparedStatement.setString(1, treEm.getTenTreEm());
-            preparedStatement.setInt(2, treEm.getGioiTinh());
-            preparedStatement.setString(3, treEm.getNgaySinh());
-            preparedStatement.setString(4, treEm.getMoTa());
-            preparedStatement.setInt(5, treEm.getMaKhuVuc());
-            preparedStatement.setInt(6, treEm.getMaNguoiGiamHo());
-            preparedStatement.setString(7, treEm.getHinhAnh());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public void sua(int id, TreEm treEm) {
+
     }
 
     @Override
-    public void xoa(int maTreEm) {
-        Connection connection = BaseRepo.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(XOA_TRE_EM);
-            preparedStatement.setInt(1, maTreEm);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public void xoa(int id) {
+
     }
 
     @Override
-    public TreEm timId(int maTreEm) {
-        Connection connection = BaseRepo.getConnection();
-        TreEm treEm = null;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(TIM_TRE_EM);
-            preparedStatement.setInt(1, maTreEm);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                String tenTreEm = resultSet.getString("ten_tre_em");
-                int gioiTinh = resultSet.getInt("gioi_tinh");
-                String ngaySinh = resultSet.getString("ngay_sinh");
-                int trangThai = resultSet.getInt("trang_thai_nhan_nuoi");
-                treEm = new TreEm(maTreEm, tenTreEm, gioiTinh, ngaySinh, trangThai);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return treEm;
+    public TreEm timId(int id) {
+        return null;
     }
 
     @Override

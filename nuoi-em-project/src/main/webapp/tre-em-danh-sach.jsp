@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title Page-->
-    <title>Quản lý</title>
+    <title>Danh sách trẻ em</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -39,10 +39,12 @@
         <div class="header-mobile__bar" style="background-color: #90953b">
             <div class="container-fluid">
                 <div class="header-mobile-inner">
-                    <a class="logo" href="index.html">
-                        <%--                        <img src="images/icon/logo.png" alt="CoolAdmin"/>--%>
-                        <h3>Team 2</h3>
-                    </a>
+                    <div class="logo" style="background-color: #90953b">
+                        <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
+                        <a href="#">
+                            <h3>Nuôi em</h3>
+                        </a>
+                    </div>
                     <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
@@ -63,21 +65,24 @@
                             <i class="fas fa-list"></i>Danh sách</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
-                                <a href="/tre-em">Trẻ em</a>
-                            </li>
-                            <li>
-                                <a href="/nguoi-giam-ho">Người giám hộ</a>
+                                <a href="/cam-ket">Bảng cam kết</a>
                             </li>
                             <li>
                                 <a href="/nguoi-nuoi">Mạnh thường quân</a>
                             </li>
                             <li>
-                                <a href="/cam-ket">Bảng cam kết</a>
+                                <a href="/nguoi-giam-ho">Người giám hộ</a>
+                            </li>
+                            <li>
+                                <a href="/tre-em">Trẻ em</a>
+                            </li>
+                            <li>
+                                <a href="/tai-chinh">Tài chính</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/tai-khoan">
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
@@ -110,21 +115,24 @@
                             <i class="fas fa-list"></i>Danh sách</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
-                                <a href="/tre-em">Trẻ em</a>
-                            </li>
-                            <li>
-                                <a href="/nguoi-giam-ho">Người giám hộ</a>
+                                <a href="/cam-ket">Bảng cam kết</a>
                             </li>
                             <li>
                                 <a href="/nguoi-nuoi">Mạnh thường quân</a>
                             </li>
                             <li>
-                                <a href="/cam-ket">Bảng cam kết</a>
+                                <a href="/nguoi-giam-ho">Người giám hộ</a>
+                            </li>
+                            <li>
+                                <a href="/tre-em">Trẻ em</a>
+                            </li>
+                            <li>
+                                <a href="/tai-chinh">Tài chính</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/tai-khoan">
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
@@ -196,14 +204,14 @@
                 <div class="col-lg-12">
                     <h2 class="title-1 m-b-25 justify-content-center d-flex" style="color: #0c0c0c; margin-bottom: 0">
                         Danh sách trẻ em</h2>
-                    <a class="btn btn-outline-light" href="#" style="color: black">
+                    <a class="btn btn-outline-light" href="/tre-em?action=them" style="color: black">
                         <i class="fas fa-plus"></i>
                     </a>
                     <div class="table-responsive table--no-card m-b-40">
-                        <table class="table table-borderless table-striped table-earning">
+                        <table id="myTable" class="table table-borderless table-striped table-earning">
                             <thead>
                             <tr>
-                                <th>Mã</th>
+                                <th>STT</th>
                                 <th>Tên</th>
                                 <th>Giới tính</th>
                                 <th>Ngày sinh</th>
@@ -217,10 +225,10 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${treEmDto}" var="treEmDto">
+                            <c:forEach items="${treEmDto}" var="treEmDto" varStatus="loop">
                                 <tr>
                                     <td>
-                                            ${treEmDto.getMaTreEm()}
+                                            ${loop.count}
                                     </td>
 
                                     <td>
@@ -259,16 +267,12 @@
                                         <img height="50px" width="50px" src="images/tre-em/${treEmDto.getHinhAnh()}">
                                     </td>
                                     <td>
-                                        <a href="/tre-em?action=sua&maTreEm=${treEmDto.getMaTreEm()}"
+                                        <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"
                                            role="button">
                                             <i class="fas fa-pencil-square-o" style="color: black"></i></a>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"
-                                                onclick="sendInforModal('${treEmDto.maTreEm}','${treEmDto.tenTreEm}')">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
+                                        <button><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -277,35 +281,6 @@
                     </div>
                 </div>
             </div>
-            <%--Modal--%>
-            <div class="modal" tabindex="-1" id="exampleModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form action="/tre-em?action=xoa" method="post">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Xóa trẻ em</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body alert-danger">
-                                <input type="hidden" id="xoa_ma" name="xoa_ma">
-                                CHẮC CHẮN XÓA TRẺ:  <span id="xoa_ten"></span>?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                <button type="submit" class="btn btn-primary">Xóa</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <script>
-                function sendInforModal(ma, ten) {
-                    document.getElementById("xoa_ma").value = ma;
-                    document.getElementById("xoa_ten").innerText = ten;
-                }
-            </script>
             <div class="row">
                 <div class="col-lg-12 justify-content-center">
                     <div class="copyright">
@@ -339,8 +314,6 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
+
 </body>
 </html>

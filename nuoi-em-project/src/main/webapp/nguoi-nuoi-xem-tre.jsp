@@ -15,11 +15,10 @@
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 </head>
 <body>
-<%--<form action="/nguoi-nuoi?action=xemTre" method="post">--%>
-<%--    <input type="hidden" id="maNguoiNuoi" name="maNguoiNuoi">--%>
-<%--&lt;%&ndash;    <label for="maNguoiNuoi">Nhập Mã Người Nuôi:</label>&ndash;%&gt;--%>
-<%--&lt;%&ndash;    <input type="text" id="maNguoiNuoi" name="maNguoiNuoi"><br>&ndash;%&gt;--%>
-<%--&lt;%&ndash;    <button type="submit">Hiển thị</button>&ndash;%&gt;--%>
+<form action="/nguoi-nuoi?action=xemTre" method="post">
+    <label for="maNguoiNuoi">Nhập Mã Người Nuôi:</label>
+    <input type="text" id="maNguoiNuoi" name="maNguoiNuoi"><br>
+    <button type="submit">Hiển thị</button>
 
     <div class="row">
         <div class="col-lg-12">
@@ -73,7 +72,7 @@
             </div>
         </div>
     </div>
-<%--</form>--%>
+</form>
 
 <script src="js/main.js"></script>
 </body>

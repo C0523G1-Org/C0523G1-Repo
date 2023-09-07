@@ -10,11 +10,11 @@ public interface ITreEmService {
 
     void them(TreEm treEm);
 
-    void sua(TreEm treEm);
+    void sua(int id, TreEm treEm);
 
-    void xoa(int maTreEm);
+    void xoa(int id);
 
-    TreEm timId(int maTreEm);
+    TreEm timId(int id);
 
     List<TreEmDto> hienThiDto();
 }
