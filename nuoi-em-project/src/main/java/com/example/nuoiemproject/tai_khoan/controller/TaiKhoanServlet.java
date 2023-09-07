@@ -34,9 +34,6 @@ public class TaiKhoanServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
-            case "hienThi":
-                hienThiDanhSach(request, response);
-                break;
             case "suaTaiKhoan":
                 hienThiSuaTaiKhoan(request, response);
                 break;
@@ -51,6 +48,9 @@ public class TaiKhoanServlet extends HttpServlet {
                 break;
             case "dangXuat":
                 dangXuat(request, response);
+                break;
+            default:
+                hienThiDanhSach(request, response);
                 break;
         }
     }
@@ -195,13 +195,14 @@ public class TaiKhoanServlet extends HttpServlet {
     }
 
     private void xoaTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
-        int maTaiKhoanXoa = Integer.parseInt(request.getParameter("maTaiKhoanXoa"));
-        this.service.xoaTaiKhoan(maTaiKhoanXoa);
+        int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
+        this.service.xoaTaiKhoan(maTaiKhoan);
         try {
             response.sendRedirect("/tai-khoan?action=hienThi");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     private void themTaiKhoan(HttpServletRequest request, HttpServletResponse response) {

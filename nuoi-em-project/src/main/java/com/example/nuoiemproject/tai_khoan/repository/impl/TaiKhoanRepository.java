@@ -26,8 +26,8 @@ public class TaiKhoanRepository extends BaseRepo implements ITaiKhoanRepository 
             " set mat_khau = ?" +
             " where ma_tai_khoan = ?;";
     private static final String THEM_TAI_KHOAN = "call them_moi(?,?,?,?,?,?,?);";
-    private static final String XOA_TAI_KHOAN = "update tai_khoan set trang_thai_xoa = true " +
-            " where ma_tai_khoan = ?;";
+    private static final String XOA_TAI_KHOAN = "update tai_khoan set trang_thai_xoa = " +
+            "true where ma_tai_khoan = ?;";
     private static final String DANG_NHAP = "select ma_tai_khoan, ten_tai_khoan, mat_khau from tai_khoan where" +
             " ten_tai_khoan = ? and mat_khau = ?;";
     private static final String TIM_THONG_TIN_CHI_TIET = "select tai_khoan.ma_tai_khoan, tai_khoan.ten_tai_khoan, " +
@@ -97,12 +97,11 @@ public class TaiKhoanRepository extends BaseRepo implements ITaiKhoanRepository 
     }
 
     @Override
-    public void xoaTaiKhoan(int maTaiKhoan) {
+    public void xoaTaiKhoan(int id) {
         Connection connection = getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(XOA_TAI_KHOAN);
-            preparedStatement.setInt(1, maTaiKhoan);
-            preparedStatement.executeUpdate();
+            preparedStatement.setInt(1, id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title Page-->
-    <title>Quản lý</title>
+    <title>Thêm mới trẻ em</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -29,18 +29,52 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <style>
+        @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+
+        .info-msg,
+        .success-msg,
+        .warning-msg,
+        .error-msg {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 3px 3px 3px 3px;
+        }
+
+        .info-msg {
+            color: #059;
+            background-color: #BEF;
+        }
+
+        .success-msg {
+            color: #270;
+            background-color: #DFF2BF;
+        }
+
+        .warning-msg {
+            color: #9F6000;
+            background-color: #FEEFB3;
+        }
+
+        .error-msg {
+            color: #D8000C;
+            background-color: #FFBABA;
+        }
+    </style>
 </head>
 <body class="animsition">
 <div class="page-wrapper">
     <!-- HEADER MOBILE-->
     <header class="header-mobile d-block d-lg-none">
-        <div class="header-mobile__bar">
+        <div class="header-mobile__bar" style="background-color: #90953b">
             <div class="container-fluid">
                 <div class="header-mobile-inner">
-                    <a class="logo" href="index.html">
-                        <%--                        <img src="images/icon/logo.png" alt="CoolAdmin"/>--%>
-                        <h3>Team 2</h3>
-                    </a>
+                    <div class="logo" style="background-color: #90953b">
+                        <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
+                        <a href="#">
+                            <h3>Nuôi em</h3>
+                        </a>
+                    </div>
                     <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
@@ -61,25 +95,28 @@
                             <i class="fas fa-list"></i>Danh sách</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
+                                <a href="/cam-ket">Bảng cam kết</a>
+                            </li>
+                            <li>
+                                <a href="/nguoi-nuoi">Mạnh thường quân</a>
+                            </li>
+                            <li>
+                                <a href="/nguoi-giam-ho">Người giám hộ</a>
+                            </li>
+                            <li>
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="#">Người giám hộ</a>
-                            </li>
-                            <li>
-                                <a href="#">Mạnh thường quân</a>
-                            </li>
-                            <li>
-                                <a href="#">Bảng cam kết</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/tai-khoan">
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/nuoi-em-trang-chu.jsp">
                             <i class="fas fa-arrow-left"></i>Trở về</a>
                     </li>
                 </ul>
@@ -90,13 +127,13 @@
 
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
-        <div class="logo">
-            <a class="logo" href="index.html">
-                <%--                        <img src="images/icon/logo.png" alt="CoolAdmin"/>--%>
-                <h3>Team 2</h3>
+        <div class="logo" style="background-color: #90953b">
+            <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
+            <a href="#">
+                <h3>Nuôi em</h3>
             </a>
         </div>
-        <div class="menu-sidebar__content js-scrollbar1">
+        <div class="menu-sidebar__content js-scrollbar1" style="background-color: #78853f">
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list">
                     <li>
@@ -108,25 +145,28 @@
                             <i class="fas fa-list"></i>Danh sách</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
-                                <a href="#">Trẻ em</a>
+                                <a href="/cam-ket">Bảng cam kết</a>
                             </li>
                             <li>
-                                <a href="#">Người giám hộ</a>
+                                <a href="/nguoi-nuoi">Mạnh thường quân</a>
                             </li>
                             <li>
-                                <a href="#">Mạnh thường quân</a>
+                                <a href="/nguoi-giam-ho">Người giám hộ</a>
                             </li>
                             <li>
-                                <a href="#">Bảng cam kết</a>
+                                <a href="/tre-em">Trẻ em</a>
+                            </li>
+                            <li>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/tai-khoan">
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/nuoi-em-trang-chu.jsp">
                             <i class="fas fa-arrow-left"></i>Trở về</a>
                     </li>
                 </ul>
@@ -138,12 +178,12 @@
     <!-- PAGE CONTAINER-->
     <div class="page-container">
         <!-- HEADER DESKTOP-->
-        <header class="header-desktop">
+        <header class="header-desktop" style="background-color: #78853f">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="header-wrap">
-                        <form class="form-header" action="" method="POST">
-                        </form>
+                        <div class="form-header">
+                        </div>
                         <div class="header-button">
                             <div class="account-wrap">
                                 <div class="account-item clearfix js-item-menu">
@@ -198,14 +238,15 @@
                                     <strong>Thêm mới trẻ em</strong>
                                 </div>
                                 <div class="card-body card-block">
-                                    <form action="tre-em?action=create" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                    <form action="tre-em?action=them" method="post"
+                                          class="form-horizontal">
 
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="text-input" class=" form-control-label">Họ và tên</label>
+                                                <label for="tenTreEm" class=" form-control-label">Họ và tên</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="text-input" required name="tenTreEm"
+                                                <input type="text" id="tenTreEm" required name="tenTreEm"
                                                        class="form-control">
                                             </div>
                                         </div>
@@ -228,11 +269,11 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="text-input" class=" form-control-label">Ngày sinh</label>
+                                                <label for="ngaySinh" class=" form-control-label">Ngày sinh</label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input id="ngaySinh" name="ngaySinh" class="form-control"
-                                                       required="" type="date" value="">
+                                                       required type="date">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -246,10 +287,10 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="select" class=" form-control-label">Khu vực</label>
+                                                <label for="maKhuVuc" class=" form-control-label">Khu vực</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <select name="select" id="select" class="form-control">
+                                                <select name="maKhuVuc" id="maKhuVuc" class="form-control">
                                                     <option disabled selected>Chọn khu vực</option>
                                                     <c:forEach var="k" items="${khuVuc}">
                                                         <option value="${k.getMaKhuVuc()}">
@@ -259,46 +300,48 @@
                                                 </select>
                                             </div>
                                         </div>
-<%--                                        <div class="row form-group">--%>
-<%--                                            <div class="col col-md-3">--%>
-<%--                                                <label for="select" class=" form-control-label">Người giám hộ</label>--%>
-<%--                                            </div>--%>
-<%--                                            <div class="col-12 col-md-9">--%>
-<%--                                                <select name="nguoiGiamHo" id="nguoiGiamHo" class="form-control">--%>
-<%--                                                    <option>Chọn người giám hộ</option>--%>
-<%--                                                    <c:forEach var="khu" items="${tenKhuVuc}">--%>
-<%--                                                        <option value="${maKhuVuc.getMaKhuVuc()}">--%>
-<%--                                                                ${maKhuVuc.getTenKhuVuc()}--%>
-<%--                                                        </option>--%>
-<%--                                                    </c:forEach>--%>
-<%--                                                </select>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="file-input" class=" form-control-label">Hình ảnh</label>
+                                                <label for="maNguoiGiamHo" class=" form-control-label">Người giám
+                                                    hộ</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="file" id="file-input" name="file-input"
+                                                <select name="maNguoiGiamHo" id="maNguoiGiamHo" class="form-control">
+                                                    <option>Chọn người giám hộ</option>
+                                                    <c:forEach var="ngh" items="${nguoiGiamHo}">
+                                                        <option value="${ngh.getMaNguoiGiamHo()}">
+                                                                ${ngh.getTenNguoiGiamHo()}
+                                                        </option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="hinhAnh" class=" form-control-label">Hình ảnh</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="file" id="hinhAnh" name="hinhAnh"
                                                        class="form-control-file">
                                             </div>
                                         </div>
-
+                                        <div class="row form-group">
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Xác nhận
+                                                </button>
+                                                <a href="/tre-em" class="btn btn-dark">Đóng</a>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <c:if test="${message != null}">
+                                                <div class="success-msg">
+                                                    <i class="fa fa-check"></i>
+                                                        ${message}
+                                                </div>
+                                            </c:if>
+                                        </div>
                                     </form>
-                                </div>
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-dot-circle-o"></i> Xác nhận
-                                    </button>
-                                    <a href="/tre-em" class="btn btn-dark">Đóng</a>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col col-md-3">
-                                        <label for="text-input" class=" form-control-label">Thành công</label>
-                                    </div>
-                                    <div class="col-12 col-md-9">
-                                        <input type="text" id="result" name="text-input" class="form-control">
-                                    </div>
                                 </div>
                             </div>
                         </div>

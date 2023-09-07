@@ -9,4 +9,5 @@ public interface INguoiGiamHoService {
     void themNguoiGiamHo(NguoiGiamHo nguoiGiamHo);
     void xoaNguoiGiamHo(int maNguoiGiamHo);
     void capNhatNguoiGiamHo(NguoiGiamHo nguoiGiamHo);
+    NguoiGiamHo nguoiGiamHo(int maNguoiGiamHo);
 }

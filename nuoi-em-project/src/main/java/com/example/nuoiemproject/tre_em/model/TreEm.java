@@ -11,7 +11,14 @@ public class TreEm {
     private int maNguoiGiamHo;
     private String hinhAnh;
 
-    public TreEm() {
+    public TreEm(String tenTreEm, int gioiTinh, String ngaySinh, String moTa, int maKhuVuc, int maNguoiGiamHo, String hinhAnh) {
+        this.tenTreEm = tenTreEm;
+        this.gioiTinh = gioiTinh;
+        this.ngaySinh = ngaySinh;
+        this.moTa = moTa;
+        this.maKhuVuc = maKhuVuc;
+        this.maNguoiGiamHo = maNguoiGiamHo;
+        this.hinhAnh = hinhAnh;
     }
     public TreEm(int maTreEm, String tenTreEm, int gioiTinh, String ngaySinh, String moTa, String hinhAnh) {
         this.maTreEm = maTreEm;

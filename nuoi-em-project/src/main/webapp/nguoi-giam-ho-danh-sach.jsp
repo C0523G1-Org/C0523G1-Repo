@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title Page-->
-    <title>Quản lý</title>
+    <title>Danh sách người giám hộ</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -36,13 +36,15 @@
 <div class="page-wrapper">
     <!-- HEADER MOBILE-->
     <header class="header-mobile d-block d-lg-none">
-        <div class="header-mobile__bar">
+        <div class="header-mobile__bar" style="background-color: #90953b">
             <div class="container-fluid">
                 <div class="header-mobile-inner">
-                    <a class="logo" href="index.html">
-                        <%--                        <img src="images/icon/logo.png" alt="CoolAdmin"/>--%>
-                        <h3>Team 2</h3>
-                    </a>
+                    <div class="logo" style="background-color: #90953b">
+                        <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
+                        <a href="#">
+                            <h3>Nuôi em</h3>
+                        </a>
+                    </div>
                     <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
@@ -63,16 +65,19 @@
                             <i class="fas fa-list"></i>Danh sách</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
-                                <a href="#">Trẻ em</a>
-                            </li>
-                            <li>
-                                <a href="/nguoi-giam-ho">Người giám hộ</a>
+                                <a href="/cam-ket">Bảng cam kết</a>
                             </li>
                             <li>
                                 <a href="/nguoi-nuoi">Mạnh thường quân</a>
                             </li>
                             <li>
-                                <a href="#">Bảng cam kết</a>
+                                <a href="/nguoi-giam-ho">Người giám hộ</a>
+                            </li>
+                            <li>
+                                <a href="/tre-em">Trẻ em</a>
+                            </li>
+                            <li>
+                                <a href="/tai-chinh">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -81,7 +86,7 @@
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
-                        <a href="/tre-em">
+                        <a href="/nuoi-em-trang-chu.jsp">
                             <i class="fas fa-arrow-left"></i>Trở về</a>
                     </li>
                 </ul>
@@ -92,13 +97,13 @@
 
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
-        <div class="logo">
-            <a class="logo" href="index.html">
-                <%--                        <img src="images/icon/logo.png" alt="CoolAdmin"/>--%>
-                <h3>Team 2</h3>
+        <div class="logo" style="background-color: #90953b">
+            <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
+            <a href="#">
+                <h3>Nuôi em</h3>
             </a>
         </div>
-        <div class="menu-sidebar__content js-scrollbar1">
+        <div class="menu-sidebar__content js-scrollbar1" style="background-color: #78853f">
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list">
                     <li>
@@ -110,16 +115,19 @@
                             <i class="fas fa-list"></i>Danh sách</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
-                                <a href="#">Trẻ em</a>
-                            </li>
-                            <li>
-                                <a href="/nguoi-giam-ho">Người giám hộ</a>
+                                <a href="/cam-ket">Bảng cam kết</a>
                             </li>
                             <li>
                                 <a href="/nguoi-nuoi">Mạnh thường quân</a>
                             </li>
                             <li>
-                                <a href="#">Bảng cam kết</a>
+                                <a href="/nguoi-giam-ho">Người giám hộ</a>
+                            </li>
+                            <li>
+                                <a href="/tre-em">Trẻ em</a>
+                            </li>
+                            <li>
+                                <a href="/tai-chinh">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -128,7 +136,7 @@
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
-                        <a href="/tre-em">
+                        <a href="/nuoi-em-trang-chu.jsp">
                             <i class="fas fa-arrow-left"></i>Trở về</a>
                     </li>
                 </ul>
@@ -140,12 +148,12 @@
     <!-- PAGE CONTAINER-->
     <div class="page-container">
         <!-- HEADER DESKTOP-->
-        <header class="header-desktop">
+        <header class="header-desktop" style="background-color: #78853f">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="header-wrap">
-                        <form class="form-header" action="" method="POST">
-                        </form>
+                        <div class="form-header">
+                        </div>
                         <div class="header-button">
                             <div class="account-wrap">
                                 <div class="account-item clearfix js-item-menu">
@@ -153,18 +161,18 @@
                                         <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
                                     </div>
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#">Admin</a>
+                                        <a class="js-acc-btn" href="#">Zhang Ming</a>
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
                                             <div class="image">
                                                 <a href="#">
-                                                    <img src="images/icon/avatar.jpg" alt="admin"/>
+                                                    <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
                                                 </a>
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">Admin</a>
+                                                    <a href="#">Zhang Ming</a>
                                                 </h5>
                                                 <span class="email">zhangming8443@gmail.com</span>
                                             </div>
@@ -176,7 +184,7 @@
                                             </div>
                                         </div>
                                         <div class="account-dropdown__footer">
-                                            <a href="nuoi-em-trang-chu.jsp">
+                                            <a href="#">
                                                 <i class="zmdi zmdi-power"></i>Đăng xuất</a>
                                         </div>
                                     </div>
@@ -194,73 +202,93 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="title-1 m-b-25 justify-content-center d-flex">Danh sách trẻ em</h2>
+                    <h2 class="title-1 m-b-25 justify-content-center d-flex" style="color: #0c0c0c; margin-bottom: 0">
+                        Danh sách người giám hộ</h2>
+                    <a class="btn btn-outline-light" href="/nguoi-giam-ho?action=themmoinguoigiamho" style="color: black">
+                        <i class="fas fa-plus"></i>
+                    </a>
                     <div class="table-responsive table--no-card m-b-40">
                         <table class="table table-borderless table-striped table-earning">
                             <thead>
                             <tr>
-                                <th>Mã</th>
+                                <th>STT</th>
                                 <th>Tên</th>
-                                <th>Giới tính</th>
-                                <th>Ngày sinh</th>
-                                <th>Mô tả</th>
-                                <th>Người giám hộ</th>
-                                <th>Khu vực</th>
-                                <th>Trạng thái</th>
-                                <th>Ảnh</th>
+                                <th>Giới Tính</th>
+                                <th>Khu Vực</th>
+                                <th>Số Điện Thoại</th>
                                 <th>Sửa</th>
                                 <th>Xóa</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${treEmDto}" var="treEmDto">
+                            <c:forEach var="nguoiGiamHo" items="${nguoiGiamHos}" varStatus="lam">
                                 <tr>
-                                    <td>
-                                            ${treEmDto.getMaTreEm()}
-                                    </td>
+                                    <td><c:out value="${lam.count}"/></td>
+                                    <td><c:out value="${nguoiGiamHo.tenNguoiGiamHo}"/></td>
 
-                                    <td>
-                                            ${treEmDto.getTenTreEm()}
-                                    </td>
+                                        <%--            xử lý giới tính--%>
+                                    <c:if test="${nguoiGiamHo.gioiTinh == 1}">
+                                        <td>Nam</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.gioiTinh == 0}">
+                                        <td>Nữ</td>
+                                    </c:if>
 
+                                        <%--            xử lý khu vực--%>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 1}">
+                                        <td>Hà Giang</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 2}">
+                                        <td>Cao Bằng</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 3}">
+                                        <td>Lào Cai</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 4}">
+                                        <td>Bắc Kạn</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 5}">
+                                        <td>Lạng Sơn</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 6}">
+                                        <td>Tuyên Quang</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 7}">
+                                        <td>Yên Bái</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 8}">
+                                        <td>Thái Nguyên</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 9}">
+                                        <td>Phú Thọ</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 10}">
+                                        <td>Bắc Giang</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 11}">
+                                        <td>Lai Châu</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 12}">
+                                        <td>Điện Biên</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 13}">
+                                        <td>Sơn La</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 14}">
+                                        <td>Hòa Bình</td>
+                                    </c:if>
+                                    <td><c:out value="${nguoiGiamHo.soDienThoai}"/></td>
                                     <td>
-                                        <c:if test="${treEmDto.getGioiTinh() == 1}">Nam</c:if>
-                                        <c:if test="${treEmDto.getGioiTinh() == 0}">Nữ</c:if>
-                                    </td>
-
-                                    <c:set var="dateString" value="${treEmDto.getNgaySinh()}"/>
-                                    <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
-                                    <td>
-                                        <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getMoTa()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenNguoiGiamHo()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenKhuVuc()}
-                                    </td>
-
-                                    <td>
-                                        <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
-                                        <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
-                                    </td>
-
-                                    <td>
-                                        <img height="50px" width="50px" src="${treEmDto.getHinhAnh()}" alt="">
-                                    </td>
-                                    <td>
-                                        <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"
-                                           role="button">
+                                        <a href="/nguoi-giam-ho?action=capnhatnguoigiamho&maNguoiGiamHo=${nguoiGiamHo.maNguoiGiamHo}"
+                                           role="button" data-bs-toggle="modal"
+                                           data-bs-target="#exampleModal">
                                             <i class="fas fa-pencil-square-o" style="color: black"></i></a>
                                     </td>
                                     <td>
-                                        <button><i class="fas fa-trash"></i></button>
+                                        <button type="button" data-bs-toggle="modal"
+                                                data-bs-target="#delete"
+                                                onclick="maNguoiGiamHo('${nguoiGiamHo.maNguoiGiamHo}','${nguoiGiamHo.tenNguoiGiamHo}')">
+                                            <i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -270,18 +298,16 @@
                 </div>
             </div>
             <div class="row">
-                <a class="btn btn-outline-danger" href="/tre-em?action=them">Them moi</a>
-            </div>
-            <div class="row">
                 <div class="col-lg-12 justify-content-center">
                     <div class="copyright">
-                        <p>Copyright © 2023 Team 2. All rights reserved.</p>
+                        <p>&copy; 2023 Mọi quyền được bảo lưu bởi Nuôi em</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
 

@@ -1,8 +1,9 @@
-package com.example.nuoiemproject.giao_dich.repository;
+package com.example.nuoiemproject.giao_dich.repository.impl;
 
 import com.example.nuoiemproject.BaseRepo;
 import com.example.nuoiemproject.giao_dich.model.GiaoDich;
 import com.example.nuoiemproject.giao_dich.model.GiaoDichChi;
+import com.example.nuoiemproject.giao_dich.repository.IGiaoDichRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

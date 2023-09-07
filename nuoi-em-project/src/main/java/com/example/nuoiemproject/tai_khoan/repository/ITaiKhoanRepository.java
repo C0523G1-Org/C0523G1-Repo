@@ -10,7 +10,7 @@ public interface ITaiKhoanRepository {
     List<TaiKhoan> hienThiDanhSach();
     void themTaiKhoan(TaiKhoan taiKhoan, NguoiNuoi nguoiNuoi);
     void suaTaiKhoan(TaiKhoan taiKhoan);
-    void xoaTaiKhoan(int maTaiKhoan);
+    void xoaTaiKhoan(int id);
     TaiKhoan timTaiKhoan(int id);
     TaiKhoanDto thongTinChiTietTaiKhoan(int id);
     TaiKhoan dangNhap(String tenTaiKhoan, String matKhau);
