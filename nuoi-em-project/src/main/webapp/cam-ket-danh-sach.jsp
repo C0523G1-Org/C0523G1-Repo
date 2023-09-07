@@ -82,7 +82,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href=/tai-khoan>
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
@@ -270,7 +270,7 @@
         <div class="modal-content">
             <form action="/cam-ket?action=xoa" method="post">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Xóa</h5>
+                    <h5 style="color: #333333" class="modal-title" id="exampleModalLabel">Xóa</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
