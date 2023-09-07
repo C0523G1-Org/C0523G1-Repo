@@ -38,14 +38,25 @@
     <link href="css/style.css" rel="stylesheet"/>
     <!-- responsive style -->
     <link href="css/responsive.css" rel="stylesheet"/>
+    <style>
+        .custom-list {
+            list-style: none; /* Loại bỏ dấu chấm mặc định */
+            padding-left: 0; /* Loại bỏ khoảng đệm trái mặc định */
+        }
+
+        .custom-list li::before {
+            content: "\2022"; /* Ký hiệu dấu chấm • */
+            color: #557A46; /* Màu chữ xanh */
+            margin-right: 0.5em; /* Khoảng cách giữa dấu chấm và nội dung */
+        }
+        .hover:hover{
+            background-color: #90953b;
+        }
+
+    </style>
+
 </head>
 <body>
-<%--<form action="/nguoi-nuoi?action=xemTre" method="post">--%>
-<%--    <input type="hidden" id="maNguoiNuoi" name="maNguoiNuoi">--%>
-<%--&lt;%&ndash;    <label for="maNguoiNuoi">Nhập Mã Người Nuôi:</label>&ndash;%&gt;--%>
-<%--&lt;%&ndash;    <input type="text" id="maNguoiNuoi" name="maNguoiNuoi"><br>&ndash;%&gt;--%>
-<%--&lt;%&ndash;    <button type="submit">Hiển thị</button>&ndash;%&gt;--%>
-<!-- header section strats -->
 <header class="header_section">
     <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -77,9 +88,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Tài chính</a>
                         </li>
-<%--                        <li class="nav-item">--%>
-<%--                            <a class="nav-link" href="/tai-khoan?action=dangNhap">Đăng nhập</a>--%>
-<%--                        </li>--%>
+                        <%--                        <li class="nav-item">--%>
+                        <%--                            <a class="nav-link" href="/tai-khoan?action=dangNhap">Đăng nhập</a>--%>
+                        <%--                        </li>--%>
                     </ul>
                 </div>
             </div>
@@ -87,60 +98,54 @@
     </div>
 </header>
 
+<div class="container">
 
-<div class="row">
-    <div class="col-lg-12">
-        <h2 class="title-1 m-b-25 justify-content-center d-flex">Danh sách trẻ em</h2>
-        <div class="table-responsive table--no-card m-b-40">
-            <table class="table table-borderless table-striped table-earning">
-                <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Mã trẻ em</th>
-                    <th>Tên trẻ em</th>
-                    <th>Giới tính</th>
-                    <th>Ngày sinh</th>
-                    <th>Mô tả</th>
-                    <th>Tên khu vực</th>
-                    <th>Tên người giám hộ</th>
-                    <th>Số điện thoại</th>
-                    <th>Hình ảnh</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:if test="${thongBao!=null}">
-                    <h2>${thongBao}</h2>
-                </c:if>
-                <c:forEach items="${danhSachTre}" var="d" varStatus="loop">
-                    <tr>
-                        <td><c:out value="${loop.count}"/></td>
-                        <td><c:out value="${d.maTreEm}"/></td>
-                        <td><c:out value="${d.tenTreEm}"/></td>
-                            <%--          Xử lý giới tính  --%>
-                        <td>
-                            <c:if test="${d.gioiTinh == 1}">Nam</c:if>
-                            <c:if test="${d.gioiTinh == 0}">Nữ</c:if>
-                        </td>
 
-                        <c:set var="dateString" value="${d.getNgaySinh()}"/>
-                        <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
-                        <td>
-                            <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
-                        </td>
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="title-1 m-b-25 justify-content-center d-flex">Danh sách trẻ em</h2>
+            <%--            <div class="table-responsive table--no-card m-b-40">--%>
 
-                        <td><c:out value="${d.moTa}"/></td>
-                        <td><c:out value="${d.tenKhuVuc}"/></td>
-                        <td><c:out value="${d.tenNguoiGiamHo}"/></td>
-                        <td>0<c:out value="${d.soDienThoai}"/></td>
-                        <td><img height="50px" width="50px" src="${d.hinhAnh}" alt=""></td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
+            <c:forEach items="${danhSachTre}" var="d" varStatus="loop">
+
+                <div class="card mb-3 hover" style="max-width: 100%">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="${d.hinhAnh}" class="img-fluid rounded-start" alt="..." width="100%" style="margin-top: 10px; margin-left: 5px">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><c:out value="${d.tenTreEm}"/></h5>
+                                <p class="card-text">
+                                <ul class="custom-list">
+                                    <li><strong>Mã trẻ em: </strong><c:out value="${d.maTreEm}"/></li>
+                                    <li><strong>Giới tính: </strong>
+                                        <c:if test="${d.gioiTinh == 1}">Nam</c:if>
+                                        <c:if test="${d.gioiTinh == 0}">Nữ</c:if>
+                                    </li>
+                                    <c:set var="dateString" value="${d.getNgaySinh()}"/>
+                                    <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
+                                    <li><strong>Ngày sinh: </strong>
+                                        <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
+                                    </li>
+                                    <li><strong>Mô tả: </strong>
+                                        <c:out value="${d.moTa}"/>
+                                    </li>
+                                    <li><strong>Tên khu vực: </strong><c:out value="${d.tenKhuVuc}"/></li>
+                                    <li><strong>Tên người giám hộ: </strong><c:out value="${d.tenNguoiGiamHo}"/></li>
+                                    <li><strong>Số điện thoại: </strong>0<c:out value="${d.soDienThoai}"/></li>
+                                </ul>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </c:forEach>
         </div>
     </div>
 </div>
-<%--</form>--%>
 
 <script src="js/main.js"></script>
 
