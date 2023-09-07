@@ -198,7 +198,7 @@
                                     <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
                                 </div>
                                 <div class="content">
-                                    <a class="js-acc-btn" href="#">Zhang Ming</a>
+                                    <a class="js-acc-btn" href="#">Admin</a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">
@@ -209,9 +209,9 @@
                                         </div>
                                         <div class="content">
                                             <h5 class="name">
-                                                <a href="#">Zhang Ming</a>
+                                                <a href="#">Admin</a>
                                             </h5>
-                                            <span class="email">zhangming8443@gmail.com</span>
+                                            <span class="email">nuoiem@gmail.com</span>
                                         </div>
                                     </div>
                                     <div class="account-dropdown__body">
@@ -221,7 +221,7 @@
                                         </div>
                                     </div>
                                     <div class="account-dropdown__footer">
-                                        <a href="#">
+                                        <a href="/nuoi-em-trang-chu.jsp">
                                             <i class="zmdi zmdi-power"></i>Đăng xuất</a>
                                     </div>
                                 </div>
