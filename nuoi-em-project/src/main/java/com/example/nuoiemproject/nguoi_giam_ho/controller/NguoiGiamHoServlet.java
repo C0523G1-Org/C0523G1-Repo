@@ -67,6 +67,8 @@ public class NguoiGiamHoServlet extends HttpServlet {
     private void hienThiDanhSach(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<NguoiGiamHo> nguoiGiamHos = nguoiGiamHoService.hienThi();
         request.setAttribute("nguoiGiamHos", nguoiGiamHos);
+        List<KhuVuc> khuVuc = khuVucService.hienThiKhuVuc();
+        request.setAttribute("khuVuc", khuVuc);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/nguoi-giam-ho-danh-sach.jsp");
         requestDispatcher.forward(request, response);
     }

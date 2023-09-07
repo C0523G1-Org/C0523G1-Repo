@@ -31,19 +31,22 @@
 <body>
 <!-- MAIN CONTENT-->
 <div class="header">
-        <nav class="navbar navbar-light " style="background-color: #35a853">
-            <form class="container-fluid justify-content-start">
-                <button class="btn btn-outline-light me-2" type="button">Trang Chủ</button>
-                <button class="btn btn-outline-light float-lg-right" type="button">Đăng Xuất</button>
-            </form>
-        </nav>
+    <nav class="navbar navbar-light " style="background-color: #35a853">
+        <form class="container-fluid justify-content-start">
+            <button class="btn btn-outline-light me-2" type="button">Trang Chủ</button>
+            <button class="btn btn-outline-light float-lg-right" type="button">Đăng Xuất</button>
+        </form>
+    </nav>
 </div>
 <div class="main-content">
-<h1>Danh Sách Người Giám Hộ</h1>
+    <h1>Danh Sách Người Giám Hộ</h1>
     <nav class="navbar navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="/nguoi-giam-ho?action=themmoinguoigiamho"><button class="btn btn-outline-primary">Thêm Mới Người Giám
-                Hộ</button></a>
+            <a class="navbar-brand" href="/nguoi-giam-ho?action=themmoinguoigiamho">
+                <button class="btn btn-outline-primary">Thêm Mới Người Giám
+                    Hộ
+                </button>
+            </a>
         </div>
     </nav>
     <div class="container">
@@ -73,50 +76,11 @@
                         <c:if test="${nguoiGiamHo.gioiTinh == 0}">
                             <td>Nữ</td>
                         </c:if>
-
-                            <%--            xử lý khu vực--%>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 1}">
-                            <td>Hà Giang</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 2}">
-                            <td>Cao Bằng</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 3}">
-                            <td>Lào Cai</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 4}">
-                            <td>Bắc Kạn</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 5}">
-                            <td>Lạng Sơn</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 6}">
-                            <td>Tuyên Quang</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 7}">
-                            <td>Yên Bái</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 8}">
-                            <td>Thái Nguyên</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 9}">
-                            <td>Phú Thọ</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 10}">
-                            <td>Bắc Giang</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 11}">
-                            <td>Lai Châu</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 12}">
-                            <td>Điện Biên</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 13}">
-                            <td>Sơn La</td>
-                        </c:if>
-                        <c:if test="${nguoiGiamHo.maKhuVuc == 14}">
-                            <td>Hòa Bình</td>
-                        </c:if>
+                        <c:forEach var="khuvuc" items="${khuVuc}">
+                            <c:if test="${nguoiGiamHo.maKhuVuc == khuvuc.maKhuVuc}">
+                                <td><c:out value="${khuvuc.tenKhuVuc}"/></td>
+                            </c:if>
+                        </c:forEach>
                         <td><c:out value="${nguoiGiamHo.soDienThoai}"/></td>
                         <td>
                             <a href="/nguoi-giam-ho?action=capnhatnguoigiamho&maNguoiGiamHo=${nguoiGiamHo.maNguoiGiamHo}">
@@ -133,14 +97,12 @@
                                 Xóa
                             </button>
                         </td>
-
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
         </div>
     </div>
-
     <div class="modal" tabindex="-1" id="delete" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -150,192 +112,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body" style="color: red">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <input name="maNguoiGiamHo" id="ma" type="hidden">
                         Bạn có chắc chắn muốn xóa <span id="thongBao"></span> ?
                     </div>
@@ -361,31 +137,32 @@
     <script>
         $(document).ready(function () {
             $('#mytable').DataTable({
-          language: {
-              "decimal": ",",
-              "thousands": ".",
-              "sEmptyTable": "Không có dữ liệu",
-              "sInfo": "Đang hiển thị _START_ đến _END_ của tổng số _TOTAL_ mục",
-              "sInfoEmpty": "Đang hiển thị 0 đến 0 của tổng số 0 mục",
-              "sInfoFiltered": "(được lọc từ tổng số _MAX_ mục)",
-              "sInfoPostFix": "",
-              "sInfoThousands": ",",
-              "sLengthMenu": "Hiển thị _MENU_ mục",
-              "sLoadingRecords": "Đang tải...",
-              "sProcessing": "Đang xử lý...",
-              "sSearch": "Tìm kiếm:",
-              "Show:": "",
-              "entries": "",
-              "oPaginate": {
-                  "sFirst": "Đầu",
-                  "sLast": "Cuối",
-                  "sNext": "Tiếp",
-                  "sPrevious": "Trước"
-              },
+                language: {
+                    "decimal": ",",
+                    "thousands": ".",
+                    "sEmptyTable": "Không có dữ liệu",
+                    "sInfo": "Đang hiển thị _START_ đến _END_ của tổng số _TOTAL_ mục",
+                    "sInfoEmpty": "Đang hiển thị 0 đến 0 của tổng số 0 mục",
+                    "sInfoFiltered": "(được lọc từ tổng số _MAX_ mục)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ",",
+                    "sLengthMenu": "Hiển thị _MENU_ mục",
+                    "sLoadingRecords": "Đang tải...",
+                    "sProcessing": "Đang xử lý...",
+                    "sSearch": "Tìm kiếm:",
+                    "Show:": "",
+                    "entries": "",
+                    "oPaginate": {
+                        "sFirst": "Đầu",
+                        "sLast": "Cuối",
+                        "sNext": "Tiếp",
+                        "sPrevious": "Trước"
+                    },
 
-          }
+                }
             });
         });
+
         function maNguoiGiamHo(maNguoiGiamHo, ten) {
             document.getElementById("ma").value = maNguoiGiamHo;
             document.getElementById("thongBao").innerText = ten;
