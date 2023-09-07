@@ -100,7 +100,7 @@
     }
 
     #login {
-        border-radius: 7px;
+        border-radius: 15px;
         place-self: center;
     }
 

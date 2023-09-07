@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class BaseRepo {
 //<<<<<<< HEAD
 //<<<<<<< HEAD
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db_test";
 //=======
 //    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
 //>>>>>>> 60fe5c3843b75b4cd3660ec0e2c2b6c6eaf8277e

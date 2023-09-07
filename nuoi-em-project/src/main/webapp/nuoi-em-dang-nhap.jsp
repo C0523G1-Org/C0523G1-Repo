@@ -640,9 +640,9 @@
         document.getElementById("myNav").style.width = "0%";
     }
 </script>
-
 <script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.js">
 </script>
-
+<input type="hidden" name="tenTaiKhoan" value="${tenTaiKhoan}">
+<input type="hidden" name="maTaiKhoan" value="${maTaiKhoan}">
 </body>
 </html>

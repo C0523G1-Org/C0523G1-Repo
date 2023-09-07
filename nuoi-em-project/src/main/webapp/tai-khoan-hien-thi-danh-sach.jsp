@@ -136,8 +136,11 @@
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
-                        <a href="/nuoi-em-trang-chu.jsp">
-                            <i class="fas fa-arrow-left"></i>Trở về</a>
+                        <form action="tai-khoan?action=dangNhap&tenTaiKhoan=admin&matKhau=admin" method="post">
+                            <button type="submit"><i class="fas fa-arrow-left"></i> Trở về</a></button>
+                        </form>
+<%--                        <a href="/nuoi-em-trang-chu.jsp">--%>
+<%--                            <i class="fas fa-arrow-left"></i>Trở về</a>--%>
                     </li>
                 </ul>
             </nav>
@@ -195,6 +198,31 @@
                 </div>
             </div>
         </header>
+<%--        modal dang xuat--%>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+<%--        modal dang xuat--%>
         <!-- HEADER DESKTOP-->
 
         <!-- MAIN CONTENT-->
@@ -311,8 +339,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <form action="/tai-khoan?action=xoaTaiKhoan" method="post">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel" style="color: black; text-align: center">XÓA TÀI KHOẢN</h5>
+                    <div class="modal-header" style="background-color: #dc3545">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: WHITE; text-align: center">XÓA TÀI KHOẢN</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

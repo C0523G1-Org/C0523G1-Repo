@@ -262,17 +262,32 @@ public class TaiKhoanServlet extends HttpServlet {
     }
 
     private void suaTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
-
         int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
         String matKhau = request.getParameter("matKhau");
         String xacNhanMatKhau = request.getParameter("xacNhanMatKhau");
         String tenTaiKhoan = request.getParameter("tenTaiKhoan");
-        if (matKhau.equals(xacNhanMatKhau)) {
+        if (xacNhanMatKhau == null || matKhau == null) {
+            String notice = "Các trường này không được để trống";
+            request.setAttribute("notice", notice);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-sua-tai-khoan.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else if (matKhau.equals(xacNhanMatKhau)) {
             request.setAttribute("tenTaiKhoan", tenTaiKhoan);
+            request.setAttribute("matKhau", matKhau);
+            request.setAttribute("maTaiKhoan", maTaiKhoan);
             TaiKhoan taiKhoan = new TaiKhoan(maTaiKhoan, matKhau);
             this.service.suaTaiKhoan(taiKhoan);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("thay-doi-mat-khau-thanh-cong.jsp");
             try {
-                response.sendRedirect("nuoi-em-trang-chu.jsp");
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -289,5 +304,4 @@ public class TaiKhoanServlet extends HttpServlet {
             }
         }
     }
-
 }

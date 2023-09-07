@@ -84,6 +84,7 @@
     #btn {
         width: 80%;
         place-self: center;
+        border-radius: 15px;
     }
 
     form {
