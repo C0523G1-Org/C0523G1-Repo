@@ -148,7 +148,7 @@
                                     Tổng thu:
                                 </th>
                                 <th colspan="2">
-                                    <fmt:formatNumber value="${tongChi}" type="currency" currencySymbol="" maxFractionDigits="0" />
+                                    <fmt:formatNumber value="${tongThu}" type="currency" currencySymbol="" maxFractionDigits="0" />
                                 </th>
                             </tr>
                             <tr style="background-color: lightgoldenrodyellow">
@@ -156,7 +156,7 @@
                                     Tổng chi:
                                 </th>
                                 <th colspan="2">
-                                    ${tongChi}
+                                    <fmt:formatNumber value="${tongChi}" type="currency" currencySymbol="" maxFractionDigits="0" />
                                 </th>
                             </tr>
                         </div>

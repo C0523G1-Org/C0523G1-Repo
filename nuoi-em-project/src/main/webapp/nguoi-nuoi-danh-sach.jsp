@@ -198,7 +198,7 @@
         <!-- HEADER DESKTOP-->
 
         <!-- MAIN CONTENT-->
-        <div class="main-content">
+        <div class="main-content container">
 
             <div class="row">
                 <div class="col-lg-12">
