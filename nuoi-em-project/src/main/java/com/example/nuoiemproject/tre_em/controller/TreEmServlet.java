@@ -118,6 +118,14 @@ public class TreEmServlet extends HttpServlet {
     }
 
     private void xoa(HttpServletRequest request, HttpServletResponse response) {
+        int maTreEm = Integer.parseInt(request.getParameter("xoa_ma"));
+        treEmService.xoa(maTreEm);
+        try {
+            response.sendRedirect("/tre-em");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     private void sua(HttpServletRequest request, HttpServletResponse response) {

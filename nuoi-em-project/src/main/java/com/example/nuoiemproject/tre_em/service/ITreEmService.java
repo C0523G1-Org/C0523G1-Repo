@@ -14,7 +14,7 @@ public interface ITreEmService {
 
     void xoa(int id);
 
-    TreEm timId(int id);
+    TreEm timId(int maTreEm);
 
     List<TreEmDto> hienThiDto();
 }

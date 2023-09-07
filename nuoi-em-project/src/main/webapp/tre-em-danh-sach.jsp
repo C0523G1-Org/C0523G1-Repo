@@ -77,7 +77,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/tai-chinh">Tài chính</a>
+                                <a href="/giao-dich">Giao dịch</a>
                             </li>
                         </ul>
                     </li>
@@ -127,7 +127,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/tai-chinh">Tài chính</a>
+                                <a href="/giao-dich">Giao dịch</a>
                             </li>
                         </ul>
                     </li>
@@ -272,7 +272,11 @@
                                             <i class="fas fa-pencil-square-o" style="color: black"></i></a>
                                     </td>
                                     <td>
-                                        <button><i class="fas fa-trash"></i></button>
+                                        <button type="button" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal"
+                                                onclick="sendInforModal('${treEmDto.maTreEm}','${treEmDto.tenTreEm}')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -291,6 +295,35 @@
         </div>
     </div>
 </div>
+<%--Modal--%>
+<div class="modal" tabindex="-1" id="exampleModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/tre-em?action=xoa" method="post">
+                <div class="modal-header">
+                    <h5 style="color: black" class="modal-title">Xóa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="xoa_ma" name="xoa_ma">
+                    Bạn có chắc chắn xóa bé <span id="xoa_ten"></span> không ?<br>
+                    (Lưu ý: Hành động này sẽ không thể hoàn tác)
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-danger">Xác nhận</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function sendInforModal(ma, ten) {
+        document.getElementById("xoa_ma").value = ma;
+        document.getElementById("xoa_ten").innerText = ten;
+    }
+</script>
 <!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
 
@@ -314,6 +347,9 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>

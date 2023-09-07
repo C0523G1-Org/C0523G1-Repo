@@ -19,6 +19,7 @@ public class TreEmRepo implements ITreEmRepo {
             " order by ma_tre_em ";
     private static final String THEM_TRE_EM = "INSERT INTO tre_em (ten_tre_em, gioi_tinh, ngay_sinh, mo_ta, ma_khu_vuc, ma_nguoi_giam_ho, hinh_anh) " +
             " VALUES (?,?,?,?,?,?,?) ";
+    private static final String XOA_TRE_EM = "UPDATE tre_em SET trang_thai_xoa = 1 WHERE ma_tre_em = ?";
 
     private static final String TRUY_VAN_TRE_EM_DTO = "select te.ma_tre_em, te.ten_tre_em, te.gioi_tinh, te.ngay_sinh, te.trang_thai_nhan_nuoi, te.mo_ta, kv.ten_khu_vuc, ngh.ten_nguoi_giam_ho, te.hinh_anh " +
             " from tre_em te " +
@@ -74,8 +75,16 @@ public class TreEmRepo implements ITreEmRepo {
     }
 
     @Override
-    public void xoa(int id) {
-
+    public void xoa(int maTreEm) {
+        Connection connection = BaseRepo.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(XOA_TRE_EM);
+            preparedStatement.setInt(1, maTreEm);
+            preparedStatement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

@@ -9,7 +9,7 @@ public interface ITreEmRepo {
     List<TreEm> hienThiDanhSach();
     void them(TreEm treEm);
     void sua(int id, TreEm treEm);
-    void xoa(int id);
+    void xoa(int maTreEm);
     TreEm timId(int id);
 
     List<TreEmDto> hienThiDto();
