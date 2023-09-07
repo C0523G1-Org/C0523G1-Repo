@@ -63,7 +63,7 @@
                                     Trang chủ <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Quản lý</a>
+                                <a class="nav-link" href="/tai-khoan?action=hienThi">Quản lý</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Tài chính</a>

@@ -108,11 +108,8 @@ public class TaiKhoanServlet extends HttpServlet {
     }
 
     private void hienThiDanhSach(HttpServletRequest request, HttpServletResponse response) {
-        int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
         List<TaiKhoan> list = this.service.hienThiDanhSach();
-        List<TaiKhoanDto> dto_list = service.chiTietTaiKhoan(maTaiKhoan);
         request.setAttribute("list", list);
-        request.setAttribute("dto_list",dto_list);
         RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-hien-thi-danh-sach.jsp");
         try {
             dispatcher.forward(request, response);

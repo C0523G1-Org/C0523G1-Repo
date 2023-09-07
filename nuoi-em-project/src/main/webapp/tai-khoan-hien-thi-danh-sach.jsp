@@ -86,7 +86,7 @@
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
-                        <a href="/nuoi-em-trang-chu.jsp">
+                        <a href="/dang-nhap-admin.jsp?tenTaiKhoan=admin&matKhau=admin">
                             <i class="fas fa-arrow-left"></i>Trở về</a>
                     </li>
                 </ul>
@@ -161,7 +161,7 @@
                                         <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
                                     </div>
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#">Zhang Ming</a>
+                                        <a class="js-acc-btn" href="#">Admin</a>
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
@@ -172,9 +172,9 @@
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">Zhang Ming</a>
+                                                    <a href="#">Admin</a>
                                                 </h5>
-                                                <span class="email">zhangming8443@gmail.com</span>
+                                                <span class="email">nuoiem@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -184,7 +184,7 @@
                                             </div>
                                         </div>
                                         <div class="account-dropdown__footer">
-                                            <a href="#">
+                                            <a href="nuoi-em-trang-chu.jsp">
                                                 <i class="zmdi zmdi-power"></i>Đăng xuất</a>
                                         </div>
                                     </div>
@@ -214,7 +214,7 @@
                                 <th class="table-primary">STT</th>
                                 <th class="table-primary">Tài khoản</th>
                                 <th class="table-primary">Mật khẩu</th>
-                                <th class="table-primary">Sửa</th>
+                                <th class="table-primary">Đổi mật khẩu</th>
                                 <th class="table-primary">Xoá</th>
                             </tr>
                             </thead>
@@ -225,13 +225,14 @@
                                     <td><c:out value="${tai_khoan.tenTaiKhoan}"></c:out></td>
                                     <td><c:out value="${tai_khoan.matKhau}"></c:out></td>
                                     <td>
-                                        <a href=""> <i class="fas fa-pencil-square-o" style="color: black"></i></a>
+                                        <a href="/tai-khoan?action=suaTaiKhoan&maTaiKhoan=${tai_khoan.maTaiKhoan}"> <i class="fas fa-pencil-square-o" style="color: black"></i></a>
                                     </td>
                                     <td>
-                                        <button type="submit" data-bs-toggle="modal"
+                                        <button type="button" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal"
                                                 onclick="guiThongTin('${tai_khoan.getMaTaiKhoan()}','${tai_khoan.tenTaiKhoan}')">
-                                            <i class="fas fa-trash"></i></button>
+                                            <i class="fas fa-trash" style="color: black"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -253,86 +254,81 @@
 <<<<<<< HEAD
 <div class="container">
     <%--    --%>
-    <table class="table table-hover">
-        <thead>
-        <tr class="table-primary">
-            <td class="table-primary">STT</td>
-            <td class="table-primary">Tên tài khoản</td>
+<%--    <table class="table table-hover">--%>
+<%--        <thead>--%>
+<%--        <tr class="table-primary">--%>
+<%--            <td class="table-primary">STT</td>--%>
+<%--            <td class="table-primary">Tên tài khoản</td>--%>
 
-            <td colspan="3" style="text-align: center" class="table-primary">Quản lý</td>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="tai_khoan" items="${list}" varStatus="loop">
-            <tr class="table-light">
-                <td class="table-info"><c:out value="${loop.count}">STT</c:out></td>
-                <td class="table-info"><c:out value="${tai_khoan.tenTaiKhoan}"></c:out></td>
-                <td class="table-info" style="text-align: center">
-                    <a href="/tai-khoan?action=suaTaiKhoan&maTaiKhoan=${tai_khoan.getMaTaiKhoan()}">Sửa thông tin </a>
-                </td>
-
+<%--            <td colspan="3" style="text-align: center" class="table-primary">Quản lý</td>--%>
+<%--        </tr>--%>
+<%--        </thead>--%>
+<%--        <tbody>--%>
+<%--        <c:forEach var="tai_khoan" items="${list}" varStatus="loop">--%>
+<%--            <tr class="table-light">--%>
+<%--                <td class="table-info"><c:out value="${loop.count}">STT</c:out></td>--%>
+<%--                <td class="table-info"><c:out value="${tai_khoan.tenTaiKhoan}"></c:out></td>--%>
 <%--                <td class="table-info" style="text-align: center">--%>
-<%--                    <button type="button" class="btn btn-outline-info" data-bs-target="modal">--%>
-<%--                        <a href="/tai-khoan?action=timThongTinTaiKhoan&maTaiKhoan=${tai_khoan.getMaTaiKhoan()}">Chi tiết--%>
-<%--                            tài--%>
-<%--                            khoản </a>--%>
+<%--                    <a href="/tai-khoan?action=suaTaiKhoan&maTaiKhoan=${tai_khoan.getMaTaiKhoan()}">Sửa thông tin </a>--%>
+<%--                </td>--%>
+
+<%--&lt;%&ndash;                <td class="table-info" style="text-align: center">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <button type="button" class="btn btn-outline-info" data-bs-target="modal">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        <a href="/tai-khoan?action=timThongTinTaiKhoan&maTaiKhoan=${tai_khoan.getMaTaiKhoan()}">Chi tiết&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            tài&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            khoản </a>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    </button>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </td>&ndash;%&gt;--%>
+<%--                <td class="table-info" style="text-align: center">--%>
+<%--                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal"--%>
+<%--                                data-bs-target="#modalThongTin"--%>
+<%--                                onclick="guiTenTaiKhoan('${tai_khoan.tenTaiKhoan}')">--%>
+<%--                            Chi tiết tài khoản--%>
+<%--                        </button>--%>
+<%--                </td>--%>
+<%--                <td class="table-info" style="text-align: center">--%>
+<%--                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"--%>
+<%--                            data-bs-target="#exampleModal"--%>
+<%--                            onclick="guiThongTin('${tai_khoan.maTaiKhoan}','${tai_khoan.tenTaiKhoan}')">--%>
+<%--                        Xóa tài khoản--%>
 <%--                    </button>--%>
 <%--                </td>--%>
-                <td class="table-info" style="text-align: center">
-                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal"
-                                data-bs-target="#modalThongTin"
-                                onclick="guiTenTaiKhoan('${tai_khoan.tenTaiKhoan}')">
-                            Chi tiết tài khoản
-                        </button>
-                </td>
-                <td class="table-info" style="text-align: center">
-                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
-                            onclick="guiThongTin('${tai_khoan.maTaiKhoan}','${tai_khoan.tenTaiKhoan}')">
-                        Xóa tài khoản
-                    </button>
-                </td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+<%--            </tr>--%>
+<%--        </c:forEach>--%>
+<%--        </tbody>--%>
+<%--    </table>--%>
     <%--    --%>
 </div>
 <%--modal xóa--%>
-<div class="modal fade" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<%--<div class="modal fade" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">--%>
 =======
 <!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
 <%--modal--%>
-<div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
->>>>>>> 33fd618f8d75d778524b91047eba6552ca0a58a0
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form action="/tai-khoan?action=xoaTaiKhoan" method="post">
-                <div class="modal-header">
-<<<<<<< HEAD
-                    <h5 class="modal-title"> Xóa tài khoản</h5>
-=======
-                    <h5 class="modal-title">Xóa</h5>
->>>>>>> 33fd618f8d75d778524b91047eba6552ca0a58a0
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <input id="maTaiKhoan" name="maTaiKhoan" type="hidden"/>
-                    Bạn có chắc muốn xóa tài khoản
-                    <strong id="tenTaiKhoan"></strong> ?
-                    <br>
-                    (Lưu ý: hành động này không thể hoàn tác)
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <button type="submit" class="btn btn-danger">Xác nhận</button>
-                </div>
-            </form>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/tai-khoan?action=xoaTaiKhoan" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: black; text-align: center">XÓA TÀI KHOẢN</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="maTaiKhoan" name="maTaiKhoan">
+                       <div style="color:#C63D2F;">
+                           Bạn có muốn xóa tài khoản <strong><span id="tenTaiKhoan"></span></strong> không ?
+                           <br>
+                           (Lưu ý: Hành động này sẽ không thể hoàn tác)
+                       </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-danger">Xác nhận</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<<<<<<< HEAD
 <%--modal xóa end--%>
 
 <%--modal xem thông tin--%>
@@ -364,9 +360,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
-=======
 <%--modal end--%>
->>>>>>> 33fd618f8d75d778524b91047eba6552ca0a58a0
 <script>
     function guiThongTin(maTaiKhoan, tenTaiKhoan) {
         document.getElementById("tenTaiKhoan").innerText = tenTaiKhoan;
@@ -378,7 +372,8 @@
 </script>
 <script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.js"></script>
 
-<!-- Jquery JS-->
+
+    <!-- Jquery JS-->
 <script src="vendor/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap JS-->
 <script src="vendor/bootstrap-4.1/popper.min.js"></script>
@@ -399,5 +394,7 @@
 <!-- Main JS-->
 <script src="js/main.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
