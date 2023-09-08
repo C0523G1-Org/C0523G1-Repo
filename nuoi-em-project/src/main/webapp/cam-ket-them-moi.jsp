@@ -283,11 +283,13 @@
                                                 <label for="maTreEm" class=" form-control-label">Trẻ Em</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <c:forEach var="t" items="${treEm}">
-                                                    <c:if test="${camKet.maTreEm == t.maTreEm}"/>
-                                                    <input readonly type="text" id="maTreEm" required name="maTreEm"
-                                                           class="form-control" value="${t.tenTreEm}">
-                                                </c:forEach>
+
+                                                <%--                                                    <c:if test="${camKet.maTreEm == t.maTreEm}"/>--%>
+                                                <input readonly type="text" id="maTreEm" required name="maTreEm"
+                                                       class="form-control" value="${maTreEm}">
+                                                <c:out value="${treEm.tenTreEm}"/>
+
+
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -295,11 +297,12 @@
                                                 <label for="maNguoiNuoi" class=" form-control-label">Người Nuôi</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <c:forEach var="t" items="${nguoiNuoi}">
-                                                    <c:if test="${camKet.maTreEm == t.maTreEm}"/>
-                                                    <input readonly type="text" id="manguoiNuoi" required name="manguoiNuoi"
-                                                           class="form-control" value="${t.tennguoiNuoi}">
-                                                </c:forEach>
+                                                <%--                                                <c:forEach var="t" items="${treEm}">--%>
+                                                <%--                                                    <c:if test="${camKet.maNguoiNuoi == t.maNguoiNuoi}"/>--%>
+                                                <input readonly type="text" id="maNguoiNuoi" required name="maNguoiNuoi"
+                                                       class="form-control" value="${maNguoiNuoi}">
+                                                    <c:out value="${nguoiNuoi.tenNguoiNuoi}"/>
+                                                <%--                                                </c:forEach>--%>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -363,5 +366,3 @@
 </body>
 
 </html>
-
-

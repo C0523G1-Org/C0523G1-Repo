@@ -245,3 +245,8 @@ ma_tai_khoan_moi,
 so_dien_thoai_moi,
 email_moi);
 end //
+<<<<<<< HEAD
+=======
+
+alter table nguoi_nuoi add trang_thai_xoa bit(1) default 0;
+>>>>>>> f6c28d711dcdec3ada411625882e7b3a1f5d7d00

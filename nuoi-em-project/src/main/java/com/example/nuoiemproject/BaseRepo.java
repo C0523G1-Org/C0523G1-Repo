@@ -12,39 +12,30 @@ import java.sql.SQLException;
 
 //<<<<<<< HEAD:nuoi-em-project/src/main/java/com/example/nuoiemproject/BaseRepository.java
 public class BaseRepo {
-//<<<<<<< HEAD
-<<<<<<< HEAD
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "beatbox1202";
-=======
-//<<<<<<< HEAD
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
 //=======
+//=======
+//>>>>>>> ac248c9225b16f0d1a8fca0615aaa6a49d92e5c3
+////<<<<<<< HEAD
 //    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
-//>>>>>>> 60fe5c3843b75b4cd3660ec0e2c2b6c6eaf8277e
-    private static final String USERNAME = "root";
-////<<<<<<< HEAD
-////<<<<<<< HEAD
-    private static final String PASSWORD = "Mylien2009";
->>>>>>> 4de9294dafd9ebda1f35d7f852fa124a1822bd4f
-//=======
-////<<<<<<< HEAD
-////<<<<<<< HEAD
-//    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
 ////=======
 ////    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
 ////>>>>>>> 60fe5c3843b75b4cd3660ec0e2c2b6c6eaf8277e
 //    private static final String USERNAME = "root";
 //////<<<<<<< HEAD
 //////<<<<<<< HEAD
-//    private static final String PASSWORD = "thienbao";
+//    private static final String PASSWORD = "Mylien2009";
+//<<<<<<< HEAD
+//>>>>>>> 4de9294dafd9ebda1f35d7f852fa124a1822bd4f
+//=======
+//>>>>>>> ac248c9225b16f0d1a8fca0615aaa6a49d92e5c3
 ////=======
 ////    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
 ////    private static final String USERNAME = "root";
 ////    private static final String PASSWORD = "Mylien2009";
 ////>>>>>>> 33fd618f8d75d778524b91047eba6552ca0a58a0
-//>>>>>>> d5cdbd617597038bc4f27deee533af5d2ce19342
 
 
     public static Connection getConnection() {

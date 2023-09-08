@@ -31,16 +31,6 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
-    <%--    Phân trang--%>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-
-    <style>
-        a {
-            text-decoration: none
-        }
-    </style>
-
 </head>
 <body class="animsition">
 <div class="page-wrapper">
@@ -92,7 +82,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href=/tai-khoan>
+                        <a href="#">
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
@@ -110,7 +100,7 @@
         <div class="logo" style="background-color: #90953b">
             <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
             <a href="#">
-                <h3 style="color: white">Nuôi em</h3>
+                <h3>Nuôi em</h3>
             </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1" style="background-color: #78853f">
@@ -204,7 +194,6 @@
                     </div>
                 </div>
             </div>
-
         </header>
         <!-- HEADER DESKTOP-->
 
@@ -220,7 +209,7 @@
                             <i class="fas fa-plus"></i>
                         </a>
                         <div class="table-responsive table--no-card m-b-40">
-                            <table class="table table-borderless table-striped table-earning" id="mytable" style="width: 100%">
+                            <table id="myTable" class="table table-borderless table-striped table-earning">
                                 <thead>
                                 <tr>
                                     <th>STT</th>
@@ -240,11 +229,13 @@
                                         <td>
                                             <p><fmt:formatNumber value="${d.soTien}"/></p>
                                         </td>
+
                                         <c:set var="dateString" value="${d.getNgayNhanNuoi()}"/>
                                         <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
                                         <td>
                                             <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
                                         </td>
+
                                             <%--   Xử lý trạng thái  --%>
                                         <td>
                                             <c:if test="${d.trangThai == 1}">Nhận nuôi</c:if>
@@ -271,17 +262,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 justify-content-center">
-                <div class="copyright">
-                    <p>&copy; 2023 Mọi quyền được bảo lưu bởi Nuôi em</p>
+            <div class="row">
+                <div class="col-lg-12 justify-content-center">
+                    <div class="copyright">
+                        <p>&copy; 2023 Mọi quyền được bảo lưu bởi Nuôi em</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
 
@@ -290,21 +280,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="/cam-ket?action=xoa" method="post">
-<<<<<<< HEAD
-                <div class="modal-header" style="background-color: #dc3545">
-                    <h5 class="modal-title" id="exampleModalLabel" style="color: WHITE; text-align: center">XÓA CAM
-                        KẾT</h5>
-=======
                 <div class="modal-header">
-                    <h5 style="color: #333333" class="modal-title" id="exampleModalLabel">Xóa</h5>
->>>>>>> 4de9294dafd9ebda1f35d7f852fa124a1822bd4f
+                    <h5 class="modal-title" id="exampleModalLabel">Xóa</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div style="color: red" class="modal-body">
                     <input type="hidden" id="xoa_ma" name="xoa_ma">
-                    BẠN CÓ CHẮC MUỐN XÓA CAM KẾT <strong></strong> KHÔNG ? <br>
+                    BẠN MUỐN XÓA CAM KẾT <strong></strong> NÀY KHÔNG ? <br>
 
-                    (Lưu ý: Hành động này không thể hoàn tác)
+                    (Thao tác này khi thực hiện sẽ không thể hoàn tác)
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
@@ -342,13 +326,10 @@
 <!-- Main JS-->
 <script src="js/main.js"></script>
 
-<%--    Phân trang--%>
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
+</body>
+</html>
 <script>
-    $(document).ready(function () {
+$(document).ready(function () {
         $('#mytable').DataTable({
             language: {
                 "decimal": ",",

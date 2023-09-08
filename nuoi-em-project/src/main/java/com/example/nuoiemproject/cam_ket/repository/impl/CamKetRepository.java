@@ -37,6 +37,8 @@ public class CamKetRepository implements ICamKetRepository {
     private static final String DELETE = "UPDATE cam_ket SET trang_thai_xoa =1 WHERE ma_cam_ket = ?";
     private static final String SEARCH = "SELECT * FROM cam_ket WHERE ma_cam_ket = ?";
 
+
+
     @Override
     public List<CamKetDTO> hienThiDanhSach() {
         List<CamKetDTO> danhSach = new ArrayList<>();
