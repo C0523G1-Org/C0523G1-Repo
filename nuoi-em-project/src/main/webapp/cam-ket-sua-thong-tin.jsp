@@ -306,14 +306,14 @@
                                                 <button type="submit" class="btn btn-warning btn-sm">
                                                     <i class="fa fa-dot-circle-o"></i> Xác nhận
                                                 </button>
-                                                <a href="/cam-ket-danh-sach.jsp" class="btn btn-dark">Đóng</a>
+                                                <a href="/cam-ket" class="btn btn-dark">Đóng</a>
                                             </div>
                                         </div>
                                         <div class="row form-group">
-                                            <c:if test="${thongbao != null}">
+                                            <c:if test="${thongBao != null}">
                                                 <div class="success-msg">
                                                     <i class="fa fa-check"></i>
-                                                        ${thongbao}
+                                                        ${thongBao}
                                                 </div>
                                             </c:if>
                                         </div>

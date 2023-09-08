@@ -31,6 +31,16 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
+    <style>
+        a{
+            text-decoration: none;
+        }
+    </style>
+
 </head>
 <body class="animsition">
 <div class="page-wrapper">
@@ -209,7 +219,7 @@
                             <i class="fas fa-plus"></i>
                         </a>
                         <div class="table-responsive table--no-card m-b-40">
-                            <table id="myTable" class="table table-borderless table-striped table-earning">
+                            <table id="bang" class="table table-borderless table-striped table-earning">
                                 <thead>
                                 <tr>
                                     <th>STT</th>
@@ -284,11 +294,11 @@
                     <h5 class="modal-title" id="exampleModalLabel"  style="color: WHITE">XÓA CAM KẾT</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div style=" color: #C63D2F " class="modal-body">
+                <div style=" color: black" class="modal-body">
                     <input type="hidden" id="xoa_ma" name="xoa_ma">
-                    Bạn muốn xóa cam kết giữa trẻ <strong><span id="tenTreEm"></span> với người nuôi <span id="tenNguoiNuoi"></span>
-                </strong> NÀY KHÔNG ? <br>
-                    (Thao tác này khi thực hiện sẽ không thể hoàn tác)
+                    Bạn muốn xóa cam kết giữa trẻ <strong><span style="color: #dc3545" id="tenTreEm"></span></strong> với người nuôi  <strong><span  style="color: #dc3545" id="tenNguoiNuoi"></span></strong>
+                </strong> không ? <br>
+                    <p style="color: #dc3545"> (Lưu ý: Thao tác này sau khi thực hiện sẽ không thể hoàn tác)</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
@@ -327,12 +337,14 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 </body>
 </html>
 <script>
 $(document).ready(function () {
-        $('#mytable').DataTable({
+        $('#bang').DataTable({
             language: {
                 "decimal": ",",
                 "thousands": ".",

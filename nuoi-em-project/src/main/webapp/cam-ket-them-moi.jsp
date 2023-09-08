@@ -310,10 +310,10 @@
                                             </div>
                                         </div>
                                         <div class="row form-group">
-                                            <c:if test="${thongbao != null}">
+                                            <c:if test="${thongBao != null}">
                                                 <div class="success-msg">
                                                     <i class="fa fa-check"></i>
-                                                        ${thongbao}
+                                                        ${thongBao}
                                                 </div>
                                             </c:if>
                                         </div>

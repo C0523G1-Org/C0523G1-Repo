@@ -153,7 +153,7 @@ public class CamKetServlet extends HttpServlet {
             request.setAttribute("thongBao", "Bạn đã sửa thông tin thành công!");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-them-moi.jsp");
             dispatcher.forward(request, response);
-//            response.sendRedirect("/cam-ket");
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ServletException e) {
