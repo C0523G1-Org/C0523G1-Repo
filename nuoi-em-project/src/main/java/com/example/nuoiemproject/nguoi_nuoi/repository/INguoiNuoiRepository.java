@@ -18,4 +18,5 @@ public interface INguoiNuoiRepository {
 
     List<NguoiNuoiDto> xemTreEmNhan(int maNguoiNuoi);
 
+
 }

@@ -45,8 +45,8 @@ public class NguoiGiamHoServlet extends HttpServlet {
         List<KhuVuc> khuVuc = khuVucService.hienThiKhuVuc();
         request.setAttribute("khuVuc", khuVuc);
         request.setAttribute("nguoiGiamHo", nguoiGiamHo);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/nguoi-giam-ho-cap-nhat.jsp");
-        requestDispatcher.forward(request, response);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/nguoi-giam-ho-cap-nhat.jsp");
+            requestDispatcher.forward(request, response);
 
     }
 
@@ -67,8 +67,6 @@ public class NguoiGiamHoServlet extends HttpServlet {
     private void hienThiDanhSach(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<NguoiGiamHo> nguoiGiamHos = nguoiGiamHoService.hienThi();
         request.setAttribute("nguoiGiamHos", nguoiGiamHos);
-        List<KhuVuc> khuVuc = khuVucService.hienThiKhuVuc();
-        request.setAttribute("khuVuc", khuVuc);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/nguoi-giam-ho-danh-sach.jsp");
         requestDispatcher.forward(request, response);
     }
@@ -94,12 +92,12 @@ public class NguoiGiamHoServlet extends HttpServlet {
     }
 
     private void capNhat(HttpServletRequest request, HttpServletResponse response) {
-        int maNguoiGiamHo = Integer.parseInt(request.getParameter("maNguoiGiamHo"));
+        int maNguiGiamHo = Integer.parseInt(request.getParameter("maNguoiGiamHo"));
         String tenNguoiGiamHo = request.getParameter("tenNguoiGiamHo");
         int gioiTinh = Integer.parseInt(request.getParameter("gioiTinh"));
         int maKhuVuc = Integer.parseInt(request.getParameter("maKhuVuc"));
         String soDienThoai = request.getParameter("soDienThoai");
-        NguoiGiamHo nguoiGiamHo = new NguoiGiamHo(maNguoiGiamHo,tenNguoiGiamHo, gioiTinh, maKhuVuc, soDienThoai);
+        NguoiGiamHo nguoiGiamHo = new NguoiGiamHo(maNguiGiamHo,tenNguoiGiamHo, gioiTinh, maKhuVuc, soDienThoai);
         nguoiGiamHoService.capNhatNguoiGiamHo(nguoiGiamHo);
         try {
             response.sendRedirect("/nguoi-giam-ho");

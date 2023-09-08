@@ -4,6 +4,8 @@ import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoiDto;
 import com.example.nuoiemproject.nguoi_nuoi.service.INguoiNuoiService;
 import com.example.nuoiemproject.nguoi_nuoi.service.NguoiNuoiService;
+import com.example.nuoiemproject.tai_khoan.service.ITaiKhoanService;
+import com.example.nuoiemproject.tai_khoan.service.impl.TaiKhoanService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -17,6 +19,7 @@ import java.util.regex.Pattern;
 @WebServlet(name = "NguoiNuoiServlet", value = "/nguoi-nuoi")
 public class NguoiNuoiServlet extends HttpServlet {
     private INguoiNuoiService service = new NguoiNuoiService();
+    private ITaiKhoanService serviceTK = new TaiKhoanService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,7 +36,7 @@ public class NguoiNuoiServlet extends HttpServlet {
                 hienThiSua(request, response);
                 break;
             case "xemTre":
-                hienThiXemTre(request,response);
+                hienThiXemTre(request, response);
                 break;
             default:
                 hienThiDanhSach(request, response);
@@ -42,13 +45,27 @@ public class NguoiNuoiServlet extends HttpServlet {
     }
 
     private void hienThiXemTre(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp");
-        try {
-            dispatcher.forward(request,response);
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        int maNguoiNuoi = Integer.parseInt(request.getParameter("maTaiKhoan"));
+        List<NguoiNuoiDto> danhSachTre = service.xemTreEmNhan(maNguoiNuoi);
+        if (danhSachTre.isEmpty()) {
+            String thongBao = "Chưa nhận trẻ nào!";
+            request.setAttribute("thongBao", thongBao);
+            try {
+                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            request.setAttribute("danhSachTre", danhSachTre);
+            try {
+                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -80,7 +97,7 @@ public class NguoiNuoiServlet extends HttpServlet {
     }
 
     private void hienThiThem(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-them-moi.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/tai-khoan-them-tai-khoan.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -116,21 +133,20 @@ public class NguoiNuoiServlet extends HttpServlet {
     private void xemTreEm(HttpServletRequest request, HttpServletResponse response) {
         int maNguoiNuoi = Integer.parseInt(request.getParameter("maNguoiNuoi"));
         List<NguoiNuoiDto> danhSachTre = service.xemTreEmNhan(maNguoiNuoi);
-        if(danhSachTre.isEmpty()){
+        if (danhSachTre.isEmpty()) {
             String thongBao = "Chưa nhận trẻ nào!";
             request.setAttribute("thongBao", thongBao);
             try {
-                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request,response);
+                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request, response);
             } catch (ServletException e) {
                 throw new RuntimeException(e);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }
-        else {
-            request.setAttribute("danhSachTre",danhSachTre);
+        } else {
+            request.setAttribute("danhSachTre", danhSachTre);
             try {
-                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request,response);
+                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request, response);
             } catch (ServletException e) {
                 throw new RuntimeException(e);
             } catch (IOException e) {
@@ -146,9 +162,9 @@ public class NguoiNuoiServlet extends HttpServlet {
         int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
         int soDienThoai = Integer.parseInt(request.getParameter("soDienThoai"));
         String email = request.getParameter("email");
-        NguoiNuoi nguoiNuoi = new NguoiNuoi(maNguoiNuoi,tenNguoiNuoi,gioiTinh,maTaiKhoan,soDienThoai,email);
+        NguoiNuoi nguoiNuoi = new NguoiNuoi(maNguoiNuoi, tenNguoiNuoi, gioiTinh, maTaiKhoan, soDienThoai, email);
         //        validate DL
-        String soDienThoaiDung = "^(0\\d{9})$";
+        String soDienThoaiDung = "^[0-9]{10,12}$";
         Pattern pattern = Pattern.compile(soDienThoaiDung);
         Matcher matcher = pattern.matcher(request.getParameter("soDienThoai"));
         String emailDung = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
@@ -160,17 +176,16 @@ public class NguoiNuoiServlet extends HttpServlet {
                 request.setAttribute("nguoiNuoi", nguoiNuoi);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-sua-thong-tin.jsp");
                 dispatcher.forward(request, response);
-            } else if (!matcher1.matches()){
+            } else if (!matcher1.matches()) {
                 request.setAttribute("loi1", "Email không hợp lệ!");
                 request.setAttribute("nguoiNuoi", nguoiNuoi);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-sua-thong-tin.jsp");
                 dispatcher.forward(request, response);
-            }
-            else {
+            } else {
                 service.sua(nguoiNuoi);
                 request.setAttribute("thongBao", "Bạn đã sửa thông tin thành công!");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-sua-thong-tin.jsp");
-                dispatcher.forward(request,response);
+                dispatcher.forward(request, response);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -183,7 +198,7 @@ public class NguoiNuoiServlet extends HttpServlet {
         int ma_nguoi_nuoi = Integer.parseInt(request.getParameter("xoa_ma"));
         service.xoa(ma_nguoi_nuoi);
         try {
-            response.sendRedirect("/nguoi_nuoi");
+            response.sendRedirect("/nguoi-nuoi");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -210,17 +225,16 @@ public class NguoiNuoiServlet extends HttpServlet {
                 request.setAttribute("nguoiNuoi", nguoiNuoi);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-them-moi.jsp");
                 dispatcher.forward(request, response);
-            } else if (!matcher1.matches()){
+            } else if (!matcher1.matches()) {
                 request.setAttribute("loi1", "Email không hợp lệ!");
                 request.setAttribute("nguoiNuoi", nguoiNuoi);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-them-moi.jsp");
                 dispatcher.forward(request, response);
-            }
-            else {
+            } else {
                 service.them(nguoiNuoi);
                 request.setAttribute("thongBao", "Bạn đã thêm mới thành công!");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-them-moi.jsp");
-                dispatcher.forward(request,response);
+                dispatcher.forward(request, response);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -31,6 +31,16 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
+<%--    Phân trang--%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
+    <style>
+        a,h3{
+            text-decoration: none;
+        }
+    </style>
+
 </head>
 <body class="animsition">
 <div class="page-wrapper">
@@ -41,8 +51,8 @@
                 <div class="header-mobile-inner">
                     <div class="logo" style="background-color: #90953b">
                         <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
-                        <a href="#">
-                            <h3>Nuôi em</h3>
+                        <a href="#" style="text-decoration: white">
+                            <h3 style="color: #fff">Nuôi em</h3>
                         </a>
                     </div>
                     <button class="hamburger hamburger--slider" type="button">
@@ -77,7 +87,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/tai-chinh">Tài chính</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -100,7 +110,7 @@
         <div class="logo" style="background-color: #90953b">
             <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
             <a href="#">
-                <h3>Nuôi em</h3>
+                <h3 style="color: #fff">Nuôi em</h3>
             </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1" style="background-color: #78853f">
@@ -127,7 +137,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/tai-chinh">Tài chính</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -161,7 +171,7 @@
                                         <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
                                     </div>
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#">Zhang Ming</a>
+                                        <a class="js-acc-btn" href="#">Admin</a>
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
@@ -172,9 +182,9 @@
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">Zhang Ming</a>
+                                                    <a href="#">Admin</a>
                                                 </h5>
-                                                <span class="email">zhangming8443@gmail.com</span>
+                                                <span class="email">nuoiem@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -198,7 +208,7 @@
         <!-- HEADER DESKTOP-->
 
         <!-- MAIN CONTENT-->
-        <div class="main-content">
+        <div class="main-content container">
 
             <div class="row">
                 <div class="col-lg-12">
@@ -208,7 +218,8 @@
                         <i class="fas fa-plus"></i>
                     </a>
                     <div class="table-responsive table--no-card m-b-40">
-                        <table class="table table-borderless table-striped table-earning">
+                        <table class="table table-borderless table-striped table-earning" id="bangNguoiNuoi" style="width: 100%">
+
                             <thead>
                             <tr>
                                 <th>STT</th>
@@ -266,23 +277,33 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form action="/nguoi-nuoi?action=xoa" method="post">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Xóa người nuôi</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+                            <div class="modal-header" style="background-color: #dc3545">
+                                <h5 class="modal-title" id="exampleModalLabel" style="color: WHITE; text-align: center">XÓA MẠNH THƯỜNG QUÂN</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <input type="hidden" id="xoa_ma" name="xoa_ma">
-                                Chắc chắn xóa người nuôi <span id="xoa_ten"></span>?
+                               <div style="color: #C63D2F ">
+                                   Bạn có chắc chắn xóa người nuôi  <strong><span id="xoa_ten"></span></strong>  không?<br>
+                                (Lưu ý: Hành động này sẽ không thể hoàn tác)
+                               </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                <button type="submit" class="btn btn-primary">Xóa</button>
+                                <button type="submit" class="btn btn-danger">Xác nhận</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+
+            <script>
+                function sendInforModal(ma, ten) {
+                    document.getElementById("xoa_ma").value = ma;
+                    document.getElementById("xoa_ten").innerText = ten;
+                }
+            </script>
+
         </div>
     </div>
 </div>
@@ -309,6 +330,43 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#bangNguoiNuoi').dataTable({
+            language: {
+                "decimal": ",",
+                "thousands": ".",
+                "sEmptyTable": "Không có dữ liệu",
+                "sInfo": "Đang hiển thị _START_ đến _END_ của tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang hiển thị 0 đến 0 của tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ tổng số _MAX_ mục)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ",",
+                "sLengthMenu": "Hiển thị _MENU_ mục",
+                "sLoadingRecords": "Đang tải...",
+                "sProcessing": "Đang xử lý...",
+                "sSearch": "Tìm kiếm:",
+                "Show:": "",
+                "entries": "",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sLast": "Cuối",
+                    "sNext": "Tiếp",
+                    "sPrevious": "Trước"
+                },
+
+            },
+        });
+    });
+</script>
 
 </body>
 </html>

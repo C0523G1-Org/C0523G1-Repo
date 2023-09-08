@@ -17,8 +17,12 @@
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+=======
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+>>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
 
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -167,7 +171,7 @@
                                         <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
                                     </div>
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#">Admin</a>
+                                        <a class="js-acc-btn" href="#">Zhang Ming</a>
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
@@ -178,9 +182,9 @@
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">Admin</a>
+                                                    <a href="#">Zhang Ming</a>
                                                 </h5>
-                                                <span class="email">nuoiem@gmail.com</span>
+                                                <span class="email">zhangming8443@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -190,7 +194,7 @@
                                             </div>
                                         </div>
                                         <div class="account-dropdown__footer">
-                                            <a href="/nuoi-em-trang-chu.jsp">
+                                            <a href="#">
                                                 <i class="zmdi zmdi-power"></i>Đăng xuất</a>
                                         </div>
                                     </div>
@@ -205,28 +209,99 @@
 
         <!-- MAIN CONTENT-->
         <div class="main-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="title-1 m-b-25 justify-content-center d-flex"
-                            style="color: #0c0c0c; margin-bottom: 0">
-                            Danh sách người giám hộ</h2>
-                        <a class="btn btn-outline-light" href="/nguoi-giam-ho?action=themmoinguoigiamho"
-                           style="color: black">
-                            <i class="fas fa-plus"></i>
-                        </a>
-                        <div class="table-responsive table--no-card m-b-40">
-                            <table class="table table-borderless table-striped table-earning" id="mytable">
-                                <thead>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="title-1 m-b-25 justify-content-center d-flex" style="color: #0c0c0c; margin-bottom: 0">
+                        Danh sách người giám hộ</h2>
+                    <a class="btn btn-outline-light" href="/nguoi-giam-ho?action=themmoinguoigiamho" style="color: black">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                    <div class="table-responsive table--no-card m-b-40">
+                        <table class="table table-borderless table-striped table-earning">
+                            <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên</th>
+                                <th>Giới Tính</th>
+                                <th>Khu Vực</th>
+                                <th>Số Điện Thoại</th>
+                                <th>Sửa</th>
+                                <th>Xóa</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="nguoiGiamHo" items="${nguoiGiamHos}" varStatus="lam">
                                 <tr>
-                                    <th>STT</th>
-                                    <th>Tên</th>
-                                    <th>Giới Tính</th>
-                                    <th>Khu Vực</th>
-                                    <th>Số Điện Thoại</th>
-                                    <th>Sửa</th>
-                                    <th>Xóa</th>
+                                    <td><c:out value="${lam.count}"/></td>
+                                    <td><c:out value="${nguoiGiamHo.tenNguoiGiamHo}"/></td>
+
+                                        <%--            xử lý giới tính--%>
+                                    <c:if test="${nguoiGiamHo.gioiTinh == 1}">
+                                        <td>Nam</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.gioiTinh == 0}">
+                                        <td>Nữ</td>
+                                    </c:if>
+
+                                        <%--            xử lý khu vực--%>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 1}">
+                                        <td>Hà Giang</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 2}">
+                                        <td>Cao Bằng</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 3}">
+                                        <td>Lào Cai</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 4}">
+                                        <td>Bắc Kạn</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 5}">
+                                        <td>Lạng Sơn</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 6}">
+                                        <td>Tuyên Quang</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 7}">
+                                        <td>Yên Bái</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 8}">
+                                        <td>Thái Nguyên</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 9}">
+                                        <td>Phú Thọ</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 10}">
+                                        <td>Bắc Giang</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 11}">
+                                        <td>Lai Châu</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 12}">
+                                        <td>Điện Biên</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 13}">
+                                        <td>Sơn La</td>
+                                    </c:if>
+                                    <c:if test="${nguoiGiamHo.maKhuVuc == 14}">
+                                        <td>Hòa Bình</td>
+                                    </c:if>
+                                    <td><c:out value="${nguoiGiamHo.soDienThoai}"/></td>
+                                    <td>
+                                        <a href="/nguoi-giam-ho?action=capnhatnguoigiamho&maNguoiGiamHo=${nguoiGiamHo.maNguoiGiamHo}"
+                                           role="button" data-bs-toggle="modal"
+                                           data-bs-target="#exampleModal">
+                                            <i class="fas fa-pencil-square-o" style="color: black"></i></a>
+                                    </td>
+                                    <td>
+                                        <button type="button" data-bs-toggle="modal"
+                                                data-bs-target="#delete"
+                                                onclick="maNguoiGiamHo('${nguoiGiamHo.maNguoiGiamHo}','${nguoiGiamHo.tenNguoiGiamHo}')">
+                                            <i class="fas fa-trash"></i></button>
+                                    </td>
                                 </tr>
+<<<<<<< HEAD
                                 </thead>
                                 <tbody>
                                 <c:forEach var="nguoiGiamHo" items="${nguoiGiamHos}" varStatus="lam">
@@ -297,6 +372,11 @@
                                 <button type="submit" class="btn btn-danger">Xác Nhận</button>
                             </div>
                         </form>
+=======
+                            </c:forEach>
+                            </tbody>
+                        </table>
+>>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
                     </div>
                 </div>
             </div>
@@ -335,6 +415,7 @@
 <!-- Main JS-->
 <script src="js/main.js"></script>
 
+<<<<<<< HEAD
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -385,5 +466,7 @@
     }
 </script>
 
+=======
+>>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
 </body>
 </html>

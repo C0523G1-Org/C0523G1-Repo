@@ -25,7 +25,8 @@ public class NguoiNuoiRepository implements INguoiNuoiRepository {
             "join tre_em te on ck.ma_tre_em = te.ma_tre_em\n" +
             "join nguoi_giam_ho ngh on te.ma_nguoi_giam_ho = ngh.ma_nguoi_giam_ho\n" +
             "join khu_vuc kv on te.ma_khu_vuc = kv.ma_khu_vuc\n" +
-            "where ck.ma_nguoi_nuoi = ?;";
+            "where ck.ma_nguoi_nuoi = ? and ck.trang_thai_xoa = 0;";
+    private static final String NAME = "select ten_nguoi_nuoi from nguoi_nuoi where ma_nguoi_nuoi = ?";
 
     @Override
     public List<NguoiNuoi> hienThiDanhSach() {

@@ -10,175 +10,27 @@
 <html>
 <head>
     <title>Thêm Mới Người Giám Hộ</title>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Title Page-->
-    <title>Thêm mới trẻ em</title>
-
-    <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
-    <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
-    <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
-    <style>
-        @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
-
-        .info-msg,
-        .success-msg,
-        .warning-msg,
-        .error-msg {
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 3px 3px 3px 3px;
-        }
-
-        .info-msg {
-            color: #059;
-            background-color: #BEF;
-        }
-
-        .success-msg {
-            color: #270;
-            background-color: #DFF2BF;
-        }
-
-        .warning-msg {
-            color: #9F6000;
-            background-color: #FEEFB3;
-        }
-
-        .error-msg {
-            color: #D8000C;
-            background-color: #FFBABA;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 </head>
 <body>
-<!-- HEADER MOBILE-->
-<header class="header-mobile d-block d-lg-none">
-    <div class="header-mobile__bar" style="background-color: #90953b">
-        <div class="container-fluid">
-            <div class="header-mobile-inner">
-                <div class="logo" style="background-color: #90953b">
-                    <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
-                    <a href="#">
-                        <h3>Nuôi em</h3>
-                    </a>
-                </div>
-                <button class="hamburger hamburger--slider" type="button">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                </button>
-            </div>
-        </div>
+<h2 style="text-align: center">Thêm Mới Người Giám Hộ</h2>
+<form action="/nguoi-giam-ho?action=them" method="post">
+    <div class="mb-3">
+        <label for="tenNguoiGiamHo" class="form-label">Họ và tên</label>
+        <input type="text" class="form-control" id="tenNguoiGiamHo" aria-describedby="tenNguoiGiamHo" name="tenNguoiGiamHo">
     </div>
-    <nav class="navbar-mobile">
-        <div class="container-fluid">
-            <ul class="navbar-mobile__list list-unstyled">
-                <li>
-                    <a href="#">
-                        <i class="fas fa-signal"></i>Thống kê</a>
-                </li>
-                <li class="active has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fas fa-list"></i>Danh sách</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="/cam-ket">Bảng cam kết</a>
-                        </li>
-                        <li>
-                            <a href="/nguoi-nuoi">Mạnh thường quân</a>
-                        </li>
-                        <li>
-                            <a href="/nguoi-giam-ho">Người giám hộ</a>
-                        </li>
-                        <li>
-                            <a href="/tre-em">Trẻ em</a>
-                        </li>
-                        <li>
-                            <a href="/tai-chinh">Tài chính</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/tai-khoan">
-                        <i class="fas fa-users"></i>Tài khoản</a>
-                </li>
-                <li>
-                    <a href="/nuoi-em-trang-chu.jsp">
-                        <i class="fas fa-arrow-left"></i>Trở về</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
-<!-- END HEADER MOBILE-->
-
-<!-- MENU SIDEBAR-->
-<aside class="menu-sidebar d-none d-lg-block">
-    <div class="logo" style="background-color: #90953b">
-        <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
-        <a href="#">
-            <h3>Nuôi em</h3>
-        </a>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gioiTinh" id="gioiTinh1" value="1">
+        <label class="form-check-label" for="gioiTinh1">Nam</label>
     </div>
-    <div class="menu-sidebar__content js-scrollbar1" style="background-color: #78853f">
-        <nav class="navbar-sidebar">
-            <ul class="list-unstyled navbar__list">
-                <li>
-                    <a href="#">
-                        <i class="fas fa-signal"></i>Thống kê</a>
-                </li>
-                <li class="active has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fas fa-list"></i>Danh sách</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="/cam-ket">Bảng cam kết</a>
-                        </li>
-                        <li>
-                            <a href="/nguoi-nuoi">Mạnh thường quân</a>
-                        </li>
-                        <li>
-                            <a href="/nguoi-giam-ho">Người giám hộ</a>
-                        </li>
-                        <li>
-                            <a href="/tre-em">Trẻ em</a>
-                        </li>
-                        <li>
-                            <a href="/tai-chinh">Tài chính</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/tai-khoan">
-                        <i class="fas fa-users"></i>Tài khoản</a>
-                </li>
-                <li>
-                    <a href="/nuoi-em-trang-chu.jsp">
-                        <i class="fas fa-arrow-left"></i>Trở về</a>
-                </li>
-            </ul>
-        </nav>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gioiTinh" id="gioiTinh2" value="0">
+        <label class="form-check-label" for="gioiTinh2">Nữ</label>
     </div>
+<<<<<<< HEAD
 </aside>
 <!-- END MENU SIDEBAR-->
 
@@ -327,31 +179,25 @@
                 </div>
             </div>
         </div>
+=======
+    <div class="col-12 col-md-9">
+        <label for="maKhuVuc">
+            <select name="maKhuVuc" id="maKhuVuc" class="form-control">
+                <option disabled selected>Chọn khu vực</option>
+                <c:forEach var="k" items="${khuVuc}">
+                    <option value="${k.getMaKhuVuc()}">
+                            ${k.getTenKhuVuc()}
+                    </option>
+                </c:forEach>
+            </select>
+        </label>
+>>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
     </div>
-</div>
-
-<!-- Jquery JS-->
-<script src="vendor/jquery-3.2.1.min.js"></script>
-<!-- Bootstrap JS-->
-<script src="vendor/bootstrap-4.1/popper.min.js"></script>
-<script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-<!-- Vendor JS       -->
-<script src="vendor/slick/slick.min.js">
-</script>
-<script src="vendor/wow/wow.min.js"></script>
-<script src="vendor/animsition/animsition.min.js"></script>
-<script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-</script>
-<script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="vendor/counter-up/jquery.counterup.min.js">
-</script>
-<script src="vendor/circle-progress/circle-progress.min.js"></script>
-<script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="vendor/select2/select2.min.js">
-</script>
-
-<!-- Main JS-->
-<script src="js/main.js"></script>
+    <div class="mb-3">
+        <label for="soDienThoai" class="form-label">Số điện thoại</label>
+        <input type="text" class="form-control" id="soDienThoai" name="soDienThoai">
+    </div>
+    <button type="submit" class="btn btn-primary">Thêm Mới</button>
+</form>
 </body>
 </html>

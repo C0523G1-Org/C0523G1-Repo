@@ -4,6 +4,7 @@ import com.example.nuoiemproject.BaseRepo;
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto;
+import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto2;
 import com.example.nuoiemproject.tai_khoan.repository.ITaiKhoanRepository;
 
 import java.sql.Connection;
@@ -38,6 +39,13 @@ public class TaiKhoanRepository extends BaseRepo implements ITaiKhoanRepository 
             " where tai_khoan.ma_tai_khoan = ?;";
     private static final String TAI_KHOAN_DA_TON_TAI = "select ten_tai_khoan from tai_khoan where ten_tai_khoan = ?;";
     private static final String GUI_MA_TAI_KHOAN = "select ma_tai_khoan from tai_khoan where ten_tai_khoan = ?;";
+    private static final String EMAIL_DA_TON_TAI ="select ten_nguoi_nuoi, so_dien_thoai, email from nguoi_nuoi " +
+            "where email = ?;";
+    private static final String CHI_TIET_TK = "select tai_khoan.ma_tai_khoan, tai_khoan.ten_tai_khoan, tai_khoan.mat_khau, " +
+            "nguoi_nuoi.ten_nguoi_nuoi, nguoi_nuoi.gioi_tinh, nguoi_nuoi.so_dien_thoai from tai_khoan " +
+            "left join nguoi_nuoi " +
+            "on tai_khoan.ma_tai_khoan = nguoi_nuoi.ma_tai_khoan " +
+            "where tai_khoan.ma_tai_khoan = ?;";
     @Override
     public List<TaiKhoan> hienThiDanhSach() {
         List<TaiKhoan> danhSachTaiKhoan = new ArrayList<>();
@@ -178,7 +186,6 @@ public class TaiKhoanRepository extends BaseRepo implements ITaiKhoanRepository 
     }
 
     //
-
     @Override
     public int guiMaTaiKhoan(String tenTaiKhoan) {
         Integer maTaiKhoan = null;
@@ -194,5 +201,87 @@ public class TaiKhoanRepository extends BaseRepo implements ITaiKhoanRepository 
             throw new RuntimeException(e);
         }
         return maTaiKhoan;
+    }
+    //
+
+    @Override
+    public NguoiNuoi emailDaTonTai(String email) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(EMAIL_DA_TON_TAI);
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String tenNguoiNuoi = resultSet.getString(1);
+                int soDienThoai = resultSet.getInt(2);
+                String emailDaTonTai = resultSet.getString(3);
+                return new NguoiNuoi(tenNguoiNuoi, soDienThoai , emailDaTonTai);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    @Override
+    public List<TaiKhoanDto> chiTietTaiKhoan(int maTaiKhoan) {
+        List<TaiKhoanDto> danhSachDto = new ArrayList<>();
+        Connection connection = getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(CHI_TIET_TK);
+            preparedStatement.setInt(1, maTaiKhoan);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int maTK = resultSet.getInt(1);
+                String tenTaiKhoan = resultSet.getString(2);
+                String matKhau = resultSet.getString(3);
+                String tenNguoiNuoi = resultSet.getString(4);
+                int gioiTinh = resultSet.getInt(5);
+                int soDienThoai = resultSet.getInt(6);
+                danhSachDto.add(new TaiKhoanDto(maTK, tenTaiKhoan, matKhau, tenNguoiNuoi, gioiTinh, soDienThoai));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return danhSachDto;
+    }
+
+    private static final String THONG_KE =
+            "select tai_khoan.ma_tai_khoan, tai_khoan.ten_tai_khoan, " +
+            "nguoi_nuoi.ma_nguoi_nuoi, nguoi_nuoi.ten_nguoi_nuoi, nguoi_nuoi.gioi_tinh,  nguoi_nuoi.email,  " +
+            "tre_em.ma_tre_em, tre_em.ten_tre_em, nguoi_nuoi.so_dien_thoai " +
+            "from tai_khoan " +
+            "left join nguoi_nuoi " +
+            "on tai_khoan.ma_tai_khoan = nguoi_nuoi.ma_tai_khoan " +
+            "left join cam_ket " +
+            "on nguoi_nuoi.ma_nguoi_nuoi = cam_ket.ma_nguoi_nuoi " +
+            "left join tre_em " +
+            "on cam_ket.ma_tre_em = tre_em.ma_tre_em " +
+            "where tai_khoan.ma_tai_khoan = ?;";
+    @Override
+    public List<TaiKhoanDto2> thongKeTaiKhoan(int maTaiKhoan) {
+        List<TaiKhoanDto2> thongKeChiTiet = new ArrayList<>();
+        Connection connection = getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(THONG_KE);
+            preparedStatement.setInt(1, maTaiKhoan);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int maTK = resultSet.getInt(1);
+                String tenTaiKhoan = resultSet.getString(2);
+                int maNguoiNuoi = resultSet.getInt(3);
+                String tenNguoiNuoi = resultSet.getString(4);
+                int gioiTinhNguoiNuoi = resultSet.getInt(5);
+                String email = resultSet.getString(6);
+                int maTreEm = resultSet.getInt(7);
+                String tenTreEm = resultSet.getString(8);
+                int soDienThoai = resultSet.getInt(9);
+                thongKeChiTiet.add(new TaiKhoanDto2(maTK, tenTaiKhoan , maNguoiNuoi, tenNguoiNuoi,
+                        gioiTinhNguoiNuoi, email, maTreEm, tenTreEm, soDienThoai));
+            }
+            return thongKeChiTiet;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

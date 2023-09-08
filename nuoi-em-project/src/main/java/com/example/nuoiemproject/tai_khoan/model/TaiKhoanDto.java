@@ -3,12 +3,18 @@ package com.example.nuoiemproject.tai_khoan.model;
 public class TaiKhoanDto {
     private int maTaiKhoan;
     private String tenTaiKhoan;
+    private String matKhau;
     private String tenNguoiNuoi;
     private int gioiTinh;
     private int soDienThoai;
 
-    public TaiKhoanDto(int maTaiKhoan) {
+    public TaiKhoanDto(int maTaiKhoan, String tenTaiKhoan, String matKhau, String tenNguoiNuoi, int gioiTinh, int soDienThoai) {
         this.maTaiKhoan = maTaiKhoan;
+        this.tenTaiKhoan = tenTaiKhoan;
+        this.matKhau = matKhau;
+        this.tenNguoiNuoi = tenNguoiNuoi;
+        this.gioiTinh = gioiTinh;
+        this.soDienThoai = soDienThoai;
     }
 
     public TaiKhoanDto(int maTaiKhoan, String tenTaiKhoan, String tenNguoiNuoi, int gioiTinh, int soDienThoai) {
@@ -57,6 +63,14 @@ public class TaiKhoanDto {
 
     public void setSoDienThoai(int soDienThoai) {
         this.soDienThoai = soDienThoai;
+    }
+
+    public String getMatKhau() {
+        return matKhau;
+    }
+
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
     }
 
     @Override

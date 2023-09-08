@@ -54,17 +54,17 @@
                     <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                         <ul class="navbar-nav  ">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">
+                                <a class="nav-link" href="#">
                                     Trang chủ <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/tre-em">Trẻ em</a>
+                                <a class="nav-link" href="/tre-em-tc">Trẻ em</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Chứng nhận</a>
+                                <a class="nav-link" href="/tre-em">Chứng nhận</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Tài chính</a>
+                                <a class="nav-link" href="/tai-chinh">Tài chính</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/tai-khoan?action=dangNhap">Đăng nhập</a>
@@ -84,8 +84,6 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    <%--                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>--%>
-                    <%--                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>--%>
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">

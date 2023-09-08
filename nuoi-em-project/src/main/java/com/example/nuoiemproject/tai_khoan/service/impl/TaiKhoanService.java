@@ -3,6 +3,7 @@ package com.example.nuoiemproject.tai_khoan.service.impl;
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto;
+import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto2;
 import com.example.nuoiemproject.tai_khoan.repository.ITaiKhoanRepository;
 import com.example.nuoiemproject.tai_khoan.repository.impl.TaiKhoanRepository;
 import com.example.nuoiemproject.tai_khoan.service.ITaiKhoanService;
@@ -67,5 +68,24 @@ public class TaiKhoanService implements ITaiKhoanService {
     @Override
     public int guiMaTaiKhoan(String tenTaiKhoan) {
         return repository.guiMaTaiKhoan(tenTaiKhoan);
+    }
+
+    @Override
+    public Boolean emailDaTonTai(String email) {
+        NguoiNuoi nguoiNuoi = repository.emailDaTonTai(email);
+        if (nguoiNuoi == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public List<TaiKhoanDto> chiTietTaiKhoan(int maTaiKhoan) {
+        return repository.chiTietTaiKhoan(maTaiKhoan);
+    }
+
+    @Override
+    public List<TaiKhoanDto2> thongKeTaiKhoan(int maTaiKhoan) {
+        List<TaiKhoanDto2> thongKe = repository.thongKeTaiKhoan(maTaiKhoan);
+        return thongKe;
     }
 }

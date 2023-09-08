@@ -18,6 +18,8 @@
 
     <!-- Bootstrap CSS-->
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
 
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -25,11 +27,19 @@
     <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
     <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" r   el="stylesheet" media="all">
     <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 
 </head>
 <body class="animsition">
@@ -42,7 +52,7 @@
                     <div class="logo" style="background-color: #90953b">
                         <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
                         <a href="#">
-                            <h3>Nuôi em</h3>
+                            <h3 style="color: #fff">Nuôi em</h3>
                         </a>
                     </div>
                     <button class="hamburger hamburger--slider" type="button">
@@ -77,7 +87,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/tai-chinh">Tài chính</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -100,7 +110,7 @@
         <div class="logo" style="background-color: #90953b">
             <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
             <a href="#">
-                <h3>Nuôi em</h3>
+                <h3 style="color: #fff">Nuôi em</h3>
             </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1" style="background-color: #78853f">
@@ -127,7 +137,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/tai-chinh">Tài chính</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -199,85 +209,93 @@
 
         <!-- MAIN CONTENT-->
         <div class="main-content">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="title-1 m-b-25 justify-content-center d-flex" style="color: #0c0c0c; margin-bottom: 0">
-                        Danh sách trẻ em</h2>
-                    <a class="btn btn-outline-light" href="/tre-em?action=them" style="color: black">
-                        <i class="fas fa-plus"></i>
-                    </a>
-                    <div class="table-responsive table--no-card m-b-40">
-                        <table id="myTable" class="table table-borderless table-striped table-earning">
-                            <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Tên</th>
-                                <th>Giới tính</th>
-                                <th>Ngày sinh</th>
-                                <th>Mô tả</th>
-                                <th>Người giám hộ</th>
-                                <th>Khu vực</th>
-                                <th>Trạng thái</th>
-                                <th>Ảnh</th>
-                                <th>Sửa</th>
-                                <th>Xóa</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach items="${treEmDto}" var="treEmDto" varStatus="loop">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="title-1 m-b-25 justify-content-center d-flex"
+                            style="color: #0c0c0c; margin-bottom: 0">
+                            Danh sách trẻ em</h2>
+                        <a class="btn btn-outline-light" href="/tre-em?action=them" style="color: black">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                        <div class="table-responsive table--no-card m-b-40">
+                            <table class="table table-borderless table-striped table-earning" id="table"
+                                   style="width: 100%">
+                                <thead>
                                 <tr>
-                                    <td>
-                                            ${loop.count}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenTreEm()}
-                                    </td>
-
-                                    <td>
-                                        <c:if test="${treEmDto.getGioiTinh() == 1}">Nam</c:if>
-                                        <c:if test="${treEmDto.getGioiTinh() == 0}">Nữ</c:if>
-                                    </td>
-
-                                    <c:set var="dateString" value="${treEmDto.getNgaySinh()}"/>
-                                    <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
-                                    <td>
-                                        <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getMoTa()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenNguoiGiamHo()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenKhuVuc()}
-                                    </td>
-
-                                    <td>
-                                        <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
-                                        <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
-                                    </td>
-
-                                    <td>
-                                        <img height="50px" width="50px" src="images/tre-em/${treEmDto.getHinhAnh()}">
-                                    </td>
-                                    <td>
-                                        <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"
-                                           role="button">
-                                            <i class="fas fa-pencil-square-o" style="color: black"></i></a>
-                                    </td>
-                                    <td>
-                                        <button><i class="fas fa-trash"></i></button>
-                                    </td>
+                                    <th>STT</th>
+                                    <th>Tên</th>
+                                    <th>Giới tính</th>
+                                    <th>Ngày sinh</th>
+                                    <%--                                    <th>Mô tả</th>--%>
+                                    <%--                                    <th>Người giám hộ</th>--%>
+                                    <th>Khu vực</th>
+                                    <%--                                    <th>Trạng thái</th>--%>
+                                    <%--                                    <th>Ảnh</th>--%>
+                                    <th>Sửa</th>
+                                    <th>Xóa</th>
                                 </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${treEmDto}" var="treEmDto" varStatus="loop">
+                                    <tr>
+                                        <td>
+                                                ${loop.count}
+                                        </td>
+
+                                        <td>
+                                                ${treEmDto.getTenTreEm()}
+                                        </td>
+
+                                        <td>
+                                            <c:if test="${treEmDto.getGioiTinh() == 1}">Nam</c:if>
+                                            <c:if test="${treEmDto.getGioiTinh() == 0}">Nữ</c:if>
+                                        </td>
+
+                                        <c:set var="dateString" value="${treEmDto.getNgaySinh()}"/>
+                                        <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
+                                        <td>
+                                            <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
+                                        </td>
+
+                                            <%--                                        <td>--%>
+                                            <%--                                                ${treEmDto.getMoTa()}--%>
+                                            <%--                                        </td>--%>
+
+                                            <%--                                        <td>--%>
+                                            <%--                                                ${treEmDto.getTenNguoiGiamHo()}--%>
+                                            <%--                                        </td>--%>
+
+                                        <td>
+                                                ${treEmDto.getTenKhuVuc()}
+                                        </td>
+
+                                            <%--                                        <td>--%>
+                                            <%--                                            <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>--%>
+                                            <%--                                            <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>--%>
+                                            <%--                                        </td>--%>
+
+                                            <%--                                        <td>--%>
+                                            <%--                                            <img height="50px" width="50px"--%>
+                                            <%--                                                 src="images/tre-em/${treEmDto.getHinhAnh()}">--%>
+                                            <%--                                        </td>--%>
+                                        <td>
+                                            <a href="tre-em?action=sua&maTreEm=${treEmDto.getMaTreEm()}"
+                                               role="button">
+                                                <i class="fas fa-pencil-square-o" style="color: black"></i></a>
+                                        </td>
+                                        <td>
+                                            <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"
+                                                    onclick="sendInforModal('${treEmDto.maTreEm}','${treEmDto.tenTreEm}')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -291,6 +309,36 @@
         </div>
     </div>
 </div>
+<%--Modal--%>
+<div class="modal" tabindex="-1" id="exampleModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/tre-em?action=xoa" method="post">
+                <div class="modal-header" style="background-color: #dc3545">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: WHITE; text-align: center">XÓA TRẺ
+                        EM</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="xoa_ma" name="xoa_ma">
+                    Bạn có chắc chắn xóa bé <strong id="xoa_ten" style="color: #dc3545"></strong> không ?<br>
+                    <span style="color: #dc3545">(Lưu ý: Hành động này sẽ không thể hoàn tác)</span>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-danger">Xác nhận</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function sendInforModal(ma, ten) {
+        document.getElementById("xoa_ma").value = ma;
+        document.getElementById("xoa_ten").innerText = ten;
+    }
+</script>
 <!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
 
@@ -299,6 +347,7 @@
 <!-- Bootstrap JS-->
 <script src="vendor/bootstrap-4.1/popper.min.js"></script>
 <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.js"></script>
 <!-- Vendor JS       -->
 <script src="vendor/slick/slick.min.js">
 </script>
@@ -314,6 +363,49 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
+
+
+<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"--%>
+<%--        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"--%>
+<%--        crossorigin="anonymous"></script>--%>
+
+<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"--%>
+<%--        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"--%>
+<%--        crossorigin="anonymous"></script>--%>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#table').DataTable({
+            language: {
+                "decimal": ",",
+                "thousands": ".",
+                "sEmptyTable": "Không có dữ liệu",
+                "sInfo": "Đang hiển thị _START_ đến _END_ của tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang hiển thị 0 đến 0 của tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ tổng số _MAX_ mục)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ",",
+                "sLengthMenu": "Hiển thị _MENU_ mục",
+                "sLoadingRecords": "Đang tải...",
+                "sProcessing": "Đang xử lý...",
+                "sSearch": "Tìm kiếm:",
+                "Show:": "",
+                "entries": "",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sLast": "Cuối",
+                    "sNext": "Tiếp",
+                    "sPrevious": "Trước"
+                },
+
+            },
+
+        });
+    });
+</script>
 
 </body>
 </html>
