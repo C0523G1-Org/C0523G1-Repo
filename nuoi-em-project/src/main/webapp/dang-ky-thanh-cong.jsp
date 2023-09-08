@@ -8,6 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
     <title>Đăng ký thành công</title>
 </head>
 <style>
@@ -46,10 +53,10 @@
 
     .container {
         display: grid;
+        margin-top: 4rem;
     }
 
     .main {
-        margin-top: 0;
         border: 1px solid black;
         height: 10rem;
         width: 70rem;
@@ -80,10 +87,9 @@
 </div>
 <div class="container">
     <div class="main">
-
             <span class="notice">Đăng ký tài khoản: <span class="user">${tenTaiKhoan}</span> thành công, bấm <a href="nuoi-em-trang-chu.jsp"> vào đây</a> để quay về trang chủ hoặc <a
                     href="dang-nhap.jsp">đăng nhập</a></span>
-    </div>
+</div>
 </div>
 </body>
 </html>

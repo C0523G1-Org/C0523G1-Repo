@@ -4,6 +4,7 @@ import com.example.nuoiemproject.BaseRepo;
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto;
+import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto2;
 import com.example.nuoiemproject.tai_khoan.repository.ITaiKhoanRepository;
 
 import java.sql.Connection;
@@ -243,5 +244,44 @@ public class TaiKhoanRepository extends BaseRepo implements ITaiKhoanRepository 
             throw new RuntimeException(e);
         }
         return danhSachDto;
+    }
+
+    private static final String THONG_KE =
+            "select tai_khoan.ma_tai_khoan, tai_khoan.ten_tai_khoan, " +
+            "nguoi_nuoi.ma_nguoi_nuoi, nguoi_nuoi.ten_nguoi_nuoi, nguoi_nuoi.gioi_tinh,  nguoi_nuoi.email,  " +
+            "tre_em.ma_tre_em, tre_em.ten_tre_em, nguoi_nuoi.so_dien_thoai " +
+            "from tai_khoan " +
+            "left join nguoi_nuoi " +
+            "on tai_khoan.ma_tai_khoan = nguoi_nuoi.ma_tai_khoan " +
+            "left join cam_ket " +
+            "on nguoi_nuoi.ma_nguoi_nuoi = cam_ket.ma_nguoi_nuoi " +
+            "left join tre_em " +
+            "on cam_ket.ma_tre_em = tre_em.ma_tre_em " +
+            "where tai_khoan.ma_tai_khoan = ?;";
+    @Override
+    public List<TaiKhoanDto2> thongKeTaiKhoan(int maTaiKhoan) {
+        List<TaiKhoanDto2> thongKeChiTiet = new ArrayList<>();
+        Connection connection = getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(THONG_KE);
+            preparedStatement.setInt(1, maTaiKhoan);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int maTK = resultSet.getInt(1);
+                String tenTaiKhoan = resultSet.getString(2);
+                int maNguoiNuoi = resultSet.getInt(3);
+                String tenNguoiNuoi = resultSet.getString(4);
+                int gioiTinhNguoiNuoi = resultSet.getInt(5);
+                String email = resultSet.getString(6);
+                int maTreEm = resultSet.getInt(7);
+                String tenTreEm = resultSet.getString(8);
+                int soDienThoai = resultSet.getInt(9);
+                thongKeChiTiet.add(new TaiKhoanDto2(maTK, tenTaiKhoan , maNguoiNuoi, tenNguoiNuoi,
+                        gioiTinhNguoiNuoi, email, maTreEm, tenTreEm, soDienThoai));
+            }
+            return thongKeChiTiet;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

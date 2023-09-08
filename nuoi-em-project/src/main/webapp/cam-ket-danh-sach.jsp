@@ -250,7 +250,7 @@
                                         <td>
                                             <button type="button" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal"
-                                                    onclick="sendInforModal('${d.maCamKet}')"><i
+                                                    onclick="sendInforModal('${d.maCamKet}','${d.tenNguoiNuoi}','${d.tenTreEm}')"><i
                                                     class="fas fa-trash"></i>
                                             </button>
                                         </td>
@@ -280,14 +280,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="/cam-ket?action=xoa" method="post">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Xóa</h5>
+                <div class="modal-header" style="background-color: #dc3545">
+                    <h5 class="modal-title" id="exampleModalLabel"  style="color: WHITE">XÓA CAM KẾT</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div style="color: red" class="modal-body">
+                <div style=" color: #C63D2F " class="modal-body">
                     <input type="hidden" id="xoa_ma" name="xoa_ma">
-                    BẠN MUỐN XÓA CAM KẾT <strong></strong> NÀY KHÔNG ? <br>
-
+                    Bạn muốn xóa cam kết giữa trẻ <strong><span id="tenTreEm"></span> với người nuôi <span id="tenNguoiNuoi"></span>
+                </strong> NÀY KHÔNG ? <br>
                     (Thao tác này khi thực hiện sẽ không thể hoàn tác)
                 </div>
                 <div class="modal-footer">
@@ -299,8 +299,10 @@
     </div>
 </div>
 <script>
-    function sendInforModal(ma) {
+    function sendInforModal(ma,tenNguoiNuoi,tenTreEm) {
         document.getElementById("xoa_ma").value = ma;
+        document.getElementById("tenNguoiNuoi").innerText =tenNguoiNuoi
+        document.getElementById("tenTreEm").innerText =tenTreEm
     }
 </script>
 <script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.js"></script>

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang="en">
 <head>
     <!-- Basic -->
     <meta charset="utf-8"/>
@@ -57,7 +57,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
-                        <ul class="navbar-nav  ">
+                        <ul class="navbar-nav">
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">
                                     Trang chủ <span class="sr-only">(current)</span></a>
@@ -68,19 +68,25 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Tài chính</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">ADMIN</a>
+                            </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink"
-                                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    ADMIN
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark"
-                                    aria-labelledby="navbarDarkDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="tai-khoan?action=hienThi">Chi tiết tài khoản</a></li>
-                                    <li><a class="dropdown-item" href="#">Chi tiết bản cảm kết</a></li>
-                                    <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>
-                                    <li><a class="dropdown-item" href="tai-khoan?action=dangXuat">Đăng xuất</a></li>
-                                </ul>
+                            <%--                            <li class="nav-item dropdown">--%>
+                            <%--                                <a class="nav-link dropdown-toggle" href="#" id="adminDropDown"--%>
+                            <%--                                   role="button" data-bs-toggle="dropdown" aria-expanded="false">--%>
+                            <%--                                    ADMIN--%>
+                            <%--                                </a>--%>
+                            <%--                                <ul class="dropdown-menu dropdown-menu-dark"--%>
+                            <%--                                    aria-labelledby="adminDropDown">--%>
+                            <%--                                    <li><a class="dropdown-item" href="#">Chi tiết tài khoản</a></li>--%>
+                            <%--                                    <li><a class="dropdown-item" href="#">Chi tiết bản cảm kết</a></li>--%>
+                            <%--                                    <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>--%>
+                            <%--                                    <li><a class="dropdown-item" href="#">Đăng xuất</a></li>--%>
+                            <%--                                </ul>--%>
+                            <%--                            </li>--%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="tai-khoan?action=dangXuat">Đăng xuất</a>
                             </li>
                         </ul>
                     </div>

@@ -246,17 +246,30 @@
                                 <div class="card-header">
                                     <strong>Thêm mới cam kết</strong>
                                 </div>
+
                                 <div class="card-body card-block">
                                     <form action="cam-ket?action=them" method="post"
                                           class="form-horizontal">
-
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="soTien" class=" form-control-label">Số tiền</label>
+                                                <label class=" form-control-label">Trẻ Em</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="soTien" required name="soTien"
-                                                       class="form-control">
+                                                <input readonly type="hidden" id="maTreEm" required name="maTreEm"
+                                                       class="form-control" value="${maTreEm}">
+                                                <span>${treEm1.tenTreEm}</span>
+
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label class=" form-control-label">Người Nuôi</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="maNguoiNuoi" required name="maNguoiNuoi"
+                                                       class="form-control" value="${maNguoiNuoi}">
+                                                <span>${nguoiNuoi1.tenNguoiNuoi}</span>
+                                                <%--                                                </c:forEach>--%>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -274,50 +287,33 @@
                                                 <label for="trangThai" class=" form-control-label">Trạng Thái</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="trangThai" required name="trangThai"
+                                                <input readonly type="hidden" id="trangThai" required name="trangThai"
+                                                       class="form-control" value="1"><span>Nhận Nuôi</span>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="soTien" class=" form-control-label">Số tiền</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="soTien" required name="soTien"
                                                        class="form-control">
                                             </div>
                                         </div>
-                                        <div class="row form-group">
-                                            <div class="col col-md-3">
-                                                <label for="maTreEm" class=" form-control-label">Trẻ Em</label>
-                                            </div>
-                                            <div class="col-12 col-md-9">
 
-                                                <%--                                                    <c:if test="${camKet.maTreEm == t.maTreEm}"/>--%>
-                                                <input readonly type="text" id="maTreEm" required name="maTreEm"
-                                                       class="form-control" value="${maTreEm}">
-                                                <c:out value="${treEm.tenTreEm}"/>
-
-
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <div class="col col-md-3">
-                                                <label for="maNguoiNuoi" class=" form-control-label">Người Nuôi</label>
-                                            </div>
-                                            <div class="col-12 col-md-9">
-                                                <%--                                                <c:forEach var="t" items="${treEm}">--%>
-                                                <%--                                                    <c:if test="${camKet.maNguoiNuoi == t.maNguoiNuoi}"/>--%>
-                                                <input readonly type="text" id="maNguoiNuoi" required name="maNguoiNuoi"
-                                                       class="form-control" value="${maNguoiNuoi}">
-                                                    <c:out value="${nguoiNuoi.tenNguoiNuoi}"/>
-                                                <%--                                                </c:forEach>--%>
-                                            </div>
-                                        </div>
                                         <div class="row form-group">
                                             <div class="card-footer">
                                                 <button type="submit" class="btn btn-warning btn-sm">
                                                     <i class="fa fa-dot-circle-o"></i> Xác nhận
                                                 </button>
-                                                <a href="/tre-em" class="btn btn-dark">Đóng</a>
+                                                <a href="/cam-ket-danh-sach.jsp" class="btn btn-dark">Đóng</a>
                                             </div>
                                         </div>
                                         <div class="row form-group">
-                                            <c:if test="${message != null}">
+                                            <c:if test="${thongbao != null}">
                                                 <div class="success-msg">
                                                     <i class="fa fa-check"></i>
-                                                        ${message}
+                                                        ${thongbao}
                                                 </div>
                                             </c:if>
                                         </div>
