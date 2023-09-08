@@ -377,7 +377,7 @@
     return {
       selector: selector,
       test: function (value) {
-        var regex = /^-\d{10,}$/;
+        var regex = /^-\d+$/;
         return regex.test(value) ? undefined : 'Số tiền chi nên vui lòng nhập âm';
       }
     };

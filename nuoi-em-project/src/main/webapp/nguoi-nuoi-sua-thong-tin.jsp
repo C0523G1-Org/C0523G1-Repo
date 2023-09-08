@@ -319,6 +319,7 @@
                                                        aria-describedby="passwordHelpInline"
                                                        value="${nguoiNuoi.email}">
                                                 <span class="form-message text-warning"></span>
+                                                <span>${emailTonTai}</span>
                                                 <%--                                                <c:if test="${loi1 != null}">--%>
                                                 <%--                                                    <div class="alert alert-danger d-flex align-items-center"--%>
                                                 <%--                                                         role="alert" style="top: 5px">--%>
