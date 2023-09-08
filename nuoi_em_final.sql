@@ -26,6 +26,7 @@ so_dien_thoai int,
 email varchar(100),
 foreign key (ma_tai_khoan) references tai_khoan (ma_tai_khoan)
 );
+alter table nguoi_nuoi add trang_thai_xoa bit(1) default 0;
 
 create table nguoi_giam_ho(
 ma_nguoi_giam_ho int primary key auto_increment,
@@ -148,6 +149,7 @@ VALUES
 ("hungdv","rstuvw"),
 ("ngatt","ghijkl"),
 ("longnv","vwxyza");
+update tai_khoan set mat_khau = 1 where ma_tai_khoan = 1;
 
 INSERT INTO nguoi_nuoi(ten_nguoi_nuoi, gioi_tinh, ma_tai_khoan, so_dien_thoai, email)
 VALUES 
@@ -177,17 +179,17 @@ add trang_thai_xoa bit(1) default 0;
 
 insert into lich_su_tien_thu(ngay_giao_dich, noi_dung_giao_dich, so_tien, ma_cam_ket)
 values
-('2023-09-01', "NGUYEN THI HUONG ct NE1",500000,1),
-('2023-09-01', "TRAN VAN DUC ct NE2",500000,2),
-('2023-09-01', "le thi mai ct NE3",500000,3),
-('2023-10-01', "NGUYEN THI HUONG ct NE1",500000,1),
-('2023-10-01', "le thi mai ct NE3",500000,3);
+('2023-09-01', "NGUYEN THI HUONG ct NE1 CK1",500000,1),
+('2023-09-01', "TRAN VAN DUC ct NE2 CK2",500000,2),
+('2023-09-01', "le thi mai ct NE3 CK3",500000,3),
+('2023-10-01', "NGUYEN THI HUONG ct NE1 CK1",500000,1),
+('2023-10-01', "le thi mai ct NE3 CK3",500000,3);
 
 insert into lich_su_tien_chi(ngay_giao_dich, noi_dung_giao_dich, so_tien, ma_nguoi_giam_ho)
 values
-('2023-09-10', "CHI TIEN NE1",500000,1),
-('2023-09-10', "CHI TIEN NE2",500000,2),
-('2023-09-10', "CHI TIEN NE3",500000,3);
+('2023-09-10', "CHI TIEN NE1",-500000,1),
+('2023-09-10', "CHI TIEN NE2",-500000,2),
+('2023-09-10', "CHI TIEN NE3",-500000,3);
 -- tạo view lịch sử gd gồm tiền thu và chi
 create view lich_su_giao_dich as (select ngay_giao_dich, noi_dung_giao_dich, so_tien
 from lich_su_tien_thu
@@ -243,4 +245,8 @@ ma_tai_khoan_moi,
 so_dien_thoai_moi,
 email_moi);
 end //
+<<<<<<< HEAD
+=======
 
+alter table nguoi_nuoi add trang_thai_xoa bit(1) default 0;
+>>>>>>> f6c28d711dcdec3ada411625882e7b3a1f5d7d00

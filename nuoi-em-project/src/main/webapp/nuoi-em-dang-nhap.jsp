@@ -57,7 +57,7 @@
                                     Trang chủ <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/tre-em-tc">Trẻ em</a>
+                                <a class="nav-link" href="/tre-em-tc&maTaiKhoan=${maTaiKhoan}">Trẻ em</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Chứng nhận</a>
@@ -72,9 +72,17 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark"
                                     aria-labelledby="navbarDarkDropdownMenuLink">
+<%--<<<<<<< HEAD--%>
 <%--                                    <li><a class="dropdown-item" href="tai-khoan?action=chiTietTaiKhoan&maTaiKhoan=${maTaiKhoan}">Chi tiết tài khoản</a></li>--%>
                                     <li><a class="dropdown-item" href="tai-khoan?action=chiTietTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Chi tiết tài khoản</a></li>
 <%--                                    <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>--%>
+<%--=======--%>
+<%--                                    <li><a class="dropdown-item" href="#">Chi tiết tài khoản</a></li>--%>
+<%--                                    <li><a class="dropdown-item" href="#">Chi tiết bản cảm kết</a></li>--%>
+<%--&lt;%&ndash;                                    LIÊN thêm&ndash;%&gt;--%>
+<%--                                    <li><a class="dropdown-item" href="/nguoi-nuoi?action=xemTre&maTaiKhoan=${maTaiKhoan}">Chi tiết trẻ em</a></li>--%>
+<%--                                    <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>--%>
+<%-->>>>>>> 455f97e9470d16d4b022a96dc4ae2a321a3d9fa8--%>
                                     <li><a class="dropdown-item" href="tai-khoan?action=dangXuat">Đăng xuất</a></li>
                                 </ul>
                             </li>

@@ -1,8 +1,15 @@
 package com.example.nuoiemproject.cam_ket.controller;
 
 import com.example.nuoiemproject.cam_ket.model.CamKet;
+import com.example.nuoiemproject.cam_ket.model.CamKetDTO;
 import com.example.nuoiemproject.cam_ket.service.impl.CamKetService;
 import com.example.nuoiemproject.cam_ket.service.ICamKetService;
+import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
+import com.example.nuoiemproject.nguoi_nuoi.service.INguoiNuoiService;
+import com.example.nuoiemproject.nguoi_nuoi.service.NguoiNuoiService;
+import com.example.nuoiemproject.tre_em.model.TreEm;
+import com.example.nuoiemproject.tre_em.service.ITreEmService;
+import com.example.nuoiemproject.tre_em.service.impl.TreEmService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -13,6 +20,8 @@ import java.util.List;
 @WebServlet(name = "CamKetServlet", value = "/cam-ket")
 public class CamKetServlet extends HttpServlet {
     private ICamKetService service = new CamKetService();
+    private ITreEmService treEmService = new TreEmService();
+    private INguoiNuoiService nguoiNuoiService = new NguoiNuoiService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,14 +47,15 @@ public class CamKetServlet extends HttpServlet {
         int maCamKet = Integer.parseInt(request.getParameter("maCamKet"));
         CamKet camKet = service.xemChiTiet(maCamKet);
         request.setAttribute("camKet", camKet);
+        request.setAttribute("maCamKet", maCamKet);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-sua-thong-tin.jsp");
 
-            dispatcher.forward(request, response);
+        dispatcher.forward(request, response);
 
     }
 
     private void hienThiDanhSach(HttpServletRequest request, HttpServletResponse response) {
-        List<CamKet> danhSach = service.hienThiDanhSach();
+        List<CamKetDTO> danhSach = service.hienThiDanhSach();
         request.setAttribute("danhSach", danhSach);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-danh-sach.jsp");
         try {
@@ -58,6 +68,18 @@ public class CamKetServlet extends HttpServlet {
     }
 
     private void hienThiThem(HttpServletRequest request, HttpServletResponse response) {
+        int maNguoiNuoi = Integer.parseInt(request.getParameter("maNguoiNuoi"));
+        int maTreEm = Integer.parseInt(request.getParameter("maTreEm"));
+        List<TreEm> treEm = treEmService.hienThiDanhSach();
+        List<NguoiNuoi> nguoiNuoi = nguoiNuoiService.hienThiDanhSach();
+//        lien code
+        NguoiNuoi nguoiNuoi1 = nguoiNuoiService.xemChiTiet(maNguoiNuoi);
+        TreEm treEm1 = treEmService.timId(maTreEm);
+        request.setAttribute("treEm", treEm);
+        request.setAttribute("nguoiNuoi", nguoiNuoi);
+        request.setAttribute("nguoiNuoi1", nguoiNuoi1);
+        request.setAttribute("treEm1", treEm1);
+//        lấy nguoiNuoi1 qua jsp .tenNguoiNuoi
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-them-moi.jsp");
         try {
             dispatcher.forward(request, response);

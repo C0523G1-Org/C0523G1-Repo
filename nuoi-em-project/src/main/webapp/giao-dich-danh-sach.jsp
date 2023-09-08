@@ -167,7 +167,7 @@
                                         <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
                                     </div>
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#">Zhang Ming</a>
+                                        <a class="js-acc-btn" href="#">Admin</a>
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
@@ -178,9 +178,9 @@
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">Zhang Ming</a>
+                                                    <a href="#">Admin</a>
                                                 </h5>
-                                                <span class="email">zhangming8443@gmail.com</span>
+                                                <span class="email">nuoi@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -203,7 +203,7 @@
         </header>
         <!-- HEADER DESKTOP-->
         <!-- MAIN CONTENT-->
-        <div class="main-content">
+        <div class="main-content container">
 
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
@@ -218,7 +218,7 @@
                                         <label for="thang" class="col-form-label">Tháng</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="text" id="thang" class="form-control" name="thang"
+                                        <input type="text" id="thang" class="form-control" name="thang" value="9"
                                                aria-describedby="passwordHelpInline">
                                     </div>
                                 </div>
@@ -229,7 +229,7 @@
                                         <label for="nam" class="col-form-label">Năm</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="text" id="nam" class="form-control" name="nam"
+                                        <input type="text" id="nam" class="form-control" name="nam" value="2023"
                                                aria-describedby="passwordHelpInline">
                                     </div>
                                 </div>

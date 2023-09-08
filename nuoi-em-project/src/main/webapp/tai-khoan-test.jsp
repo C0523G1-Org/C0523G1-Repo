@@ -112,10 +112,10 @@
     </div>
 </header>
 <div class="container  mt-4 mb-1">
-   <div class="container title">
-       <h4>Thông tin tài khoản</h4>
-       <button type="button" class="btn btn-outline-success"><a href="#">Thay đổi thông tin</a></button>
-   </div>
+    <div class="container title">
+        <h4>Thông tin tài khoản</h4>
+        <button type="button" class="btn btn-outline-success"><a href="#">Thay đổi thông tin</a></button>
+    </div>
 </div>
 <div class="container mt-3">
     <div class="table-responsive">
@@ -150,53 +150,66 @@
         </table>
     </div>
 </div>
-<div class="container  mt-4 mb-1">
-    <div class="container title">
-        <h4>Danh sách cam kết</h4>
-        <button type="button" class="btn btn-outline-success"><a href="#">Thêm mới cam kết</a></button>
-    </div>
-</div>
-<div class="container mt-3">
-    <div class="table-responsive">
-        <table class="table mt-3">
-            <thead>
-            <tr>
-                <th scope="col">Tên tài khoản</th>
-                <th scope="col">Chủ tài khoản</th>
-                <th scope="col">Email</th>
-                <th scope="col">Giới tính</th>
-                <th scope="col">SDT</th>
-                <th scope="col">Tên trẻ em</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${thongKe}" var="tk" varStatus="loop">
-                <tr>
-                    <td>${tk.tenTaiKhoan}</td>
-                    <td>${tk.tenNguoiNuoi}</td>
-                    <td>${tk.email}</td>
-                    <td>
-                        <c:if test="${tk.gioiTinhNguoiNuoi == 0}">
-                            Nữ
-                        </c:if>
-                        <c:if test="${tk.gioiTinhNguoiNuoi == 1}">
-                            Nam
-                        </c:if>
-                    </td>
-                    <td>${tk.soDienThoai}</td>
-                    <td>${tk.tenTreEm}</td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-    </div>
-</div>
-<div class="container mt-4 mb-1">
-    <div class="container title">
-        <h4>Thống kê tài chính cá nhân</h4>
-        <button type="button" class="btn btn-outline-success"><a href="#">Phản hồi</a></button>
-    </div>
-</div>
+<%--<div class="container  mt-4 mb-1">--%>
+<%--    <div class="container title">--%>
+<%--        <h4>Danh sách cam kết</h4>--%>
+<%--        <button type="button" class="btn btn-outline-success"><a href="#">Thêm mới cam kết</a></button>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
+<%----%>
+<%--<div class="container mt-3">--%>
+<%--    <div class="table-responsive">--%>
+<%--        <table class="table mt-3">--%>
+<%--            <thead>--%>
+<%--            <tr>--%>
+<%--                <th scope="col">Chủ tài khoản</th>--%>
+<%--                <th scope="col">Ngày tạo cam kết</th>--%>
+<%--                <th scope="col">Trạng thái cam kết</th>--%>
+<%--                <th scope="col">Số tiền</th>--%>
+<%--                <th scope="col">Tên trẻ em</th>--%>
+<%--                <th scope="col">Giới tính</th>--%>
+<%--                <th scope="col">Ngày sinh</th>--%>
+<%--            </tr>--%>
+<%--            </thead>--%>
+<%--            <tbody>--%>
+<%--            <c:forEach items="${thongKeCamKet}" var="tkck" varStatus="loop">--%>
+<%--                <tr>--%>
+<%--                    <td>${tkck.tenNguoiNuoi}</td>--%>
+<%--                    <td>${tkck.ngayLamCamKet}</td>--%>
+<%--                    <td>--%>
+<%--                        <c:if test="${tkck.trangThaiHopDong == 0}">--%>
+<%--                            Đã hủy--%>
+<%--                        </c:if>--%>
+<%--                        <c:if test="${tkck.trangThaiHopDong == 1}">--%>
+<%--                            Tồn tại--%>
+<%--                        </c:if>--%>
+<%--                    </td>--%>
+<%--                    <td>${tkck.soTien}</td>--%>
+<%--                    <td>${tkck.tenTreEm}</td>--%>
+<%--                    <td>--%>
+<%--                        <c:if test="${tkck.gioiTinhTreEm == 0}">--%>
+<%--                            Nữ--%>
+<%--                        </c:if>--%>
+<%--                        <c:if test="${tkck.gioiTinhTreEm == 1}">--%>
+<%--                            Nam--%>
+<%--                        </c:if>--%>
+<%--                    </td>--%>
+<%--                    <td>${tkck.ngaySinhTreEm}</td>--%>
+<%--                </tr>--%>
+<%--            </c:forEach>--%>
+<%--            </tbody>--%>
+<%--        </table>--%>
+<%--    </div>--%>
+<%--</div>--%>
+<%--<div class="container mt-4 mb-1">--%>
+<%--    <div class="container title">--%>
+<%--        <h4>Thống kê tài chính cá nhân</h4>--%>
+<%--        <button type="button" class="btn btn-outline-success"><a href="#">Phản hồi</a></button>--%>
+<%--    </div>--%>
+<%--</div>--%>
+<%----%>
+
 <div class="container mt-3">
     <div class="table-responsive">
         <table class="table mt-3">
@@ -233,12 +246,12 @@
     </div>
 </div>
 
-<div class="my-footer mb-0">
-    <p>
-        &copy; 2023 Mọi quyền được bảo lưu bởi
-        <a href="nuoi-em-trang-chu.jsp">Nuôi em</a>
-    </p>
-</div>
+<%--<div class="my-footer">--%>
+<%--    <p>--%>
+<%--        &copy; 2023 Mọi quyền được bảo lưu bởi--%>
+<%--        <a href="nuoi-em-trang-chu.jsp">Nuôi em</a>--%>
+<%--    </p>--%>
+<%--</div>--%>
 <%--    script--%>
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>

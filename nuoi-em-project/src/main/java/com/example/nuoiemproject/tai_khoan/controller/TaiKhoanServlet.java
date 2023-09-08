@@ -6,6 +6,7 @@ import com.example.nuoiemproject.nguoi_nuoi.service.NguoiNuoiService;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto2;
+import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto3;
 import com.example.nuoiemproject.tai_khoan.service.ITaiKhoanService;
 import com.example.nuoiemproject.tai_khoan.service.impl.TaiKhoanService;
 import com.example.nuoiemproject.tre_em.model.TreEm;
@@ -63,7 +64,9 @@ public class TaiKhoanServlet extends HttpServlet {
         int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
         String tenTaiKhoan = request.getParameter("tenTaiKhoan");
         List<TaiKhoanDto2> thongKe = this.service.thongKeTaiKhoan(maTaiKhoan);
+//        List<TaiKhoanDto3> thongKeCamKet = this.service.thongKeCamKetTaiKhoan(maTaiKhoan);
         request.setAttribute("thongKe", thongKe);
+//        request.setAttribute("thongKeCamKet", thongKeCamKet);
         request.setAttribute("maTaiKhoan", maTaiKhoan);
         request.setAttribute("tenTaiKhoan", tenTaiKhoan);
         RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-test.jsp");

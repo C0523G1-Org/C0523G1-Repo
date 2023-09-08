@@ -9,10 +9,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <%--    <title>Sửa thông tin mạnh tường quân</title>--%>
-    <%--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"--%>
-    <%--          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">--%>
-    <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,7 +23,8 @@
 
     <!-- Bootstrap CSS-->
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
+<%--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"--%>
+<%--          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">--%>
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
@@ -117,7 +114,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/tai-chinh">Tài chính</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -167,7 +164,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/tai-chinh">Tài chính</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -214,7 +211,7 @@
                                                 <h5 class="name">
                                                     <a href="#">Admin</a>
                                                 </h5>
-                                                <span class="email">zhangming8443@gmail.com</span>
+                                                <span class="email">nuoiem@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -240,21 +237,21 @@
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong>Sửa thông tin mạnh thường quân</strong>
-                                </div>
-                                <div class="card-body card-block">
+                    <form action="/nguoi-nuoi?action=sua" method="post" name="form-2" id="form-2"
+                          class="form-horizontal" onsubmit="return(validate());">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Sửa thông tin mạnh thường quân</strong>
+                                    </div>
+                                    <div class="card-body card-block">
 
-
-                                    <form action="/nguoi-nuoi?action=sua" method="post"
-                                          class="form-horizontal">
 
                                         <c:if test="${nguoiNuoi != null}">
-                                        <input type="hidden" name="maNguoiNuoi" value="${nguoiNuoi.maNguoiNuoi}"/>
-                                            <input type="hidden" id="maTaiKhoan" name="maTaiKhoan" value="${nguoiNuoi.maTaiKhoan}"/>
+                                            <input type="hidden" name="maNguoiNuoi" value="${nguoiNuoi.maNguoiNuoi}"/>
+                                            <input type="hidden" id="maTaiKhoan" name="maTaiKhoan"
+                                                   value="${nguoiNuoi.maTaiKhoan}"/>
                                         </c:if>
 
                                         <div class="row form-group">
@@ -266,6 +263,7 @@
                                                        class="form-control" style="text-transform:capitalize"
                                                        aria-describedby="passwordHelpInline"
                                                        value="${nguoiNuoi.tenNguoiNuoi}"/>
+                                                <span class="form-message text-warning"></span>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -285,17 +283,6 @@
                                             </div>
                                         </div>
 
-<%--                                        <div class="row form-group">--%>
-<%--                                            <div class="col col-md-3">--%>
-<%--                                                <label for="maTaiKhoan" class="col-form-label">Mã Tài Khoản</label>--%>
-<%--                                            </div>--%>
-<%--                                            <div class="col-12 col-md-9">--%>
-<%--                                                <input type="text" id="maTaiKhoan" name="maTaiKhoan"--%>
-<%--                                                       class="form-control"--%>
-<%--                                                       aria-describedby="passwordHelpInline"--%>
-<%--                                                       value="${nguoiNuoi.maTaiKhoan}">--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
                                         <div class="row form-group">
                                             <div class="col-12 col-md-3">
                                                 <label for="soDienThoai" class="col-form-label">Số điện thoại</label>
@@ -305,21 +292,22 @@
                                                        class="form-control"
                                                        aria-describedby="passwordHelpInline"
                                                        value="0${nguoiNuoi.soDienThoai}">
-                                                <c:if test="${loi != null}">
-                                                    <div class="alert alert-danger d-flex align-items-center"
-                                                         role="alert" style="top: 5px">
-                                                        <svg class="bi flex-shrink-0 me-2" width="0" height="0"
-                                                             role="img" aria-label="Danger:">
-                                                            <use xlink:href="#check-circle-fill"/>
-                                                        </svg>
-                                                        <div>
-                                <span class="error">
-                                    <i class="uil uil-ban"></i><label
-                                        style="padding-left: 5px">${loi}</label>
-                                </span>
-                                                        </div>
-                                                    </div>
-                                                </c:if>
+                                                <span class="form-message text-warning"></span>
+                                                <%--                                                <c:if test="${loi != null}">--%>
+                                                <%--                                                    <div class="alert alert-danger d-flex align-items-center"--%>
+                                                <%--                                                         role="alert" style="top: 5px">--%>
+                                                <%--                                                        <svg class="bi flex-shrink-0 me-2" width="0" height="0"--%>
+                                                <%--                                                             role="img" aria-label="Danger:">--%>
+                                                <%--                                                            <use xlink:href="#check-circle-fill"/>--%>
+                                                <%--                                                        </svg>--%>
+                                                <%--                                                        <div>--%>
+                                                <%--                                <span class="error">--%>
+                                                <%--                                    <i class="uil uil-ban"></i><label--%>
+                                                <%--                                        style="padding-left: 5px">${loi}</label>--%>
+                                                <%--                                </span>--%>
+                                                <%--                                                        </div>--%>
+                                                <%--                                                    </div>--%>
+                                                <%--                                                </c:if>--%>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -330,59 +318,159 @@
                                                 <input type="text" id="email" name="email" class="form-control"
                                                        aria-describedby="passwordHelpInline"
                                                        value="${nguoiNuoi.email}">
-                                                <c:if test="${loi1 != null}">
-                                                    <div class="alert alert-danger d-flex align-items-center"
-                                                         role="alert" style="top: 5px">
-                                                        <svg class="bi flex-shrink-0 me-2" width="0" height="0"
-                                                             role="img" aria-label="Danger:">
-                                                            <use xlink:href="#check-circle-fill"/>
-                                                        </svg>
-                                                        <div>
-                                <span class="error">
-                                    <i class="uil uil-ban"></i><label
-                                        style="padding-left: 5px">${loi1}</label>
-                                </span>
-                                                        </div>
-                                                    </div>
-                                                </c:if>
+                                                <span class="form-message text-warning"></span>
+                                                <%--                                                <c:if test="${loi1 != null}">--%>
+                                                <%--                                                    <div class="alert alert-danger d-flex align-items-center"--%>
+                                                <%--                                                         role="alert" style="top: 5px">--%>
+                                                <%--                                                        <svg class="bi flex-shrink-0 me-2" width="0" height="0"--%>
+                                                <%--                                                             role="img" aria-label="Danger:">--%>
+                                                <%--                                                            <use xlink:href="#check-circle-fill"/>--%>
+                                                <%--                                                        </svg>--%>
+                                                <%--                                                        <div>--%>
+                                                <%--                                <span class="error">--%>
+                                                <%--                                    <i class="uil uil-ban"></i><label--%>
+                                                <%--                                        style="padding-left: 5px">${loi1}</label>--%>
+                                                <%--                                </span>--%>
+                                                <%--                                                        </div>--%>
+                                                <%--                                                    </div>--%>
+                                                <%--                                                </c:if>--%>
                                             </div>
                                         </div>
-                                        <div class="card-footer">
-                                            <button class="btn" style="background-color: #ffff00" type="submit">
-                                                Xác nhận
-                                            </button>
-                                            <a href="/nguoi-nuoi" class="btn btn-dark">Đóng</a>
-                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class="btn" style="background-color: #ffff00" type="submit">
+                                            Xác nhận
+                                        </button>
+                                        <a href="/nguoi-nuoi" class="btn btn-dark">Đóng</a>
+                                    </div>
                                 </div>
-                                <div class="row form-group">
-                                    <c:if test="${thongBao != null}">
-                                        <div class="success-msg">
-                                            <i class="fa fa-check"></i>
-                                                ${thongBao}
-                                        </div>
-                                    </c:if>
-                                </div>
-                                </form>
-
-
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="copyright">
-                            <p>Copyright © 2023 Team 2. All rights reserved.</p>
+                        <div class="row form-group">
+                            <c:if test="${thongBao != null}">
+                                <div class="success-msg">
+                                    <i class="fa fa-check"></i>
+                                        ${thongBao}
+                                </div>
+                            </c:if>
                         </div>
-                    </div>
+                    </form>
+
+
                 </div>
             </div>
         </div>
-
-
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="copyright">
+                <p>Copyright © 2023 Team 2. All rights reserved.</p>
+            </div>
+        </div>
     </div>
 </div>
-</div>
+
+<%--validate--%>
+<script>
+    function Validator(options) {
+
+        function validate(inputElement, rule) {
+            var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
+            var errorMessage = rule.test(inputElement.value)
+            if (errorMessage) {
+                errorElement.innerText = errorMessage;
+                inputElement.parentElement.classList.add('invalid');
+            } else {
+                errorElement.innerText = '';
+                inputElement.parentElement.classList.remove('invalid');
+            }
+        }
+
+        var formElement = document.querySelector(options.form);
+        if (formElement) {
+
+            options.rules.forEach(function (rule) {
+                var inputElement = formElement.querySelector(rule.selector);
+                if (inputElement) {
+                    inputElement.onblur = function () {
+                        validate(inputElement, rule)
+                    }
+                    inputElement.oninput = function () {
+                        var errorElement = inputElement.parentElement.querySelector('.form-message');
+                        errorElement.innerText = '';
+                        inputElement.parentElement.classList.remove('invalid');
+                    }
+                }
+            });
+        }
+    }
+
+    //dinh nghia rules
+    //nguyen tac cua rules
+    //1. khi co loi -> tra ra message loi
+    //2. khi hop le thi thoi (undefined)
+    Validator.isRequired = function (selector) {
+        return {
+            selector: selector,
+            test: function (value) {
+                return value.trim() ? undefined : 'Vui lòng nhập trường này';
+            }
+        };
+    }
+    Validator.isEmail = function (selector) {
+        return {
+            selector: selector,
+            test: function (value) {
+                var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                return regex.test(value) ? undefined : 'Trường này phải là email hợp lệ';
+            }
+        };
+    }
+    Validator.minLength = function (selector) {
+        return {
+            selector: selector,
+            test: function (value) {
+                return value.length >= 6 ? undefined : 'Vui lòng nhập tối thiểu 6 ký tự';
+            }
+        };
+    }
+    Validator.isConfirmed = function (selector, getConfirmValue) {
+        return {
+            selector: selector,
+            test: function (value) {
+                return value === getConfirmValue() ? undefined : 'Giá trị nhập vào không trùng khớp';
+            }
+        };
+    }
+    Validator.isTelNumber = function (selector) {
+        return {
+            selector: selector,
+            test: function (value) {
+                var regex = /^\d{10,}$/;
+                return regex.test(value) ? undefined : 'Số điện thoại không hợp lệ';
+            }
+        };
+    }
+</script>
+
+<script>
+    Validator({
+        form: '#form-2',
+        errorSelector: '.form-message',
+        rules: [
+            Validator.isRequired('#tenNguoiNuoi'),
+            // Validator.isRequired('#tenTaiKhoan'),
+            Validator.isRequired('#soDienThoai'),
+            Validator.isEmail('#email'),
+            // Validator.minLength('#matKhau'),
+            Validator.isTelNumber('#soDienThoai'),
+            // Validator.isConfirmed('#nhapLaiMatKhau', function (){
+            //     return document.querySelector('#form-1 #matKhau').value;
+            // }),
+        ]
+    });
+</script>
+
 
 <!-- Jquery JS-->
 <script src="vendor/jquery-3.2.1.min.js"></script>
@@ -407,5 +495,8 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
+<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"--%>
+<%--        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"--%>
+<%--        crossorigin="anonymous"></script>--%>
 </body>
 </html>

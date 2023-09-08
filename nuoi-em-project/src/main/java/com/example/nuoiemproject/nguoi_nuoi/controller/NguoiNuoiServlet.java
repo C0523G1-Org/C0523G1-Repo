@@ -33,7 +33,7 @@ public class NguoiNuoiServlet extends HttpServlet {
                 hienThiSua(request, response);
                 break;
             case "xemTre":
-                hienThiXemTre(request,response);
+                hienThiXemTre(request, response);
                 break;
             default:
                 hienThiDanhSach(request, response);
@@ -42,13 +42,27 @@ public class NguoiNuoiServlet extends HttpServlet {
     }
 
     private void hienThiXemTre(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp");
-        try {
-            dispatcher.forward(request,response);
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        int maNguoiNuoi = Integer.parseInt(request.getParameter("maTaiKhoan"));
+        List<NguoiNuoiDto> danhSachTre = service.xemTreEmNhan(maNguoiNuoi);
+        if (danhSachTre.isEmpty()) {
+            String thongBao = "Chưa nhận trẻ nào!";
+            request.setAttribute("thongBao", thongBao);
+            try {
+                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            request.setAttribute("danhSachTre", danhSachTre);
+            try {
+                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -116,21 +130,20 @@ public class NguoiNuoiServlet extends HttpServlet {
     private void xemTreEm(HttpServletRequest request, HttpServletResponse response) {
         int maNguoiNuoi = Integer.parseInt(request.getParameter("maNguoiNuoi"));
         List<NguoiNuoiDto> danhSachTre = service.xemTreEmNhan(maNguoiNuoi);
-        if(danhSachTre.isEmpty()){
+        if (danhSachTre.isEmpty()) {
             String thongBao = "Chưa nhận trẻ nào!";
             request.setAttribute("thongBao", thongBao);
             try {
-                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request,response);
+                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request, response);
             } catch (ServletException e) {
                 throw new RuntimeException(e);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }
-        else {
-            request.setAttribute("danhSachTre",danhSachTre);
+        } else {
+            request.setAttribute("danhSachTre", danhSachTre);
             try {
-                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request,response);
+                request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request, response);
             } catch (ServletException e) {
                 throw new RuntimeException(e);
             } catch (IOException e) {
@@ -146,7 +159,7 @@ public class NguoiNuoiServlet extends HttpServlet {
         int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
         int soDienThoai = Integer.parseInt(request.getParameter("soDienThoai"));
         String email = request.getParameter("email");
-        NguoiNuoi nguoiNuoi = new NguoiNuoi(maNguoiNuoi,tenNguoiNuoi,gioiTinh,maTaiKhoan,soDienThoai,email);
+        NguoiNuoi nguoiNuoi = new NguoiNuoi(maNguoiNuoi, tenNguoiNuoi, gioiTinh, maTaiKhoan, soDienThoai, email);
         //        validate DL
         String soDienThoaiDung = "^[0-9]{10,12}$";
         Pattern pattern = Pattern.compile(soDienThoaiDung);
@@ -160,17 +173,16 @@ public class NguoiNuoiServlet extends HttpServlet {
                 request.setAttribute("nguoiNuoi", nguoiNuoi);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-sua-thong-tin.jsp");
                 dispatcher.forward(request, response);
-            } else if (!matcher1.matches()){
+            } else if (!matcher1.matches()) {
                 request.setAttribute("loi1", "Email không hợp lệ!");
                 request.setAttribute("nguoiNuoi", nguoiNuoi);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-sua-thong-tin.jsp");
                 dispatcher.forward(request, response);
-            }
-            else {
+            } else {
                 service.sua(nguoiNuoi);
                 request.setAttribute("thongBao", "Bạn đã sửa thông tin thành công!");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-sua-thong-tin.jsp");
-                dispatcher.forward(request,response);
+                dispatcher.forward(request, response);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -210,17 +222,16 @@ public class NguoiNuoiServlet extends HttpServlet {
                 request.setAttribute("nguoiNuoi", nguoiNuoi);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-them-moi.jsp");
                 dispatcher.forward(request, response);
-            } else if (!matcher1.matches()){
+            } else if (!matcher1.matches()) {
                 request.setAttribute("loi1", "Email không hợp lệ!");
                 request.setAttribute("nguoiNuoi", nguoiNuoi);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-them-moi.jsp");
                 dispatcher.forward(request, response);
-            }
-            else {
+            } else {
                 service.them(nguoiNuoi);
                 request.setAttribute("thongBao", "Bạn đã thêm mới thành công!");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-nuoi-them-moi.jsp");
-                dispatcher.forward(request,response);
+                dispatcher.forward(request, response);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
