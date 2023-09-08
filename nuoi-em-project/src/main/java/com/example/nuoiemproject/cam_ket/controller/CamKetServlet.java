@@ -21,7 +21,7 @@ import java.util.List;
 public class CamKetServlet extends HttpServlet {
     private ICamKetService service = new CamKetService();
     private INguoiNuoiService nguoiNuoiService = new NguoiNuoiService();
-    private ITreEmService treEmService =new TreEmService();
+    private ITreEmService treEmService = new TreEmService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,15 +46,11 @@ public class CamKetServlet extends HttpServlet {
     private void hienThiSua(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int maCamKet = Integer.parseInt(request.getParameter("maCamKet"));
         CamKet camKet = service.xemChiTiet(maCamKet);
-        List<NguoiNuoi> nguoiNuoi = nguoiNuoiService.hienThiDanhSach();
-        List<TreEm> treEm = treEmService.hienThiDanhSach();
         request.setAttribute("camKet", camKet);
         request.setAttribute("maCamKet", maCamKet);
-        request.setAttribute("nguoiNuoi", nguoiNuoi);
-        request.setAttribute("treEm", treEm);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-sua-thong-tin.jsp");
 
-            dispatcher.forward(request, response);
+        dispatcher.forward(request, response);
 
     }
 
@@ -72,6 +68,10 @@ public class CamKetServlet extends HttpServlet {
     }
 
     private void hienThiThem(HttpServletRequest request, HttpServletResponse response) {
+        List<NguoiNuoi> nguoiNuoi = nguoiNuoiService.hienThiDanhSach();
+        List<TreEm> treEm = treEmService.hienThiDanhSach();
+        request.setAttribute("nguoiNuoi", nguoiNuoi);
+        request.setAttribute("treEm", treEm);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-them-moi.jsp");
         try {
             dispatcher.forward(request, response);
@@ -133,7 +133,7 @@ public class CamKetServlet extends HttpServlet {
         int trangThai = Integer.parseInt(request.getParameter("trangThai"));
         int maTreEm = Integer.parseInt(request.getParameter("maTreEm"));
         int maNguoiNuoi = Integer.parseInt(request.getParameter("maNguoiNuoi"));
-        service.them(new CamKet( soTien, ngayNhanNuoi, trangThai, maTreEm, maNguoiNuoi));
+        service.them(new CamKet(soTien, ngayNhanNuoi, trangThai, maTreEm, maNguoiNuoi));
         try {
             response.sendRedirect("/cam-ket");
         } catch (IOException e) {

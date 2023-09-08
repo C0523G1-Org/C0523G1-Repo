@@ -1,4 +1,4 @@
-package com.example.nuoiemproject;
+package com.example.nuoiemproject.mail.cam_ket_mail.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,42 +9,41 @@ import java.sql.SQLException;
 //Đổi tên BaseRepo -> BaseRepository nha mọi người
 
 
-
 //<<<<<<< HEAD:nuoi-em-project/src/main/java/com/example/nuoiemproject/BaseRepository.java
 public class BaseRepo {
+////<<<<<<< HEAD
 //<<<<<<< HEAD
-<<<<<<< HEAD
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "beatbox1202";
-=======
-//<<<<<<< HEAD
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
 //=======
+////<<<<<<< HEAD
 //    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
-//>>>>>>> 60fe5c3843b75b4cd3660ec0e2c2b6c6eaf8277e
-    private static final String USERNAME = "root";
-////<<<<<<< HEAD
-////<<<<<<< HEAD
-    private static final String PASSWORD = "Mylien2009";
->>>>>>> 4de9294dafd9ebda1f35d7f852fa124a1822bd4f
-//=======
-////<<<<<<< HEAD
-////<<<<<<< HEAD
-//    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
 ////=======
 ////    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
 ////>>>>>>> 60fe5c3843b75b4cd3660ec0e2c2b6c6eaf8277e
 //    private static final String USERNAME = "root";
 //////<<<<<<< HEAD
 //////<<<<<<< HEAD
-//    private static final String PASSWORD = "thienbao";
+//    private static final String PASSWORD = "Mylien2009";
+//>>>>>>> 4de9294dafd9ebda1f35d7f852fa124a1822bd4f
 ////=======
-////    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
+//////<<<<<<< HEAD
+//////<<<<<<< HEAD
+////    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
+//////=======
+//////    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
+//////>>>>>>> 60fe5c3843b75b4cd3660ec0e2c2b6c6eaf8277e
 ////    private static final String USERNAME = "root";
-////    private static final String PASSWORD = "Mylien2009";
-////>>>>>>> 33fd618f8d75d778524b91047eba6552ca0a58a0
-//>>>>>>> d5cdbd617597038bc4f27deee533af5d2ce19342
+////////<<<<<<< HEAD
+////////<<<<<<< HEAD
+////    private static final String PASSWORD = "thienbao";
+//////=======
+//////    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
+//////    private static final String USERNAME = "root";
+//////    private static final String PASSWORD = "Mylien2009";
+//////>>>>>>> 33fd618f8d75d778524b91047eba6552ca0a58a0
+////>>>>>>> d5cdbd617597038bc4f27deee533af5d2ce19342
 
 
     public static Connection getConnection() {

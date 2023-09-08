@@ -288,11 +288,8 @@
                                                     Em</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <c:forEach var="t" items="${treEm}">
-                                                    <c:if test="${camKet.maTreEm == t.maTreEm}"/>
-                                                    <input readonly type="text" id="maTreEm" required name="maTreEm"
-                                                           class="form-control" value="${t.tenTreEm}">
-                                                </c:forEach>
+                                                <input readonly type="text" id="maTreEm" required name="maTreEm"
+                                                       class="form-control" value="${camKet.maTreEm}">
                                             </div>
                                         </div>
                                         <div class="row form-group">

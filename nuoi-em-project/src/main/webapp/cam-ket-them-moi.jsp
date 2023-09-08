@@ -283,8 +283,11 @@
                                                 <label for="maTreEm" class=" form-control-label">Trẻ Em</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="maTreEm" required name="maTreEm"
-                                                       class="form-control">
+                                                <c:forEach var="t" items="${treEm}">
+                                                    <c:if test="${camKet.maTreEm == t.maTreEm}"/>
+                                                    <input readonly type="text" id="maTreEm" required name="maTreEm"
+                                                           class="form-control" value="${t.tenTreEm}">
+                                                </c:forEach>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -292,8 +295,11 @@
                                                 <label for="maNguoiNuoi" class=" form-control-label">Người Nuôi</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="maNguoiNuoi" required name="maNguoiNuoi"
-                                                       class="form-control">
+                                                <c:forEach var="t" items="${nguoiNuoi}">
+                                                    <c:if test="${camKet.maTreEm == t.maTreEm}"/>
+                                                    <input readonly type="text" id="manguoiNuoi" required name="manguoiNuoi"
+                                                           class="form-control" value="${t.tennguoiNuoi}">
+                                                </c:forEach>
                                             </div>
                                         </div>
                                         <div class="row form-group">
