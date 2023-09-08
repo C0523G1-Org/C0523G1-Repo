@@ -1,6 +1,7 @@
 package com.example.nuoiemproject.cam_ket.service.impl;
 
 import com.example.nuoiemproject.cam_ket.model.CamKet;
+import com.example.nuoiemproject.cam_ket.model.CamKetDTO;
 import com.example.nuoiemproject.cam_ket.repository.impl.CamKetRepository;
 import com.example.nuoiemproject.cam_ket.repository.ICamKetRepository;
 import com.example.nuoiemproject.cam_ket.service.ICamKetService;
@@ -11,7 +12,7 @@ import java.util.List;
 public class CamKetService implements ICamKetService {
     private ICamKetRepository repository = new CamKetRepository();
     @Override
-    public List<CamKet> hienThiDanhSach() {
+    public List<CamKetDTO> hienThiDanhSach() {
         return repository.hienThiDanhSach();
     }
 

@@ -82,7 +82,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href=/tai-khoan>
+                        <a href="#">
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
@@ -161,7 +161,7 @@
                                         <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
                                     </div>
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#">Zhang Ming</a>
+                                        <a class="js-acc-btn" href="#">Admin</a>
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
@@ -172,9 +172,9 @@
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">Zhang Ming</a>
+                                                    <a href="#">Admin</a>
                                                 </h5>
-                                                <span class="email">zhangming8443@gmail.com</span>
+                                                <span class="email">nuoiem@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -199,55 +199,66 @@
 
         <!-- MAIN CONTENT-->
         <div class="main-content">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="title-1 m-b-25 justify-content-center d-flex" style="color: #0c0c0c; margin-bottom: 0">
-                        Danh sách bảng cam kết</h2>
-                    <a class="btn btn-outline-light" href="/cam-ket?action=them" style="color: black">
-                        <i class="fas fa-plus"></i>
-                    </a>
-                    <div class="table-responsive table--no-card m-b-40">
-                        <table id="myTable" class="table table-borderless table-striped table-earning">
-                            <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Số tiền</th>
-                                <th>Ngày nhận nuôi</th>
-                                <th>Trạng thái</th>
-                                <th>Trẻ em</th>
-                                <th>Người nuôi</th>
-                                <th>Sửa</th>
-                                <th>Xóa</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach items="${danhSach}" var="d" varStatus="loop">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="title-1 m-b-25 justify-content-center d-flex"
+                            style="color: #0c0c0c; margin-bottom: 0">
+                            Danh sách bảng cam kết</h2>
+                        <a class="btn btn-outline-light" href="/cam-ket-them-moi.jsp" style="color: black">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                        <div class="table-responsive table--no-card m-b-40">
+                            <table id="myTable" class="table table-borderless table-striped table-earning">
+                                <thead>
                                 <tr>
-                                    <td><c:out value="${loop.count}"/></td>
-                                    <td><c:out value="${d.soTien}"/></td>
-                                    <td><c:out value="${d.ngayNhanNuoi}"/></td>
-                                        <%--   Xử lý trạng thái  --%>
-                                    <td>
-                                        <c:if test="${d.trangThai == 1}">Nhận nuôi</c:if>
-                                    </td>
-                                    <td><c:out value="${d.maTreEm}"/></td>
-                                    <td><c:out value="${d.maNguoiNuoi}"/></td>
-                                    <td>
-                                        <a href="cam-ket?action=sua&maCamKet=${d.maCamKet}"
-                                           role="button">
-                                            <i class="fas fa-pencil-square-o" style="color: black"></i></a>
-                                    </td>
-                                    <td>
-                                        <button type="button" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"
-                                                onclick="sendInforModal('${d.maCamKet}')"><i class="fas fa-trash"></i>
-                                        </button>
-                                    </td>
+                                    <th>STT</th>
+                                    <th>Số tiền (VND)</th>
+                                    <th>Ngày nhận nuôi</th>
+                                    <th>Trạng thái</th>
+                                    <th>Trẻ em</th>
+                                    <th>Người nuôi</th>
+                                    <th>Sửa</th>
+                                    <th>Xóa</th>
                                 </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${danhSach}" var="d" varStatus="loop">
+                                    <tr>
+                                        <td><c:out value="${loop.count}"/></td>
+                                        <td>
+                                            <p><fmt:formatNumber value="${d.soTien}"/></p>
+                                        </td>
+
+                                        <c:set var="dateString" value="${d.getNgayNhanNuoi()}"/>
+                                        <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
+                                        <td>
+                                            <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
+                                        </td>
+
+                                            <%--   Xử lý trạng thái  --%>
+                                        <td>
+                                            <c:if test="${d.trangThai == 1}">Nhận nuôi</c:if>
+                                        </td>
+                                        <td><c:out value="${d.tenTreEm}"/></td>
+                                        <td><c:out value="${d.tenNguoiNuoi}"/></td>
+                                        <td>
+                                            <a href="cam-ket?action=sua&maCamKet=${d.maCamKet}"
+                                               role="button">
+                                                <i class="fas fa-pencil-square-o" style="color: black"></i></a>
+                                        </td>
+                                        <td>
+                                            <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"
+                                                    onclick="sendInforModal('${d.maCamKet}','${d.tenNguoiNuoi}','${d.tenTreEm}')"><i
+                                                    class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -269,13 +280,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="/cam-ket?action=xoa" method="post">
-                <div class="modal-header">
-                    <h5 style="color: #333333" class="modal-title" id="exampleModalLabel">Xóa</h5>
+                <div class="modal-header" style="background-color: #dc3545">
+                    <h5 class="modal-title" id="exampleModalLabel"  style="color: WHITE">XÓA CAM KẾT</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div style=" color: #C63D2F " class="modal-body">
                     <input type="hidden" id="xoa_ma" name="xoa_ma">
-                    Bạn có muốn xóa cam kết <strong>Bảng cam kết gì ?</strong> không ?
+                    Bạn muốn xóa cam kết giữa trẻ <strong><span id="tenTreEm"></span> với người nuôi <span id="tenNguoiNuoi"></span>
+                </strong> NÀY KHÔNG ? <br>
+                    (Thao tác này khi thực hiện sẽ không thể hoàn tác)
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
@@ -286,8 +299,10 @@
     </div>
 </div>
 <script>
-    function sendInforModal(ma) {
+    function sendInforModal(ma,tenNguoiNuoi,tenTreEm) {
         document.getElementById("xoa_ma").value = ma;
+        document.getElementById("tenNguoiNuoi").innerText =tenNguoiNuoi
+        document.getElementById("tenTreEm").innerText =tenTreEm
     }
 </script>
 <script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.js"></script>
@@ -313,5 +328,44 @@
 <!-- Main JS-->
 <script src="js/main.js"></script>
 
+</body>
+</html>
+<script>
+$(document).ready(function () {
+        $('#mytable').DataTable({
+            language: {
+                "decimal": ",",
+                "thousands": ".",
+                "sEmptyTable": "Không có dữ liệu",
+                "sInfo": "Đang hiển thị _START_ đến _END_ của tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang hiển thị 0 đến 0 của tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ tổng số _MAX_ mục)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ",",
+                "sLengthMenu": "Hiển thị _MENU_ mục",
+                "sLoadingRecords": "Đang tải...",
+                "sProcessing": "Đang xử lý...",
+                "sSearch": "Tìm kiếm:",
+                "Show:": "",
+                "entries": "",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sLast": "Cuối",
+                    "sNext": "Tiếp",
+                    "sPrevious": "Trước"
+                },
+
+            },
+            color: {
+                "oPaginate": {
+                    "sFirst": "blue",
+                    "sLast": "green",
+                    "sNext": "green",
+                    "sPrevious": "blue"
+                },
+            }
+        });
+    });
+</script>
 </body>
 </html>
