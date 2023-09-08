@@ -49,7 +49,8 @@
             color: #557A46; /* Màu chữ xanh */
             margin-right: 0.5em; /* Khoảng cách giữa dấu chấm và nội dung */
         }
-        .hover:hover{
+
+        .hover:hover {
             background-color: #90953b;
         }
 
@@ -75,10 +76,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                     <ul class="navbar-nav  ">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/nuoi-em-dang-nhap.jsp">
-                                Trang chủ <span class="sr-only">(current)</span></a>
-                        </li>
+                        <form action="/tai-khoan?action=dangNhap" method="post">
+                            <li class="nav-item active">
+                                <%--                                <button type="submit" class="nav-link">--%>
+                                <%--                                    Trang chủ <span class="sr-only">(current)</span>--%>
+                                <%--                                </button>--%>
+                                <%--                                <input type="hidden" id="maTaiKhoan" name="maTaiKhoan">--%>
+                                <a class="nav-link" href="#">
+                                    Trang chủ <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                        </form>
+
                         <li class="nav-item">
                             <a class="nav-link" href="/tre-em">Trẻ em</a>
                         </li>
@@ -111,7 +120,8 @@
                 <div class="card mb-3 hover" style="max-width: 100%">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="${d.hinhAnh}" class="img-fluid rounded-start" alt="..." width="100%" style="margin-top: 10px; margin-left: 5px">
+                            <img src="${d.hinhAnh}" class="img-fluid rounded-start" alt="..." width="100%"
+                                 style="margin-top: 10px; margin-left: 5px">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">

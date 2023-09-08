@@ -46,6 +46,7 @@ public class NguoiNuoiServlet extends HttpServlet {
         List<NguoiNuoiDto> danhSachTre = service.xemTreEmNhan(maNguoiNuoi);
         if(danhSachTre.isEmpty()){
             String thongBao = "Chưa nhận trẻ nào!";
+//            request.setAttribute("maTaiKhoan",maNguoiNuoi);
             request.setAttribute("thongBao", thongBao);
             try {
                 request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request,response);
