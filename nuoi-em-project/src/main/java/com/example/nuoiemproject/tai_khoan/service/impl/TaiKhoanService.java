@@ -1,10 +1,7 @@
 package com.example.nuoiemproject.tai_khoan.service.impl;
 
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
-import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
-import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto;
-import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto2;
-import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto3;
+import com.example.nuoiemproject.tai_khoan.model.*;
 import com.example.nuoiemproject.tai_khoan.repository.ITaiKhoanRepository;
 import com.example.nuoiemproject.tai_khoan.repository.impl.TaiKhoanRepository;
 import com.example.nuoiemproject.tai_khoan.service.ITaiKhoanService;
@@ -94,5 +91,11 @@ public class TaiKhoanService implements ITaiKhoanService {
     public List<TaiKhoanDto3> thongKeCamKetTaiKhoan(int maTaiKhoan) {
         List<TaiKhoanDto3> thongKeCamKet = repository.thongKeCamKetTaiKhoan(maTaiKhoan);
         return thongKeCamKet;
+    }
+
+    @Override
+    public List<TaiKhoanDto4> traCuuTaiChinh(int maTaiKhoan) {
+        List<TaiKhoanDto4> traCuuTaiChinh = repository.traCuuTaiChinh(maTaiKhoan);
+        return traCuuTaiChinh;
     }
 }

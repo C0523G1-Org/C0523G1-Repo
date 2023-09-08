@@ -1,10 +1,7 @@
 package com.example.nuoiemproject.tai_khoan.service;
 
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
-import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
-import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto;
-import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto2;
-import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto3;
+import com.example.nuoiemproject.tai_khoan.model.*;
 
 import java.util.List;
 
@@ -24,4 +21,5 @@ public interface ITaiKhoanService {
     List<TaiKhoanDto> chiTietTaiKhoan(int maTaiKhoan);
     List<TaiKhoanDto2> thongKeTaiKhoan(int maTaiKhoan);
     List<TaiKhoanDto3> thongKeCamKetTaiKhoan(int maTaiKhoan);
+    List<TaiKhoanDto4> traCuuTaiChinh(int maTaiKhoan);
 }

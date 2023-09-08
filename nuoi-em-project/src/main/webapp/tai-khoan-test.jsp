@@ -91,7 +91,8 @@
 <div class="container mt-4 mb-1">
     <div class="container title">
         <h4>Thông tin tài khoản</h4>
-        <button type="button" class="btn btn-outline-success"><a href="nguoi-nuoi?action=sua1&maNguoiNuoi=${maTaiKhoan}">Thay đổi thông tin</a></button>
+        <button type="button" class="btn btn-outline-success"><a
+                href="nguoi-nuoi?action=sua1&maNguoiNuoi=${maTaiKhoan}">Thay đổi thông tin</a></button>
     </div>
 </div>
 <div class="container mt-3">
@@ -138,10 +139,9 @@
         <table class="table mt-3">
             <thead>
             <tr>
-                <th scope="col">Người làm cam </th>
+                <th scope="col">Người làm cam</th>
                 <th scope="col">Ngày tạo cam kết</th>
                 <th scope="col">Trạng thái cam kết</th>
-                <th scope="col">Số tiền (VND)</th>
                 <th scope="col">Tên trẻ em</th>
                 <th scope="col">Giới tính</th>
                 <th scope="col">Ngày sinh</th>
@@ -160,8 +160,6 @@
                             Tồn tại
                         </c:if>
                     </td>
-<%--                    <td>${tkck.soTien}</td>--%>
-                    <td><fmt:formatNumber value="${tkck.soTien}" type="currency" currencySymbol="" maxFractionDigits="0" /></td>
                     <td>${tkck.tenTreEm}</td>
                     <td>
                         <c:if test="${tkck.gioiTinhTreEm == 0}">
@@ -189,30 +187,24 @@
         <table class="table mt-3">
             <thead>
             <tr>
-                <th scope="col">Tên tài khoản</th>
-                <th scope="col">Chủ tài khoản</th>
-                <th scope="col">Email</th>
-                <th scope="col">Giới tính</th>
-                <th scope="col">SDT</th>
+                <th scope="col">#</th>
+                <th scope="col">Ngày giao dịch</th>
+                <th scope="col">Nội dung giao dịch</th>
+                <th scope="col">Số tiền giao dịch (VND)</th>
                 <th scope="col">Tên trẻ em</th>
+                <th scope="col">Ngày làm cam kết</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${thongKe}" var="tk" varStatus="loop">
+            <c:forEach items="${traCuuTaiChinh}" var="tc" varStatus="loop">
                 <tr>
-                    <td>${tk.tenTaiKhoan}</td>
-                    <td>${tk.tenNguoiNuoi}</td>
-                    <td>${tk.email}</td>
-                    <td>
-                        <c:if test="${tk.gioiTinhNguoiNuoi == 0}">
-                            Nữ
-                        </c:if>
-                        <c:if test="${tk.gioiTinhNguoiNuoi == 1}">
-                            Nam
-                        </c:if>
-                    </td>
-                    <td>${tk.soDienThoai}</td>
-                    <td>${tk.tenTreEm}</td>
+                    <td><c:out value="${loop.count}"></c:out></td>
+                    <td>${tc.ngayGiaoDich}</td>
+                    <td>${tc.noiDungGiaoDich}</td>
+                    <td><fmt:formatNumber value="${tc.soTien}" type="currency" currencySymbol=""
+                                          maxFractionDigits="0"/></td>
+                    <td>${tc.tenTreEm}</td>
+                    <td>${tc.ngayNhanNuoi}</td>
                 </tr>
             </c:forEach>
             </tbody>

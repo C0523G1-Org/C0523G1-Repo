@@ -3,10 +3,7 @@ package com.example.nuoiemproject.tai_khoan.controller;
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
 import com.example.nuoiemproject.nguoi_nuoi.service.INguoiNuoiService;
 import com.example.nuoiemproject.nguoi_nuoi.service.NguoiNuoiService;
-import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
-import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto;
-import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto2;
-import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto3;
+import com.example.nuoiemproject.tai_khoan.model.*;
 import com.example.nuoiemproject.tai_khoan.service.ITaiKhoanService;
 import com.example.nuoiemproject.tai_khoan.service.impl.TaiKhoanService;
 import com.example.nuoiemproject.tre_em.model.TreEm;
@@ -62,11 +59,15 @@ public class TaiKhoanServlet extends HttpServlet {
 
     private void chiTietTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
         int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
-        String tenTaiKhoan = request.getParameter("tenTaiKhoan");
+        TaiKhoan taiKhoan = this.service.timTaiKhoan(maTaiKhoan);
+        String tenTaiKhoan = taiKhoan.getTenTaiKhoan();
+
         List<TaiKhoanDto2> thongKe = this.service.thongKeTaiKhoan(maTaiKhoan);
         List<TaiKhoanDto3> thongKeCamKet = this.service.thongKeCamKetTaiKhoan(maTaiKhoan);
+        List<TaiKhoanDto4> traCuuTaiChinh = this.service.traCuuTaiChinh(maTaiKhoan);
         request.setAttribute("thongKe", thongKe);
         request.setAttribute("thongKeCamKet", thongKeCamKet);
+        request.setAttribute("traCuuTaiChinh", traCuuTaiChinh);
         request.setAttribute("maTaiKhoan", maTaiKhoan);
         request.setAttribute("tenTaiKhoan", tenTaiKhoan);
         RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-test.jsp");
