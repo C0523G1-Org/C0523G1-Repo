@@ -86,11 +86,11 @@
 
 <div class="container">
 
-    <div class="row">
-        <div class="col-xl-6" style="text-align: center">
-            <div style="border-bottom: 1px solid green;">
-                <img src="images/anh-trang-tai-chinh/5.png" alt="logo" style="width: 100px">
-                <strong>DỰ ÁN NUÔI EM</strong><br>
+    <div class="row" style="padding-top: 10px; padding-bottom: 10px">
+        <div class="col-xl-5" style="text-align: center">
+            <div style="border-bottom: 1px solid #90953b;">
+                <img src="images/anh-trang-tai-chinh/6.jpg" alt="logo" style="width: 100px">
+                <strong style="color: #90953b">DỰ ÁN NUÔI EM</strong><br>
             </div>
 
 
@@ -101,7 +101,7 @@
                 Dự án Nuôi Em không có kiểm toán, không phải là Quỹ, không có số tài khoản Quỹ nhưng sẽ tìm mọi cách
                 "chặt chẽ" và "minh bạch" hơn cả kiểm toán.</p>
         </div>
-        <div class="col-xl-6">
+        <div class="col-xl-7" style="background-color: #c7c793; border-radius: 20px">
             <p>
                 Trong những nỗ lực công khai tài chính, các bạn sẽ thấy dự án Nuôi Em là một dự án rất "kỳ lạ".
                 Không quá trú trọng hết vào mặt "giấy tờ" - cái mà dự án cho rằng rất nhiều cách để làm được.</p>
@@ -114,10 +114,10 @@
             <p> Dự án còn vinh dự được nhiều anh chị em ở tổ chức phi chính phủ, phi lợi nhuận, tổ chức kiểm toán uy tín
                 tham gia nuôi em sau này còn tham gia hỗ trợ kiểm soát, giúp tối ưu về mặt tài chính giúp dự án.</p>
 
-            <p> Khi đồng ý nuôi em, cũng có nghĩa bạn đã hoàn toàn nắm rõ thông tin về Chương trình, uỷ quyền, đồng
+            <p> Khi đồng ý nuôi em, cũng có nghĩa bạn đã <span style="font-weight: bold"> toàn nắm rõ thông tin về Chương trình, uỷ quyền, đồng
                 thuận,
-                tin tưởng về cách thức quản lý tài chính, triển khai thực hiện do Nhóm Nuôi em đang vận hành, triển
-                khai, đồng thời trao quyền để Nhóm quyết định những vấn đề liên quan đến Chương trình.
+                tin tưởng về cách thức quản lý tài chính, triển khai thực hiện</span>  do Nhóm Nuôi em đang vận hành, triển
+                khai, đồng thời <span style="font-weight: bold">trao quyền để Nhóm quyết định những vấn đề liên quan</span> đến Chương trình.
             </p>
         </div>
     </div>
@@ -171,12 +171,13 @@
 
     <div>
         <form action="/tai-chinh?action=xem" method="post">
-            <h5>Nhập thời gian bạn muốn xem sao kê:</h5>
+            <h5 style="color: black">Nhập thời gian bạn muốn xem sao kê:</h5>
+            <br>
             <div class="row">
-                <div class="col-12 col-xl-6">
+                <div class="col-xl-6">
                     <div class="row g-3 align-items-center">
                         <div class="col-auto">
-                            <label for="thang" class="col-form-label">Tháng:</label>
+                            <label for="thang" class="col-form-label">Tháng</label>
                         </div>
                         <div class="col-auto">
                             <input type="text" id="thang" class="form-control" name="thang" value="9"
@@ -184,10 +185,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-xl-6">
                     <div class="row g-3 align-items-center">
                         <div class="col-auto">
-                            <label for="nam" class="col-form-label">Năm:</label>
+                            <label for="nam" class="col-form-label">Năm</label>
                         </div>
                         <div class="col-auto">
                             <input type="text" id="nam" class="form-control" name="nam" value="2023"
@@ -196,16 +197,17 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success">Hiển thị</button>
+            <br>
+            <button type="submit" class="btn" style="background-color: #90953b">Hiển thị</button>
 
             <div class="row">
                 <div class="col-lg-12">
                     <h2 class="title-1 m-b-25 justify-content-center d-flex">Lịch sử giao dịch</h2>
                     <div class="table-responsive table--no-card m-b-40">
-                        <table class="table table-success table-striped">
+                        <table class="table table-striped" style="background-color: #90953b" >
                             <thead>
                             <div>
-                                <tr style="background-color: lightgoldenrodyellow">
+                                <tr style="background-color: #c7c793">
                                     <th colspan="2">
                                         Tổng số tiền:
                                     </th>
@@ -214,7 +216,7 @@
                                                           maxFractionDigits="0"/>
                                     </th>
                                 </tr>
-                                <tr style="background-color: lightgoldenrodyellow">
+                                <tr style="background-color: #c7c793">
                                     <th colspan="2">
                                         Tổng thu:
                                     </th>
@@ -223,7 +225,7 @@
                                                           maxFractionDigits="0"/>
                                     </th>
                                 </tr>
-                                <tr style="background-color: lightgoldenrodyellow">
+                                <tr style="background-color: #c7c793">
                                     <th colspan="2">
                                         Tổng chi:
                                     </th>

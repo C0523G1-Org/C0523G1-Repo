@@ -4,6 +4,8 @@ import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoiDto;
 import com.example.nuoiemproject.nguoi_nuoi.service.INguoiNuoiService;
 import com.example.nuoiemproject.nguoi_nuoi.service.NguoiNuoiService;
+import com.example.nuoiemproject.tai_khoan.service.ITaiKhoanService;
+import com.example.nuoiemproject.tai_khoan.service.impl.TaiKhoanService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -17,6 +19,7 @@ import java.util.regex.Pattern;
 @WebServlet(name = "NguoiNuoiServlet", value = "/nguoi-nuoi")
 public class NguoiNuoiServlet extends HttpServlet {
     private INguoiNuoiService service = new NguoiNuoiService();
+    private ITaiKhoanService serviceTK = new TaiKhoanService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
