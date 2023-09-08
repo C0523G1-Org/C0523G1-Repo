@@ -342,8 +342,11 @@
     </div>
 </section>
 
+<<<<<<< HEAD
 <!-- end info_section -->
 
+=======
+>>>>>>> 1973b34bfb9d3afe3ab7160d24e4010f400aaeeb
 <!-- footer section -->
 <section class="container-fluid footer_section">
     <p>
@@ -355,6 +358,7 @@
 
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
+<<<<<<< HEAD
 
 <script>
     // This example adds a marker to indicate the position of Bondi Beach in Sydney,
@@ -380,6 +384,8 @@
     }
 </script>
 <!-- google map js -->
+=======
+>>>>>>> 1973b34bfb9d3afe3ab7160d24e4010f400aaeeb
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
 </script>

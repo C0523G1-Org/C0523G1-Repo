@@ -20,6 +20,7 @@ public class TreEm {
         this.maNguoiGiamHo = maNguoiGiamHo;
         this.hinhAnh = hinhAnh;
     }
+
     public TreEm(int maTreEm, String tenTreEm, int gioiTinh, String ngaySinh, String moTa, String hinhAnh) {
         this.maTreEm = maTreEm;
         this.tenTreEm = tenTreEm;
@@ -57,6 +58,29 @@ public class TreEm {
         this.moTa = moTa;
         this.maKhuVuc = maKhuVuc;
         this.maNguoiGiamHo = maNguoiGiamHo;
+        this.hinhAnh = hinhAnh;
+    }
+
+    public TreEm(int maTreEm, String tenTreEm, int gioiTinh, String ngaySinh, String moTa, int maKhuVuc, int maNguoiGiamHo, String hinhAnh) {
+        this.maTreEm = maTreEm;
+        this.tenTreEm = tenTreEm;
+        this.gioiTinh = gioiTinh;
+        this.ngaySinh = ngaySinh;
+        this.moTa = moTa;
+        this.maKhuVuc = maKhuVuc;
+        this.maNguoiGiamHo = maNguoiGiamHo;
+        this.hinhAnh = hinhAnh;
+    }
+
+    public TreEm(int maTreEm, String tenTreEm, int gioiTinh, String ngaySinh, String moTa, int maKhuVuc, int maNguoiGiamHo, int trangThai, String hinhAnh) {
+        this.maTreEm = maTreEm;
+        this.tenTreEm = tenTreEm;
+        this.gioiTinh = gioiTinh;
+        this.ngaySinh = ngaySinh;
+        this.moTa = moTa;
+        this.maKhuVuc = maKhuVuc;
+        this.maNguoiGiamHo = maNguoiGiamHo;
+        this.trangThai = trangThai;
         this.hinhAnh = hinhAnh;
     }
 
