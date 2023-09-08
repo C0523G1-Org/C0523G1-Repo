@@ -7,6 +7,7 @@
 --%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -287,8 +288,11 @@
                                                     Em</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input readonly type="text" id="maTreEm" required name="maTreEm"
-                                                       class="form-control" value="${camKet.maTreEm}">
+                                                <c:forEach var="t" items="${treEm}">
+                                                    <c:if test="${camKet.maTreEm == t.maTreEm}"/>
+                                                    <input readonly type="text" id="maTreEm" required name="maTreEm"
+                                                           class="form-control" value="${t.tenTreEm}">
+                                                </c:forEach>
                                             </div>
                                         </div>
                                         <div class="row form-group">

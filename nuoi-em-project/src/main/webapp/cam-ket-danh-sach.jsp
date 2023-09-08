@@ -31,6 +31,16 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
+    <%--    Phân trang--%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
+    <style>
+        a {
+            text-decoration: none
+        }
+    </style>
+
 </head>
 <body class="animsition">
 <div class="page-wrapper">
@@ -100,7 +110,7 @@
         <div class="logo" style="background-color: #90953b">
             <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
             <a href="#">
-                <h3>Nuôi em</h3>
+                <h3 style="color: white">Nuôi em</h3>
             </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1" style="background-color: #78853f">
@@ -194,6 +204,7 @@
                     </div>
                 </div>
             </div>
+
         </header>
         <!-- HEADER DESKTOP-->
 
@@ -209,7 +220,7 @@
                             <i class="fas fa-plus"></i>
                         </a>
                         <div class="table-responsive table--no-card m-b-40">
-                            <table id="myTable" class="table table-borderless table-striped table-earning">
+                            <table class="table table-borderless table-striped table-earning" id="mytable" style="width: 100%">
                                 <thead>
                                 <tr>
                                     <th>STT</th>
@@ -229,15 +240,11 @@
                                         <td>
                                             <p><fmt:formatNumber value="${d.soTien}"/></p>
                                         </td>
-                                            <%--                                    <td><c:out value="${d.soTien}"/></td>--%>
-
                                         <c:set var="dateString" value="${d.getNgayNhanNuoi()}"/>
                                         <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
                                         <td>
                                             <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
                                         </td>
-
-                                            <%--                                    <td><c:out value="${d.ngayNhanNuoi}"/></td>--%>
                                             <%--   Xử lý trạng thái  --%>
                                         <td>
                                             <c:if test="${d.trangThai == 1}">Nhận nuôi</c:if>
@@ -262,71 +269,115 @@
                             </table>
                         </div>
                     </div>
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12 justify-content-center">
-                        <div class="copyright">
-                            <p>&copy; 2023 Mọi quyền được bảo lưu bởi Nuôi em</p>
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 justify-content-center">
+                <div class="copyright">
+                    <p>&copy; 2023 Mọi quyền được bảo lưu bởi Nuôi em</p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- END MAIN CONTENT-->
-    <!-- END PAGE CONTAINER-->
+</div>
 
-    <%--Modal--%>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="/cam-ket?action=xoa" method="post">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Xóa</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div style="color: red" class="modal-body">
-                        <input type="hidden" id="xoa_ma" name="xoa_ma">
-                        BẠN MUỐN XÓA CAM KẾT <strong></strong> NÀY KHÔNG ? <br>
+<!-- END MAIN CONTENT-->
+<!-- END PAGE CONTAINER-->
 
-                        (Thao tác này khi thực hiện sẽ không thể hoàn tác)
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                        <button type="submit" class="btn btn-danger">Xác nhận</button>
-                    </div>
-                </form>
-            </div>
+<%--Modal--%>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/cam-ket?action=xoa" method="post">
+                <div class="modal-header" style="background-color: #dc3545">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: WHITE; text-align: center">XÓA CAM
+                        KẾT</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div style="color: red" class="modal-body">
+                    <input type="hidden" id="xoa_ma" name="xoa_ma">
+                    BẠN CÓ CHẮC MUỐN XÓA CAM KẾT <strong></strong> KHÔNG ? <br>
+
+                    (Lưu ý: Hành động này không thể hoàn tác)
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-danger">Xác nhận</button>
+                </div>
+            </form>
         </div>
     </div>
-    <script>
-        function sendInforModal(ma) {
-            document.getElementById("xoa_ma").value = ma;
-        }
-    </script>
-    <script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.js"></script>
+</div>
+<script>
+    function sendInforModal(ma) {
+        document.getElementById("xoa_ma").value = ma;
+    }
+</script>
+<script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.js"></script>
 
-    <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="vendor/slick/slick.min.js">
-    </script>
-    <script src="vendor/wow/wow.min.js"></script>
-    <script src="vendor/animsition/animsition.min.js"></script>
-    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="vendor/counter-up/jquery.counterup.min.js"></script>
-    <script src="vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="vendor/select2/select2.min.js"></script>
+<!-- Jquery JS-->
+<script src="vendor/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap JS-->
+<script src="vendor/bootstrap-4.1/popper.min.js"></script>
+<script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<!-- Vendor JS       -->
+<script src="vendor/slick/slick.min.js">
+</script>
+<script src="vendor/wow/wow.min.js"></script>
+<script src="vendor/animsition/animsition.min.js"></script>
+<script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+<script src="vendor/counter-up/jquery.counterup.min.js"></script>
+<script src="vendor/circle-progress/circle-progress.min.js"></script>
+<script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="vendor/chartjs/Chart.bundle.min.js"></script>
+<script src="vendor/select2/select2.min.js"></script>
 
-    <!-- Main JS-->
-    <script src="js/main.js"></script>
+<!-- Main JS-->
+<script src="js/main.js"></script>
 
+<%--    Phân trang--%>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#mytable').DataTable({
+            language: {
+                "decimal": ",",
+                "thousands": ".",
+                "sEmptyTable": "Không có dữ liệu",
+                "sInfo": "Đang hiển thị _START_ đến _END_ của tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang hiển thị 0 đến 0 của tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ tổng số _MAX_ mục)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ",",
+                "sLengthMenu": "Hiển thị _MENU_ mục",
+                "sLoadingRecords": "Đang tải...",
+                "sProcessing": "Đang xử lý...",
+                "sSearch": "Tìm kiếm:",
+                "Show:": "",
+                "entries": "",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sLast": "Cuối",
+                    "sNext": "Tiếp",
+                    "sPrevious": "Trước"
+                },
+
+            },
+            color: {
+                "oPaginate": {
+                    "sFirst": "blue",
+                    "sLast": "green",
+                    "sNext": "green",
+                    "sPrevious": "blue"
+                },
+            }
+        });
+    });
+</script>
 </body>
 </html>

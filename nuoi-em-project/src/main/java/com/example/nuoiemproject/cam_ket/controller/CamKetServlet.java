@@ -4,6 +4,12 @@ import com.example.nuoiemproject.cam_ket.model.CamKet;
 import com.example.nuoiemproject.cam_ket.model.CamKetDTO;
 import com.example.nuoiemproject.cam_ket.service.impl.CamKetService;
 import com.example.nuoiemproject.cam_ket.service.ICamKetService;
+import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
+import com.example.nuoiemproject.nguoi_nuoi.service.INguoiNuoiService;
+import com.example.nuoiemproject.nguoi_nuoi.service.NguoiNuoiService;
+import com.example.nuoiemproject.tre_em.model.TreEm;
+import com.example.nuoiemproject.tre_em.service.ITreEmService;
+import com.example.nuoiemproject.tre_em.service.impl.TreEmService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -14,6 +20,8 @@ import java.util.List;
 @WebServlet(name = "CamKetServlet", value = "/cam-ket")
 public class CamKetServlet extends HttpServlet {
     private ICamKetService service = new CamKetService();
+    private INguoiNuoiService nguoiNuoiService = new NguoiNuoiService();
+    private ITreEmService treEmService =new TreEmService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,8 +46,12 @@ public class CamKetServlet extends HttpServlet {
     private void hienThiSua(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int maCamKet = Integer.parseInt(request.getParameter("maCamKet"));
         CamKet camKet = service.xemChiTiet(maCamKet);
+        List<NguoiNuoi> nguoiNuoi = nguoiNuoiService.hienThiDanhSach();
+        List<TreEm> treEm = treEmService.hienThiDanhSach();
         request.setAttribute("camKet", camKet);
         request.setAttribute("maCamKet", maCamKet);
+        request.setAttribute("nguoiNuoi", nguoiNuoi);
+        request.setAttribute("treEm", treEm);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-sua-thong-tin.jsp");
 
             dispatcher.forward(request, response);
