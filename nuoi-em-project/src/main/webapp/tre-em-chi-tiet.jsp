@@ -110,9 +110,8 @@
                 <div class="card mb-3 hover" style="max-width: 100%">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="images/tre-em/${treEmDto.getHinhAnh()}" class="img-fluid rounded-start" alt="..."
-                                 width="100%"
-                                 style="margin-top: 10px; margin-left: 5px">
+                                <img src="images/tre-em/${treEmDto.getHinhAnh()}" class="img-fluid rounded-start" alt="..."
+                                     style="margin-top: 10px; margin-left: 5px; width: 200px; height: 230px">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -136,7 +135,8 @@
                                             value="${treEmDto.getTenNguoiGiamHo()}"/></li>
                                 </ul>
                                 </p>
-                                <a style="background-color: yellow" class="btn" href="/cam-ket?action=them&maTreEm=${treEmDto.maTreEm}"
+                                <a style="background-color: yellow" class="btn"
+                                   href="/cam-ket?action=them&maTreEm=${treEmDto.maTreEm}"
                                    role="button">
                                     Nhận nuôi</a>
                             </div>
