@@ -4,6 +4,8 @@ import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoi;
 import com.example.nuoiemproject.nguoi_nuoi.model.NguoiNuoiDto;
 import com.example.nuoiemproject.nguoi_nuoi.service.INguoiNuoiService;
 import com.example.nuoiemproject.nguoi_nuoi.service.NguoiNuoiService;
+import com.example.nuoiemproject.tai_khoan.service.ITaiKhoanService;
+import com.example.nuoiemproject.tai_khoan.service.impl.TaiKhoanService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -17,6 +19,7 @@ import java.util.regex.Pattern;
 @WebServlet(name = "NguoiNuoiServlet", value = "/nguoi-nuoi")
 public class NguoiNuoiServlet extends HttpServlet {
     private INguoiNuoiService service = new NguoiNuoiService();
+    private ITaiKhoanService serviceTK = new TaiKhoanService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,6 +49,7 @@ public class NguoiNuoiServlet extends HttpServlet {
         List<NguoiNuoiDto> danhSachTre = service.xemTreEmNhan(maNguoiNuoi);
         if(danhSachTre.isEmpty()){
             String thongBao = "Chưa nhận trẻ nào!";
+//            request.setAttribute("maTaiKhoan",maNguoiNuoi);
             request.setAttribute("thongBao", thongBao);
             try {
                 request.getRequestDispatcher("/nguoi-nuoi-xem-tre.jsp").forward(request,response);
@@ -163,7 +167,7 @@ public class NguoiNuoiServlet extends HttpServlet {
         String email = request.getParameter("email");
         NguoiNuoi nguoiNuoi = new NguoiNuoi(maNguoiNuoi,tenNguoiNuoi,gioiTinh,maTaiKhoan,soDienThoai,email);
         //        validate DL
-        String soDienThoaiDung = "^(0\\d{9})$";
+        String soDienThoaiDung = "^[0-9]{10,12}$";
         Pattern pattern = Pattern.compile(soDienThoaiDung);
         Matcher matcher = pattern.matcher(request.getParameter("soDienThoai"));
         String emailDung = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";

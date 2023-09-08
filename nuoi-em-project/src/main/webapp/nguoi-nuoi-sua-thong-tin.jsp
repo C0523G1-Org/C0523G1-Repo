@@ -9,10 +9,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <%--    <title>Sửa thông tin mạnh tường quân</title>--%>
-    <%--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"--%>
-    <%--          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">--%>
-    <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,7 +23,8 @@
 
     <!-- Bootstrap CSS-->
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
+<%--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"--%>
+<%--          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">--%>
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
@@ -240,22 +237,21 @@
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong>Sửa thông tin mạnh thường quân</strong>
-                                </div>
-                                <div class="card-body card-block">
+                    <form action="/nguoi-nuoi?action=sua" method="post" name="form-2" id="form-2"
+                          class="form-horizontal" onsubmit="return(validate());">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Sửa thông tin mạnh thường quân</strong>
+                                    </div>
+                                    <div class="card-body card-block">
 
-
-                                    <form action="/nguoi-nuoi?action=sua" method="post" name="form-2"
-                                          class="form-horizontal" onsubmit="return(validate());">
 
                                         <c:if test="${nguoiNuoi != null}">
-                                        <input type="hidden" name="maNguoiNuoi" value="${nguoiNuoi.maNguoiNuoi}"/>
-                                        <input type="hidden" id="maTaiKhoan" name="maTaiKhoan"
-                                               value="${nguoiNuoi.maTaiKhoan}"/>
+                                            <input type="hidden" name="maNguoiNuoi" value="${nguoiNuoi.maNguoiNuoi}"/>
+                                            <input type="hidden" id="maTaiKhoan" name="maTaiKhoan"
+                                                   value="${nguoiNuoi.maTaiKhoan}"/>
                                         </c:if>
 
                                         <div class="row form-group">
@@ -287,17 +283,6 @@
                                             </div>
                                         </div>
 
-                                        <%--                                        <div class="row form-group">--%>
-                                        <%--                                            <div class="col col-md-3">--%>
-                                        <%--                                                <label for="maTaiKhoan" class="col-form-label">Mã Tài Khoản</label>--%>
-                                        <%--                                            </div>--%>
-                                        <%--                                            <div class="col-12 col-md-9">--%>
-                                        <%--                                                <input type="text" id="maTaiKhoan" name="maTaiKhoan"--%>
-                                        <%--                                                       class="form-control"--%>
-                                        <%--                                                       aria-describedby="passwordHelpInline"--%>
-                                        <%--                                                       value="${nguoiNuoi.maTaiKhoan}">--%>
-                                        <%--                                            </div>--%>
-                                        <%--                                        </div>--%>
                                         <div class="row form-group">
                                             <div class="col-12 col-md-3">
                                                 <label for="soDienThoai" class="col-form-label">Số điện thoại</label>
@@ -334,6 +319,7 @@
                                                        aria-describedby="passwordHelpInline"
                                                        value="${nguoiNuoi.email}">
                                                 <span class="form-message text-warning"></span>
+                                                <span>${emailTonTai}</span>
                                                 <%--                                                <c:if test="${loi1 != null}">--%>
                                                 <%--                                                    <div class="alert alert-danger d-flex align-items-center"--%>
                                                 <%--                                                         role="alert" style="top: 5px">--%>
@@ -351,41 +337,38 @@
                                                 <%--                                                </c:if>--%>
                                             </div>
                                         </div>
-                                        <div class="card-footer">
-                                            <button class="btn" style="background-color: #ffff00" type="submit">
-                                                Xác nhận
-                                            </button>
-                                            <a href="/nguoi-nuoi" class="btn btn-dark">Đóng</a>
-                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class="btn" style="background-color: #ffff00" type="submit">
+                                            Xác nhận
+                                        </button>
+                                        <a href="/nguoi-nuoi" class="btn btn-dark">Đóng</a>
+                                    </div>
                                 </div>
-                                <div class="row form-group">
-                                    <c:if test="${thongBao != null}">
-                                        <div class="success-msg">
-                                            <i class="fa fa-check"></i>
-                                                ${thongBao}
-                                        </div>
-                                    </c:if>
-                                </div>
-                                </form>
-
-
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="copyright">
-                            <p>Copyright © 2023 Team 2. All rights reserved.</p>
+                        <div class="row form-group">
+                            <c:if test="${thongBao != null}">
+                                <div class="success-msg">
+                                    <i class="fa fa-check"></i>
+                                        ${thongBao}
+                                </div>
+                            </c:if>
                         </div>
-                    </div>
+                    </form>
+
+
                 </div>
             </div>
         </div>
-
-
     </div>
-</div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="copyright">
+                <p>Copyright © 2023 Team 2. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <%--validate--%>
@@ -478,7 +461,7 @@
         rules: [
             Validator.isRequired('#tenNguoiNuoi'),
             // Validator.isRequired('#tenTaiKhoan'),
-            // Validator.isRequired('#soDienThoai'),
+            Validator.isRequired('#soDienThoai'),
             Validator.isEmail('#email'),
             // Validator.minLength('#matKhau'),
             Validator.isTelNumber('#soDienThoai'),
@@ -513,5 +496,8 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
+<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"--%>
+<%--        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"--%>
+<%--        crossorigin="anonymous"></script>--%>
 </body>
 </html>

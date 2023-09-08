@@ -247,7 +247,7 @@
                                 <div class="card-body card-block">
 
 
-                                    <form action="/giao-dich?action=them" method="post"
+                                    <form action="/giao-dich?action=them" method="post" name="form-2" id="form-2"
                                           class="form-horizontal">
 
                                         <div class="row form-group">
@@ -257,6 +257,7 @@
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="ngayGiaoDich" name="ngayGiaoDich" class="form-control"
                                                        aria-describedby="passwordHelpInline" style="text-transform:capitalize">
+                                                <span class="form-message text-warning"></span>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -266,6 +267,7 @@
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="soTien" name="soTien" class="form-control"
                                                        aria-describedby="passwordHelpInline" style="text-transform:capitalize">
+                                                <span class="form-message text-warning"></span>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -275,6 +277,7 @@
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="noiDung" name="noiDung" class="form-control"
                                                        aria-describedby="passwordHelpInline" style="text-transform:capitalize">
+                                                <span class="form-message text-warning"></span>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -284,6 +287,7 @@
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="maCamKet" name="maCamKet" class="form-control"
                                                        aria-describedby="passwordHelpInline" style="text-transform:capitalize">
+                                                <span class="form-message text-warning"></span>
                                             </div>
                                         </div>
 
@@ -312,6 +316,85 @@
         </div>
     </div>
 </div>
+<%--validate--%>
+<script>
+    function Validator(options) {
+
+        function validate(inputElement, rule) {
+            var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
+            var errorMessage = rule.test(inputElement.value)
+            if (errorMessage) {
+                errorElement.innerText = errorMessage;
+                inputElement.parentElement.classList.add('invalid');
+            } else {
+                errorElement.innerText = '';
+                inputElement.parentElement.classList.remove('invalid');
+            }
+        }
+
+        var formElement = document.querySelector(options.form);
+        if (formElement) {
+
+            options.rules.forEach(function (rule) {
+                var inputElement = formElement.querySelector(rule.selector);
+                if (inputElement) {
+                    inputElement.onblur = function () {
+                        validate(inputElement, rule)
+                    }
+                    inputElement.oninput = function () {
+                        var errorElement = inputElement.parentElement.querySelector('.form-message');
+                        errorElement.innerText = '';
+                        inputElement.parentElement.classList.remove('invalid');
+                    }
+                }
+            });
+        }
+    }
+
+    //dinh nghia rules
+    //nguyen tac cua rules
+    //1. khi co loi -> tra ra message loi
+    //2. khi hop le thi thoi (undefined)
+    Validator.isRequired = function (selector) {
+        return {
+            selector: selector,
+            test: function (value) {
+                return value.trim() ? undefined : 'Vui lòng nhập trường này';
+            }
+        };
+    }
+
+    Validator.minMoney = function (selector) {
+        return {
+            selector: selector,
+            test: function (value) {
+                return value.length >= 500000 ? undefined : 'Vui lòng nhập tối thiểu 500.000đ';
+            }
+        };
+    }
+    Validator.khoanChi = function (selector) {
+        return {
+            selector: selector,
+            test: function (value) {
+                var regex = /^-\d+$/;
+                return regex.test(value) ? undefined : 'Số tiền chi nên vui lòng nhập âm';
+            }
+        };
+    }
+</script>
+
+<script>
+    Validator({
+        form: '#form-2',
+        errorSelector: '.form-message',
+        rules: [
+            Validator.isRequired('#ngayGiaoDich'),
+            Validator.isRequired('#maCamKet'),
+            Validator.isRequired('#noiDung'),
+            Validator.minMoney('#soTien'),
+        ]
+    });
+</script>
 
 <!-- Jquery JS-->
 <script src="vendor/jquery-3.2.1.min.js"></script>

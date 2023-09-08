@@ -107,7 +107,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/giao-dich">Giao dịch</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -157,7 +157,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/giao-dich">Giao dịch</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>

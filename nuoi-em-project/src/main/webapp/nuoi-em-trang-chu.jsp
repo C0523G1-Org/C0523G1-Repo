@@ -54,17 +54,14 @@
                     <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                         <ul class="navbar-nav  ">
                             <li class="nav-item active">
-<%--                                <a class="nav-link" href="nuoi-em-trang-chu.jsp">--%>
-
-                                <a class="nav-link" href="/nuoi-em-trang-chu.jsp">
-
+                                <a class="nav-link" href="#">
                                     Trang chủ <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/tre-em">Trẻ em</a>
+                                <a class="nav-link" href="/tre-em-tc">Trẻ em</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Chứng nhận</a>
+                                <a class="nav-link" href="/tre-em">Chứng nhận</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/tai-chinh">Tài chính</a>

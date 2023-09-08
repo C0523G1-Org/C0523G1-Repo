@@ -52,7 +52,7 @@
                     <div class="logo" style="background-color: #90953b">
                         <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
                         <a href="#">
-                            <h3>Nuôi em</h3>
+                            <h3 style="color: #fff">Nuôi em</h3>
                         </a>
                     </div>
                     <button class="hamburger hamburger--slider" type="button">
@@ -87,7 +87,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/giao-dich">Giao dịch</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -110,7 +110,7 @@
         <div class="logo" style="background-color: #90953b">
             <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
             <a href="#">
-                <h3>Nuôi em</h3>
+                <h3 style="color: #fff">Nuôi em</h3>
             </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1" style="background-color: #78853f">
@@ -137,7 +137,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/giao-dich">Giao dịch</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -227,11 +227,11 @@
                                     <th>Tên</th>
                                     <th>Giới tính</th>
                                     <th>Ngày sinh</th>
-                                    <th>Mô tả</th>
-                                    <th>Người giám hộ</th>
+<%--                                    <th>Mô tả</th>--%>
+<%--                                    <th>Người giám hộ</th>--%>
                                     <th>Khu vực</th>
-                                    <th>Trạng thái</th>
-                                    <th>Ảnh</th>
+<%--                                    <th>Trạng thái</th>--%>
+<%--                                    <th>Ảnh</th>--%>
                                     <th>Sửa</th>
                                     <th>Xóa</th>
                                 </tr>
@@ -258,27 +258,27 @@
                                             <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
                                         </td>
 
-                                        <td>
-                                                ${treEmDto.getMoTa()}
-                                        </td>
+<%--                                        <td>--%>
+<%--                                                ${treEmDto.getMoTa()}--%>
+<%--                                        </td>--%>
 
-                                        <td>
-                                                ${treEmDto.getTenNguoiGiamHo()}
-                                        </td>
+<%--                                        <td>--%>
+<%--                                                ${treEmDto.getTenNguoiGiamHo()}--%>
+<%--                                        </td>--%>
 
                                         <td>
                                                 ${treEmDto.getTenKhuVuc()}
                                         </td>
 
-                                        <td>
-                                            <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
-                                            <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
-                                        </td>
+<%--                                        <td>--%>
+<%--                                            <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>--%>
+<%--                                            <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>--%>
+<%--                                        </td>--%>
 
-                                        <td>
-                                            <img height="50px" width="50px"
-                                                 src="images/tre-em/${treEmDto.getHinhAnh()}">
-                                        </td>
+<%--                                        <td>--%>
+<%--                                            <img height="50px" width="50px"--%>
+<%--                                                 src="images/tre-em/${treEmDto.getHinhAnh()}">--%>
+<%--                                        </td>--%>
                                         <td>
                                             <a href="tre-em?action=sua&maTreEm=${treEmDto.getMaTreEm()}"
                                                role="button">

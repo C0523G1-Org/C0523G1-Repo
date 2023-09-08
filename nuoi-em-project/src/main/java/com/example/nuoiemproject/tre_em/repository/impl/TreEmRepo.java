@@ -19,7 +19,6 @@ public class TreEmRepo implements ITreEmRepo {
             " order by ma_tre_em ";
     private static final String THEM_TRE_EM = "INSERT INTO tre_em (ten_tre_em, gioi_tinh, ngay_sinh, mo_ta, ma_khu_vuc, ma_nguoi_giam_ho, hinh_anh) " +
             " VALUES (?,?,?,?,?,?,?) ";
-    private static final String XOA_TRE_EM = "UPDATE tre_em SET trang_thai_xoa = 1 WHERE ma_tre_em = ?";
 
     private static final String TRUY_VAN_TRE_EM_DTO = "select te.ma_tre_em, te.ten_tre_em, te.gioi_tinh, te.ngay_sinh, te.trang_thai_nhan_nuoi, te.mo_ta, kv.ten_khu_vuc, ngh.ten_nguoi_giam_ho, te.hinh_anh " +
             " from tre_em te " +
@@ -27,7 +26,8 @@ public class TreEmRepo implements ITreEmRepo {
             " join nguoi_giam_ho ngh on ngh.ma_nguoi_giam_ho = te.ma_nguoi_giam_ho " +
             " where te.trang_thai_xoa = 0 " +
             " order by te.ma_tre_em ";
-
+    private static final String TIM_TRE_EM = "SELECT * FROM tre_em WHERE ma_tre_em = ?";
+    private static final String XOA_TRE_EM = "UPDATE tre_em SET trang_thai_xoa = 1 WHERE ma_tre_em = ?";
     private static final String CHINH_SUA = "update tre_em set " +
             " ten_tre_em = ? , " +
             " gioi_tinh = ? , " +
@@ -37,9 +37,6 @@ public class TreEmRepo implements ITreEmRepo {
             " ma_nguoi_giam_ho = ? ," +
             " hinh_anh = ? " +
             "where ma_tre_em = ? ";
-
-
-    private static final String TIM_TRE_EM = "SELECT * FROM tre_em WHERE ma_tre_em = ?";
 
     @Override
     public List<TreEm> hienThiDanhSach() {
