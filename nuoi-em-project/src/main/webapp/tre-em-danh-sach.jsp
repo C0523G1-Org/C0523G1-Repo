@@ -27,11 +27,19 @@
     <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
     <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" r   el="stylesheet" media="all">
     <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 
 </head>
 <body class="animsition">
@@ -211,7 +219,8 @@
                             <i class="fas fa-plus"></i>
                         </a>
                         <div class="table-responsive table--no-card m-b-40">
-                            <table id="myTable" class="table table-borderless table-striped table-earning">
+                            <table class="table table-borderless table-striped table-earning" id="table"
+                                   style="width: 100%">
                                 <thead>
                                 <tr>
                                     <th>STT</th>
@@ -355,16 +364,20 @@
 <script src="js/main.js"></script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"--%>
+<%--        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"--%>
+<%--        crossorigin="anonymous"></script>--%>
+
+<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"--%>
+<%--        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"--%>
+<%--        crossorigin="anonymous"></script>--%>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
 <script>
     $(document).ready(function () {
-        $('#mytable').DataTable({
+        $('#table').DataTable({
             language: {
                 "decimal": ",",
                 "thousands": ".",
@@ -388,14 +401,7 @@
                 },
 
             },
-            color: {
-                "oPaginate": {
-                    "sFirst": "blue",
-                    "sLast": "green",
-                    "sNext": "green",
-                    "sPrevious": "blue"
-                },
-            }
+
         });
     });
 </script>
