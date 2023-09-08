@@ -21,4 +21,5 @@ public interface ITaiKhoanRepository {
     NguoiNuoi emailDaTonTai(String email);
     List<TaiKhoanDto> chiTietTaiKhoan(int maTaiKhoan);
     List<TaiKhoanDto2> thongKeTaiKhoan(int maTaiKhoan);
+    
 }
