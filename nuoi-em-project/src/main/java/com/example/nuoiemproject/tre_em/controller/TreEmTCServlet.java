@@ -22,11 +22,17 @@ public class TreEmTCServlet extends HttpServlet {
     private void hienThiChiTiet(HttpServletRequest request, HttpServletResponse response) {
         try {
             List<TreEmDto> treEmDtoList = treEmService.hienThiDto();
+            int maNguoiNuoi = Integer.parseInt(request.getParameter("maTaiKhoan"));
+            String tenNguoiNuoi = request.getParameter("tenNguoiNuoi");
+
+
             if (treEmDtoList.size() == 0){
                 request.setAttribute("treEmDto", null);
                 request.getRequestDispatcher("tre-em-chi-tiet.jsp").forward(request,response);
             }
             else {
+                request.setAttribute("maNguoiNuoi", maNguoiNuoi);
+                request.setAttribute("tenNguoiNuoi", tenNguoiNuoi);
                 request.setAttribute("treEmDto", treEmDtoList);
                 request.getRequestDispatcher("tre-em-chi-tiet.jsp").forward(request,response);
             }

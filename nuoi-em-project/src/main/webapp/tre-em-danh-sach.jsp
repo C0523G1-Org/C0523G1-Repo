@@ -227,11 +227,13 @@
                                     <th>Tên</th>
                                     <th>Giới tính</th>
                                     <th>Ngày sinh</th>
-                                    <%--                                    <th>Mô tả</th>--%>
-                                    <%--                                    <th>Người giám hộ</th>--%>
                                     <th>Khu vực</th>
                                     <th>Trạng thái</th>
+<<<<<<< HEAD
                                 <%--                                    <th>Ảnh</th>--%>
+=======
+                                    <th>Ảnh</th>
+>>>>>>> 3e6546cf6d77610934d8446858207ff9073fdd2c
                                     <th>Sửa</th>
                                     <th>Xóa</th>
                                 </tr>
@@ -257,20 +259,16 @@
                                         <td>
                                             <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
                                         </td>
-
-                                            <%--                                        <td>--%>
-                                            <%--                                                ${treEmDto.getMoTa()}--%>
-                                            <%--                                        </td>--%>
-
-                                            <%--                                        <td>--%>
-                                            <%--                                                ${treEmDto.getTenNguoiGiamHo()}--%>
-                                            <%--                                        </td>--%>
-
                                         <td>
                                                 ${treEmDto.getTenKhuVuc()}
                                         </td>
+                                        <td>
+                                            <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
+                                            <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
+                                        </td>
 
                                         <td>
+<<<<<<< HEAD
                                             <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
                                             <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
                                         </td>
@@ -279,6 +277,11 @@
                                             <%--                                            <img height="50px" width="50px"--%>
                                             <%--                                                 src="images/tre-em/${treEmDto.getHinhAnh()}">--%>
                                             <%--                                        </td>--%>
+=======
+                                            <img height="50px" width="50px"
+                                                 src="images/tre-em/${treEmDto.getHinhAnh()}">
+                                        </td>
+>>>>>>> 3e6546cf6d77610934d8446858207ff9073fdd2c
                                         <td>
                                             <a href="tre-em?action=sua&maTreEm=${treEmDto.getMaTreEm()}"
                                                role="button">

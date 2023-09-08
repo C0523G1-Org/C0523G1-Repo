@@ -17,12 +17,10 @@
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-<<<<<<< HEAD
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-=======
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
->>>>>>> ed129efa91ed9546098e8d79fa6ae39e0310a89c
 
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -52,7 +50,7 @@
                     <div class="logo" style="background-color: #90953b">
                         <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
                         <a href="#">
-                            <h3>Nuôi em</h3>
+                            <h3 style="color: #fff">Nuôi em</h3>
                         </a>
                     </div>
                     <button class="hamburger hamburger--slider" type="button">
@@ -214,7 +212,8 @@
                 <div class="col-lg-12">
                     <h2 class="title-1 m-b-25 justify-content-center d-flex" style="color: #0c0c0c; margin-bottom: 0">
                         Danh sách người giám hộ</h2>
-                    <a class="btn btn-outline-light" href="/nguoi-giam-ho?action=themmoinguoigiamho" style="color: black">
+                    <a class="btn btn-outline-light" href="/nguoi-giam-ho?action=themmoinguoigiamho"
+                       style="color: black">
                         <i class="fas fa-plus"></i>
                     </a>
                     <div class="table-responsive table--no-card m-b-40">
@@ -245,54 +244,21 @@
                                     </c:if>
 
                                         <%--            xử lý khu vực--%>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 1}">
-                                        <td>Hà Giang</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 2}">
-                                        <td>Cao Bằng</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 3}">
-                                        <td>Lào Cai</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 4}">
-                                        <td>Bắc Kạn</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 5}">
-                                        <td>Lạng Sơn</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 6}">
-                                        <td>Tuyên Quang</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 7}">
-                                        <td>Yên Bái</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 8}">
-                                        <td>Thái Nguyên</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 9}">
-                                        <td>Phú Thọ</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 10}">
-                                        <td>Bắc Giang</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 11}">
-                                        <td>Lai Châu</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 12}">
-                                        <td>Điện Biên</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 13}">
-                                        <td>Sơn La</td>
-                                    </c:if>
-                                    <c:if test="${nguoiGiamHo.maKhuVuc == 14}">
-                                        <td>Hòa Bình</td>
-                                    </c:if>
+                                    <c:forEach var="khuvuc" items="${khuVuc}">
+                                        <c:if test="${nguoiGiamHo.maKhuVuc == khuvuc.maKhuVuc}">
+                                            <td><c:out value="${khuvuc.tenKhuVuc}"/></td>
+                                        </c:if>
+                                    </c:forEach>
                                     <td><c:out value="${nguoiGiamHo.soDienThoai}"/></td>
                                     <td>
                                         <a href="/nguoi-giam-ho?action=capnhatnguoigiamho&maNguoiGiamHo=${nguoiGiamHo.maNguoiGiamHo}"
                                            role="button" data-bs-toggle="modal"
                                            data-bs-target="#exampleModal">
-                                            <i class="fas fa-pencil-square-o" style="color: black"></i></a>
+                                            <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal">
+                                                <i class="fas fa-pencil-square-o" style="color: black"></i>
+                                            </button>
+                                        </a>
                                     </td>
                                     <td>
                                         <button type="button" data-bs-toggle="modal"
@@ -301,94 +267,50 @@
                                             <i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
-<<<<<<< HEAD
                             </c:forEach>
                             </tbody>
                         </table>
-=======
-                                </thead>
-                                <tbody>
-                                <c:forEach var="nguoiGiamHo" items="${nguoiGiamHos}" varStatus="lam">
-                                    <tr>
-                                        <td><c:out value="${lam.count}"/></td>
-                                        <td><c:out value="${nguoiGiamHo.tenNguoiGiamHo}"/></td>
-
-                                            <%--            xử lý giới tính--%>
-                                        <c:if test="${nguoiGiamHo.gioiTinh == 1}">
-                                            <td>Nam</td>
-                                        </c:if>
-                                        <c:if test="${nguoiGiamHo.gioiTinh == 0}">
-                                            <td>Nữ</td>
-                                        </c:if>
-
-                                            <%--            xử lý khu vực--%>
-                                        <c:forEach var="khuvuc" items="${khuVuc}">
-                                            <c:if test="${nguoiGiamHo.maKhuVuc == khuvuc.maKhuVuc}">
-                                                <td><c:out value="${khuvuc.tenKhuVuc}"/></td>
-                                            </c:if>
-                                        </c:forEach>
-                                        <td><c:out value="${nguoiGiamHo.soDienThoai}"/></td>
-                                        <td>
-                                            <a href="/nguoi-giam-ho?action=capnhatnguoigiamho&maNguoiGiamHo=${nguoiGiamHo.maNguoiGiamHo}"
-                                               role="button" data-bs-toggle="modal"
-                                               data-bs-target="#exampleModal">
-                                                <button type="button" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal">
-                                                    <i class="fas fa-pencil-square-o" style="color: black"></i>
-                                                </button>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <button type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#delete"
-                                                    onclick="maNguoiGiamHo('${nguoiGiamHo.maNguoiGiamHo}','${nguoiGiamHo.tenNguoiGiamHo}')">
-                                                <i class="fas fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal" tabindex="-1" id="delete" aria-labelledby="exampleModalLabel">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form action="/nguoi-giam-ho?action=xoa" method="post">
-                            <div class="modal-header" style="background-color: #dc3545">
-                                <h5 class="modal-title" id="exampleModalLabel" style="color: WHITE; text-align: center">
-                                    XÓA NGƯỜI GIÁM HỘ</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body" style="color: black">
-                                <input name="maNguoiGiamHo" id="ma" type="hidden">
-                                Bạn có chắc chắn muốn xóa <span id="thongBao"
-                                                                style="color:red; font-weight: bold"></span> khỏi danh
-                                sách người giám hộ ?
-                            </div>
-                            <div class="modal-body" style="color: red; font-size:medium ">
-                                (Lưu ý: Hành động này không thể hoàn tác)
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                <button type="submit" class="btn btn-danger">Xác Nhận</button>
-                            </div>
-                        </form>
->>>>>>> ed129efa91ed9546098e8d79fa6ae39e0310a89c
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 justify-content-center">
-                    <div class="copyright">
-                        <p>&copy; 2023 Mọi quyền được bảo lưu bởi Nuôi em</p>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="modal" tabindex="-1" id="delete" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="/nguoi-giam-ho?action=xoa" method="post">
+                        <div class="modal-header" style="background-color: #dc3545">
+                            <h5 class="modal-title" id="exampleModalLabel" style="color: WHITE; text-align: center">
+                                XÓA NGƯỜI GIÁM HỘ</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" style="color: black">
+                            <input name="maNguoiGiamHo" id="ma" type="hidden">
+                            Bạn có chắc chắn muốn xóa <span id="thongBao"
+                                                            style="color:red; font-weight: bold"></span> khỏi danh
+                            sách người giám hộ ?
+                        </div>
+                        <div class="modal-body" style="color: red; font-size:medium ">
+                            (Lưu ý: Hành động này không thể hoàn tác)
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                            <button type="submit" class="btn btn-danger">Xác Nhận</button>
+                        </div>
+                    </form>
+                    >>>>>>> ed129efa91ed9546098e8d79fa6ae39e0310a89c
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 justify-content-center">
+                <div class="copyright">
+                    <p>&copy; 2023 Mọi quyền được bảo lưu bởi Nuôi em</p>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 </div>
 
 <!-- END MAIN CONTENT-->
@@ -461,6 +383,7 @@
             }
         });
     });
+
     function maNguoiGiamHo(maNguoiGiamHo, ten) {
         document.getElementById("ma").value = maNguoiGiamHo;
         document.getElementById("thongBao").innerText = ten;

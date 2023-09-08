@@ -37,11 +37,40 @@ public class CamKetServlet extends HttpServlet {
             case "sua":
                 hienThiSua(request, response);
                 break;
+            case "nguoiDungTaoCamKet":
+                nguoiDungTaoCamKet(request, response);
+                break;
             default:
                 hienThiDanhSach(request, response);
                 break;
         }
     }
+
+    private void nguoiDungTaoCamKet(HttpServletRequest request, HttpServletResponse response) {
+        int maNguoiNuoi = Integer.parseInt(request.getParameter("maNguoiNuoi"));
+        int maTreEm = Integer.parseInt(request.getParameter("maTreEm"));
+//        List<TreEm> treEm = treEmService.hienThiDanhSach();
+//        List<NguoiNuoi> nguoiNuoi = nguoiNuoiService.hienThiDanhSach();
+//        lien code
+        NguoiNuoi nguoiNuoi1 = nguoiNuoiService.xemChiTiet(maNguoiNuoi);
+        TreEm treEm1 = treEmService.timId(maTreEm);
+        request.setAttribute("maTreEm", maTreEm);
+//        request.setAttribute("nguoiNuoi", nguoiNuoi);
+        request.setAttribute("nguoiNuoi1", nguoiNuoi1);
+        request.setAttribute("treEm1", treEm1);
+//        lấy nguoiNuoi1 qua jsp .tenNguoiNuoi
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-nguoi-dung-them-moi.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+        //dan toi trang lam cam ket moi
+
 
     private void hienThiSua(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int maCamKet = Integer.parseInt(request.getParameter("maCamKet"));
@@ -68,16 +97,16 @@ public class CamKetServlet extends HttpServlet {
     }
 
     private void hienThiThem(HttpServletRequest request, HttpServletResponse response) {
-//        int maNguoiNuoi = Integer.parseInt(request.getParameter("maNguoiNuoi"));
+        int maNguoiNuoi = Integer.parseInt(request.getParameter("maNguoiNuoi"));
         int maTreEm = Integer.parseInt(request.getParameter("maTreEm"));
 //        List<TreEm> treEm = treEmService.hienThiDanhSach();
 //        List<NguoiNuoi> nguoiNuoi = nguoiNuoiService.hienThiDanhSach();
 //        lien code
-//        NguoiNuoi nguoiNuoi1 = nguoiNuoiService.xemChiTiet(maNguoiNuoi);
+        NguoiNuoi nguoiNuoi1 = nguoiNuoiService.xemChiTiet(maNguoiNuoi);
         TreEm treEm1 = treEmService.timId(maTreEm);
         request.setAttribute("maTreEm", maTreEm);
 //        request.setAttribute("nguoiNuoi", nguoiNuoi);
-//        request.setAttribute("nguoiNuoi1", nguoiNuoi1);
+        request.setAttribute("nguoiNuoi1", nguoiNuoi1);
         request.setAttribute("treEm1", treEm1);
 //        lấy nguoiNuoi1 qua jsp .tenNguoiNuoi
 
@@ -153,7 +182,7 @@ public class CamKetServlet extends HttpServlet {
             request.setAttribute("thongBao", "Bạn đã sửa thông tin thành công!");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-them-moi.jsp");
             dispatcher.forward(request, response);
-//            response.sendRedirect("/cam-ket");
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ServletException e) {
