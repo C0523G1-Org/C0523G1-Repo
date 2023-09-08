@@ -7,9 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <html>
 <head>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
     <!-- Basic -->
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -43,30 +44,6 @@
 <body>
 <style>
 
-    .my-footer {
-        position: relative;
-        height: 69px;
-        background-color: #7a772d;
-        color: white;
-        text-align: center;
-        display: grid;
-        bottom: 0;
-        width: 100%;
-    }
-
-    .my-footer a {
-        text-decoration: none;
-        color: white;
-    }
-
-    .my-footer a:hover {
-        cursor: pointer;
-    }
-
-    .my-footer p {
-        place-self: center;
-    }
-
     h4 {
         text-align: center;
     }
@@ -75,7 +52,7 @@
 <header class="header_section">
     <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="#">
                 <img src="images/logo.png" width="50px" height="50px" alt=""/>
                 <span>
               Nuôi em
@@ -111,11 +88,12 @@
         </nav>
     </div>
 </header>
-<div class="container  mt-4 mb-1">
-   <div class="container title">
-       <h4>Thông tin tài khoản</h4>
-       <button type="button" class="btn btn-outline-success"><a href="#">Thay đổi thông tin</a></button>
-   </div>
+<div class="container mt-4 mb-1">
+    <div class="container title">
+        <h4>Thông tin tài khoản</h4>
+        <button type="button" class="btn btn-outline-success"><a
+                href="nguoi-nuoi?action=sua1&maNguoiNuoi=${maTaiKhoan}">Thay đổi thông tin</a></button>
+    </div>
 </div>
 <div class="container mt-3">
     <div class="table-responsive">
@@ -161,30 +139,37 @@
         <table class="table mt-3">
             <thead>
             <tr>
-                <th scope="col">Tên tài khoản</th>
-                <th scope="col">Chủ tài khoản</th>
-                <th scope="col">Email</th>
-                <th scope="col">Giới tính</th>
-                <th scope="col">SDT</th>
+                <th scope="col">Người làm cam</th>
+                <th scope="col">Ngày tạo cam kết</th>
+                <th scope="col">Trạng thái cam kết</th>
                 <th scope="col">Tên trẻ em</th>
+                <th scope="col">Giới tính</th>
+                <th scope="col">Ngày sinh</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${thongKe}" var="tk" varStatus="loop">
+            <c:forEach items="${thongKeCamKet}" var="tkck" varStatus="loop">
                 <tr>
-                    <td>${tk.tenTaiKhoan}</td>
-                    <td>${tk.tenNguoiNuoi}</td>
-                    <td>${tk.email}</td>
+                    <td>${tkck.tenNguoiNuoi}</td>
+                    <td>${tkck.ngayLamCamKet}</td>
                     <td>
-                        <c:if test="${tk.gioiTinhNguoiNuoi == 0}">
+                        <c:if test="${tkck.trangThaiHopDong == 0}">
+                            Đã hủy
+                        </c:if>
+                        <c:if test="${tkck.trangThaiHopDong == 1}">
+                            Tồn tại
+                        </c:if>
+                    </td>
+                    <td>${tkck.tenTreEm}</td>
+                    <td>
+                        <c:if test="${tkck.gioiTinhTreEm == 0}">
                             Nữ
                         </c:if>
-                        <c:if test="${tk.gioiTinhNguoiNuoi == 1}">
+                        <c:if test="${tkck.gioiTinhTreEm == 1}">
                             Nam
                         </c:if>
                     </td>
-                    <td>${tk.soDienThoai}</td>
-                    <td>${tk.tenTreEm}</td>
+                    <td>${tkck.ngaySinhTreEm}</td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -202,30 +187,24 @@
         <table class="table mt-3">
             <thead>
             <tr>
-                <th scope="col">Tên tài khoản</th>
-                <th scope="col">Chủ tài khoản</th>
-                <th scope="col">Email</th>
-                <th scope="col">Giới tính</th>
-                <th scope="col">SDT</th>
+                <th scope="col">#</th>
+                <th scope="col">Ngày giao dịch</th>
+                <th scope="col">Nội dung giao dịch</th>
+                <th scope="col">Số tiền giao dịch (VND)</th>
                 <th scope="col">Tên trẻ em</th>
+                <th scope="col">Ngày làm cam kết</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${thongKe}" var="tk" varStatus="loop">
+            <c:forEach items="${traCuuTaiChinh}" var="tc" varStatus="loop">
                 <tr>
-                    <td>${tk.tenTaiKhoan}</td>
-                    <td>${tk.tenNguoiNuoi}</td>
-                    <td>${tk.email}</td>
-                    <td>
-                        <c:if test="${tk.gioiTinhNguoiNuoi == 0}">
-                            Nữ
-                        </c:if>
-                        <c:if test="${tk.gioiTinhNguoiNuoi == 1}">
-                            Nam
-                        </c:if>
-                    </td>
-                    <td>${tk.soDienThoai}</td>
-                    <td>${tk.tenTreEm}</td>
+                    <td><c:out value="${loop.count}"></c:out></td>
+                    <td>${tc.ngayGiaoDich}</td>
+                    <td>${tc.noiDungGiaoDich}</td>
+                    <td><fmt:formatNumber value="${tc.soTien}" type="currency" currencySymbol=""
+                                          maxFractionDigits="0"/></td>
+                    <td>${tc.tenTreEm}</td>
+                    <td>${tc.ngayNhanNuoi}</td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -233,12 +212,12 @@
     </div>
 </div>
 
-<div class="my-footer mb-0">
-    <p>
-        &copy; 2023 Mọi quyền được bảo lưu bởi
-        <a href="nuoi-em-trang-chu.jsp">Nuôi em</a>
-    </p>
-</div>
+<%--<div class="my-footer">--%>
+<%--    <p>--%>
+<%--        &copy; 2023 Mọi quyền được bảo lưu bởi--%>
+<%--        <a href="nuoi-em-trang-chu.jsp">Nuôi em</a>--%>
+<%--    </p>--%>
+<%--</div>--%>
 <%--    script--%>
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>

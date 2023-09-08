@@ -47,10 +47,13 @@
             </div>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div class="mb-3">
             <label for="soDienThoai" class="form-label">Số Điện Thoại</label>
             <input type="text" class="form-control" id="soDienThoai" name="soDienThoai" value="<c:out value='${nguoiGiamHo.soDienThoai}'/>">
 =======
+=======
+>>>>>>> 2feaac9bc429f05198e177c97339e89ee5abf6ea
     </header>
     <!-- HEADER DESKTOP-->
 
@@ -156,13 +159,24 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
 >>>>>>> ed129efa91ed9546098e8d79fa6ae39e0310a89c
+=======
+=======
+        <div class="mb-3">
+            <label for="soDienThoai" class="form-label">Số Điện Thoại</label>
+            <input type="text" class="form-control" id="soDienThoai" name="soDienThoai" value="<c:out value='${nguoiGiamHo.soDienThoai}'/>">
+>>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
+>>>>>>> 2feaac9bc429f05198e177c97339e89ee5abf6ea
         </div>
         <button type="submit" class="btn btn-danger">Cập nhật</button>
     </form>
 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 2feaac9bc429f05198e177c97339e89ee5abf6ea
 
 <!-- Jquery JS-->
 <script src="vendor/jquery-3.2.1.min.js"></script>
@@ -188,6 +202,11 @@
 <!-- Main JS-->
 <script src="js/main.js"></script>
 
+<<<<<<< HEAD
 >>>>>>> ed129efa91ed9546098e8d79fa6ae39e0310a89c
+=======
+=======
+>>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
+>>>>>>> 2feaac9bc429f05198e177c97339e89ee5abf6ea
 </body>
 </html>

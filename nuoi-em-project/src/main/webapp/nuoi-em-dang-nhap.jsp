@@ -53,17 +53,25 @@
                     <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                         <ul class="navbar-nav  ">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">
+                                <a class="nav-link" href="#">
                                     Trang chủ <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
+<<<<<<< HEAD
                                 <a class="nav-link" href="/tre-em-tc?action=nguoiDungTaoCamKet&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Trẻ em</a>
+=======
+                                <a class="nav-link" href="/tre-em-tc&maTaiKhoan=${maTaiKhoan}">Trẻ em</a>
+>>>>>>> 2feaac9bc429f05198e177c97339e89ee5abf6ea
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/tre-em">Chứng nhận</a>
                             </li>
                             <li class="nav-item">
+<<<<<<< HEAD
+                                <a class="nav-link" href="tai-chinh">Tài chính</a>
+=======
                                 <a class="nav-link" href="/tai-chinh">Tài chính</a>
+>>>>>>> 05a1e6f62c56d36b983dceb509ef89f159bb946d
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink"
@@ -72,16 +80,30 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark"
                                     aria-labelledby="navbarDarkDropdownMenuLink">
-
-                                    <li><a class="dropdown-item" href="#">Chi tiết tài khoản</a></li>
-                                    <li><a class="dropdown-item" href="#">Chi tiết bản cảm kết</a></li>
-<%--                                    LIÊN thêm--%>
-                                    <li><a class="dropdown-item" href="/nguoi-nuoi?action=xemTre&maTaiKhoan=${maTaiKhoan}">Chi tiết trẻ em</a></li>
-                                    <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>
+<%--<<<<<<< HEAD--%>
+<%--<<<<<<< HEAD--%>
 <%--                                    <li><a class="dropdown-item" href="tai-khoan?action=chiTietTaiKhoan&maTaiKhoan=${maTaiKhoan}">Chi tiết tài khoản</a></li>--%>
                                     <li><a class="dropdown-item" href="tai-khoan?action=chiTietTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Chi tiết tài khoản</a></li>
 <%--                                    <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>--%>
+<%--=======--%>
+<%--                                    <li><a class="dropdown-item" href="#">Chi tiết tài khoản</a></li>--%>
+<%--                                    <li><a class="dropdown-item" href="#">Chi tiết bản cảm kết</a></li>--%>
+<%--&lt;%&ndash;                                    LIÊN thêm&ndash;%&gt;--%>
+<%--                                    <li><a class="dropdown-item" href="/nguoi-nuoi?action=xemTre&maTaiKhoan=${maTaiKhoan}">Chi tiết trẻ em</a></li>--%>
+<%--                                    <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>--%>
+<%-->>>>>>> 455f97e9470d16d4b022a96dc4ae2a321a3d9fa8--%>
+<%--=======--%>
 
+<%--                                    <li><a class="dropdown-item" href="#">Chi tiết tài khoản</a></li>--%>
+<%--                                    <li><a class="dropdown-item" href="#">Chi tiết bản cảm kết</a></li>--%>
+<%--&lt;%&ndash;                                    LIÊN thêm&ndash;%&gt;--%>
+<%--                                    <li><a class="dropdown-item" href="/nguoi-nuoi?action=xemTre&maTaiKhoan=${maTaiKhoan}">Chi tiết trẻ em</a></li>--%>
+<%--                                    <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>--%>
+<%--&lt;%&ndash;                                    <li><a class="dropdown-item" href="tai-khoan?action=chiTietTaiKhoan&maTaiKhoan=${maTaiKhoan}">Chi tiết tài khoản</a></li>&ndash;%&gt;--%>
+<%--                                    <li><a class="dropdown-item" href="tai-khoan?action=chiTietTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Chi tiết tài khoản</a></li>--%>
+<%--&lt;%&ndash;                                    <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>&ndash;%&gt;--%>
+
+<%-->>>>>>> e633ab4f3c8bf5d158c27a3b63e80325265ae94f--%>
                                     <li><a class="dropdown-item" href="tai-khoan?action=dangXuat">Đăng xuất</a></li>
                                 </ul>
                             </li>

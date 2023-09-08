@@ -327,12 +327,22 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="card-footer">
+<<<<<<< HEAD
                                                 <button type="submit" class="btn" style="background-color: #ffff00">
 <<<<<<< HEAD
                                                     Xác nhận
 =======
                                                  Xác nhận
 >>>>>>> 3e6546cf6d77610934d8446858207ff9073fdd2c
+=======
+<<<<<<< HEAD
+                                                <button type="submit" class="btn" style="background-color: #ffff00">
+                                                 Xác nhận
+=======
+                                                <button class="btn" style="background-color: #ffff00" type="submit">
+                                                    Xác nhận
+>>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
+>>>>>>> 2feaac9bc429f05198e177c97339e89ee5abf6ea
                                                 </button>
                                                 <a href="/tre-em" class="btn btn-dark">Đóng</a>
                                             </div>

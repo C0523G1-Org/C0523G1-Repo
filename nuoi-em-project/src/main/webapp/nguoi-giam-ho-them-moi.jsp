@@ -31,6 +31,7 @@
         <label class="form-check-label" for="gioiTinh2">Nữ</label>
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div class="col-12 col-md-9">
         <label for="maKhuVuc">
             <select name="maKhuVuc" id="maKhuVuc" class="form-control">
@@ -43,6 +44,8 @@
             </select>
         </label>
 =======
+=======
+>>>>>>> 2feaac9bc429f05198e177c97339e89ee5abf6ea
 </aside>
 <!-- END MENU SIDEBAR-->
 
@@ -191,7 +194,23 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
 >>>>>>> ed129efa91ed9546098e8d79fa6ae39e0310a89c
+=======
+=======
+    <div class="col-12 col-md-9">
+        <label for="maKhuVuc">
+            <select name="maKhuVuc" id="maKhuVuc" class="form-control">
+                <option disabled selected>Chọn khu vực</option>
+                <c:forEach var="k" items="${khuVuc}">
+                    <option value="${k.getMaKhuVuc()}">
+                            ${k.getTenKhuVuc()}
+                    </option>
+                </c:forEach>
+            </select>
+        </label>
+>>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
+>>>>>>> 2feaac9bc429f05198e177c97339e89ee5abf6ea
     </div>
     <div class="mb-3">
         <label for="soDienThoai" class="form-label">Số điện thoại</label>

@@ -100,6 +100,7 @@
                 tự chuyển trang sau <span id="count-down"></span> giây </span>
     </div>
 </div>
+<input type="hidden" name="maTaiKhoan" id="maTaiKhoan" value="${maTaiKhoan}">
 <%--<input type="hidden" value="${tenTaiKhoan}" name="tenTaiKhoan" id="tenTaiKhoan">--%>
 <%--<input type="hidden" value="${maTaiKhoan}" name="maTaiKhoan" id="maTaiKhoan">--%>
 <%--<input type="hidden" value="${matKhau}" name="matKhau" id="matKhau">--%>
@@ -109,7 +110,8 @@
 
     // Hàm chuyển hướng
     function chuyenHuong() {
-        window.location.href = "nuoi-em-trang-chu.jsp"; // Thay đổi đường dẫn tới trang HTML mới
+        let maTaiKhoan = document.getElementById('maTaiKhoan').value;
+        window.location.href = "tai-khoan?action=chiTietTaiKhoan&maTaiKhoan=${maTaiKhoan}"; // Thay đổi đường dẫn tới trang HTML mới
     }
 
     // Gọi hàm chuyển hướng sau khoảng thời gian đã định
