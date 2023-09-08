@@ -358,40 +358,6 @@
     </div>
 </section>
 
-<<<<<<< HEAD
-<!-- end info_section -->
-=======
-<div>
-    <form action="/tai-chinh?action=xem" method="post">
-        <h5>Nhập thời gian bạn muốn xem sao kê:</h5>
-        <div class="row">
-            <div class="col-12 col-xl-6">
-                <div class="row g-3 align-items-center">
-                    <div class="col-auto">
-                        <label for="thang" class="col-form-label">Tháng:</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="text" id="thang" class="form-control" name="thang" value="9"
-                               aria-describedby="passwordHelpInline">
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-xl-6">
-                <div class="row g-3 align-items-center">
-                    <div class="col-auto">
-                        <label for="nam" class="col-form-label">Năm:</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="text" id="nam" class="form-control" name="nam" value="2023"
-                               aria-describedby="passwordHelpInline">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-success">Hiển thị</button>
->>>>>>> bdc38a048c28ef1b73eaa019c92eeae701860dce
-
-<<<<<<< HEAD
 <!-- footer section -->
 <section class="container-fluid footer_section">
     <p>
@@ -403,96 +369,6 @@
 
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
-=======
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="title-1 m-b-25 justify-content-center d-flex">Lịch sử giao dịch</h2>
-                <div class="table-responsive table--no-card m-b-40">
-                    <table class="table table-success table-striped">
-                        <thead>
-                        <div>
-                            <tr style="background-color: lightgoldenrodyellow">
-                                <th colspan="2">
-                                    Tổng số tiền:
-                                </th>
-                                <th colspan="2">
-                                    <fmt:formatNumber value="${chenhLech}" type="currency" currencySymbol="" maxFractionDigits="0" />
-                                </th>
-                            </tr>
-                            <tr style="background-color: lightgoldenrodyellow">
-                                <th colspan="2">
-                                    Tổng thu:
-                                </th>
-                                <th colspan="2">
-                                    <fmt:formatNumber value="${tongThu}" type="currency" currencySymbol="" maxFractionDigits="0" />
-                                </th>
-                            </tr>
-                            <tr style="background-color: lightgoldenrodyellow">
-                                <th colspan="2">
-                                    Tổng chi:
-                                </th>
-                                <th colspan="2">
-                                    <fmt:formatNumber value="${tongChi}" type="currency" currencySymbol="" maxFractionDigits="0" />
-                                </th>
-                            </tr>
-                        </div>
-
-                        <tr>
-                            <th>STT</th>
-                            <th>Ngày giao dịch</th>
-                            <th>Số tiền(VND)</th>
-                            <th>Nội dung</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:if test="${thongBao!=null}">
-                            <h2>${thongBao}</h2>
-                        </c:if>
-                        <c:forEach items="${danhSachGiaoDich}" var="d" varStatus="loop">
-                            <tr>
-                                <td><c:out value="${loop.count}"/></td>
->>>>>>> ea726ed46bfb8720b58bbc13ff72f926d057a649
-
-<script>
-    // This example adds a marker to indicate the position of Bondi Beach in Sydney,
-    // Australia.
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 11,
-            center: {
-                lat: 40.645037,
-                lng: -73.880224
-            }
-        });
-
-<<<<<<< HEAD
-        var image = "images/maps-and-flags.png";
-        var beachMarker = new google.maps.Marker({
-            position: {
-                lat: 40.645037,
-                lng: -73.880224
-            },
-            map: map,
-            icon: image
-        });
-    }
-</script>
-<!-- google map js -->
-=======
-                                <td>
-                                    <fmt:formatNumber value="${d.soTien}" type="currency" currencySymbol="" maxFractionDigits="0" />
-                                </td>
-                                <td><c:out value="${d.noiDungGiaoDich}"/></td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
->>>>>>> ea726ed46bfb8720b58bbc13ff72f926d057a649
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
 </script>

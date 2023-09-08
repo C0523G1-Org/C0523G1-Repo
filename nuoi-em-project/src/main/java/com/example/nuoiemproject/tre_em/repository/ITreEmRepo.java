@@ -8,9 +8,9 @@ import java.util.List;
 public interface ITreEmRepo {
     List<TreEm> hienThiDanhSach();
     void them(TreEm treEm);
-    void sua(int id, TreEm treEm);
+    void sua(int maTreEm, TreEm treEm);
     void xoa(int maTreEm);
-    TreEm timId(int id);
+    TreEm timId(int maTreEm);
 
     List<TreEmDto> hienThiDto();
 }

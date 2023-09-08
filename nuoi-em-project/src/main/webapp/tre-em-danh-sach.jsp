@@ -280,7 +280,7 @@
                                                  src="images/tre-em/${treEmDto.getHinhAnh()}">
                                         </td>
                                         <td>
-                                            <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"
+                                            <a href="tre-em?action=sua&maTreEm=${treEmDto.getMaTreEm()}"
                                                role="button">
                                                 <i class="fas fa-pencil-square-o" style="color: black"></i></a>
                                         </td>
@@ -347,6 +347,7 @@
 <!-- Bootstrap JS-->
 <script src="vendor/bootstrap-4.1/popper.min.js"></script>
 <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.js"></script>
 <!-- Vendor JS       -->
 <script src="vendor/slick/slick.min.js">
 </script>
