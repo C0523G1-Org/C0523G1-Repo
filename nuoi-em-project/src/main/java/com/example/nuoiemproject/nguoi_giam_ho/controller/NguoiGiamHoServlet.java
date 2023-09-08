@@ -93,18 +93,13 @@ public class NguoiGiamHoServlet extends HttpServlet {
         }
     }
 
-    private void capNhat(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void capNhat(HttpServletRequest request, HttpServletResponse response) {
         int maNguoiGiamHo = Integer.parseInt(request.getParameter("maNguoiGiamHo"));
         String tenNguoiGiamHo = request.getParameter("tenNguoiGiamHo");
         int gioiTinh = Integer.parseInt(request.getParameter("gioiTinh"));
         int maKhuVuc = Integer.parseInt(request.getParameter("maKhuVuc"));
         String soDienThoai = request.getParameter("soDienThoai");
-        NguoiGiamHo nguoiGiamHo = new NguoiGiamHo(maNguoiGiamHo, tenNguoiGiamHo, gioiTinh, maKhuVuc, soDienThoai);
-        if (nguoiGiamHoService.nguoiGiamHo(nguoiGiamHo.getMaNguoiGiamHo()) == null) {
-            String error = request.getParameter("error");
-            request.setAttribute("error", error);
-            response.sendRedirect("/nguoi-giam-ho-cap-nhat.jsp");
-        }
+        NguoiGiamHo nguoiGiamHo = new NguoiGiamHo(maNguoiGiamHo,tenNguoiGiamHo, gioiTinh, maKhuVuc, soDienThoai);
         nguoiGiamHoService.capNhatNguoiGiamHo(nguoiGiamHo);
         try {
             response.sendRedirect("/nguoi-giam-ho");

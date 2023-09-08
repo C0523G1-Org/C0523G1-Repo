@@ -286,7 +286,7 @@
                                             <select name="maKhuVuc" id="maKhuVuc" class="form-control" required>
                                                 <c:forEach var="k" items="${khuVuc}">
                                                     <c:if test="${k.getMaKhuVuc()== nguoiGiamHo.maKhuVuc}">
-                                                        <option disabled selected>${k.getTenKhuVuc()}</option>
+                                                        <option value="${k.getMaKhuVuc()}">${k.getTenKhuVuc()}</option>
                                                     </c:if>
                                                 </c:forEach>
                                                 <c:forEach var="k" items="${khuVuc}">
