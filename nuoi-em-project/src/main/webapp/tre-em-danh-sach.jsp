@@ -27,7 +27,7 @@
     <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
     <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" r   el="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" r el="stylesheet" media="all">
     <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
@@ -232,7 +232,6 @@
                                     <th>Khu vực</th>
                                     <th>Trạng thái</th>
                                     <th>Ảnh</th>
-                                    <th>Cam Kết</th>
                                     <th>Sửa</th>
                                     <th>Xóa</th>
                                 </tr>
@@ -280,17 +279,6 @@
                                             <img height="50px" width="50px"
                                                  src="images/tre-em/${treEmDto.getHinhAnh()}">
                                         </td>
-
-<%--                                        --------%>
-                                        <td>
-                                            <a href="/cam-ket?action=them&maTreEm=${treEmDto.maTreEm}"
-                                               role="button">
-                                                <i class="fas fa-pencil-square-o" style="color: black" ></i></a>
-                                        </td>
-
-<%--                                        -------%>
-
-
                                         <td>
                                             <a href="tre-em?action=sua&maTreEm=${treEmDto.getMaTreEm()}"
                                                role="button">
