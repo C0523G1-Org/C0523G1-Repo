@@ -288,6 +288,8 @@ public class TaiKhoanServlet extends HttpServlet {
 
     private void suaTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
         int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
+        TaiKhoan temp = this.service.timTaiKhoan(maTaiKhoan);
+        String matKhauCu = temp.getMatKhau();
         String matKhau = request.getParameter("matKhau");
         String xacNhanMatKhau = request.getParameter("xacNhanMatKhau");
         String tenTaiKhoan = request.getParameter("tenTaiKhoan");
@@ -302,7 +304,21 @@ public class TaiKhoanServlet extends HttpServlet {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        } else if (matKhau.equals(xacNhanMatKhau)) {
+        } else if (matKhau.equals(xacNhanMatKhau) && matKhau.equals(matKhauCu)) {
+            String thongBao = "Mật khẩu mới phải khác mật khẩu cũ bro";
+            request.setAttribute("thongBao",thongBao);
+            request.setAttribute("maTaiKhoan", maTaiKhoan);
+            request.setAttribute("tenTaiKhoan", tenTaiKhoan);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-sua-tai-khoan.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        else if (matKhau.equals(xacNhanMatKhau) && !matKhau.equals(matKhauCu)) {
             request.setAttribute("tenTaiKhoan", tenTaiKhoan);
             request.setAttribute("matKhau", matKhau);
             request.setAttribute("maTaiKhoan", maTaiKhoan);

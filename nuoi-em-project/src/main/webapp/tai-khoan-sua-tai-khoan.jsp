@@ -80,6 +80,7 @@
     <div class="user mt-2 mb-0">
         Xin chào: <span class="user-name">${tenTaiKhoan}</span>
     </div>
+    <span>${thongBao}</span>
     <div class="form-main">
         <form action="tai-khoan?action=suaTaiKhoan" method="post"
               name="form-1" id="form-1" onsubmit="return(validate());">
