@@ -80,7 +80,7 @@
                     <div class="logo" style="background-color: #90953b">
                         <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
                         <a href="#">
-                            <h3>Nuôi em</h3>
+                            <h3 style="color: white">Nuôi em</h3>
                         </a>
                     </div>
                     <button class="hamburger hamburger--slider" type="button">
@@ -138,7 +138,7 @@
         <div class="logo" style="background-color: #90953b">
             <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
             <a href="#">
-                <h3>Nuôi em</h3>
+                <h3 style="color: #fff">Nuôi em</h3>
             </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1" style="background-color: #78853f">

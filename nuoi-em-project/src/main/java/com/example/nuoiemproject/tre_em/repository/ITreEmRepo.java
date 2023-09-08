@@ -12,5 +12,6 @@ public interface ITreEmRepo {
     void xoa(int maTreEm);
     TreEm timId(int maTreEm);
 
+
     List<TreEmDto> hienThiDto();
 }

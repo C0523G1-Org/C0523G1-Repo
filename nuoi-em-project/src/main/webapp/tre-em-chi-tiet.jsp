@@ -1,310 +1,152 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Basic -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- Site Metas -->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
 
-    <!-- Title Page-->
-    <title>Quản lý</title>
+    <title>Danh sách trẻ em đang nhận</title>
 
-    <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"/>
 
-    <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 
-    <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Poppins:400,700|Roboto:400,700&display=swap"
+          rel="stylesheet"/>
 
-    <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet"/>
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet"/>
+    <style>
+        .custom-list {
+            list-style: none; /* Loại bỏ dấu chấm mặc định */
+            padding-left: 0; /* Loại bỏ khoảng đệm trái mặc định */
+        }
+
+        .custom-list li::before {
+            content: "\2022"; /* Ký hiệu dấu chấm • */
+            color: #557A46; /* Màu chữ xanh */
+            margin-right: 0.5em; /* Khoảng cách giữa dấu chấm và nội dung */
+        }
+
+        .hover:hover {
+            background-color: #90953b;
+        }
+
+    </style>
 
 </head>
-<body class="animsition">
-<div class="page-wrapper">
-    <!-- HEADER MOBILE-->
-    <header class="header-mobile d-block d-lg-none">
-        <div class="header-mobile__bar">
-            <div class="container-fluid">
-                <div class="header-mobile-inner">
-                    <a class="logo" href="index.html">
-                        <%--                        <img src="images/icon/logo.png" alt="CoolAdmin"/>--%>
-                        <h3>Team 2</h3>
-                    </a>
-                    <button class="hamburger hamburger--slider" type="button">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                    </button>
+<body>
+<header class="header_section">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" width="50px" height="50px" alt=""/>
+                <span>
+              Nuôi em
+            </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                    <ul class="navbar-nav  ">
+                        <form action="/tai-khoan?action=dangNhap" method="post">
+                            <li class="nav-item active">
+                                <%--                                <button type="submit" class="nav-link">--%>
+                                <%--                                    Trang chủ <span class="sr-only">(current)</span>--%>
+                                <%--                                </button>--%>
+                                <%--                                <input type="hidden" id="maTaiKhoan" name="maTaiKhoan">--%>
+                                <a class="nav-link" href="#">
+                                    Trang chủ <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                        </form>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tre-em">Trẻ em</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Chứng nhận</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tài chính</a>
+                        </li>
+                        <%--                        <li class="nav-item">--%>
+                        <%--                            <a class="nav-link" href="/tai-khoan?action=dangNhap">Đăng nhập</a>--%>
+                        <%--                        </li>--%>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <nav class="navbar-mobile">
-            <div class="container-fluid">
-                <ul class="navbar-mobile__list list-unstyled">
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-signal"></i>Thống kê</a>
-                    </li>
-                    <li class="active has-sub">
-                        <a class="js-arrow" href="#">
-                            <i class="fas fa-list"></i>Danh sách</a>
-                        <ul class="list-unstyled navbar__sub-list js-sub-list">
-                            <li>
-                                <a href="#">Trẻ em</a>
-                            </li>
-                            <li>
-                                <a href="/nguoi-giam-ho">Người giám hộ</a>
-                            </li>
-                            <li>
-                                <a href="/nguoi-nuoi">Mạnh thường quân</a>
-                            </li>
-                            <li>
-                                <a href="#">Bảng cam kết</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-users"></i>Tài khoản</a>
-                    </li>
-                    <li>
-                        <a href="/tre-em">
-                            <i class="fas fa-arrow-left"></i>Trở về</a>
-                    </li>
-                </ul>
-            </div>
         </nav>
-    </header>
-    <!-- END HEADER MOBILE-->
+    </div>
+</header>
 
-    <!-- MENU SIDEBAR-->
-    <aside class="menu-sidebar d-none d-lg-block">
-        <div class="logo">
-            <a class="logo" href="index.html">
-                <%--                        <img src="images/icon/logo.png" alt="CoolAdmin"/>--%>
-                <h3>Team 2</h3>
-            </a>
-        </div>
-        <div class="menu-sidebar__content js-scrollbar1">
-            <nav class="navbar-sidebar">
-                <ul class="list-unstyled navbar__list">
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-signal"></i>Thống kê</a>
-                    </li>
-                    <li class="active has-sub">
-                        <a class="js-arrow" href="#">
-                            <i class="fas fa-list"></i>Danh sách</a>
-                        <ul class="list-unstyled navbar__sub-list js-sub-list">
-                            <li>
-                                <a href="#">Trẻ em</a>
-                            </li>
-                            <li>
-                                <a href="/nguoi-giam-ho">Người giám hộ</a>
-                            </li>
-                            <li>
-                                <a href="/nguoi-nuoi">Mạnh thường quân</a>
-                            </li>
-                            <li>
-                                <a href="#">Bảng cam kết</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-users"></i>Tài khoản</a>
-                    </li>
-                    <li>
-                        <a href="/tre-em">
-                            <i class="fas fa-arrow-left"></i>Trở về</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
-    <!-- END MENU SIDEBAR-->
+<div class="container">
 
-    <!-- PAGE CONTAINER-->
-    <div class="page-container">
-        <!-- HEADER DESKTOP-->
-        <header class="header-desktop">
-            <div class="section__content section__content--p30">
-                <div class="container-fluid">
-                    <div class="header-wrap">
-                        <form class="form-header" action="" method="POST">
-                        </form>
-                        <div class="header-button">
-                            <div class="account-wrap">
-                                <div class="account-item clearfix js-item-menu">
-                                    <div class="image">
-                                        <img src="images/icon/avatar.jpg" alt="Zhang Ming"/>
-                                    </div>
-                                    <div class="content">
-                                        <a class="js-acc-btn" href="#">Admin</a>
-                                    </div>
-                                    <div class="account-dropdown js-dropdown">
-                                        <div class="info clearfix">
-                                            <div class="image">
-                                                <a href="#">
-                                                    <img src="images/icon/avatar.jpg" alt="admin"/>
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <h5 class="name">
-                                                    <a href="#">Admin</a>
-                                                </h5>
-                                                <span class="email">zhangming8443@gmail.com</span>
-                                            </div>
-                                        </div>
-                                        <div class="account-dropdown__body">
-                                            <div class="account-dropdown__item">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-account"></i>Thông tin cá nhân</a>
-                                            </div>
-                                        </div>
-                                        <div class="account-dropdown__footer">
-                                            <a href="nuoi-em-trang-chu.jsp">
-                                                <i class="zmdi zmdi-power"></i>Đăng xuất</a>
-                                        </div>
-                                    </div>
-                                </div>
+    <h2 class="title-1 m-b-25 justify-content-center d-flex">Danh sách trẻ em</h2>
+    <div class="row">
+        <c:forEach items="${treEmDto}" var="treEmDto" varStatus="loop">
+            <div class="col-lg-6">
+                    <%--            <div class="table-responsive table--no-card m-b-40">--%>
+                <div class="card mb-3 hover" style="max-width: 100%">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="images/tre-em/${treEmDto.getHinhAnh()}" class="img-fluid rounded-start" alt="..." width="100%"
+                                 style="margin-top: 10px; margin-left: 5px">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><c:out value="${treEmDto.getTenTreEm()}"/></h5>
+                                <p class="card-text">
+                                <ul class="custom-list">
+                                    <li><strong>Giới tính: </strong>
+                                        <c:if test="${treEmDto.getGioiTinh() == 1}">Nam</c:if>
+                                        <c:if test="${treEmDto.getGioiTinh() == 0}">Nữ</c:if>
+                                    </li>
+                                    <c:set var="dateString" value="${treEmDto.getNgaySinh()}"/>
+                                    <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
+                                    <li><strong>Ngày sinh: </strong>
+                                        <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
+                                    </li>
+                                    <li><strong>Mô tả: </strong>
+                                        <c:out value="${treEmDto.getMoTa()}"/>
+                                    </li>
+                                    <li><strong>Tên khu vực: </strong><c:out value="${treEmDto.getTenKhuVuc()}"/></li>
+                                    <li><strong>Tên người giám hộ: </strong><c:out value="${treEmDto.getTenNguoiGiamHo()}"/></li>
+                                </ul>
+                                </p>
+                                <button>Cam kết</button>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
-        <!-- HEADER DESKTOP-->
-
-        <!-- MAIN CONTENT-->
-        <div class="main-content">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="title-1 m-b-25 justify-content-center d-flex">Danh sách trẻ em</h2>
-                    <div class="table-responsive table--no-card m-b-40">
-                        <table class="table table-borderless table-striped table-earning">
-                            <thead>
-                            <tr>
-                                <th>Mã</th>
-                                <th>Tên</th>
-                                <th>Giới tính</th>
-                                <th>Ngày sinh</th>
-                                <th>Mô tả</th>
-                                <th>Người giám hộ</th>
-                                <th>Khu vực</th>
-                                <th>Trạng thái</th>
-                                <th>Ảnh</th>
-                                <th>Sửa</th>
-                                <th>Xóa</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach items="${treEmDto}" var="treEmDto">
-                                <tr>
-                                    <td>
-                                            ${treEmDto.getMaTreEm()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenTreEm()}
-                                    </td>
-
-                                    <td>
-                                        <c:if test="${treEmDto.getGioiTinh() == 1}">Nam</c:if>
-                                        <c:if test="${treEmDto.getGioiTinh() == 0}">Nữ</c:if>
-                                    </td>
-
-                                    <c:set var="dateString" value="${treEmDto.getNgaySinh()}"/>
-                                    <fmt:parseDate value="${dateString}" var="date" pattern="yyyy-MM-dd"/>
-                                    <td>
-                                        <fmt:formatDate value="${date}" pattern="dd/MM/yyyy"/>
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getMoTa()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenNguoiGiamHo()}
-                                    </td>
-
-                                    <td>
-                                            ${treEmDto.getTenKhuVuc()}
-                                    </td>
-
-                                    <td>
-                                        <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
-                                        <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
-                                    </td>
-
-                                    <td>
-                                        <img height="50px" width="50px" src="${treEmDto.getHinhAnh()}" alt="">
-                                    </td>
-                                    <td>
-                                        <a href="TreEm?action=sua&id=${treEm.getMaTreEm()}"
-                                           role="button">
-                                            <i class="fas fa-pencil-square-o" style="color: black"></i></a>
-                                    </td>
-                                    <td>
-                                        <button><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <a class="btn btn-outline-danger" href="/tre-em?action=them">Them moi</a>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 justify-content-center">
-                    <div class="copyright">
-                        <p>Copyright © 2023 Team 2. All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </c:forEach>
     </div>
 </div>
-<!-- END MAIN CONTENT-->
-<!-- END PAGE CONTAINER-->
 
-<!-- Jquery JS-->
-<script src="vendor/jquery-3.2.1.min.js"></script>
-<!-- Bootstrap JS-->
-<script src="vendor/bootstrap-4.1/popper.min.js"></script>
-<script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-<!-- Vendor JS       -->
-<script src="vendor/slick/slick.min.js">
-</script>
-<script src="vendor/wow/wow.min.js"></script>
-<script src="vendor/animsition/animsition.min.js"></script>
-<script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-<script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="vendor/counter-up/jquery.counterup.min.js"></script>
-<script src="vendor/circle-progress/circle-progress.min.js"></script>
-<script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="vendor/select2/select2.min.js"></script>
-
-<!-- Main JS-->
 <script src="js/main.js"></script>
+
 
 </body>
 </html>

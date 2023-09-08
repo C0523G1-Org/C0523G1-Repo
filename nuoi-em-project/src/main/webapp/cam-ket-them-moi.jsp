@@ -269,7 +269,6 @@
                                                 <input type="text" id="maNguoiNuoi" required name="maNguoiNuoi"
                                                        class="form-control" value="${maNguoiNuoi}">
                                                 <span>${nguoiNuoi1.tenNguoiNuoi}</span>
-                                                <%--                                                </c:forEach>--%>
                                             </div>
                                         </div>
                                         <div class="row form-group">

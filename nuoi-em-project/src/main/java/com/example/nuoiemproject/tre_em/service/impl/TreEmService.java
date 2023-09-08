@@ -33,8 +33,8 @@ public class TreEmService implements ITreEmService {
     }
 
     @Override
-    public TreEm timId(int id) {
-        return treEmRepo.timId(id);
+    public TreEm timId(int maTreEm) {
+        return treEmRepo.timId(maTreEm);
     }
 
     @Override

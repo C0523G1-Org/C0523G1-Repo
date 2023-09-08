@@ -52,7 +52,7 @@
                     <div class="logo" style="background-color: #90953b">
                         <img src="images/logo.png" width="50px" height="50px" style="padding-right: 5px">
                         <a href="#">
-                            <h3>Nuôi em</h3>
+                            <h3 style="color:#fff">Nuôi em</h3>
                         </a>
                     </div>
                     <button class="hamburger hamburger--slider" type="button">
@@ -248,7 +248,7 @@
 
                                             <%--   Xử lý trạng thái  --%>
                                         <td>
-                                            <c:if test="${d.trangThai == 1}">Nhận nuôi</c:if>
+                                            <c:if test="${d.trangThai == 1}">Đã nhận nuôi</c:if>
                                         </td>
                                         <td><c:out value="${d.tenTreEm}"/></td>
                                         <td><c:out value="${d.tenNguoiNuoi}"/></td>
