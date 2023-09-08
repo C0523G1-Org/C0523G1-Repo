@@ -107,7 +107,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/giao-dich">Giao dịch</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -157,7 +157,7 @@
                                 <a href="/tre-em">Trẻ em</a>
                             </li>
                             <li>
-                                <a href="/giao-dich">Giao dịch</a>
+                                <a href="/giao-dich">Tài chính</a>
                             </li>
                         </ul>
                     </li>
@@ -327,8 +327,13 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="card-footer">
-                                                <button type="submit" class="btn btn-primary btn-sm">
-                                                    <i class="fa fa-dot-circle-o"></i> Xác nhận
+<<<<<<< HEAD
+                                                <button type="submit" class="btn" style="background-color: #ffff00">
+                                                 Xác nhận
+=======
+                                                <button class="btn" style="background-color: #ffff00" type="submit">
+                                                    Xác nhận
+>>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
                                                 </button>
                                                 <a href="/tre-em" class="btn btn-dark">Đóng</a>
                                             </div>

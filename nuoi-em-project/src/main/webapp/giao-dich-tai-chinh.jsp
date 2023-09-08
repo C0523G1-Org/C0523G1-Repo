@@ -345,10 +345,17 @@
 </section>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<!-- end info_section -->
+
+>>>>>>> c045f42aa690bc2b6b3747b5988767f001a9d424
+=======
 <!-- end info_section -->
 
 =======
 >>>>>>> 1973b34bfb9d3afe3ab7160d24e4010f400aaeeb
+>>>>>>> e633ab4f3c8bf5d158c27a3b63e80325265ae94f
 <!-- footer section -->
 <section class="container-fluid footer_section">
     <p>
@@ -361,6 +368,10 @@
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e633ab4f3c8bf5d158c27a3b63e80325265ae94f
 
 <script>
     // This example adds a marker to indicate the position of Bondi Beach in Sydney,
@@ -386,8 +397,12 @@
     }
 </script>
 <!-- google map js -->
+<<<<<<< HEAD
+>>>>>>> c045f42aa690bc2b6b3747b5988767f001a9d424
+=======
 =======
 >>>>>>> 1973b34bfb9d3afe3ab7160d24e4010f400aaeeb
+>>>>>>> e633ab4f3c8bf5d158c27a3b63e80325265ae94f
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
 </script>

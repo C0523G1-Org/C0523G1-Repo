@@ -17,7 +17,12 @@
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
+<<<<<<< HEAD
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+=======
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+>>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
 
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -31,6 +36,11 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body class="animsition">
 <div class="page-wrapper">
@@ -291,9 +301,82 @@
                                             <i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
+<<<<<<< HEAD
+                                </thead>
+                                <tbody>
+                                <c:forEach var="nguoiGiamHo" items="${nguoiGiamHos}" varStatus="lam">
+                                    <tr>
+                                        <td><c:out value="${lam.count}"/></td>
+                                        <td><c:out value="${nguoiGiamHo.tenNguoiGiamHo}"/></td>
+
+                                            <%--            xử lý giới tính--%>
+                                        <c:if test="${nguoiGiamHo.gioiTinh == 1}">
+                                            <td>Nam</td>
+                                        </c:if>
+                                        <c:if test="${nguoiGiamHo.gioiTinh == 0}">
+                                            <td>Nữ</td>
+                                        </c:if>
+
+                                            <%--            xử lý khu vực--%>
+                                        <c:forEach var="khuvuc" items="${khuVuc}">
+                                            <c:if test="${nguoiGiamHo.maKhuVuc == khuvuc.maKhuVuc}">
+                                                <td><c:out value="${khuvuc.tenKhuVuc}"/></td>
+                                            </c:if>
+                                        </c:forEach>
+                                        <td><c:out value="${nguoiGiamHo.soDienThoai}"/></td>
+                                        <td>
+                                            <a href="/nguoi-giam-ho?action=capnhatnguoigiamho&maNguoiGiamHo=${nguoiGiamHo.maNguoiGiamHo}"
+                                               role="button" data-bs-toggle="modal"
+                                               data-bs-target="#exampleModal">
+                                                <button type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal">
+                                                    <i class="fas fa-pencil-square-o" style="color: black"></i>
+                                                </button>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#delete"
+                                                    onclick="maNguoiGiamHo('${nguoiGiamHo.maNguoiGiamHo}','${nguoiGiamHo.tenNguoiGiamHo}')">
+                                                <i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal" tabindex="-1" id="delete" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="/nguoi-giam-ho?action=xoa" method="post">
+                            <div class="modal-header" style="background-color: #dc3545">
+                                <h5 class="modal-title" id="exampleModalLabel" style="color: WHITE; text-align: center">
+                                    XÓA NGƯỜI GIÁM HỘ</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" style="color: black">
+                                <input name="maNguoiGiamHo" id="ma" type="hidden">
+                                Bạn có chắc chắn muốn xóa <span id="thongBao"
+                                                                style="color:red; font-weight: bold"></span> khỏi danh
+                                sách người giám hộ ?
+                            </div>
+                            <div class="modal-body" style="color: red; font-size:medium ">
+                                (Lưu ý: Hành động này không thể hoàn tác)
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                <button type="submit" class="btn btn-danger">Xác Nhận</button>
+                            </div>
+                        </form>
+=======
                             </c:forEach>
                             </tbody>
                         </table>
+>>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
                     </div>
                 </div>
             </div>
@@ -332,5 +415,58 @@
 <!-- Main JS-->
 <script src="js/main.js"></script>
 
+<<<<<<< HEAD
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#mytable').DataTable({
+            language: {
+                "decimal": ",",
+                "thousands": ".",
+                "sEmptyTable": "Không có dữ liệu",
+                "sInfo": "Đang hiển thị _START_ đến _END_ của tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang hiển thị 0 đến 0 của tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ tổng số _MAX_ mục)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ",",
+                "sLengthMenu": "Hiển thị _MENU_ mục",
+                "sLoadingRecords": "Đang tải...",
+                "sProcessing": "Đang xử lý...",
+                "sSearch": "Tìm kiếm:",
+                "Show:": "",
+                "entries": "",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sLast": "Cuối",
+                    "sNext": "Tiếp",
+                    "sPrevious": "Trước"
+                },
+
+            },
+            color: {
+                "oPaginate": {
+                    "sFirst": "blue",
+                    "sLast": "green",
+                    "sNext": "green",
+                    "sPrevious": "blue"
+                },
+            }
+        });
+    });
+    function maNguoiGiamHo(maNguoiGiamHo, ten) {
+        document.getElementById("ma").value = maNguoiGiamHo;
+        document.getElementById("thongBao").innerText = ten;
+    }
+</script>
+
+=======
+>>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
 </body>
 </html>

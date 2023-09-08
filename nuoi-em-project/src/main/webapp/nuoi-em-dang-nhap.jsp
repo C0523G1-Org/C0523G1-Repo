@@ -60,10 +60,14 @@
                                 <a class="nav-link" href="/tre-em-tc&maTaiKhoan=${maTaiKhoan}">Trẻ em</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Chứng nhận</a>
+                                <a class="nav-link" href="/tre-em">Chứng nhận</a>
                             </li>
                             <li class="nav-item">
+<<<<<<< HEAD
                                 <a class="nav-link" href="tai-chinh">Tài chính</a>
+=======
+                                <a class="nav-link" href="/tai-chinh">Tài chính</a>
+>>>>>>> 05a1e6f62c56d36b983dceb509ef89f159bb946d
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink"

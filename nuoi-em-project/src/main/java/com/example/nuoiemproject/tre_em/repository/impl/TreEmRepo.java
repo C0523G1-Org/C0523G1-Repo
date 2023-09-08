@@ -27,7 +27,7 @@ public class TreEmRepo implements ITreEmRepo {
             " join nguoi_giam_ho ngh on ngh.ma_nguoi_giam_ho = te.ma_nguoi_giam_ho " +
             " where te.trang_thai_xoa = 0 " +
             " order by te.ma_tre_em ";
-
+    private static final String TIM_TRE_EM = "SELECT * FROM tre_em WHERE ma_tre_em = ?";
     private static final String CHINH_SUA = "update tre_em set " +
             " ten_tre_em = ? , " +
             " gioi_tinh = ? , " +
@@ -37,9 +37,6 @@ public class TreEmRepo implements ITreEmRepo {
             " ma_nguoi_giam_ho = ? ," +
             " hinh_anh = ? " +
             "where ma_tre_em = ? ";
-
-
-    private static final String TIM_TRE_EM = "SELECT * FROM tre_em WHERE ma_tre_em = ?";
 
     @Override
     public List<TreEm> hienThiDanhSach() {
