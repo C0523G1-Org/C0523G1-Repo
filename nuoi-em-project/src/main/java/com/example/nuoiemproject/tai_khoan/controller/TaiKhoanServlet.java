@@ -5,6 +5,7 @@ import com.example.nuoiemproject.nguoi_nuoi.service.INguoiNuoiService;
 import com.example.nuoiemproject.nguoi_nuoi.service.NguoiNuoiService;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoan;
 import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto;
+import com.example.nuoiemproject.tai_khoan.model.TaiKhoanDto2;
 import com.example.nuoiemproject.tai_khoan.service.ITaiKhoanService;
 import com.example.nuoiemproject.tai_khoan.service.impl.TaiKhoanService;
 import com.example.nuoiemproject.tre_em.model.TreEm;
@@ -49,9 +50,29 @@ public class TaiKhoanServlet extends HttpServlet {
             case "dangXuat":
                 dangXuat(request, response);
                 break;
+            case "chiTietTaiKhoan":
+                chiTietTaiKhoan(request, response);
+                break;
             default:
                 hienThiDanhSach(request, response);
                 break;
+        }
+    }
+
+    private void chiTietTaiKhoan(HttpServletRequest request, HttpServletResponse response) {
+        int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
+        String tenTaiKhoan = request.getParameter("tenTaiKhoan");
+        List<TaiKhoanDto2> thongKe = this.service.thongKeTaiKhoan(maTaiKhoan);
+        request.setAttribute("thongKe", thongKe);
+        request.setAttribute("maTaiKhoan", maTaiKhoan);
+        request.setAttribute("tenTaiKhoan", tenTaiKhoan);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-test.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
