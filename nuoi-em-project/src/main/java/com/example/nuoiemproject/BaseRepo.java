@@ -5,13 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-
 //Đổi tên BaseRepo -> BaseRepository nha mọi người
-
 
 
 //<<<<<<< HEAD:nuoi-em-project/src/main/java/com/example/nuoiemproject/BaseRepository.java
 public class BaseRepo {
+//<<<<<<< HEAD
 //<<<<<<< HEAD
 //<<<<<<< HEAD
 //<<<<<<< HEAD
@@ -45,7 +44,14 @@ public class BaseRepo {
 ////    private static final String USERNAME = "root";
 ////    private static final String PASSWORD = "Mylien2009";
 ////>>>>>>> 33fd618f8d75d778524b91047eba6552ca0a58a0
-
+//=======
+//    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
+//
+//
+//    private static final String USERNAME = "root";
+//    private static final String PASSWORD = "beatbox1202";
+//>>>>>>> e633ab4f3c8bf5d158c27a3b63e80325265ae94f
+//
 
     public static Connection getConnection() {
         Connection connection = null;

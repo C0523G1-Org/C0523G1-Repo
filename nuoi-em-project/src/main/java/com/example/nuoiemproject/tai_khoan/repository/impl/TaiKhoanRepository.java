@@ -299,7 +299,7 @@ public class TaiKhoanRepository extends BaseRepo implements ITaiKhoanRepository 
             "    where tai_khoan.ma_tai_khoan = ?;";
     @Override
     public List<TaiKhoanDto3> thongKeCamKetTaiKhoan(int maTaiKhoan) {
-        List<TaiKhoanDto3> thongKeCamKet = null;
+        List<TaiKhoanDto3> thongKeCamKet = new ArrayList<>();
         Connection connection = getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(THONG_KE_CAM_KET);

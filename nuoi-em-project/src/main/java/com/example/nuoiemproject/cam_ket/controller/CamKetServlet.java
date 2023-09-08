@@ -68,18 +68,19 @@ public class CamKetServlet extends HttpServlet {
     }
 
     private void hienThiThem(HttpServletRequest request, HttpServletResponse response) {
-        int maNguoiNuoi = Integer.parseInt(request.getParameter("maNguoiNuoi"));
+//        int maNguoiNuoi = Integer.parseInt(request.getParameter("maNguoiNuoi"));
         int maTreEm = Integer.parseInt(request.getParameter("maTreEm"));
-        List<TreEm> treEm = treEmService.hienThiDanhSach();
-        List<NguoiNuoi> nguoiNuoi = nguoiNuoiService.hienThiDanhSach();
+//        List<TreEm> treEm = treEmService.hienThiDanhSach();
+//        List<NguoiNuoi> nguoiNuoi = nguoiNuoiService.hienThiDanhSach();
 //        lien code
-        NguoiNuoi nguoiNuoi1 = nguoiNuoiService.xemChiTiet(maNguoiNuoi);
+//        NguoiNuoi nguoiNuoi1 = nguoiNuoiService.xemChiTiet(maNguoiNuoi);
         TreEm treEm1 = treEmService.timId(maTreEm);
-        request.setAttribute("treEm", treEm);
-        request.setAttribute("nguoiNuoi", nguoiNuoi);
-        request.setAttribute("nguoiNuoi1", nguoiNuoi1);
+        request.setAttribute("maTreEm", maTreEm);
+//        request.setAttribute("nguoiNuoi", nguoiNuoi);
+//        request.setAttribute("nguoiNuoi1", nguoiNuoi1);
         request.setAttribute("treEm1", treEm1);
 //        lấy nguoiNuoi1 qua jsp .tenNguoiNuoi
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-them-moi.jsp");
         try {
             dispatcher.forward(request, response);
@@ -119,8 +120,13 @@ public class CamKetServlet extends HttpServlet {
         int maNguoiNuoi = Integer.parseInt(request.getParameter("maNguoiNuoi"));
         service.sua(new CamKet(maCamKet, soTien, ngayNhanNuoi, trangThai, maTreEm, maNguoiNuoi));
         try {
-            response.sendRedirect("/cam-ket");
+            request.setAttribute("thongBao", "Bạn đã sửa thông tin thành công!");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-sua-thong-tin.jsp");
+            dispatcher.forward(request, response);
+//            response.sendRedirect("/cam-ket");
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ServletException e) {
             throw new RuntimeException(e);
         }
     }
@@ -142,9 +148,15 @@ public class CamKetServlet extends HttpServlet {
         int maTreEm = Integer.parseInt(request.getParameter("maTreEm"));
         int maNguoiNuoi = Integer.parseInt(request.getParameter("maNguoiNuoi"));
         service.them(new CamKet( soTien, ngayNhanNuoi, trangThai, maTreEm, maNguoiNuoi));
+
         try {
-            response.sendRedirect("/cam-ket");
+            request.setAttribute("thongBao", "Bạn đã sửa thông tin thành công!");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/cam-ket-them-moi.jsp");
+            dispatcher.forward(request, response);
+//            response.sendRedirect("/cam-ket");
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ServletException e) {
             throw new RuntimeException(e);
         }
     }

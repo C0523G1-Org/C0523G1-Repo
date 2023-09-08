@@ -64,9 +64,9 @@ public class TaiKhoanServlet extends HttpServlet {
         int maTaiKhoan = Integer.parseInt(request.getParameter("maTaiKhoan"));
         String tenTaiKhoan = request.getParameter("tenTaiKhoan");
         List<TaiKhoanDto2> thongKe = this.service.thongKeTaiKhoan(maTaiKhoan);
-//        List<TaiKhoanDto3> thongKeCamKet = this.service.thongKeCamKetTaiKhoan(maTaiKhoan);
+        List<TaiKhoanDto3> thongKeCamKet = this.service.thongKeCamKetTaiKhoan(maTaiKhoan);
         request.setAttribute("thongKe", thongKe);
-//        request.setAttribute("thongKeCamKet", thongKeCamKet);
+        request.setAttribute("thongKeCamKet", thongKeCamKet);
         request.setAttribute("maTaiKhoan", maTaiKhoan);
         request.setAttribute("tenTaiKhoan", tenTaiKhoan);
         RequestDispatcher dispatcher = request.getRequestDispatcher("tai-khoan-test.jsp");
