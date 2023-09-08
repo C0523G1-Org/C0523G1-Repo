@@ -255,7 +255,7 @@
                                                 <label for="ngayGiaoDich" class="col-form-label">Ngày giao dịch</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="ngayGiaoDich" name="ngayGiaoDich" class="form-control"
+                                                <input type="date" id="ngayGiaoDich" name="ngayGiaoDich" class="form-control"
                                                        aria-describedby="passwordHelpInline" style="text-transform:capitalize">
                                                 <span class="form-message text-warning"></span>
                                             </div>

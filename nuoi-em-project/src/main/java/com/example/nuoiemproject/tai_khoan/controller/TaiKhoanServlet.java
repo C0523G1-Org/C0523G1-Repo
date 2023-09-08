@@ -46,9 +46,6 @@ public class TaiKhoanServlet extends HttpServlet {
             case "dangNhap":
                 hienThiDangNhap(request, response);
                 break;
-            case "dangXuat":
-                dangXuat(request, response);
-                break;
             default:
                 hienThiDanhSach(request, response);
                 break;
@@ -138,6 +135,9 @@ public class TaiKhoanServlet extends HttpServlet {
                 break;
             case "dangNhap":
                 dangNhap(request, response);
+                break;
+            case "dangXuat":
+                dangXuat(request, response);
                 break;
 
         }

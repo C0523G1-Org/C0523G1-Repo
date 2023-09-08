@@ -29,7 +29,11 @@ public class TaiChinhServlet extends HttpServlet {
     }
 
     private void hienThiDanhSach(HttpServletRequest request, HttpServletResponse response) {
+        String tenNguoiNuoi = request.getParameter("tenTaiKhoan");
+        int maNguoiNuoi = Integer.parseInt(request.getParameter("maTaiKhoan"));
         RequestDispatcher dispatcher = request.getRequestDispatcher("/giao-dich-tai-chinh.jsp");
+        request.setAttribute("tenNguoiNuoi",tenNguoiNuoi);
+        request.setAttribute("maNguoiNuoi",maNguoiNuoi);
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -56,7 +60,9 @@ public class TaiChinhServlet extends HttpServlet {
     private void xemDanhSach(HttpServletRequest request, HttpServletResponse response) {
         int thang = Integer.parseInt(request.getParameter("thang"));
         int nam = Integer.parseInt(request.getParameter("nam"));
-        List<GiaoDich> danhSachGiaoDich = service.danhSachGiaoDich(thang, nam);
+        int thang1 = Integer.parseInt(request.getParameter("thang1"));
+        int nam1 = Integer.parseInt(request.getParameter("nam1"));
+        List<GiaoDich> danhSachGiaoDich = service.danhSachGiaoDich(thang, nam,thang1,nam1);
         int tongThu = 0;
         int tongChi = 0;
         int chenhLech = 0;

@@ -14,19 +14,21 @@ import java.util.List;
 
 public class GiaoDichRepository implements IGiaoDichRepository {
     private static final String SELECT = "select * from lich_su_giao_dich\n" +
-            "where month(ngay_giao_dich) = ? and year(ngay_giao_dich) = ?\n" +
+            "where (month(ngay_giao_dich) >= ? and year(ngay_giao_dich) >= ?) and (month(ngay_giao_dich) <= ? and year(ngay_giao_dich) <= ?) \n" +
             "order by date(ngay_giao_dich);";
     private static final String UPDATE = "insert into lich_su_tien_thu(ngay_giao_dich, noi_dung_giao_dich, so_tien, ma_cam_ket) values (?,?,?,?)";
     private static final String ADD = "insert into lich_su_tien_chi(ngay_giao_dich, noi_dung_giao_dich, so_tien, ma_nguoi_giam_ho) values (?,?,?,?)";
 
     @Override
-    public List<GiaoDich> danhSachGiaoDich(int thang, int nam) {
+    public List<GiaoDich> danhSachGiaoDich(int thang, int nam, int thang1, int nam1) {
         List<GiaoDich> danhSachGiaoDich = new ArrayList<>();
         Connection connection = BaseRepo.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT);
             preparedStatement.setInt(1, thang);
             preparedStatement.setInt(2, nam);
+            preparedStatement.setInt(3, thang1);
+            preparedStatement.setInt(4, nam1);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 String ngayGiaoDich = resultSet.getString("ngay_giao_dich");

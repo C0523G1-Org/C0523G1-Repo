@@ -235,6 +235,31 @@
                                 </div>
                             </div>
                         </div>
+                        <strong>Đến</strong>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="row g-3 align-items-center">
+                                    <div class="col-auto">
+                                        <label for="thang1" class="col-form-label">Tháng</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="text" id="thang1" class="form-control" name="thang1" value="9"
+                                               aria-describedby="passwordHelpInline">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="row g-3 align-items-center">
+                                    <div class="col-auto">
+                                        <label for="nam1" class="col-form-label">Năm</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="text" id="nam1" class="form-control" name="nam1" value="2023"
+                                               aria-describedby="passwordHelpInline">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <br>
                         <button type="submit" class="btn" style="background-color: #ffff00">Hiển thị</button>
 
