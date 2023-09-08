@@ -17,8 +17,7 @@
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-    <%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 
     <!-- Vendor CSS-->
@@ -33,6 +32,11 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body class="animsition">
 <div class="page-wrapper">
@@ -253,7 +257,7 @@
                                                         data-bs-target="#exampleModal">
                                                     <i class="fas fa-pencil-square-o" style="color: black"></i>
                                                 </button>
-                                                </a>
+                                            </a>
                                         </td>
                                         <td>
                                             <button type="button" data-bs-toggle="modal"
@@ -273,14 +277,17 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form action="/nguoi-giam-ho?action=xoa" method="post">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel" style="color: black">Xóa </h5>
+                            <div class="modal-header" style="background-color: #dc3545">
+                                <h5 class="modal-title" id="exampleModalLabel" style="color: WHITE; text-align: center">
+                                    XÓA NGƯỜI GIÁM HỘ</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
                             <div class="modal-body" style="color: black">
                                 <input name="maNguoiGiamHo" id="ma" type="hidden">
-                                Bạn có chắc chắn muốn xóa <span id="thongBao" style="color:red; font-weight: bold"></span> khỏi danh sách người giám hộ ?
+                                Bạn có chắc chắn muốn xóa <span id="thongBao"
+                                                                style="color:red; font-weight: bold"></span> khỏi danh
+                                sách người giám hộ ?
                             </div>
                             <div class="modal-body" style="color: red; font-size:medium ">
                                 (Lưu ý: Hành động này không thể hoàn tác)
@@ -372,7 +379,6 @@
             }
         });
     });
-
     function maNguoiGiamHo(maNguoiGiamHo, ten) {
         document.getElementById("ma").value = maNguoiGiamHo;
         document.getElementById("thongBao").innerText = ten;

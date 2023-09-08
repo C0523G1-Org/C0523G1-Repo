@@ -279,7 +279,7 @@
                                             <label for="maKhuVuc" class=" form-control-label">Khu vực</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <select name="maKhuVuc" id="maKhuVuc" class="form-control">
+                                            <select name="maKhuVuc" id="maKhuVuc" class="form-control" required>
                                                 <option disabled selected>Chọn khu vực</option>
                                                 <c:forEach var="k" items="${khuVuc}">
                                                     <option value="${k.getMaKhuVuc()}">
@@ -294,13 +294,13 @@
                                             <label for="soDienThoai" class="form-label">Số điện thoại</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" class="form-control" id="soDienThoai" name="soDienThoai">
+                                            <input type="text" class="form-control" id="soDienThoai" name="soDienThoai" required>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="card-footer">
-                                            <button type="submit" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-dot-circle-o"></i> Xác nhận
+                                            <button type="submit" class="btn" style="background-color: #ffff00">
+                                                 Xác nhận
                                             </button>
                                             <a href="/nguoi-giam-ho" class="btn btn-dark">Đóng</a>
                                         </div>

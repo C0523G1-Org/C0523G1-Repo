@@ -246,7 +246,7 @@
                             </div>
                             <div class="card-body card-block">
                                 <form action="/nguoi-giam-ho?action=capnhat" method="post"
-                                      class="form-horizontal">
+                                      class="form-horizontal" id="capnhat">
                                     <c:if test="${nguoiGiamHo != null}">
                                         <input type="hidden" name="maNguoiGiamHo"
                                                value="<c:out value='${nguoiGiamHo.maNguoiGiamHo}'/>"/>
@@ -302,14 +302,15 @@
                                             <label for="soDienThoai" class="form-label">Số Điện Thoại</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" class="form-control" id="soDienThoai" name="soDienThoai"
-                                                   value="<c:out value='${nguoiGiamHo.soDienThoai}'/>" minlength="10" maxlength="11" >
+                                            <input required type="text" class="form-control" id="soDienThoai" name="soDienThoai"
+                                                   value="<c:out value='${nguoiGiamHo.soDienThoai}'/>" minlength="10"
+                                                   maxlength="11">
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="card-footer">
-                                            <button type="submit" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-dot-circle-o"></i> Xác nhận
+                                            <button type="submit" class="btn" style="background-color: #ffff00">
+                                               Xác nhận
                                             </button>
                                             <a href="/nguoi-giam-ho" class="btn btn-dark">Đóng</a>
                                         </div>
@@ -337,7 +338,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <!-- Jquery JS-->
