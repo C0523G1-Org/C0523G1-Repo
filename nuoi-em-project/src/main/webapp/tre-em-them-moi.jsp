@@ -327,13 +327,8 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="card-footer">
-<<<<<<< HEAD
-                                                <button class="btn" style="background-color: #ffff00" type="submit">
-                                                    Xác nhận
-=======
                                                 <button type="submit" class="btn" style="background-color: #ffff00">
                                                  Xác nhận
->>>>>>> ed129efa91ed9546098e8d79fa6ae39e0310a89c
                                                 </button>
                                                 <a href="/tre-em" class="btn btn-dark">Đóng</a>
                                             </div>

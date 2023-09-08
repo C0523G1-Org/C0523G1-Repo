@@ -136,7 +136,7 @@
                                             value="${treEmDto.getTenNguoiGiamHo()}"/></li>
                                 </ul>
                                 </p>
-                                <a style="background-color: yellow" class="btn" href="/cam-ket?action=them&maTreEm=${treEmDto.maTreEm}"
+                                <a style="background-color: yellow" class="btn" href="/cam-ket?action=nguoiDungTaoCamKet&maTreEm=${treEmDto.maTreEm}&maNguoiNuoi=${maNguoiNuoi}&tenTaiKhoan=${tenTaiKhoan}"
                                    role="button">
                                     Nhận nuôi</a>
                             </div>
