@@ -26,6 +26,7 @@ public class TreEmRepo implements ITreEmRepo {
             " join nguoi_giam_ho ngh on ngh.ma_nguoi_giam_ho = te.ma_nguoi_giam_ho " +
             " where te.trang_thai_xoa = 0 " +
             " order by te.ma_tre_em ";
+    private static final String TIM_TRE_EM = "SELECT * FROM tre_em WHERE ma_tre_em = ?";
 
     @Override
     public List<TreEm> hienThiDanhSach() {
@@ -79,8 +80,24 @@ public class TreEmRepo implements ITreEmRepo {
     }
 
     @Override
-    public TreEm timId(int id) {
-        return null;
+    public TreEm timId(int maTreEm) {
+        Connection connection = BaseRepo.getConnection();
+        TreEm treEm = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(TIM_TRE_EM);
+            preparedStatement.setInt(1, maTreEm);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String tenTreEm = resultSet.getString("ten_tre_em");
+                int gioiTinh = resultSet.getInt("gioi_tinh");
+                String ngaySinh = resultSet.getString("ngay_sinh");
+                int trangThai = resultSet.getInt("trang_thai_nhan_nuoi");
+                treEm = new TreEm(maTreEm, tenTreEm, gioiTinh, ngaySinh, trangThai);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return treEm;
     }
 
     @Override
