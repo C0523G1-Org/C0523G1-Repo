@@ -27,7 +27,7 @@
     <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
     <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" r   el="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" r el="stylesheet" media="all">
     <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
@@ -230,8 +230,8 @@
                                     <%--                                    <th>Mô tả</th>--%>
                                     <%--                                    <th>Người giám hộ</th>--%>
                                     <th>Khu vực</th>
-                                    <%--                                    <th>Trạng thái</th>--%>
-                                    <%--                                    <th>Ảnh</th>--%>
+                                    <th>Trạng thái</th>
+                                <%--                                    <th>Ảnh</th>--%>
                                     <th>Sửa</th>
                                     <th>Xóa</th>
                                 </tr>
@@ -270,10 +270,10 @@
                                                 ${treEmDto.getTenKhuVuc()}
                                         </td>
 
-                                            <%--                                        <td>--%>
-                                            <%--                                            <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>--%>
-                                            <%--                                            <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>--%>
-                                            <%--                                        </td>--%>
+                                        <td>
+                                            <c:if test="${treEmDto.getTrangThai() == 1}">Đã được nhận nuôi</c:if>
+                                            <c:if test="${treEmDto.getTrangThai() == 0}">Chưa được nhận nuôi</c:if>
+                                        </td>
 
                                             <%--                                        <td>--%>
                                             <%--                                            <img height="50px" width="50px"--%>

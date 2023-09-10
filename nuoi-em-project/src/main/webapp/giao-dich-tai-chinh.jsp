@@ -44,7 +44,7 @@
 <header class="header_section">
     <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="#">
                 <img src="images/logo.png" width="50px" height="50px" alt=""/>
                 <span>
               Nuôi em
@@ -61,7 +61,7 @@
                     <ul class="navbar-nav  ">
                         <li class="nav-item active">
                             <a class="nav-link" href="#">
-                                Trang chủ <span class="sr-only">(current)</span></a>
+                                Tài chính<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/tre-em">Trẻ em</a>
@@ -69,9 +69,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Chứng nhận</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/tai-chinh">Tài chính</a>
-                        </li>
+<%--                        <li class="nav-item">--%>
+<%--                            <a class="nav-link" href="/tai-chinh">Tài chính</a>--%>
+<%--                        </li>--%>
 <%--                        <li class="nav-item">--%>
 <%--                            <a class="nav-link" href="/tai-khoan?action=dangNhap">Xin chào: <span>${tenNguoiNuoi}</span></a>--%>
 <%--                        </li>--%>
@@ -84,6 +84,8 @@
 
                             <ul class="dropdown-menu dropdown-menu-dark"
                                 aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="tai-khoan?action=chiTietTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Chi tiết tài khoản</a></li>
+                                <li><a class="dropdown-item" href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay đổi mật khẩu</a></li>
                                 <li><a class="dropdown-item" href="tai-khoan?action=dangXuat">Đăng xuất</a></li>
                             </ul>
                         </li>
@@ -385,18 +387,10 @@
     </div>
 </section>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 <!-- end info_section -->
 
->>>>>>> c045f42aa690bc2b6b3747b5988767f001a9d424
-=======
 <!-- end info_section -->
 
-=======
->>>>>>> 1973b34bfb9d3afe3ab7160d24e4010f400aaeeb
->>>>>>> e633ab4f3c8bf5d158c27a3b63e80325265ae94f
 <!-- footer section -->
 <section class="container-fluid footer_section">
     <p>
@@ -408,12 +402,6 @@
 
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> e633ab4f3c8bf5d158c27a3b63e80325265ae94f
-
 
 <script>
     // This example adds a marker to indicate the position of Bondi Beach in Sydney,
@@ -439,12 +427,6 @@
     }
 </script>
 <!-- google map js -->
-<<<<<<< HEAD
->>>>>>> c045f42aa690bc2b6b3747b5988767f001a9d424
-=======
-=======
->>>>>>> 1973b34bfb9d3afe3ab7160d24e4010f400aaeeb
->>>>>>> e633ab4f3c8bf5d158c27a3b63e80325265ae94f
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
 </script>

@@ -139,7 +139,7 @@
         <table class="table mt-3">
             <thead>
             <tr>
-                <th scope="col">Người làm cam</th>
+                <th scope="col">Người làm cam kết</th>
                 <th scope="col">Ngày tạo cam kết</th>
                 <th scope="col">Trạng thái cam kết</th>
                 <th scope="col">Tên trẻ em</th>

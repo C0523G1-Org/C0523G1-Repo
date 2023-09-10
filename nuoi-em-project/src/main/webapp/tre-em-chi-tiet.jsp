@@ -110,8 +110,8 @@
                 <div class="card mb-3 hover" style="max-width: 100%">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="images/tre-em/${treEmDto.getHinhAnh()}" class="img-fluid rounded-start" alt="..." width="100%"
-                                 style="margin-top: 10px; margin-left: 5px">
+                                <img src="images/tre-em/${treEmDto.getHinhAnh()}" class="img-fluid rounded-start" alt="..."
+                                     style="margin-top: 10px; margin-left: 5px; width: 200px; height: 230px">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -131,11 +131,14 @@
                                         <c:out value="${treEmDto.getMoTa()}"/>
                                     </li>
                                     <li><strong>Tên khu vực: </strong><c:out value="${treEmDto.getTenKhuVuc()}"/></li>
-                                    <li><strong>Tên người giám hộ: </strong><c:out value="${treEmDto.getTenNguoiGiamHo()}"/></li>
+                                    <li><strong>Tên người giám hộ: </strong><c:out
+                                            value="${treEmDto.getTenNguoiGiamHo()}"/></li>
                                 </ul>
                                 </p>
-                                <button>Cam kết</button>
-
+                                <a style="background-color: yellow" class="btn"
+                                   href="/cam-ket?action=them&maTreEm=${treEmDto.maTreEm}"
+                                   role="button">
+                                    Nhận nuôi</a>
                             </div>
                         </div>
                     </div>

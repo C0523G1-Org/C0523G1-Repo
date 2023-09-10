@@ -38,7 +38,7 @@
     <header class="header_section">
         <div class="container">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="#">
                     <img src="images/logo.png" width="50px" height="50px" alt=""/>
                     <span>
               Nuôi em
@@ -61,7 +61,7 @@
                                 <a class="nav-link" href="/tre-em-tc">Trẻ em</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/tre-em">Chứng nhận</a>
+                                <a class="nav-link" href="#">Chứng nhận</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/tai-chinh">Tài chính</a>
@@ -619,7 +619,7 @@
 <!-- end google map js -->
 
 <script>
-    function openNav() {
+        function openNav() {
         document.getElementById("myNav").style.width = "100%";
     }
 

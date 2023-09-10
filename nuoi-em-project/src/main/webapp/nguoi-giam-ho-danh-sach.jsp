@@ -18,11 +18,19 @@
 
     <!-- Bootstrap CSS-->
 <<<<<<< HEAD
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 =======
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 >>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
+=======
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+=======
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+>>>>>>> ed129efa91ed9546098e8d79fa6ae39e0310a89c
+>>>>>>> fb98c75e0ffe13a24c54327927f6bd6830a30efd
 
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -302,6 +310,13 @@
                                     </td>
                                 </tr>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                            </c:forEach>
+                            </tbody>
+                        </table>
+=======
+>>>>>>> fb98c75e0ffe13a24c54327927f6bd6830a30efd
                                 </thead>
                                 <tbody>
                                 <c:forEach var="nguoiGiamHo" items="${nguoiGiamHos}" varStatus="lam">
@@ -372,11 +387,15 @@
                                 <button type="submit" class="btn btn-danger">Xác Nhận</button>
                             </div>
                         </form>
+<<<<<<< HEAD
 =======
                             </c:forEach>
                             </tbody>
                         </table>
 >>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
+=======
+>>>>>>> ed129efa91ed9546098e8d79fa6ae39e0310a89c
+>>>>>>> fb98c75e0ffe13a24c54327927f6bd6830a30efd
                     </div>
                 </div>
             </div>
@@ -416,6 +435,10 @@
 <script src="js/main.js"></script>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> fb98c75e0ffe13a24c54327927f6bd6830a30efd
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -466,7 +489,11 @@
     }
 </script>
 
+<<<<<<< HEAD
 =======
 >>>>>>> 0b6235c01a40a04723e22e9081d0a895b21566b6
+=======
+>>>>>>> ed129efa91ed9546098e8d79fa6ae39e0310a89c
+>>>>>>> fb98c75e0ffe13a24c54327927f6bd6830a30efd
 </body>
 </html>

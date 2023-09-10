@@ -34,6 +34,10 @@ public class TaiChinhServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/giao-dich-tai-chinh.jsp");
         request.setAttribute("tenNguoiNuoi",tenNguoiNuoi);
         request.setAttribute("maNguoiNuoi",maNguoiNuoi);
+//        thien
+        request.setAttribute("tenTaiKhoan",tenNguoiNuoi);
+        request.setAttribute("maTaiKhoan",maNguoiNuoi);
+//        thien-end
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
