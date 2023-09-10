@@ -68,31 +68,45 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
-                    <ul class="navbar-nav  ">
-                        <form action="/tai-khoan?action=dangNhap" method="post">
-                            <li class="nav-item active">
-                                <%--                                <button type="submit" class="nav-link">--%>
-                                <%--                                    Trang chủ <span class="sr-only">(current)</span>--%>
-                                <%--                                </button>--%>
-                                <%--                                <input type="hidden" id="maTaiKhoan" name="maTaiKhoan">--%>
-                                <a class="nav-link" href="#">
-                                    Trang chủ <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                        </form>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">
+                                Trang chủ <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="/tre-em-tc?action=nguoiDungTaoCamKet&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Trẻ
+                                em</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tre-em">Chứng nhận</a>
+                        </li>
+                        <li class="nav-item">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/tre-em">Trẻ em</a>
+                            <a class="nav-link"
+                               href="/tai-chinh?action&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Tài
+                                chính</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Chứng nhận</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink"
+                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Xin chào: <span>${tenTaiKhoan}</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark"
+                                aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item"
+                                       href="tai-khoan?action=chiTietTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Chi
+                                    tiết tài khoản</a></li>
+                                <li><a class="dropdown-item" href="#">Chi tiết bản cảm kết</a></li>
+                                <li><a class="dropdown-item"
+                                       href="/nguoi-nuoi?action=xemTre&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Chi
+                                    tiết trẻ em</a></li>
+                                <li><a class="dropdown-item"
+                                       href="tai-khoan?action=suaTaiKhoan&maTaiKhoan=${maTaiKhoan}&tenTaiKhoan=${tenTaiKhoan}">Thay
+                                    đổi mật khẩu</a></li>
+                                <li><a class="dropdown-item" href="tai-khoan?action=dangXuat">Đăng xuất</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tài chính</a>
-                        </li>
-                        <%--                        <li class="nav-item">--%>
-                        <%--                            <a class="nav-link" href="/tai-khoan?action=dangNhap">Đăng nhập</a>--%>
-                        <%--                        </li>--%>
                     </ul>
                 </div>
             </div>
@@ -104,14 +118,13 @@
 
     <h2 class="title-1 m-b-25 justify-content-center d-flex">Danh sách trẻ em</h2>
     <div class="row">
-        <c:forEach items="${treEmDto}" var="treEmDto" varStatus="loop">
+        <c:forEach items="${treEmDto}" var="treEmDto">
             <div class="col-lg-6">
-                    <%--            <div class="table-responsive table--no-card m-b-40">--%>
                 <div class="card mb-3 hover" style="max-width: 100%">
                     <div class="row g-0">
                         <div class="col-md-4">
                                 <img src="images/tre-em/${treEmDto.getHinhAnh()}" class="img-fluid rounded-start" alt="..."
-                                     style="margin-top: 10px; margin-left: 5px; width: 200px; height: 230px">
+                                     style="margin-top: 10px; margin-left: 5px;">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">

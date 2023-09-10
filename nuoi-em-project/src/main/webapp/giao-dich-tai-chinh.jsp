@@ -25,7 +25,6 @@
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"/>
-
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 
@@ -36,6 +35,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet"/>
+    <%--    <link rel="stylesheet" href="vendor/bootstrap-5.2.3-dist/css/bootstrap.css" type="text/css">--%>
     <!-- responsive style -->
     <link href="css/responsive.css" rel="stylesheet"/>
 </head>
@@ -72,9 +72,22 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/tai-chinh">Tài chính</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/tai-khoan?action=dangNhap">Đăng nhập</a>
+<%--                        <li class="nav-item">--%>
+<%--                            <a class="nav-link" href="/tai-khoan?action=dangNhap">Xin chào: <span>${tenNguoiNuoi}</span></a>--%>
+<%--                        </li>--%>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink"
+                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Xin chào: <span>${tenNguoiNuoi}</span>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-dark"
+                                aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="tai-khoan?action=dangXuat">Đăng xuất</a></li>
+                            </ul>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -116,8 +129,11 @@
 
             <p> Khi đồng ý nuôi em, cũng có nghĩa bạn đã <span style="font-weight: bold"> toàn nắm rõ thông tin về Chương trình, uỷ quyền, đồng
                 thuận,
-                tin tưởng về cách thức quản lý tài chính, triển khai thực hiện</span>  do Nhóm Nuôi em đang vận hành, triển
-                khai, đồng thời <span style="font-weight: bold">trao quyền để Nhóm quyết định những vấn đề liên quan</span> đến Chương trình.
+                tin tưởng về cách thức quản lý tài chính, triển khai thực hiện</span> do Nhóm Nuôi em đang vận hành,
+                triển
+                khai, đồng thời <span
+                        style="font-weight: bold">trao quyền để Nhóm quyết định những vấn đề liên quan</span> đến Chương
+                trình.
             </p>
         </div>
     </div>
@@ -197,6 +213,31 @@
                     </div>
                 </div>
             </div>
+            <strong>Đến</strong>
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label for="thang1" class="col-form-label">Tháng</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="thang1" class="form-control" name="thang1" value="9"
+                                   aria-describedby="passwordHelpInline">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label for="nam1" class="col-form-label">Năm</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="nam1" class="form-control" name="nam1" value="2023"
+                                   aria-describedby="passwordHelpInline">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <br>
             <button type="submit" class="btn" style="background-color: #90953b">Hiển thị</button>
 
@@ -204,7 +245,7 @@
                 <div class="col-lg-12">
                     <h2 class="title-1 m-b-25 justify-content-center d-flex">Lịch sử giao dịch</h2>
                     <div class="table-responsive table--no-card m-b-40">
-                        <table class="table table-striped" style="background-color: #90953b" >
+                        <table class="table table-striped" style="background-color: #90953b">
                             <thead>
                             <div>
                                 <tr style="background-color: #c7c793">
@@ -344,18 +385,10 @@
     </div>
 </section>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 <!-- end info_section -->
 
->>>>>>> c045f42aa690bc2b6b3747b5988767f001a9d424
-=======
 <!-- end info_section -->
 
-=======
->>>>>>> 1973b34bfb9d3afe3ab7160d24e4010f400aaeeb
->>>>>>> e633ab4f3c8bf5d158c27a3b63e80325265ae94f
 <!-- footer section -->
 <section class="container-fluid footer_section">
     <p>
@@ -367,11 +400,7 @@
 
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> e633ab4f3c8bf5d158c27a3b63e80325265ae94f
+
 
 <script>
     // This example adds a marker to indicate the position of Bondi Beach in Sydney,
@@ -418,6 +447,7 @@
     }
 </script>
 <script src="js/main.js"></script>
-
+<script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.js">
+</script>
 </body>
 </html>

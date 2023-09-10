@@ -194,7 +194,7 @@
                                             </div>
                                         </div>
                                         <div class="account-dropdown__footer">
-                                            <a href="#">
+                                            <a href="/nuoi-em-trang-chu.jsp">
                                                 <i class="zmdi zmdi-power"></i>Đăng xuất</a>
                                         </div>
                                     </div>
