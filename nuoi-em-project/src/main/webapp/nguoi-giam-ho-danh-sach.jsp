@@ -229,7 +229,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="nguoiGiamHo" items="${nguoiGiamHos}" varStatus="lam">
+                                <c:forEach var="nguoiGiamHo" items="${nguoiGiamHo}" varStatus="lam">
                                     <tr>
                                         <td><c:out value="${lam.count}"/></td>
                                         <td><c:out value="${nguoiGiamHo.tenNguoiGiamHo}"/></td>
