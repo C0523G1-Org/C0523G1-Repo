@@ -112,19 +112,8 @@ public class NguoiGiamHoServlet extends HttpServlet {
         Pattern pattern = Pattern.compile(soDienThoaiDung);
         Matcher matcher = pattern.matcher(request.getParameter("soDienThoai"));
         NguoiGiamHo nguoiGiamHo = new NguoiGiamHo(maNguoiGiamHo, tenNguoiGiamHo, gioiTinh, maKhuVuc, soDienThoai);
-        Boolean soDienThoaiTonTai = nguoiGiamHoService.soDienThoaiTonTai(soDienThoai);
         try {
-            if (!soDienThoaiTonTai) {
-                request.setAttribute("soDienThoaiTonTai", "Số điện thoại này đã tồn tại!");
-                request.setAttribute("nguoiGiamHo", nguoiGiamHo);
-                List<KhuVuc> khuVuc = khuVucService.hienThiKhuVuc();
-                request.setAttribute("khuVuc", khuVuc);
-                request.setAttribute("maKhuVuc", maKhuVuc);
-                request.setAttribute("tenNguoiGiamHo", tenNguoiGiamHo);
-                request.setAttribute("gioiTinh", gioiTinh);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-giam-ho-cap-nhat.jsp");
-                dispatcher.forward(request, response);
-            } else if (!matcher.matches()) {
+           if (!matcher.matches()) {
                 request.setAttribute("loi", "Số điện thoại không hợp lệ!");
                 request.setAttribute("nguoiGiamHo", nguoiGiamHo);
                 List<KhuVuc> khuVuc = khuVucService.hienThiKhuVuc();

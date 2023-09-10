@@ -253,7 +253,7 @@
                                     </c:if>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="tenNguoiGiamHo" class=" form-control-label">Họ và tên</label>
+                                            <label for="tenNguoiGiamHo" class=" form-control-label" style="margin-left: 50px">Họ và tên</label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="tenNguoiGiamHo" required name="tenNguoiGiamHo"
@@ -285,7 +285,7 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="maKhuVuc" class=" form-control-label">Khu vực</label>
+                                            <label for="maKhuVuc" class=" form-control-label" style="margin-left: 50px">Khu vực</label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <select name="maKhuVuc" id="maKhuVuc" class="form-control" required>
@@ -311,22 +311,6 @@
                                             <input type="text" id="soDienThoai" name="soDienThoai" class="form-control"
                                                    value="${nguoiGiamHo.soDienThoai}"
                                                    aria-describedby="passwordHelpInline" required>
-                                            <c:if test="${nguoiGiamHo.soDienThoai} == ${soDienThoai}"/>
-                                            <c:if test="${soDienThoaiTonTai != null}">
-                                                <div class="alert alert-danger d-flex align-items-center"
-                                                     role="alert" style="top: 5px">
-                                                    <svg class="bi flex-shrink-0 me-2" width="0" height="0"
-                                                         role="img" aria-label="Danger:">
-                                                        <use xlink:href="#check-circle-fill"/>
-                                                    </svg>
-                                                    <div>
-                                <span class="error">
-                                    <i class="uil uil-ban"></i><label
-                                        style="padding-left: 5px">${soDienThoaiTonTai}</label>
-                                </span>
-                                                    </div>
-                                                </div>
-                                            </c:if>
                                             <c:if test="${loi != null}">
                                                 <div class="alert alert-danger d-flex align-items-center"
                                                      role="alert" style="top: 5px">
