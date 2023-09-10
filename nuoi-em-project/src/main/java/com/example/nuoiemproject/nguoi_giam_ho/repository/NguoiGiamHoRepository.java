@@ -12,7 +12,8 @@ public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
     private static final String INSERT_SQL_NGUOI_GIAM_HO = "insert into nguoi_giam_ho(ten_nguoi_giam_ho,gioi_tinh,ma_khu_vuc,so_dien_thoai) values (?,?,?,?);";
     private static final String DELETE_SQL_NGUOI_GIAM_HO = "update nguoi_giam_ho set trang_thai_xoa = 1 where ma_nguoi_giam_ho = ?;";
     private static final String UPDATE_SQL_NGUOI_GIAM_HO = "update nguoi_giam_ho set ten_nguoi_giam_ho = ?, gioi_tinh = ?, ma_khu_vuc = ?,so_dien_thoai = ? where ma_nguoi_giam_ho = ? ;";
-    private static final String SELECT_SQL_NGUOI_GIAM_HO_BY_ID = "select ma_nguoi_giam_ho,ten_nguoi_giam_ho,gioi_tinh,ma_khu_vuc,so_dien_thoai from nguoi_giam_ho where ma_nguoi_giam_ho = ?;";
+    private static final String SELECT_SQL_NGUOI_GIAM_HO_BY_ID = "select ma_nguoi_giam_ho,ten_nguoi_giam_ho,gioi_tinh,ma_khu_vuc,so_dien_thoai from nguoi_giam_ho where ma_nguoi_giam_ho = ? and trang_thai_xoa = 0;";
+    private static final String SELECT_SO_DIEN_THOAI_DA_TON_TAI = "select so_dien_thoai from nguoi_giam_ho where so_dien_thoai = ?;";
 
     @Override
     public List<NguoiGiamHo> hienThi() {
@@ -92,11 +93,28 @@ public class NguoiGiamHoRepository implements INguoiGiamHoRepository {
                 int gioiTinh = resultSet.getInt("gioi_tinh");
                 int maKhuVuc = resultSet.getInt("ma_khu_vuc");
                 String soDienThoai = resultSet.getString("so_dien_thoai");
-                nguoiGiamHo = new NguoiGiamHo(maNguoiGiamHo,tenNguoiGiamHo , gioiTinh, maKhuVuc, soDienThoai);
+               return new NguoiGiamHo(maNguoiGiamHo,tenNguoiGiamHo , gioiTinh, maKhuVuc, soDienThoai);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return nguoiGiamHo;
+        return null;
+    }
+
+    @Override
+    public NguoiGiamHo soDienThoaiTonTai(String soDienThoai) {
+        Connection connection = BaseRepo.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SO_DIEN_THOAI_DA_TON_TAI);
+            preparedStatement.setString(1, soDienThoai);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String soDienThoaiTonTai = resultSet.getString(1);
+                return new NguoiGiamHo(soDienThoaiTonTai);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 }

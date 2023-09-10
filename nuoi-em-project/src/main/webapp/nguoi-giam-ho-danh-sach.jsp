@@ -273,6 +273,23 @@
                     </div>
                 </div>
             </div>
+                <div class="row form-group">
+                    <c:if test="${nguoiGiamHoKhongTonTai != null}">
+                        <div class="alert alert-success d-flex align-items-center"
+                             role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="0" height="0"
+                                 role="img"
+                                 aria-label="Success:">
+                                <use xlink:href="#check-circle-fill"/>
+                            </svg>
+                            <div>
+                                <i class="fa-regular fa-circle-check"></i><label
+                                    style="padding-left: 5px">${nguoiGiamHoKhongTonTai}</label>
+                            </div>
+                        </div>
+                    </c:if>
+        </div>
+
             <div class="modal" tabindex="-1" id="delete" aria-labelledby="exampleModalLabel">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -379,6 +396,7 @@
             }
         });
     });
+
     function maNguoiGiamHo(maNguoiGiamHo, ten) {
         document.getElementById("ma").value = maNguoiGiamHo;
         document.getElementById("thongBao").innerText = ten;

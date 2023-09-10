@@ -22,6 +22,10 @@ public class NguoiGiamHo {
         this.soDienThoai = soDienThoai;
     }
 
+    public NguoiGiamHo(String soDienThoai) {
+        this.soDienThoai = soDienThoai;
+    }
+
     public int getMaNguoiGiamHo() {
         return maNguoiGiamHo;
     }

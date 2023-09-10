@@ -264,14 +264,17 @@
                                         </div>
                                         <div class="col col-md-9">
                                             <div class="form-check-inline form-check">
-                                                <c:set var="gioiTinh"  value="${nguoiGiamHo.gioiTinh}"/>
+                                                <c:set var="luachon" value="${nguoiGiamHo.gioiTinh}"/>
                                                 <label for="inline-radio1" class="form-check-label ">
                                                     <input type="radio" id="inline-radio1" name="gioiTinh" value="1"
-                                                           required checked class="form-check-input">Nam
+                                                           required checked class="form-check-input"
+                                                           <c:if test="${luachon eq 1}">checked</c:if>>Nam
+
                                                 </label>
                                                 <label for="inline-radio2" class="form-check-label ">
                                                     <input type="radio" id="inline-radio2" name="gioiTinh" value="0"
-                                                           class="form-check-input">Nữ
+                                                           class="form-check-input"
+                                                           <c:if test="${luachon eq 0}">checked</c:if>>Nữ
                                                 </label>
                                             </div>
                                         </div>
@@ -305,6 +308,21 @@
                                             <input type="text" id="soDienThoai" name="soDienThoai" class="form-control"
                                                    value="${nguoiGiamHo.soDienThoai}"
                                                    aria-describedby="passwordHelpInline">
+                                            <c:if test="${soDienThoaiTonTai != null}">
+                                                <div class="alert alert-danger d-flex align-items-center"
+                                                     role="alert" style="top: 5px">
+                                                    <svg class="bi flex-shrink-0 me-2" width="0" height="0"
+                                                         role="img" aria-label="Danger:">
+                                                        <use xlink:href="#check-circle-fill"/>
+                                                    </svg>
+                                                    <div>
+                                <span class="error">
+                                    <i class="uil uil-ban"></i><label
+                                        style="padding-left: 5px">${soDienThoaiTonTai}</label>
+                                </span>
+                                                    </div>
+                                                </div>
+                                            </c:if>
                                             <c:if test="${loi != null}">
                                                 <div class="alert alert-danger d-flex align-items-center"
                                                      role="alert" style="top: 5px">
@@ -344,7 +362,8 @@
                                                         style="padding-left: 5px">${thongBao}</label>
                                                 </div>
                                             </div>
-                                        </c:if></div>
+                                        </c:if>
+                                    </div>
                                 </form>
                             </div>
                         </div>

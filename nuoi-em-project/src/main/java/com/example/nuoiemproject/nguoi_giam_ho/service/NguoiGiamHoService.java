@@ -32,4 +32,22 @@ public class NguoiGiamHoService implements INguoiGiamHoService{
     public NguoiGiamHo nguoiGiamHo(int maNguoiGiamHo) {
         return nguoiGiamHoRepository.nguoiGiamHo(maNguoiGiamHo);
     }
+
+    @Override
+    public boolean soDienThoaiTonTai(String soDienThoai) {
+        NguoiGiamHo nguoiGiamHo =nguoiGiamHoRepository.soDienThoaiTonTai(soDienThoai);
+        if(nguoiGiamHo == null){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean nguoiGiamHoKhongTonTai(int maNuoiGiamHo) {
+        NguoiGiamHo nguoiGiamHo =nguoiGiamHoRepository.nguoiGiamHo(maNuoiGiamHo);
+        if(nguoiGiamHo == null){
+            return true;
+        }
+        return false;
+    }
 }

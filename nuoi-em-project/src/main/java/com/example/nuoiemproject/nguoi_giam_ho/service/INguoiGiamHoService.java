@@ -10,4 +10,6 @@ public interface INguoiGiamHoService {
     void xoaNguoiGiamHo(int maNguoiGiamHo);
     void capNhatNguoiGiamHo(NguoiGiamHo nguoiGiamHo);
     NguoiGiamHo nguoiGiamHo(int maNguoiGiamHo);
+    boolean soDienThoaiTonTai(String soDienThoai);
+    boolean nguoiGiamHoKhongTonTai(int maNuoiGiamHo);
 }

@@ -10,4 +10,5 @@ public interface INguoiGiamHoRepository {
     void xoaNguoiGiamHo(int maNguoiGiamHo);
     void capNhatNguoiGiamHo(NguoiGiamHo nguoiGiamHo);
     NguoiGiamHo nguoiGiamHo(int maNguoiGiamHo);
+    NguoiGiamHo soDienThoaiTonTai(String soDienThoai);
 }

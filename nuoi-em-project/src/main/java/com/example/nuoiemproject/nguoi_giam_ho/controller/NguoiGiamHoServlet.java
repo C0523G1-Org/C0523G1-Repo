@@ -54,8 +54,15 @@ public class NguoiGiamHoServlet extends HttpServlet {
 
     private void xoa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int maNguoiGiamHo = Integer.parseInt(request.getParameter("maNguoiGiamHo"));
-        nguoiGiamHoService.xoaNguoiGiamHo(maNguoiGiamHo);
-        response.sendRedirect("/nguoi-giam-ho");
+        boolean nguoiGiamHoKhongTonTai = nguoiGiamHoService.nguoiGiamHoKhongTonTai(maNguoiGiamHo);
+        if (nguoiGiamHoKhongTonTai) {
+            request.setAttribute("nguoiGiamHoKhongTonTai", "Người giám hộ này không tồn tại!");
+            response.sendRedirect("/nguoi-giam-ho");
+        } else {
+            nguoiGiamHoService.xoaNguoiGiamHo(maNguoiGiamHo);
+            response.sendRedirect("/nguoi-giam-ho");
+        }
+
     }
 
     private void hienThiThem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -101,11 +108,47 @@ public class NguoiGiamHoServlet extends HttpServlet {
         int gioiTinh = Integer.parseInt(request.getParameter("gioiTinh"));
         int maKhuVuc = Integer.parseInt(request.getParameter("maKhuVuc"));
         String soDienThoai = request.getParameter("soDienThoai");
+        final String soDienThoaiDung = "^(0\\d{9})$";
+        Pattern pattern = Pattern.compile(soDienThoaiDung);
+        Matcher matcher = pattern.matcher(request.getParameter("soDienThoai"));
         NguoiGiamHo nguoiGiamHo = new NguoiGiamHo(maNguoiGiamHo, tenNguoiGiamHo, gioiTinh, maKhuVuc, soDienThoai);
-        nguoiGiamHoService.capNhatNguoiGiamHo(nguoiGiamHo);
+        Boolean soDienThoaiTonTai = nguoiGiamHoService.soDienThoaiTonTai(soDienThoai);
         try {
-            response.sendRedirect("/nguoi-giam-ho");
+            if (!soDienThoaiTonTai) {
+                request.setAttribute("soDienThoaiTonTai", "Số điện thoại này đã tồn tại!");
+                request.setAttribute("nguoiGiamHo", nguoiGiamHo);
+                List<KhuVuc> khuVuc = khuVucService.hienThiKhuVuc();
+                request.setAttribute("khuVuc", khuVuc);
+                request.setAttribute("maKhuVuc", maKhuVuc);
+                request.setAttribute("tenNguoiGiamHo", tenNguoiGiamHo);
+                request.setAttribute("gioiTinh", gioiTinh);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-giam-ho-cap-nhat.jsp");
+                dispatcher.forward(request, response);
+            } else if (!matcher.matches()) {
+                request.setAttribute("loi", "Số điện thoại không hợp lệ!");
+                request.setAttribute("nguoiGiamHo", nguoiGiamHo);
+                List<KhuVuc> khuVuc = khuVucService.hienThiKhuVuc();
+                request.setAttribute("khuVuc", khuVuc);
+                request.setAttribute("maKhuVuc", maKhuVuc);
+                request.setAttribute("tenNguoiGiamHo", tenNguoiGiamHo);
+                request.setAttribute("gioiTinh", gioiTinh);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-giam-ho-cap-nhat.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                nguoiGiamHoService.capNhatNguoiGiamHo(nguoiGiamHo);
+                request.setAttribute("nguoiGiamHo", nguoiGiamHo);
+                request.setAttribute("thongBao", "Bạn đã cập nhật thành công!");
+                List<KhuVuc> khuVuc = khuVucService.hienThiKhuVuc();
+                request.setAttribute("khuVuc", khuVuc);
+                request.setAttribute("maKhuVuc", maKhuVuc);
+                request.setAttribute("tenNguoiGiamHo", tenNguoiGiamHo);
+                request.setAttribute("gioiTinh", gioiTinh);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-giam-ho-cap-nhat.jsp");
+                dispatcher.forward(request, response);
+            }
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ServletException e) {
             throw new RuntimeException(e);
         }
     }
@@ -119,8 +162,19 @@ public class NguoiGiamHoServlet extends HttpServlet {
         final String soDienThoaiDung = "^(0\\d{9})$";
         Pattern pattern = Pattern.compile(soDienThoaiDung);
         Matcher matcher = pattern.matcher(request.getParameter("soDienThoai"));
+        boolean soDienThoaiTonTai = nguoiGiamHoService.soDienThoaiTonTai(soDienThoai);
         try {
-            if (!matcher.matches()) {
+            if (!soDienThoaiTonTai) {
+                request.setAttribute("soDienThoaiTonTai", "Số điện thoại này đã tồn tại!");
+                request.setAttribute("nguoiGiamHo", nguoiGiamHo);
+                List<KhuVuc> khuVuc = khuVucService.hienThiKhuVuc();
+                request.setAttribute("khuVuc", khuVuc);
+                request.setAttribute("maKhuVuc", maKhuVuc);
+                request.setAttribute("tenNguoiGiamHo", tenNguoiGiamHo);
+                request.setAttribute("gioiTinh", gioiTinh);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/nguoi-giam-ho-them-moi.jsp");
+                dispatcher.forward(request, response);
+            } else if (!matcher.matches()) {
                 request.setAttribute("loi", "Số điện thoại không hợp lệ!");
                 request.setAttribute("nguoiGiamHo", nguoiGiamHo);
                 List<KhuVuc> khuVuc = khuVucService.hienThiKhuVuc();

@@ -263,17 +263,22 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label class=" form-control-label">Giới tính</label>
+                                            <label class=" form-control-label" style="margin-left: 50px">Giới
+                                                tính</label>
                                         </div>
                                         <div class="col col-md-9">
                                             <div class="form-check-inline form-check">
+                                                <c:set var="luachon" value="${nguoiGiamHo.gioiTinh}"/>
                                                 <label for="inline-radio1" class="form-check-label ">
                                                     <input type="radio" id="inline-radio1" name="gioiTinh" value="1"
-                                                           required checked class="form-check-input">Nam
+                                                           required checked class="form-check-input"
+                                                           <c:if test="${luachon eq 1}">checked</c:if>>Nam
+
                                                 </label>
                                                 <label for="inline-radio2" class="form-check-label ">
                                                     <input type="radio" id="inline-radio2" name="gioiTinh" value="0"
-                                                           class="form-check-input">Nữ
+                                                           class="form-check-input"
+                                                           <c:if test="${luachon eq 0}">checked</c:if>>Nữ
                                                 </label>
                                             </div>
                                         </div>
@@ -298,28 +303,68 @@
                                         </div>
                                     </div>
                                     <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label for="soDienThoai" class="form-label">Số Điện Thoại</label>
+                                        <div class="col-12 col-md-3">
+                                            <label for="soDienThoai" class="col-form-label" style="margin-left: 50px">Số
+                                                điện thoại</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input required type="text" class="form-control" id="soDienThoai" name="soDienThoai"
-                                                   value="<c:out value='${nguoiGiamHo.soDienThoai}'/>" minlength="10"
-                                                   maxlength="11">
+                                            <input type="text" id="soDienThoai" name="soDienThoai" class="form-control"
+                                                   value="${nguoiGiamHo.soDienThoai}"
+                                                   aria-describedby="passwordHelpInline" required>
+                                            <c:if test="${nguoiGiamHo.soDienThoai} == ${soDienThoai}"/>
+                                            <c:if test="${soDienThoaiTonTai != null}">
+                                                <div class="alert alert-danger d-flex align-items-center"
+                                                     role="alert" style="top: 5px">
+                                                    <svg class="bi flex-shrink-0 me-2" width="0" height="0"
+                                                         role="img" aria-label="Danger:">
+                                                        <use xlink:href="#check-circle-fill"/>
+                                                    </svg>
+                                                    <div>
+                                <span class="error">
+                                    <i class="uil uil-ban"></i><label
+                                        style="padding-left: 5px">${soDienThoaiTonTai}</label>
+                                </span>
+                                                    </div>
+                                                </div>
+                                            </c:if>
+                                            <c:if test="${loi != null}">
+                                                <div class="alert alert-danger d-flex align-items-center"
+                                                     role="alert" style="top: 5px">
+                                                    <svg class="bi flex-shrink-0 me-2" width="0" height="0"
+                                                         role="img" aria-label="Danger:">
+                                                        <use xlink:href="#check-circle-fill"/>
+                                                    </svg>
+                                                    <div>
+                                <span class="error">
+                                    <i class="uil uil-ban"></i><label
+                                        style="padding-left: 5px">${loi}</label>
+                                </span>
+                                                    </div>
+                                                </div>
+                                            </c:if>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="card-footer">
                                             <button type="submit" class="btn" style="background-color: #ffff00">
-                                               Xác nhận
+                                                Câp nhật
                                             </button>
                                             <a href="/nguoi-giam-ho" class="btn btn-dark">Đóng</a>
                                         </div>
                                     </div>
                                     <div class="row form-group">
-                                        <c:if test="${message != null}">
-                                            <div class="success-msg">
-                                                <i class="fa fa-check"></i>
-                                                    ${message}
+                                        <c:if test="${thongBao != null}">
+                                            <div class="alert alert-success d-flex align-items-center"
+                                                 role="alert">
+                                                <svg class="bi flex-shrink-0 me-2" width="0" height="0"
+                                                     role="img"
+                                                     aria-label="Success:">
+                                                    <use xlink:href="#check-circle-fill"/>
+                                                </svg>
+                                                <div>
+                                                    <i class="fa-regular fa-circle-check"></i><label
+                                                        style="padding-left: 5px">${thongBao}</label>
+                                                </div>
                                             </div>
                                         </c:if>
                                     </div>
