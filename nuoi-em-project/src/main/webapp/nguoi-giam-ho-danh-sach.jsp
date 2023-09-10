@@ -138,7 +138,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/tai-khoan">
                             <i class="fas fa-users"></i>Tài khoản</a>
                     </li>
                     <li>
@@ -384,6 +384,5 @@
         document.getElementById("thongBao").innerText = ten;
     }
 </script>
-
 </body>
 </html>
