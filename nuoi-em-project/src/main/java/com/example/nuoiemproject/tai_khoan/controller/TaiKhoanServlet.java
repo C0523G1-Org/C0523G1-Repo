@@ -164,6 +164,9 @@ public class TaiKhoanServlet extends HttpServlet {
             case "dangNhap":
                 dangNhap(request, response);
                 break;
+            case "dangXuat":
+                dangXuat(request, response);
+                break;
 
         }
     }

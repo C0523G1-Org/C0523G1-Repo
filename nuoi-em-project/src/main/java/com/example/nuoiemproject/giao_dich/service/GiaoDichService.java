@@ -10,8 +10,8 @@ import java.util.List;
 public class GiaoDichService implements IGiaoDichService {
     private IGiaoDichRepository repository = new GiaoDichRepository();
     @Override
-    public List<GiaoDich> danhSachGiaoDich(int thang, int nam) {
-        return repository.danhSachGiaoDich(thang, nam);
+    public List<GiaoDich> danhSachGiaoDich(int thang, int nam, int thang1, int nam1) {
+        return repository.danhSachGiaoDich(thang, nam,thang1,nam1);
     }
 
     @Override

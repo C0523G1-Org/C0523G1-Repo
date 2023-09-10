@@ -131,7 +131,9 @@ public class GiaoDichServlet extends HttpServlet {
     private void xemDanhSach(HttpServletRequest request, HttpServletResponse response) {
         int thang = Integer.parseInt(request.getParameter("thang"));
         int nam = Integer.parseInt(request.getParameter("nam"));
-        List<GiaoDich> danhSachGiaoDich = service.danhSachGiaoDich(thang, nam);
+        int thang1 = Integer.parseInt(request.getParameter("thang1"));
+        int nam1 = Integer.parseInt(request.getParameter("nam1"));
+        List<GiaoDich> danhSachGiaoDich = service.danhSachGiaoDich(thang, nam,thang1,nam1);
         int tongThu = 0;
         int tongChi = 0;
         int chenhLech = 0;

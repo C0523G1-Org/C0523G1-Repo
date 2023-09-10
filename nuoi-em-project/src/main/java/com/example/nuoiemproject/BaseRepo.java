@@ -5,55 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class BaseRepo {
-<<<<<<< HEAD
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
-//=======
-////    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
-////>>>>>>> 60fe5c3843b75b4cd3660ec0e2c2b6c6eaf8277e
-//=======
-//    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
-//>>>>>>> 455f97e9470d16d4b022a96dc4ae2a321a3d9fa8
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "thienbao";
-//=======
-//=======
-//>>>>>>> ac248c9225b16f0d1a8fca0615aaa6a49d92e5c3
-////<<<<<<< HEAD
-//    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
-////=======
-////    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
-////>>>>>>> 60fe5c3843b75b4cd3660ec0e2c2b6c6eaf8277e
-//    private static final String USERNAME = "root";
-//////<<<<<<< HEAD
-//////<<<<<<< HEAD
-//    private static final String PASSWORD = "Mylien2009";
-//<<<<<<< HEAD
-//>>>>>>> 4de9294dafd9ebda1f35d7f852fa124a1822bd4f
-//=======
-//>>>>>>> ac248c9225b16f0d1a8fca0615aaa6a49d92e5c3
-////=======
-////    private static final String JDBC_URL = "jdbc:mysql://localhost:3305/nuoi_em_db";
-////    private static final String USERNAME = "root";
-////    private static final String PASSWORD = "Mylien2009";
-////>>>>>>> 33fd618f8d75d778524b91047eba6552ca0a58a0
-//=======
-//    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
-//
-//
-//    private static final String USERNAME = "root";
-//    private static final String PASSWORD = "beatbox1202";
-//>>>>>>> e633ab4f3c8bf5d158c27a3b63e80325265ae94f
-//
-=======
 
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/nuoi_em_db";
+
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "toilatoi09";
->>>>>>> 05a1e6f62c56d36b983dceb509ef89f159bb946d
+    private static final String PASSWORD = "thienbao";
 
     public static Connection getConnection() {
         Connection connection = null;
