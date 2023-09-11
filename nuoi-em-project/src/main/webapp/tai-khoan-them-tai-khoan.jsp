@@ -39,15 +39,16 @@
 
     .header {
         display: grid;
-        height: 70px;
-        background-color: rgba(25, 135, 84, 1.1);
+        height: 72px;
+        background-color: #90953b;
     }
 
     .content {
-        font-size: 2rem;
+        font-size: 1.3rem;
         color: white;
         place-self: center;
-        text-shadow: 2px 2px 4px #000000
+        font-weight: bold;
+        /*text-shadow: 2px 2px 4px #000000*/
     }
 
     .container {

@@ -668,7 +668,7 @@
 <section class="container-fluid footer_section">
     <p>
         &copy; 2023 Mọi quyền được bảo lưu bởi
-        <a href="https://html.design/">Nuôi em</a>
+        <a href="nuoi-em-trang-chu.jsp">Nuôi em</a>
     </p>
 </section>
 <!-- footer section -->

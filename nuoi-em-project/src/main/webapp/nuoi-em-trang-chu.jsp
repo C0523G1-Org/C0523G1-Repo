@@ -61,7 +61,7 @@
                                 <a class="nav-link" href="/tre-em-tc">Trẻ em</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Chứng nhận</a>
+                                <a class="nav-link" href="-test-cam-ket-add-.jsp">Chứng nhận</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/tai-chinh">Tài chính</a>
